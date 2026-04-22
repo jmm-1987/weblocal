@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toda la tecnolog&iacute;a de tu empresa en un &uacute;nico lugar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand"><span>Tech</span>no</a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#home">Inicio</a>
+        <a href="#company">Empresa</a>
+        <a href="#services">Servicios</a>
+        <a href="#solution">Soluci&oacute;n</a>
+        <a href="#element">Ventajas</a>
+        <a href="#blog">Casos</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+
+      <button class="quote-btn">Solicitar propuesta</button>
+
+      <button class="hamburger" id="menuBtn" aria-label="Abrir men&uacute;" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-backdrop" id="backdrop"></div>
+  <aside class="mobile-panel" id="mobilePanel" aria-hidden="true">
+    <a href="#home">Inicio</a>
+    <a href="#company">Empresa</a>
+    <a href="#services">Servicios</a>
+    <a href="#solution">Soluci&oacute;n</a>
+    <a href="#element">Ventajas</a>
+    <a href="#blog">Casos</a>
+    <a href="#contact">Contacto</a>
+    <a href="#quote">Solicitar propuesta</a>
+  </aside>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-wrap">
+        <div class="hero-copy reveal-on-scroll reveal-delay-2">
+          <div class="eyebrow">Tecnolog&iacute;a conectada para empresas</div>
+          <h1>Toda la tecnolog&iacute;a que necesitas en tu empresa, en un &uacute;nico lugar</h1>
+          <p>
+            Reunimos automatizaciones, comunicaci&oacute;n, control interno e integraciones
+            en una sola soluci&oacute;n para que tu negocio trabaje mejor, m&aacute;s r&aacute;pido y con menos fricci&oacute;n.
+          </p>
+        </div>
+
+        <div class="hero-art reveal-on-scroll reveal-from-right reveal-delay-1" aria-hidden="true">
+          <img class="hero-art-image" src="portada.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container services-panel">
+        <div class="section-heading reveal-on-scroll">
+          <div class="section-label">Servicios</div>
+          <h2>Un ecosistema digital completo para tu <span class="accent">empresa</span></h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal-on-scroll reveal-delay-1">
+            <h3>Web y presencia digital en un solo sistema</h3>
+            <p>Dise&ntilde;amos tu base digital para captar clientes, presentar servicios y centralizar procesos clave.</p>
+            <img class="service-card-img" src="web.png" alt="Servicios web para empresas" />
+          </article>
+
+          <article class="service-card reveal-on-scroll reveal-delay-2">
+            <h3>Email y automatizaciones</h3>
+            <p>Activamos secuencias autom&aacute;ticas para responder antes, vender mejor y ahorrar tiempo al equipo.</p>
+            <img class="service-card-img" src="email.png" alt="Automatizaciones de email" />
+          </article>
+
+          <article class="service-card reveal-on-scroll reveal-delay-3">
+            <h3>WhatsApp automatizado para tu operativa</h3>
+            <p>Centraliza atenci&oacute;n, seguimiento comercial, respuestas frecuentes y captaci&oacute;n desde un mismo canal.</p>
+            <img class="service-card-img" src="whatsapp.png" alt="Bot de WhatsApp" />
+          </article>
+
+          <article class="service-card reveal-on-scroll reveal-delay-4">
+            <h3>Reconocimiento de im&aacute;genes integrado</h3>
+            <p>A&ntilde;ade visi&oacute;n artificial para validar archivos, clasificar contenido y automatizar tareas visuales.</p>
+            <img class="service-card-img" src="reconocimiento.png" alt="Reconocimiento de im&aacute;genes" />
+          </article>
+
+          <article class="service-card reveal-on-scroll reveal-delay-5">
+            <h3>Telegram para avisos y acciones internas</h3>
+            <p>Crea flujos autom&aacute;ticos para notificaciones, consultas r&aacute;pidas y coordinaci&oacute;n del equipo.</p>
+            <img class="service-card-img" src="telegram.png" alt="Automatizaciones con Telegram" />
+          </article>
+
+          <article class="service-card reveal-on-scroll reveal-delay-6">
+            <h3>Control horario y registro del personal</h3>
+            <p>Gestiona entradas, salidas y reportes de asistencia desde una herramienta clara y centralizada.</p>
+            <img class="service-card-img" src="registro.png" alt="Registro de horarios del personal" />
+          </article>
+
+          <article class="service-card reveal-on-scroll reveal-delay-7">
+            <h3>Integraci&oacute;n con Google Calendar</h3>
+            <p>Sincroniza citas, recordatorios y disponibilidad para que toda tu agenda est&eacute; conectada.</p>
+            <img class="service-card-img" src="calendar.png" alt="Integraci&oacute;n con Google Calendar" />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-compact-top" id="company">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-media reveal-on-scroll reveal-from-left reveal-delay-1">
+            <div class="award-badge">SOLUCI&Oacute;N<br />TOP</div>
+            <div class="about-image">
+              <img class="about-photo" src="sobremi.jpg" alt="Foto sobre m&iacute;" />
+            </div>
+            <div class="team-pill">
+              <div class="avatars-stack">
+                <span></span><span class="avatar-accent-warm"></span><span class="avatar-accent-green"></span>
+              </div>
+              <span>Procesos conectados</span>
+            </div>
+          </div>
+
+          <div class="about-copy reveal-on-scroll reveal-from-right reveal-delay-2" id="solution">
+            <div class="section-label">Nuestra propuesta</div>
+            <h2>Menos herramientas sueltas, m&aacute;s <span class="accent">control</span> para tu empresa</h2>
+            <p>
+              En lugar de usar plataformas aisladas, unificamos las tecnolog&iacute;as que tu empresa necesita
+              para vender, comunicar, automatizar y organizar el trabajo diario desde un entorno coherente.
+            </p>
+
+            <div class="feature-list">
+              <div class="feature-item">
+                <div class="icon-placeholder">OK</div>
+                <span>Implementaci&oacute;n<br />adaptada</span>
+              </div>
+              <div class="feature-item">
+                <div class="icon-placeholder">24/7</div>
+                <span>Soporte<br />t&eacute;cnico</span>
+              </div>
+            </div>
+
+            <div class="cta-row">
+              <a href="#contact" class="service-link">Quiero centralizar mi tecnolog&iacute;a &rarr;</a>
+              <div class="call-chip">
+                <div class="icon-placeholder">Go</div>
+                <div>
+                  <small>Hablemos de tu empresa</small>
+                  Soluciones conectadas de principio a fin
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="brands-row reveal-on-scroll reveal-delay-3">
+          <div class="title">La tecnolog&iacute;a correcta, coordinada en un mismo lugar</div>
+          <div class="brand-logos">
+            <span class="brand-logo">Figma</span>
+            <span class="brand-logo">Google</span>
+            <span class="brand-logo">reddit</span>
+            <span class="brand-logo">Sketch</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
