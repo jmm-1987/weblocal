@@ -1,6 +1,7 @@
 const menuBtn = document.getElementById('menuBtn');
 const mobilePanel = document.getElementById('mobilePanel');
 const backdrop = document.getElementById('backdrop');
+const closeMenuBtn = document.getElementById('closeMenuBtn');
 
 function closeMenu() {
   mobilePanel.classList.remove('open');
@@ -23,11 +24,18 @@ menuBtn.addEventListener('click', () => {
   isOpen ? closeMenu() : openMenu();
 });
 
+closeMenuBtn.addEventListener('click', closeMenu);
 backdrop.addEventListener('click', closeMenu);
 mobilePanel.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
 
 window.addEventListener('resize', () => {
   if (window.innerWidth > 760) closeMenu();
+});
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && mobilePanel.classList.contains('open')) {
+    closeMenu();
+  }
 });
 
 const revealItems = document.querySelectorAll('.reveal-on-scroll');

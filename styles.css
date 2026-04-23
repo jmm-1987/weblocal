@@ -220,6 +220,10 @@ button {
   display: none;
 }
 
+.mobile-close {
+  display: none;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -2588,6 +2592,43 @@ button {
     z-index: 60;
     padding: 88px 24px 24px;
     box-shadow: -20px 0 40px rgba(9, 22, 84, 0.28);
+  }
+
+  .mobile-close {
+    display: inline-flex;
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(6, 14, 50, 0.24);
+  }
+
+  .mobile-close span,
+  .mobile-close span::before {
+    display: block;
+    width: 18px;
+    height: 2.5px;
+    background: #fff;
+    border-radius: 999px;
+    position: relative;
+    content: "";
+  }
+
+  .mobile-close span {
+    transform: rotate(45deg);
+  }
+
+  .mobile-close span::before {
+    position: absolute;
+    inset: 0;
+    transform: rotate(90deg);
   }
 
   .mobile-panel.open {
