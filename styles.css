@@ -1,15 +1,15 @@
 :root {
-  --blue-900: #1027c9;
-  --blue-800: #1b43ea;
-  --blue-700: #2457ff;
-  --blue-600: #2f67ff;
-  --cyan-500: #3ec7f4;
-  --cyan-400: #53d3ff;
-  --text-dark: #1d2438;
-  --text-muted: #73809c;
+  --blue-900: #1b39d9;
+  --blue-800: #2450f4;
+  --blue-700: #2f63ff;
+  --blue-600: #69a9ff;
+  --cyan-500: #5d9dff;
+  --cyan-400: #84bbff;
+  --text-dark: #17191f;
+  --text-muted: #69738d;
   --surface: #ffffff;
   --surface-soft: #f4f7ff;
-  --border: rgba(28, 54, 149, 0.08);
+  --border: rgba(36, 80, 244, 0.08);
   --shadow-lg: 0 24px 60px rgba(18, 45, 170, 0.18);
   --shadow-md: 0 14px 34px rgba(21, 39, 126, 0.12);
   --shadow-sm: 0 10px 20px rgba(34, 52, 116, 0.08);
@@ -168,7 +168,7 @@ button {
   position: sticky;
   inset: 0 0 auto 0;
   z-index: 30;
-  padding: 16px 0;
+  padding: 8px 0;
   background: rgba(255,255,255,0.98);
   box-shadow: 0 10px 26px rgba(21, 39, 126, 0.08);
   backdrop-filter: blur(10px);
@@ -205,19 +205,19 @@ button {
   display: flex;
   align-items: center;
   gap: 30px;
-  color: #243657;
+  color: rgba(23, 25, 31, 0.86);
   font-size: 0.92rem;
   font-weight: 500;
 }
 
 .quote-btn {
-  background: #1027c9;
+  background: linear-gradient(135deg, var(--blue-900), var(--blue-800));
   color: #fff;
   border: 0;
   padding: 12px 18px;
   border-radius: 10px;
   font-weight: 700;
-  box-shadow: 0 10px 24px rgba(16,39,201,0.18);
+  box-shadow: 0 10px 24px rgba(27, 57, 217, 0.2);
   cursor: pointer;
 }
 
@@ -241,7 +241,7 @@ button {
   display: block;
   width: 22px;
   height: 2.5px;
-  background: #16213d;
+  background: var(--text-dark);
   border-radius: 99px;
   position: relative;
   content: "";
@@ -262,10 +262,10 @@ button {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 68% 42%, rgba(83, 211, 255, 0.16), transparent 24%),
+    radial-gradient(circle at 68% 42%, rgba(132, 187, 255, 0.18), transparent 24%),
     radial-gradient(circle at 72% 36%, rgba(255,255,255,0.08), transparent 19%),
-    radial-gradient(circle at 82% 82%, rgba(78, 123, 255, 0.45), transparent 28%),
-    linear-gradient(135deg, #1221bd 0%, #1f4cf0 42%, #1643ef 100%);
+    radial-gradient(circle at 82% 82%, rgba(47, 99, 255, 0.42), transparent 28%),
+    linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 46%, var(--blue-700) 100%);
   min-height: 760px;
   color: #fff;
 }
@@ -302,7 +302,7 @@ button {
   gap: 30px;
   align-items: center;
   min-height: 760px;
-  padding-top: 36px;
+  padding-top: 2px;
   padding-bottom: 80px;
 }
 
@@ -321,8 +321,8 @@ button {
   width: 4px;
   height: 74px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #4fe0ff, #16c4f4);
-  box-shadow: 0 0 0 6px rgba(79, 224, 255, 0.08);
+  background: linear-gradient(180deg, var(--blue-600), var(--blue-700));
+  box-shadow: 0 0 0 6px rgba(95, 146, 255, 0.1);
 }
 
 .hero-copy h1 {
@@ -350,9 +350,9 @@ button {
   border: 0;
   border-radius: 14px;
   color: #fff;
-  background: linear-gradient(90deg, #35b9f8, #50d9ff);
+  background: linear-gradient(90deg, var(--blue-800), var(--blue-600));
   font-weight: 700;
-  box-shadow: 0 16px 30px rgba(57, 200, 246, 0.28);
+  box-shadow: 0 16px 30px rgba(36, 80, 244, 0.24);
   cursor: pointer;
 }
 
@@ -890,7 +890,7 @@ button {
   font-size: clamp(1.6rem, 2.4vw, 2.35rem);
   line-height: 1.08;
   letter-spacing: -0.03em;
-  color: #16213d;
+  color: var(--text-dark);
 }
 
 .entry-offer-includes-grid {
@@ -917,7 +917,7 @@ button {
   width: 56px;
   height: 4px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #2457ff, rgba(255,255,255,0.25));
+  background: linear-gradient(90deg, var(--blue-700), rgba(255,255,255,0.25));
   box-shadow: 0 0 0 8px rgba(255,255,255,0.16);
   pointer-events: none;
 }
@@ -935,7 +935,7 @@ button {
   margin: 0 0 10px;
   font-size: 1.08rem;
   line-height: 1.18;
-  color: #16213d;
+  color: var(--text-dark);
 }
 
 .entry-include-card p {
@@ -994,7 +994,7 @@ button {
   font-size: clamp(2rem, 3vw, 3rem);
   line-height: 1.08;
   letter-spacing: -0.03em;
-  color: #16213d;
+  color: var(--text-dark);
 }
 
 .entry-offer-copy p {
@@ -1488,7 +1488,7 @@ button {
 }
 
 .plan-card-featured {
-  background: linear-gradient(135deg, #1027c9 0%, #2457ff 62%, #44c9f5 138%);
+  background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 58%, var(--blue-600) 132%);
   color: #fff;
   box-shadow: 0 24px 44px rgba(20, 52, 184, 0.18);
   transform: translateY(-8px);
@@ -1522,7 +1522,7 @@ button {
   margin: 18px 0 14px;
   font-size: 1.42rem;
   line-height: 1.12;
-  color: #16213d;
+  color: var(--text-dark);
 }
 
 .plan-card-featured h3 {
@@ -1584,7 +1584,7 @@ button {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: linear-gradient(180deg, #2457ff, #44c9f5);
+  background: linear-gradient(180deg, var(--blue-700), var(--blue-600));
   box-shadow: 0 0 0 4px rgba(36, 87, 255, 0.08);
 }
 
@@ -1646,7 +1646,7 @@ button {
   font-size: clamp(2.1rem, 3.8vw, 3.5rem);
   line-height: 1.04;
   letter-spacing: -0.04em;
-  color: #16213d;
+  color: var(--text-dark);
 }
 
 .personal-intro p {
@@ -1897,7 +1897,7 @@ button {
   margin-top: 26px;
   padding: 22px 24px;
   border-radius: 22px;
-  background: linear-gradient(135deg, #1027c9 0%, #2457ff 62%, #44c9f5 135%);
+  background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 58%, var(--blue-600) 130%);
   color: #fff;
   font-size: 1.02rem;
   line-height: 1.5;
@@ -2021,11 +2021,11 @@ button {
 }
 
 .services-panel .section-heading h2 {
-  color: #16213d;
+  color: var(--text-dark);
 }
 
 .services-panel .section-heading h2 .accent {
-  color: #2457ff;
+  color: var(--blue-700);
 }
 
 .services-grid {
@@ -2036,7 +2036,7 @@ button {
 
 .service-card {
   --card-lift: 0px;
-  --card-accent: #2457ff;
+  --card-accent: var(--blue-700);
   --card-soft: rgba(36, 87, 255, 0.12);
   --card-glow: rgba(36, 87, 255, 0.22);
   background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(245,248,255,0.94));
@@ -2083,7 +2083,7 @@ button {
 }
 
 .service-card:nth-child(1) {
-  --card-accent: #2457ff;
+  --card-accent: var(--blue-700);
   --card-soft: rgba(36, 87, 255, 0.14);
   --card-glow: rgba(36, 87, 255, 0.22);
 }
@@ -2163,7 +2163,7 @@ button {
   margin: 24px 0 10px;
   font-size: 1.22rem;
   line-height: 1.15;
-  color: #16213d;
+  color: var(--text-dark);
 }
 
 .service-card p {
@@ -2777,7 +2777,7 @@ button {
   }
 
   .site-header {
-    padding: 12px 0;
+    padding: 8px 0;
   }
 
   .brand {
@@ -2876,7 +2876,7 @@ button {
 
   .hero-wrap {
     min-height: auto;
-    padding-top: 96px;
+    padding-top: 44px;
     padding-bottom: 38px;
   }
 
