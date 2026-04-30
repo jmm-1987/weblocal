@@ -60,3 +60,68 @@ if ('IntersectionObserver' in window) {
     item.classList.add('is-visible');
   });
 }
+
+const automationSlider = document.querySelector('.automation-slider');
+const automationTrack = document.querySelector('[data-automation-track]');
+let automationSlides = Array.from(document.querySelectorAll('.automation-slide'));
+let automationDragStartX = 0;
+let automationDragStartTranslate = 0;
+
+function getAutomationTranslateX() {
+  if (!automationTrack) return 0;
+  const transform = window.getComputedStyle(automationTrack).transform;
+  if (transform === 'none') return 0;
+  const matrix = new DOMMatrixReadOnly(transform);
+  return matrix.m41;
+}
+
+function normalizeAutomationTranslate(value) {
+  if (!automationTrack) return value;
+  const loopWidth = automationTrack.scrollWidth / 2;
+  if (!loopWidth) return value;
+
+  let nextValue = value;
+  while (nextValue > 0) nextValue -= loopWidth;
+  while (nextValue < -loopWidth) nextValue += loopWidth;
+  return nextValue;
+}
+
+if (automationTrack && automationSlides.length) {
+  automationSlides.forEach((slide) => {
+    const clone = slide.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    automationTrack.appendChild(clone);
+  });
+
+  automationSlider?.addEventListener('pointerdown', (event) => {
+    automationDragStartX = event.clientX;
+    automationDragStartTranslate = getAutomationTranslateX();
+
+    automationSlider.classList.add('is-paused', 'is-dragging');
+    automationTrack.style.transform = `translateX(${automationDragStartTranslate}px)`;
+    automationSlider.setPointerCapture(event.pointerId);
+  });
+
+  automationSlider?.addEventListener('pointermove', (event) => {
+    if (!automationSlider.classList.contains('is-dragging')) return;
+
+    const deltaX = event.clientX - automationDragStartX;
+    const nextTranslate = normalizeAutomationTranslate(automationDragStartTranslate + deltaX);
+    automationTrack.style.transform = `translateX(${nextTranslate}px)`;
+  });
+
+  automationSlider?.addEventListener('pointerup', (event) => {
+    if (!automationSlider.classList.contains('is-dragging')) return;
+    automationSlider.classList.remove('is-dragging');
+    if (automationSlider.hasPointerCapture(event.pointerId)) {
+      automationSlider.releasePointerCapture(event.pointerId);
+    }
+  });
+
+  automationSlider?.addEventListener('pointercancel', (event) => {
+    automationSlider.classList.remove('is-dragging');
+    if (automationSlider.hasPointerCapture(event.pointerId)) {
+      automationSlider.releasePointerCapture(event.pointerId);
+    }
+  });
+}
