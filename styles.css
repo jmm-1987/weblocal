@@ -3604,17 +3604,18 @@ main > section:not(.hero) {
     max-width: 100%;
     margin: 0 auto;
     justify-content: center;
-    min-height: 300px;
+    min-height: auto;
   }
 
   .entry-offer-panel-secondary .entry-offer-image-wrap {
-    width: min(100%, 460px);
+    width: min(100%, 620px);
     margin: 0 auto;
   }
 
   .entry-offer-panel-secondary .entry-offer-image {
     display: block;
     margin: 0 auto;
+    width: 100%;
   }
 
   .entry-offer-panel-secondary .entry-offer-visual.reveal-on-scroll {
@@ -3622,6 +3623,7 @@ main > section:not(.hero) {
   }
 
   .automation-slider {
+    width: 100%;
     padding: 20px;
     border-radius: 24px;
   }
@@ -3632,15 +3634,27 @@ main > section:not(.hero) {
   }
 
   .automation-track {
-    min-height: 560px;
+    min-height: auto;
+    align-items: stretch;
   }
 
   .automation-slide {
+    flex: 0 0 calc(100vw - 64px);
+    width: calc(100vw - 64px);
     padding: 20px;
+    gap: 18px;
   }
 
   .automation-slide img {
-    height: 220px;
+    height: 180px;
+  }
+
+  .automation-slide h4 {
+    font-size: 1.45rem;
+  }
+
+  .automation-slide p {
+    font-size: 0.95rem;
   }
 
   .personal-section {

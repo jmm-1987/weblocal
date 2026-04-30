@@ -65,7 +65,9 @@ const automationSlider = document.querySelector('.automation-slider');
 const automationTrack = document.querySelector('[data-automation-track]');
 let automationSlides = Array.from(document.querySelectorAll('.automation-slide'));
 let automationDragStartX = 0;
+let automationDragStartY = 0;
 let automationDragStartTranslate = 0;
+let automationHasStartedDrag = false;
 
 function getAutomationTranslateX() {
   if (!automationTrack) return 0;
@@ -95,23 +97,29 @@ if (automationTrack && automationSlides.length) {
 
   automationSlider?.addEventListener('pointerdown', (event) => {
     automationDragStartX = event.clientX;
+    automationDragStartY = event.clientY;
     automationDragStartTranslate = getAutomationTranslateX();
+    automationHasStartedDrag = false;
 
-    automationSlider.classList.add('is-paused', 'is-dragging');
-    automationTrack.style.transform = `translateX(${automationDragStartTranslate}px)`;
     automationSlider.setPointerCapture(event.pointerId);
   });
 
   automationSlider?.addEventListener('pointermove', (event) => {
-    if (!automationSlider.classList.contains('is-dragging')) return;
-
     const deltaX = event.clientX - automationDragStartX;
+    const deltaY = event.clientY - automationDragStartY;
+
+    if (!automationHasStartedDrag) {
+      if (Math.abs(deltaX) < 8 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+      automationHasStartedDrag = true;
+      automationSlider.classList.add('is-paused', 'is-dragging');
+      automationTrack.style.transform = `translateX(${automationDragStartTranslate}px)`;
+    }
+
     const nextTranslate = normalizeAutomationTranslate(automationDragStartTranslate + deltaX);
     automationTrack.style.transform = `translateX(${nextTranslate}px)`;
   });
 
   automationSlider?.addEventListener('pointerup', (event) => {
-    if (!automationSlider.classList.contains('is-dragging')) return;
     automationSlider.classList.remove('is-dragging');
     if (automationSlider.hasPointerCapture(event.pointerId)) {
       automationSlider.releasePointerCapture(event.pointerId);
