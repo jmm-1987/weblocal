@@ -110,10 +110,10 @@
             </p>
 
             <div class="entry-offer-points">
-              <span>Auditor&iacute;a de costes y servicios</span>
-              <span>Web profesional</span>
-              <span>Email claro y corporativo</span>
-              <span>Acompa&ntilde;amiento continuo</span>
+              <button type="button" data-entry-modal="audit">Auditor&iacute;a de costes y servicios</button>
+              <button type="button" data-entry-modal="web">Web profesional</button>
+              <button type="button" data-entry-modal="email">Email claro y corporativo</button>
+              <button type="button" data-entry-modal="support">Acompa&ntilde;amiento continuo</button>
             </div>
           </div>
 
@@ -122,7 +122,7 @@
             <div class="entry-offer-image-wrap">
               <img
                 class="entry-offer-image"
-                src="caja_basica.png"
+                src="basicoo.png"
                 alt="Base digital profesional para empezar con una web, email corporativo y presencia online"
               />
               <div class="entry-offer-hotspots" aria-hidden="true">
@@ -170,6 +170,43 @@
       </div>
     </section>
 
+    <div class="entry-modal" data-entry-modal-root aria-hidden="true">
+      <div class="entry-modal-backdrop" data-entry-modal-close></div>
+      <div class="entry-modal-dialog" role="dialog" aria-modal="true" aria-label="Detalle del plan b&aacute;sico" tabindex="-1">
+        <button class="entry-modal-close" type="button" data-entry-modal-close aria-label="Cerrar detalle">
+          <span></span>
+        </button>
+
+        <article class="entry-modal-content is-active" data-entry-modal-panel="audit">
+          <img class="entry-modal-img" src="costes.png" alt="Auditor&iacute;a inicial para detectar ahorro de costes en servicios digitales" />
+          <div class="section-label">Auditor&iacute;a inicial</div>
+          <h3>Auditor&iacute;a para ahorro de costes</h3>
+          <p>Estudiamos los servicios que ya est&aacute; pagando tu empresa para detectar duplicidades, cuotas por encima de lo necesario y herramientas infrautilizadas. La idea es clara: pagar solo por lo que realmente necesitas y abaratar la base digital desde el inicio.</p>
+        </article>
+
+        <article class="entry-modal-content" data-entry-modal-panel="web">
+          <img class="entry-modal-img" src="web1.png" alt="Web y presencia digital para negocios" />
+          <div class="section-label">Presencia digital</div>
+          <h3>Web y presencia digital</h3>
+          <p>Una web profesional para presentar tu negocio con claridad, transmitir confianza y facilitar el contacto con tus clientes.</p>
+        </article>
+
+        <article class="entry-modal-content" data-entry-modal-panel="email">
+          <img class="entry-modal-img" src="email.png" alt="Email corporativo bien configurado para empresas" />
+          <div class="section-label">Correo profesional</div>
+          <h3>Email corporativo bien configurado</h3>
+          <p>Correo profesional, ordenado y preparado para que la comunicaci&oacute;n de tu empresa sea clara, fiable y f&aacute;cil de gestionar.</p>
+        </article>
+
+        <article class="entry-modal-content" data-entry-modal-panel="support">
+          <img class="entry-modal-img" src="oficina.png" alt="Acompa&ntilde;amiento y consultor&iacute;a constante para empresas" />
+          <div class="section-label">Acompa&ntilde;amiento</div>
+          <h3>Acompa&ntilde;amiento y consultor&iacute;a constante</h3>
+          <p>Te acompa&ntilde;amos de forma continua para resolver dudas, revisar decisiones tecnol&oacute;gicas y mantener una direcci&oacute;n clara a medida que tu empresa avanza.</p>
+        </article>
+      </div>
+    </div>
+
     <section class="section entry-offer-section entry-offer-section-secondary" id="advanced-services">
       <div class="container">
         <div class="section-heading entry-offer-section-heading reveal-on-scroll">
@@ -184,17 +221,6 @@
         </div>
 
         <div class="entry-offer-panel entry-offer-panel-secondary">
-          <div class="entry-offer-visual reveal-on-scroll reveal-from-left reveal-delay-1">
-            <div class="entry-offer-glow entry-offer-glow-secondary"></div>
-            <div class="entry-offer-image-wrap">
-              <img
-                class="entry-offer-image"
-                src="caja_avanzada.png"
-                alt="Automatizaciones e integraciones para ampliar la base digital del negocio"
-              />
-            </div>
-          </div>
-
           <div class="automation-slider reveal-on-scroll reveal-delay-2" aria-label="Ejemplos de automatizaciones">
             <div class="automation-slider-head">
               <div>
@@ -357,7 +383,10 @@
         </div>
 
         <div class="software-card reveal-on-scroll reveal-from-right reveal-delay-2">
-          <img class="software-card-img" src="software.png" alt="Software propio para ordenar procesos internos de empresa" />
+          <div class="software-card-visual" role="img" aria-label="Software propio conectado con herramientas de empresa">
+            <img class="software-card-aro" src="aro.png" alt="" />
+            <img class="software-card-pc" src="pc.png" alt="" />
+          </div>
           <div class="software-card-content">
             <h3>Controla tu negocio con una herramienta hecha a tu medida</h3>
             <ul>
@@ -448,9 +477,9 @@
         <div class="personal-grid">
           <div class="personal-media reveal-on-scroll reveal-from-left reveal-delay-1">
             <div class="personal-photo-frame">
-              <img class="personal-photo" src="oficina.png" alt="Reuni&oacute;n cercana con un cliente en la oficina" />
+              <img class="personal-photo" src="yo.png" alt="Trabajo cercano con empresas desde la oficina" />
             </div>
-            <div class="personal-media-badge">Cercan&iacute;a real, sin automatismos fr&iacute;os</div>
+            <a class="personal-media-badge" href="sobremi.html">Sobre m&iacute;</a>
           </div>
 
           <div class="personal-copy reveal-on-scroll reveal-from-right reveal-delay-2">
@@ -505,55 +534,6 @@
       </div>
     </section>
 
-    <section class="section section-compact-top" id="company">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-media reveal-on-scroll reveal-from-left reveal-delay-1">
-            <div class="about-image">
-              <img class="about-photo" src="yo.png" alt="Foto sobre m&iacute;" />
-            </div>
-            <a class="team-pill" href="sobremi.html">
-              <div class="avatars-stack">
-                <span></span><span class="avatar-accent-warm"></span><span class="avatar-accent-green"></span>
-              </div>
-              <span>Sobre m&iacute;</span>
-            </a>
-          </div>
-
-          <div class="about-copy reveal-on-scroll reveal-from-right reveal-delay-2" id="solution">
-            <div class="section-label">Nuestra propuesta</div>
-            <h2>Menos herramientas sueltas, m&aacute;s <span class="accent">control</span> para tu empresa</h2>
-            <p>
-              En lugar de usar plataformas aisladas, unificamos las tecnolog&iacute;as que tu empresa necesita
-              para vender, comunicar, automatizar y organizar el trabajo diario desde un entorno coherente.
-            </p>
-
-            <div class="feature-list">
-              <div class="feature-item">
-                <div class="icon-placeholder">OK</div>
-                <span>Implementaci&oacute;n<br />adaptada</span>
-              </div>
-              <div class="feature-item">
-                <div class="icon-placeholder">24/7</div>
-                <span>Soporte<br />t&eacute;cnico</span>
-              </div>
-            </div>
-
-            <div class="cta-row">
-              <a href="#contact" class="service-link">Quiero centralizar la tecnolog&iacute;a de mi empresa &rarr;</a>
-              <div class="call-chip">
-                <div class="icon-placeholder">Go</div>
-                <div>
-                  <small>Hablemos de tu empresa</small>
-                  Soluciones conectadas de principio a fin
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer" id="contact">
@@ -593,7 +573,7 @@
             <a href="sobremi.html">Sobre m&iacute;</a>
             <a href="#advanced-services">Automatizaciones</a>
             <a href="#plans">Planes</a>
-            <a href="#solution">Soluci&oacute;n</a>
+            <a href="#entry-offer">Base digital</a>
             <a href="#contact">Contacto</a>
           </nav>
         </div>

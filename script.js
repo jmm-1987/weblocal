@@ -2,6 +2,12 @@ const menuBtn = document.getElementById('menuBtn');
 const mobilePanel = document.getElementById('mobilePanel');
 const backdrop = document.getElementById('backdrop');
 const closeMenuBtn = document.getElementById('closeMenuBtn');
+const entryModal = document.querySelector('[data-entry-modal-root]');
+const entryModalDialog = entryModal?.querySelector('.entry-modal-dialog');
+const entryModalPanels = Array.from(document.querySelectorAll('[data-entry-modal-panel]'));
+const entryModalButtons = Array.from(document.querySelectorAll('[data-entry-modal]'));
+const entryModalCloseButtons = Array.from(document.querySelectorAll('[data-entry-modal-close]'));
+let activeEntryModalButton = null;
 
 function trackEvent(eventName, params = {}) {
   if (typeof window.gtag !== 'function') return;
@@ -106,6 +112,48 @@ window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && mobilePanel.classList.contains('open')) {
     closeMenu();
   }
+
+  if (event.key === 'Escape' && entryModal?.classList.contains('is-open')) {
+    closeEntryModal();
+  }
+});
+
+function closeEntryModal() {
+  if (!entryModal) return;
+
+  entryModal.classList.remove('is-open');
+  entryModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  activeEntryModalButton?.focus();
+}
+
+function openEntryModal(modalName, trigger) {
+  if (!entryModal || !entryModalPanels.length) return;
+
+  entryModalPanels.forEach((panel) => {
+    panel.classList.toggle('is-active', panel.dataset.entryModalPanel === modalName);
+  });
+
+  activeEntryModalButton = trigger;
+  entryModal.classList.add('is-open');
+  entryModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  entryModalDialog?.focus();
+
+  const activePanelTitle = entryModal.querySelector('.entry-modal-content.is-active h3')?.textContent.trim() || modalName;
+  trackEvent('entry_offer_detail_open', {
+    detail_name: activePanelTitle,
+  });
+}
+
+entryModalButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    openEntryModal(button.dataset.entryModal, button);
+  });
+});
+
+entryModalCloseButtons.forEach((button) => {
+  button.addEventListener('click', closeEntryModal);
 });
 
 const revealItems = document.querySelectorAll('.reveal-on-scroll');
@@ -132,7 +180,7 @@ if ('IntersectionObserver' in window) {
 }
 
 const trackedSections = document.querySelectorAll(
-  '#home, #entry-offer, #advanced-services, #software-propio, #plans, #solution, #contact, .about-hero, .about-story-section'
+  '#home, #entry-offer, #advanced-services, #software-propio, #plans, #contact, .about-hero, .about-story-section'
 );
 
 if ('IntersectionObserver' in window) {
@@ -185,6 +233,7 @@ let automationDragStartY = 0;
 let automationDragStartTranslate = 0;
 let automationHasStartedDrag = false;
 let automationActiveIndex = 0;
+let automationPointerIsDown = false;
 
 function getAutomationTranslateX() {
   if (!automationTrack) return 0;
@@ -233,9 +282,11 @@ function setAutomationSlide(index, shouldTrack = false) {
 
   const nextIndex = Math.max(0, Math.min(index, automationSlides.length - 1));
   const nextSlide = automationSlides[nextIndex];
+  const maxTranslate = Math.min(0, automationSlider.clientWidth - automationTrack.scrollWidth);
+  const nextTranslate = Math.max(maxTranslate, -nextSlide.offsetLeft);
 
   automationActiveIndex = nextIndex;
-  automationTrack.style.transform = `translateX(${-nextSlide.offsetLeft}px)`;
+  automationTrack.style.transform = `translateX(${nextTranslate}px)`;
   updateAutomationActiveState(nextIndex);
 
   if (shouldTrack) {
@@ -263,11 +314,14 @@ if (automationTrack && automationSlides.length) {
     automationDragStartY = event.clientY;
     automationDragStartTranslate = getAutomationTranslateX();
     automationHasStartedDrag = false;
+    automationPointerIsDown = true;
 
     automationSlider.setPointerCapture(event.pointerId);
   });
 
   automationSlider?.addEventListener('pointermove', (event) => {
+    if (!automationPointerIsDown) return;
+
     const deltaX = event.clientX - automationDragStartX;
     const deltaY = event.clientY - automationDragStartY;
 
@@ -294,6 +348,7 @@ if (automationTrack && automationSlides.length) {
       setAutomationSlide(automationActiveIndex);
     }
 
+    automationPointerIsDown = false;
     automationSlider.classList.remove('is-dragging');
 
     if (automationSlider.hasPointerCapture(event.pointerId)) {
@@ -303,6 +358,7 @@ if (automationTrack && automationSlides.length) {
 
   automationSlider?.addEventListener('pointercancel', (event) => {
     setAutomationSlide(automationActiveIndex);
+    automationPointerIsDown = false;
     automationSlider.classList.remove('is-dragging');
 
     if (automationSlider.hasPointerCapture(event.pointerId)) {
