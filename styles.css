@@ -267,6 +267,14 @@ button {
   fill: #fff;
 }
 
+.quote-btn-contact {
+  min-height: 54px;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 0.96rem;
+  white-space: nowrap;
+}
+
 .hamburger {
   display: none;
   width: 56px;
@@ -1073,10 +1081,82 @@ main > section:not(.hero) {
   color: var(--text-dark);
 }
 
+.entry-offer-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
 .entry-offer-copy p {
   margin: 0;
   color: #5d6885;
-  font-size: 1.04rem;
+  font-size: 1.12rem;
+}
+
+.entry-offer-cta-row {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.entry-offer-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1f4fff, #2ec5ff);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.92rem;
+  box-shadow: 0 14px 26px rgba(36, 87, 255, 0.3);
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.entry-offer-cta-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.05) saturate(1.08);
+  box-shadow: 0 18px 30px rgba(36, 87, 255, 0.34);
+}
+
+.entry-offer-price-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(36, 87, 255, 0.3);
+  background: linear-gradient(135deg, rgba(36, 87, 255, 0.14), rgba(46, 197, 255, 0.14));
+  color: #1f48c8;
+  font-weight: 800;
+  font-size: 0.82rem;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.38);
+}
+
+.entry-offer-extra-link {
+  margin-top: 18px;
+  font-size: 0.95rem;
+  color: #4a5c86;
+}
+
+.entry-offer-extra-link a {
+  margin-left: 6px;
+  font-weight: 700;
+  color: #1f4fff;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(31, 79, 255, 0.3);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.entry-offer-extra-link a:hover {
+  color: #153cd4;
+  border-color: rgba(31, 79, 255, 0.7);
 }
 
 .entry-offer-points {
@@ -1254,6 +1334,21 @@ main > section:not(.hero) {
   font-size: 1rem;
 }
 
+.entry-modal-price-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  margin: 2px 0 14px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2457ff, #4d8dff);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 12px 24px rgba(36, 87, 255, 0.22);
+}
+
 .entry-offer-visual {
   position: relative;
   min-height: 420px;
@@ -1288,11 +1383,121 @@ main > section:not(.hero) {
   backdrop-filter: none;
 }
 
+.entry-offer-image-stack {
+  position: relative;
+  width: min(100%, 500px);
+  height: 430px;
+}
+
+.entry-offer-image-card {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 170px;
+  height: 170px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(32px) scale(0.9) rotate(var(--card-rot, 0deg));
+  transition: filter 0.24s ease, transform 0.24s ease;
+}
+
+.entry-offer-image-card-audit {
+  --card-rot: -2deg;
+  width: 292px;
+  height: 292px;
+  top: 0;
+  right: 52px;
+  z-index: 1;
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(-1deg);
+}
+
+.entry-offer-image-card-web {
+  --card-rot: -8deg;
+  bottom: 34px;
+  left: 42px;
+  z-index: 3;
+}
+
+.entry-offer-image-card-domain {
+  --card-rot: 7deg;
+  bottom: 18px;
+  left: 148px;
+  z-index: 4;
+}
+
+.entry-offer-image-card-email {
+  --card-rot: -4deg;
+  bottom: 30px;
+  right: 24px;
+  z-index: 5;
+}
+
+.entry-offer-image-card-consultoria {
+  --card-rot: 6deg;
+  width: 136px;
+  height: 136px;
+  top: 120px;
+  left: 12px;
+  z-index: 2;
+}
+
+.entry-offer-image-card-config {
+  --card-rot: -7deg;
+  width: 132px;
+  height: 132px;
+  top: 132px;
+  right: 6px;
+  z-index: 2;
+}
+
 .entry-offer-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 24px 36px rgba(16, 39, 201, 0.18));
+  filter: drop-shadow(0 16px 24px rgba(16, 39, 201, 0.2));
+  transition: filter 0.24s ease, transform 0.24s ease;
+}
+
+.entry-offer-image-card:hover .entry-offer-image,
+.entry-offer-image-card:focus-visible .entry-offer-image {
+  transform: translateY(-3px) scale(1.04) rotate(0deg);
+  filter:
+    drop-shadow(0 18px 26px rgba(16, 39, 201, 0.3))
+    drop-shadow(0 0 18px rgba(62, 199, 244, 0.44));
+}
+
+.entry-offer-image-card:focus-visible {
+  outline: 2px solid rgba(62, 199, 244, 0.65);
+  outline-offset: 4px;
+}
+
+.entry-offer-visual.is-visible .entry-offer-image-card-audit {
+  animation: none;
+}
+
+.entry-offer-visual.is-visible .entry-offer-image-card-web {
+  animation: entry-offer-card-in 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.22s forwards;
+}
+
+.entry-offer-visual.is-visible .entry-offer-image-card-domain {
+  animation: entry-offer-card-in 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.34s forwards;
+}
+
+.entry-offer-visual.is-visible .entry-offer-image-card-email {
+  animation: entry-offer-card-in 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.46s forwards;
+}
+
+.entry-offer-visual.is-visible .entry-offer-image-card-consultoria {
+  animation: entry-offer-card-in 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.54s forwards;
+}
+
+.entry-offer-visual.is-visible .entry-offer-image-card-config {
+  animation: entry-offer-card-in 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.62s forwards;
 }
 
 .entry-offer-hotspots {
@@ -1452,6 +1657,17 @@ main > section:not(.hero) {
   animation:
     entry-offer-spin-in 1.05s cubic-bezier(0.19, 1, 0.22, 1) both,
     entry-offer-float 5.6s ease-in-out 1s infinite;
+}
+
+@keyframes entry-offer-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .automation-slider {
@@ -1991,6 +2207,70 @@ main > section:not(.hero) {
 }
 
 .plan-card-featured .plan-features li::before {
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.16);
+}
+
+.plans-story {
+  display: grid;
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.plan-step {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  padding: 22px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(245,248,255,0.98));
+  border: 1px solid rgba(36, 87, 255, 0.08);
+  box-shadow: 0 14px 34px rgba(21, 39, 126, 0.08);
+}
+
+.plan-step-base {
+  background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 58%, var(--blue-600) 132%);
+  color: #fff;
+  box-shadow: 0 22px 42px rgba(20, 52, 184, 0.2);
+}
+
+.plan-step-index {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #2457ff;
+  background: rgba(36, 87, 255, 0.08);
+  border: 1px solid rgba(36, 87, 255, 0.14);
+}
+
+.plan-step-base .plan-step-index {
+  color: #fff;
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.24);
+}
+
+.plan-step-copy h3 {
+  margin: 12px 0 10px;
+  font-size: 1.44rem;
+  line-height: 1.14;
+}
+
+.plan-step-copy p {
+  margin: 0 0 14px;
+  color: #5d6885;
+}
+
+.plan-step-base .plan-step-copy p,
+.plan-step-base .plan-features li {
+  color: rgba(255,255,255,0.9);
+}
+
+.plan-step-base .plan-features li::before {
   background: #fff;
   box-shadow: 0 0 0 4px rgba(255,255,255,0.16);
 }
@@ -3004,8 +3284,8 @@ main > section:not(.hero) {
 
 .footer-cta {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 26px;
   padding: 34px 38px;
   margin-top: 24px;
@@ -3055,6 +3335,235 @@ main > section:not(.hero) {
 .footer-cta-link:hover {
   transform: translateY(-2px);
   background: rgba(255,255,255,0.2);
+}
+
+.footer-contact-form {
+  margin-top: 14px;
+  display: grid;
+  gap: 6px;
+  max-width: 620px;
+}
+
+.footer-contact-brandmark {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 2px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.24);
+}
+
+.footer-contact-brandmark img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.footer-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.footer-contact-field {
+  display: grid;
+  gap: 3px;
+}
+
+.footer-contact-field span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
+}
+
+.footer-contact-field input,
+.footer-contact-field select {
+  min-height: 34px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 6px 9px;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  font-size: 0.86rem;
+}
+
+.footer-contact-field input::placeholder {
+  color: rgba(255,255,255,0.64);
+}
+
+.footer-contact-field select option {
+  color: #112347;
+}
+
+.footer-contact-submit {
+  width: fit-content;
+  min-height: 34px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 9px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 0 12px;
+  cursor: pointer;
+  transition: transform 0.22s ease, background 0.22s ease;
+}
+
+.footer-contact-submit:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.28);
+}
+
+.footer-contact-status {
+  margin: 0;
+  min-height: 16px;
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 130;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.contact-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.contact-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 12, 34, 0.66);
+  backdrop-filter: blur(6px);
+}
+
+.contact-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 740px);
+  max-height: min(92vh, 900px);
+  overflow: auto;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #f9fbff, #eff4ff);
+  padding: 22px;
+  box-shadow: 0 26px 70px rgba(8, 22, 66, 0.34);
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 0;
+  background: rgba(36, 87, 255, 0.12);
+}
+
+.contact-modal-close span,
+.contact-modal-close span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: #2457ff;
+}
+
+.contact-modal-close span {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.contact-modal-close span::before {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.contact-modal-head h3 {
+  margin: 0 0 8px;
+  color: #112347;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+
+.contact-modal-head p {
+  margin: 0 0 4px;
+  color: #4d5e86;
+  font-size: 0.95rem;
+}
+
+.contact-modal .footer-contact-brandmark {
+  background: rgba(36, 87, 255, 0.08);
+  border-color: rgba(36, 87, 255, 0.22);
+}
+
+.contact-modal .footer-contact-field span {
+  color: #243a70;
+}
+
+.contact-modal .footer-contact-field input,
+.contact-modal .footer-contact-field select {
+  border-color: rgba(36, 87, 255, 0.2);
+  background: #ffffff;
+  color: #112347;
+}
+
+.contact-modal .footer-contact-field input::placeholder {
+  color: #7a89ae;
+}
+
+.contact-modal .footer-contact-submit {
+  background: #2457ff;
+  border-color: #2457ff;
+  color: #fff;
+}
+
+.contact-modal .footer-contact-status {
+  color: #2d467f;
+}
+
+@media (max-width: 980px) {
+  .plan-step {
+    grid-template-columns: 58px 1fr;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .plan-step-index {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .plan-step {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .plan-step-index {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+
+  .plan-step-copy h3 {
+    font-size: 1.2rem;
+  }
 }
 
 .footer-main {
@@ -3645,6 +4154,10 @@ main > section:not(.hero) {
     min-width: 0;
   }
 
+  .footer-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
   .section {
     padding: 84px 0;
   }
@@ -3736,6 +4249,17 @@ main > section:not(.hero) {
     background: rgba(47,115,234,0.12);
   }
 
+  .mobile-contact-trigger {
+    margin-top: 6px;
+    min-height: 44px;
+    border: 0;
+    border-radius: 10px;
+    background: #2457ff;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
   .mobile-backdrop {
     position: fixed;
     inset: 0;
@@ -3775,6 +4299,18 @@ main > section:not(.hero) {
     height: 100%;
     display: block;
     fill: #fff;
+  }
+
+  .contact-modal {
+    padding: 10px;
+  }
+
+  .contact-modal-dialog {
+    width: 100%;
+    max-height: calc(100dvh - 20px);
+    min-height: calc(100dvh - 20px);
+    border-radius: 14px;
+    padding: 18px 14px 14px;
   }
 
   .hero {
@@ -3827,6 +4363,53 @@ main > section:not(.hero) {
   .entry-offer-panel {
     padding: 28px 22px;
     gap: 24px;
+  }
+
+  .entry-offer-image-stack {
+    width: min(100%, 340px);
+    height: 320px;
+    margin: 0 auto;
+  }
+
+  .entry-offer-image-card {
+    width: 120px;
+    height: 120px;
+  }
+
+  .entry-offer-image-card-audit {
+    width: 206px;
+    height: 206px;
+    top: 0;
+    right: 66px;
+  }
+
+  .entry-offer-image-card-web {
+    bottom: 24px;
+    left: 18px;
+  }
+
+  .entry-offer-image-card-domain {
+    bottom: 10px;
+    left: 96px;
+  }
+
+  .entry-offer-image-card-email {
+    bottom: 18px;
+    right: 12px;
+  }
+
+  .entry-offer-image-card-consultoria {
+    width: 96px;
+    height: 96px;
+    top: 108px;
+    left: 6px;
+  }
+
+  .entry-offer-image-card-config {
+    width: 92px;
+    height: 92px;
+    top: 116px;
+    right: 4px;
   }
 
   .entry-offer-includes-head h3 {
@@ -4158,6 +4741,10 @@ main > section:not(.hero) {
 
   .footer-cta-copy h2 {
     font-size: 2.1rem;
+  }
+
+  .footer-contact-submit {
+    width: 100%;
   }
 
   .footer-main {

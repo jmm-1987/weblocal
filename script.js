@@ -7,7 +7,12 @@ const entryModalDialog = entryModal?.querySelector('.entry-modal-dialog');
 const entryModalPanels = Array.from(document.querySelectorAll('[data-entry-modal-panel]'));
 const entryModalButtons = Array.from(document.querySelectorAll('[data-entry-modal]'));
 const entryModalCloseButtons = Array.from(document.querySelectorAll('[data-entry-modal-close]'));
+const contactModal = document.getElementById('contactModal');
+const contactModalDialog = contactModal?.querySelector('.contact-modal-dialog');
+const contactModalOpenButtons = Array.from(document.querySelectorAll('[data-contact-modal-open]'));
+const contactModalCloseButtons = Array.from(document.querySelectorAll('[data-contact-modal-close]'));
 let activeEntryModalButton = null;
+let activeContactModalButton = null;
 
 function trackEvent(eventName, params = {}) {
   if (typeof window.gtag !== 'function') return;
@@ -54,7 +59,7 @@ menuBtn.addEventListener('click', () => {
 
 closeMenuBtn.addEventListener('click', closeMenu);
 backdrop.addEventListener('click', closeMenu);
-mobilePanel.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+mobilePanel.querySelectorAll('a, button').forEach((item) => item.addEventListener('click', closeMenu));
 
 document.querySelectorAll('a[href]').forEach((link) => {
   link.addEventListener('click', () => {
@@ -116,6 +121,44 @@ window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && entryModal?.classList.contains('is-open')) {
     closeEntryModal();
   }
+
+  if (event.key === 'Escape' && contactModal?.classList.contains('is-open')) {
+    closeContactModal();
+  }
+});
+
+function closeContactModal() {
+  if (!contactModal) return;
+
+  contactModal.classList.remove('is-open');
+  contactModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  activeContactModalButton?.focus();
+}
+
+function openContactModal(trigger) {
+  if (!contactModal) return;
+
+  activeContactModalButton = trigger;
+  contactModal.classList.add('is-open');
+  contactModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  contactModalDialog?.focus();
+
+  trackEvent('generate_lead', {
+    contact_method: 'contact_modal',
+    lead_source: 'cta_button',
+  });
+}
+
+contactModalOpenButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    openContactModal(button);
+  });
+});
+
+contactModalCloseButtons.forEach((button) => {
+  button.addEventListener('click', closeContactModal);
 });
 
 function closeEntryModal() {
@@ -371,4 +414,154 @@ if (automationTrack && automationSlides.length) {
   });
 
   setAutomationSlide(0);
+}
+
+const footerContactForm = document.getElementById('footerContactForm');
+const footerContactStatus = document.getElementById('footerContactStatus');
+const footerContactMethodSelect = footerContactForm?.querySelector('select[name="forma_contacto"]');
+const footerContactDetailLabel = document.getElementById('footerContactDetailLabel');
+const footerContactDetailInput = document.getElementById('footerContactDetailInput');
+const footerContactDayInput = footerContactForm?.querySelector('input[name="dia_llamada"]');
+const footerContactHourInput = footerContactForm?.querySelector('input[name="hora_llamada"]');
+const EMAILJS_SERVICE_ID = 'service_a1xi29i';
+const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
+const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
+
+if (window.emailjs && EMAILJS_PUBLIC_KEY !== 'TU_PUBLIC_KEY_EMAILJS') {
+  window.emailjs.init({
+    publicKey: EMAILJS_PUBLIC_KEY,
+  });
+}
+
+if (footerContactForm) {
+  function updateContactDetailField() {
+    if (!footerContactMethodSelect || !footerContactDetailInput || !footerContactDetailLabel) return;
+
+    const selectedMethod = footerContactMethodSelect.value;
+
+    if (selectedMethod === 'Prefiere Email') {
+      footerContactDetailLabel.textContent = 'Email';
+      footerContactDetailInput.type = 'email';
+      footerContactDetailInput.placeholder = 'tuemail@empresa.com';
+      footerContactDetailInput.autocomplete = 'email';
+      return;
+    }
+
+    if (selectedMethod === 'Prefiere WhatsApp') {
+      footerContactDetailLabel.textContent = 'Numero de telefono';
+      footerContactDetailInput.type = 'tel';
+      footerContactDetailInput.placeholder = 'Tu numero de telefono';
+      footerContactDetailInput.autocomplete = 'tel';
+      return;
+    }
+
+    if (selectedMethod === 'Prefiere llamada') {
+      footerContactDetailLabel.textContent = 'Numero de telefono';
+      footerContactDetailInput.type = 'tel';
+      footerContactDetailInput.placeholder = 'Tu numero de telefono';
+      footerContactDetailInput.autocomplete = 'tel';
+      return;
+    }
+
+    footerContactDetailLabel.textContent = 'Dato de contacto';
+    footerContactDetailInput.type = 'text';
+    footerContactDetailInput.placeholder = 'Selecciona primero la forma de contacto';
+    footerContactDetailInput.autocomplete = 'off';
+  }
+
+  footerContactMethodSelect?.addEventListener('change', updateContactDetailField);
+  updateContactDetailField();
+
+  footerContactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(footerContactForm);
+    const nombre = String(formData.get('nombre') || '').trim();
+    const empresa = String(formData.get('empresa') || '').trim();
+    const formaContacto = String(formData.get('forma_contacto') || '').trim();
+    const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
+    const diaLlamada = String(formData.get('dia_llamada') || '').trim();
+    const horaLlamada = String(formData.get('hora_llamada') || '').trim();
+
+    if (!nombre || !empresa || !formaContacto || !contactoDetalle || !diaLlamada || !horaLlamada) {
+      if (footerContactStatus) {
+        footerContactStatus.textContent = 'Completa todos los campos antes de enviar.';
+      }
+      return;
+    }
+
+    if (!window.emailjs) {
+      if (footerContactStatus) {
+        footerContactStatus.textContent = 'No se pudo cargar EmailJS.';
+      }
+      return;
+    }
+
+    if (EMAILJS_PUBLIC_KEY === 'TU_PUBLIC_KEY_EMAILJS') {
+      if (footerContactStatus) {
+        footerContactStatus.textContent = 'Falta configurar la clave publica de EmailJS en script.js.';
+      }
+      return;
+    }
+
+    const submitButton = footerContactForm.querySelector('button[type="submit"]');
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando...';
+    }
+
+    if (footerContactStatus) {
+      footerContactStatus.textContent = 'Enviando mensaje...';
+    }
+
+    try {
+      await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        nombre,
+        email: contactoDetalle,
+        empresa,
+        forma_de_contacto: formaContacto,
+        contacto_detalle: contactoDetalle,
+        dia_llamada: diaLlamada,
+        hora_llamada: horaLlamada,
+        'forma de contacto': formaContacto,
+      }, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      });
+
+      if (footerContactStatus) {
+        footerContactStatus.textContent = 'Mensaje enviado correctamente. Te contactaremos pronto.';
+      }
+
+      trackEvent('generate_lead', {
+        contact_method: formaContacto.toLowerCase(),
+        lead_source: 'footer_form',
+      });
+
+      footerContactForm.reset();
+      footerContactDayInput?.setAttribute('min', new Date().toISOString().split('T')[0]);
+      footerContactHourInput?.setAttribute('step', '900');
+      updateContactDetailField();
+      closeContactModal();
+    } catch (error) {
+      const errorText = typeof error === 'object' && error && 'text' in error
+        ? String(error.text)
+        : error instanceof Error
+          ? error.message
+          : 'error desconocido';
+
+      if (footerContactStatus) {
+        footerContactStatus.textContent = `No se pudo enviar (${errorText}). Revisa service ID, template ID y clave publica en EmailJS.`;
+      }
+
+      console.error('Error al enviar formulario con EmailJS:', error);
+    } finally {
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Enviar solicitud';
+      }
+    }
+  });
+
+  footerContactDayInput?.setAttribute('min', new Date().toISOString().split('T')[0]);
+  footerContactHourInput?.setAttribute('step', '900');
 }

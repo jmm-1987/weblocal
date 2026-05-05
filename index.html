@@ -16,6 +16,7 @@
 
   gtag('config', 'G-8FMNC7J0EN');
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -33,11 +34,9 @@
         <a href="#contact">Contacto</a>
       </nav>
 
-      <a href="https://wa.me/34625433667" class="quote-btn quote-btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-          <path d="M16.01 3.2c-7.05 0-12.8 5.62-12.8 12.53 0 2.4.7 4.73 2.02 6.75L3.2 29.2l6.94-1.97a13.03 13.03 0 0 0 5.87 1.42c7.06 0 12.8-5.62 12.8-12.53S23.07 3.2 16.01 3.2Zm0 23.32c-1.86 0-3.68-.48-5.28-1.4l-.38-.22-4.12 1.17 1.18-3.94-.25-.4a10.37 10.37 0 0 1-1.8-6c0-5.74 4.78-10.4 10.65-10.4 5.88 0 10.66 4.66 10.66 10.4s-4.78 10.79-10.66 10.79Zm5.84-7.79c-.32-.16-1.9-.92-2.2-1.02-.3-.11-.52-.16-.74.16-.21.31-.84 1.02-1.03 1.23-.19.21-.38.24-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.6-1.86-1.79-2.17-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.74-1.74-1.02-2.39-.27-.62-.54-.54-.74-.55h-.63c-.22 0-.55.08-.84.39-.29.31-1.1 1.05-1.1 2.56 0 1.5 1.13 2.96 1.29 3.17.16.21 2.23 3.33 5.4 4.67.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.76 2.17-1.49.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z" />
-        </svg>
-      </a>
+      <button class="quote-btn quote-btn-contact" type="button" data-contact-modal-open aria-label="Contactar ahora">
+        Contactar ahora
+      </button>
 
       <button class="hamburger" id="menuBtn" aria-label="Abrir men&uacute;" aria-expanded="false">
         <span></span>
@@ -57,7 +56,7 @@
     <a href="#plans">Planes</a>
     <a href="sobremi.html">Sobre m&iacute;</a>
     <a href="#contact">Contacto</a>
-    <a href="https://wa.me/34625433667" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
+    <button class="mobile-contact-trigger" type="button" data-contact-modal-open>Contactar ahora</button>
   </aside>
 
   <main>
@@ -100,42 +99,53 @@
       <div class="container">
         <div class="entry-offer-panel">
           <div class="entry-offer-copy reveal-on-scroll reveal-from-left reveal-delay-1">
-            <div class="section-label">Primer paso</div>
+            <div class="entry-offer-head">
+              <div class="section-label">Plan de acompa&ntilde;amiento</div>
+              <div class="entry-offer-price-chip">Desde 30&euro;/mes + IVA</div>
+            </div>
             <h2>&iquest;Est&aacute;s pagando de m&aacute;s por servicios que no usas?</h2>
             <p>
-              Nuestro primer paso es auditar los servicios que ya est&aacute; pagando tu empresa para detectar cuotas
-              sobredimensionadas, herramientas que no usas, gastos duplicados y soluciones que solo necesitas de forma m&iacute;nima.
-              A partir de ah&iacute;, te ayudamos a simplificar, centralizar y abaratar desde el principio, montando adem&aacute;s una base digital clara
-              con web profesional, email corporativo y solo lo que de verdad necesitas.
+              Nuestro paquete b&aacute;sico incluye una auditor&iacute;a inicial de costes y una base digital clara:
+              web profesional, dominio, email corporativo y acompa&ntilde;amiento continuo.
+              Todo lo necesario para empezar bien, sin pagar de m&aacute;s por servicios que no necesitas.
             </p>
-
-            <div class="entry-offer-points">
-              <button type="button" data-entry-modal="audit">Auditor&iacute;a de costes y servicios</button>
-              <button type="button" data-entry-modal="web">Web profesional</button>
-              <button type="button" data-entry-modal="email">Email claro y corporativo</button>
-              <button type="button" data-entry-modal="support">Acompa&ntilde;amiento continuo</button>
+            <div class="entry-offer-cta-row">
+              <button class="entry-offer-cta-btn" type="button" data-entry-modal="includes">Qu&eacute; incluye</button>
             </div>
+            <p class="entry-offer-extra-link">
+              Puedes a&ntilde;adir automatizaciones.
+              <a href="#advanced-services">Ver</a>
+            </p>
           </div>
 
           <div class="entry-offer-visual reveal-on-scroll reveal-from-right reveal-delay-2">
             <div class="entry-offer-glow"></div>
             <div class="entry-offer-image-wrap">
-              <img
-                class="entry-offer-image"
-                src="basicoo.png"
-                alt="Base digital profesional para empezar con una web, email corporativo y presencia online"
-              />
-              <div class="entry-offer-hotspots" aria-hidden="true">
-                <span class="entry-offer-hotspot entry-offer-hotspot-web"></span>
-                <span class="entry-offer-hotspot entry-offer-hotspot-domain"></span>
-                <span class="entry-offer-hotspot entry-offer-hotspot-email"></span>
-                <span class="entry-offer-hotspot entry-offer-hotspot-audit"></span>
+              <div class="entry-offer-image-stack" aria-label="Elementos de la base digital">
+                <button class="entry-offer-image-card entry-offer-image-card-audit" type="button" data-entry-modal="audit" aria-label="Ver detalle de Auditoria de costes y servicios">
+                  <img class="entry-offer-image" src="1audit.png" alt="Auditoria de costes y servicios" />
+                </button>
+                <button class="entry-offer-image-card entry-offer-image-card-web" type="button" data-entry-modal="web" aria-label="Ver detalle de Web profesional">
+                  <img class="entry-offer-image" src="1web.png" alt="Web profesional" />
+                </button>
+                <button class="entry-offer-image-card entry-offer-image-card-domain" type="button" data-entry-modal="web" aria-label="Ver detalle de Dominio corporativo">
+                  <img class="entry-offer-image" src="1dominio.png" alt="Dominio corporativo" />
+                </button>
+                <button class="entry-offer-image-card entry-offer-image-card-email" type="button" data-entry-modal="email" aria-label="Ver detalle de Email corporativo">
+                  <img class="entry-offer-image" src="1email.png" alt="Email corporativo" />
+                </button>
+                <button class="entry-offer-image-card entry-offer-image-card-consultoria" type="button" data-entry-modal="support" aria-label="Ver detalle de Consultoria y acompanamiento">
+                  <img class="entry-offer-image" src="1consultoria.png" alt="Consultoria y acompanamiento continuo" />
+                </button>
+                <button class="entry-offer-image-card entry-offer-image-card-config" type="button" data-entry-modal="web" aria-label="Ver detalle de Configuracion inicial">
+                  <img class="entry-offer-image" src="1config.png" alt="Configuracion inicial de servicios digitales" />
+                </button>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="entry-offer-includes">
+        <div class="entry-offer-includes" id="entry-offer-includes">
           <div class="entry-offer-includes-head reveal-on-scroll reveal-delay-2">
             <div class="section-label">Qu&eacute; incluye el plan b&aacute;sico</div>
             <h3>Lo esencial, bien resuelto desde el principio</h3>
@@ -183,6 +193,20 @@
           <h3>Auditor&iacute;a para ahorro de costes</h3>
           <p>Estudiamos los servicios que ya est&aacute; pagando tu empresa para detectar duplicidades, cuotas por encima de lo necesario y herramientas infrautilizadas. La idea es clara: pagar solo por lo que realmente necesitas y abaratar la base digital desde el inicio.</p>
         </article>
+
+          <article class="entry-modal-content" data-entry-modal-panel="includes">
+            <div class="section-label">Plan de acompa&ntilde;amiento</div>
+            <h3>Qu&eacute; incluye el paquete b&aacute;sico</h3>
+            <div class="entry-modal-price-chip">Desde 30&euro;/mes + IVA</div>
+            <ul class="plan-features">
+              <li>Auditor&iacute;a inicial de costes y servicios digitales</li>
+              <li>Web profesional para presentar tu negocio</li>
+              <li>Dominio y configuraci&oacute;n inicial</li>
+              <li>Email corporativo bien estructurado</li>
+              <li>Formulario de contacto y datos clave de empresa</li>
+              <li>Acompa&ntilde;amiento continuo para decidir con criterio</li>
+            </ul>
+          </article>
 
         <article class="entry-modal-content" data-entry-modal-panel="web">
           <img class="entry-modal-img" src="web1.png" alt="Web y presencia digital para negocios" />
@@ -394,59 +418,58 @@
           <p>
             Empezamos por una base clara, podemos sumar automatizaciones cuando aporten valor
             y llegamos al desarrollo de software propio cuando tu operativa necesita una soluci&oacute;n completa.
+            Todo pensado para escalar contigo por fases.
           </p>
         </div>
 
-        <div class="plans-grid">
-          <article class="plan-card plan-card-featured reveal-on-scroll reveal-delay-1">
-            <div class="plan-badge">Plan b&aacute;sico</div>
-            <h3>Base digital con acompa&ntilde;amiento continuo</h3>
-            <div class="plan-price">40&euro;<span>/mes + IVA</span></div>
-            <p>
-              Ideal para empresas que quieren una presencia profesional, una estructura b&aacute;sica bien resuelta
-              y una revisi&oacute;n inicial para detectar servicios innecesarios, ajustar cuotas y empezar con criterio desde el primer paso.
-            </p>
-            <ul class="plan-features">
-              <li>Web corporativa clara y profesional</li>
-              <li>Gesti&oacute;n de email corporativo</li>
-              <li>Estudio de costes para detectar pagos innecesarios y opciones m&aacute;s econ&oacute;micas</li>
-              <li>Formulario de contacto y datos de empresa</li>
-              <li>Acompa&ntilde;amiento y consultor&iacute;a constante</li>
-              <li>Mantenimiento b&aacute;sico y soporte cercano</li>
-            </ul>
+        <div class="plans-story">
+          <article class="plan-step plan-step-base reveal-on-scroll reveal-delay-1">
+            <div class="plan-step-index">01</div>
+            <div class="plan-step-copy">
+              <div class="plan-badge">Plan de acompa&ntilde;amiento</div>
+              <h3>Base digital y acompa&ntilde;amiento desde 30&euro;/mes</h3>
+              <p>
+                Empezamos como socio tecnol&oacute;gico con una base ordenada y soporte continuo.
+                Si quieres la base digital completa (web, dominio, email y seguimiento), desde 50&euro;/mes + IVA.
+              </p>
+              <ul class="plan-features">
+                <li>Auditor&iacute;a inicial de costes y servicios</li>
+                <li>Base digital clara para empezar con criterio</li>
+                <li>Acompa&ntilde;amiento continuo para tomar decisiones</li>
+              </ul>
+            </div>
           </article>
 
-          <article class="plan-card reveal-on-scroll reveal-delay-2">
-            <div class="plan-badge plan-badge-soft">Plan intermedio</div>
-            <h3>Automatizaciones para ahorrar tiempo</h3>
-            <p>
-              Para empresas que ya tienen lo esencial cubierto y quieren automatizar partes concretas
-              de la comunicaci&oacute;n, el seguimiento o la gesti&oacute;n diaria.
-            </p>
-            <ul class="plan-features">
-              <li>Automatizaciones de email, formularios y seguimiento</li>
-              <li>WhatsApp o Telegram para atenci&oacute;n, avisos y respuestas frecuentes</li>
-              <li>Integraci&oacute;n con agenda y formularios</li>
-              <li>Flujos simples adaptados a tu forma de trabajar</li>
-              <li>Mejoras por fases seg&uacute;n prioridades</li>
-            </ul>
+          <article class="plan-step reveal-on-scroll reveal-delay-2">
+            <div class="plan-step-index">02</div>
+            <div class="plan-step-copy">
+              <div class="plan-badge plan-badge-soft">Siguiente fase</div>
+              <h3>Automatizaciones que se a&ntilde;aden cuando tiene sentido</h3>
+              <p>
+                Con la base funcionando, incorporamos automatizaciones concretas para ahorrar tiempo y reducir tareas manuales.
+              </p>
+              <ul class="plan-features">
+                <li>Mensajer&iacute;a y seguimientos autom&aacute;ticos</li>
+                <li>Integraci&oacute;n con formularios, agenda y canales</li>
+                <li>Implantaci&oacute;n por prioridades reales de negocio</li>
+              </ul>
+            </div>
           </article>
 
-          <article class="plan-card reveal-on-scroll reveal-delay-3">
-            <div class="plan-badge plan-badge-soft">Plan avanzado</div>
-            <h3>Software propio para procesos internos</h3>
-            <p>
-              Para empresas que necesitan dejar atr&aacute;s Excel, tareas manuales o procesos dif&iacute;ciles
-              de controlar con una herramienta construida alrededor de su operativa.
-            </p>
-            <ul class="plan-features">
-              <li>Desarrollo de software personalizado</li>
-              <li>Paneles internos, registros, control horario y gesti&oacute;n de procesos</li>
-              <li>Digitalizaci&oacute;n de documentos, partes, PDFs o formularios</li>
-              <li>Control de estados, responsables y trazabilidad</li>
-              <li>Integraciones avanzadas con herramientas externas</li>
-              <li>Implantaci&oacute;n por fases seg&uacute;n objetivos y presupuesto</li>
-            </ul>
+          <article class="plan-step reveal-on-scroll reveal-delay-3">
+            <div class="plan-step-index">03</div>
+            <div class="plan-step-copy">
+              <div class="plan-badge plan-badge-soft">Escalado</div>
+              <h3>Software propio cuando tu operativa lo necesita</h3>
+              <p>
+                Cuando varias herramientas ya no bastan, construimos software a medida sobre tus procesos para ganar control total.
+              </p>
+              <ul class="plan-features">
+                <li>Paneles internos, trazabilidad y control operativo</li>
+                <li>Digitalizaci&oacute;n de documentos y flujos</li>
+                <li>Evoluci&oacute;n escalable con el resto de servicios</li>
+              </ul>
+            </div>
           </article>
         </div>
       </div>
@@ -465,7 +488,7 @@
           <div class="personal-copy reveal-on-scroll reveal-from-right reveal-delay-2">
             <div class="personal-intro">
               <div class="section-label">Trato personal</div>
-              <h2>Nuestros servicios se construyen contigo, con una atenci&oacute;n cercana y pensada para tu negocio</h2>
+              <h2>Servicios a medida, con atenci&oacute;n cercana para tu negocio</h2>
               <p>
                 Antes de hablar de herramientas, hablamos de tu empresa, de tus procesos y de lo que realmente
                 necesitas mejorar. Desde M&eacute;rida, acompa&ntilde;amos a empresas de toda Extremadura con una cercan&iacute;a real
@@ -521,14 +544,14 @@
       <div class="footer-cta reveal-on-scroll">
         <div class="footer-cta-copy">
           <div class="section-label footer-section-label">Contacto</div>
-          <h2>Una propuesta clara para ordenar la tecnolog&iacute;a de tu empresa</h2>
+          <h2>Tu socio tecnol&oacute;gico para crecer con orden</h2>
           <p>
-            Cu&eacute;ntanos en qu&eacute; punto est&aacute; tu negocio y preparamos una propuesta realista,
-            bien planteada y adaptada a lo que de verdad necesitas hoy.
+            Plan b&aacute;sico de acompa&ntilde;amiento desde 30&euro;/mes.
+            Si necesitas la base digital completa (web, dominio, email y soporte), desde 50&euro;/mes + IVA.
+            Todo es totalmente escalable con automatizaciones, integraciones y software propio.
           </p>
+          <button class="footer-cta-link" type="button" data-contact-modal-open>Contactar ahora</button>
         </div>
-
-        <a class="footer-cta-link" href="https://wa.me/34625433667" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
       </div>
 
       <div class="footer-main">
@@ -612,17 +635,74 @@
     </div>
   </footer>
 
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/34625433667"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Contactar por WhatsApp"
-  >
-    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-      <path d="M16.01 3.2c-7.05 0-12.8 5.62-12.8 12.53 0 2.4.7 4.73 2.02 6.75L3.2 29.2l6.94-1.97a13.03 13.03 0 0 0 5.87 1.42c7.06 0 12.8-5.62 12.8-12.53S23.07 3.2 16.01 3.2Zm0 23.32c-1.86 0-3.68-.48-5.28-1.4l-.38-.22-4.12 1.17 1.18-3.94-.25-.4a10.37 10.37 0 0 1-1.8-6c0-5.74 4.78-10.4 10.65-10.4 5.88 0 10.66 4.66 10.66 10.4s-4.78 10.79-10.66 10.79Zm5.84-7.79c-.32-.16-1.9-.92-2.2-1.02-.3-.11-.52-.16-.74.16-.21.31-.84 1.02-1.03 1.23-.19.21-.38.24-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.6-1.86-1.79-2.17-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.74-1.74-1.02-2.39-.27-.62-.54-.54-.74-.55h-.63c-.22 0-.55.08-.84.39-.29.31-1.1 1.05-1.1 2.56 0 1.5 1.13 2.96 1.29 3.17.16.21 2.23 3.33 5.4 4.67.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.76 2.17-1.49.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z" />
-    </svg>
-  </a>
+  <div class="contact-modal" id="contactModal" aria-hidden="true">
+    <div class="contact-modal-backdrop" data-contact-modal-close></div>
+    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-label="Solicitar llamada" tabindex="-1">
+      <button class="contact-modal-close" type="button" data-contact-modal-close aria-label="Cerrar formulario">
+        <span></span>
+      </button>
+
+      <div class="contact-modal-head">
+        <div class="section-label">Contacto</div>
+        <h3>Solicita una llamada</h3>
+        <p>Indica tus datos y te llamamos en el d&iacute;a y hora que prefieras.</p>
+      </div>
+
+      <form class="footer-contact-form" id="footerContactForm" novalidate>
+        <div class="footer-contact-brandmark" aria-hidden="true">
+          <img src="favicon.png" alt="" />
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>Nombre</span>
+            <input type="text" name="nombre" autocomplete="name" required />
+          </label>
+          <label class="footer-contact-field">
+            <span>Empresa</span>
+            <input type="text" name="empresa" autocomplete="organization" required />
+          </label>
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>Forma de contacto preferida</span>
+            <select name="forma_contacto" required>
+              <option value="">Selecciona una opci&oacute;n</option>
+              <option value="Prefiere WhatsApp">WhatsApp</option>
+              <option value="Prefiere Email">Email</option>
+              <option value="Prefiere llamada">Llamada</option>
+            </select>
+          </label>
+          <label class="footer-contact-field" id="footerContactDetailField">
+            <span id="footerContactDetailLabel">Dato de contacto</span>
+            <input
+              id="footerContactDetailInput"
+              type="text"
+              name="contacto_detalle"
+              placeholder="Selecciona primero la forma de contacto"
+              autocomplete="off"
+              required
+            />
+          </label>
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>D&iacute;a para la llamada</span>
+            <input type="date" name="dia_llamada" required />
+          </label>
+          <label class="footer-contact-field">
+            <span>Hora para la llamada</span>
+            <input type="time" name="hora_llamada" required />
+          </label>
+        </div>
+
+        <button type="submit" class="footer-contact-submit">Enviar solicitud</button>
+        <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
