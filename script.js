@@ -223,7 +223,7 @@ if ('IntersectionObserver' in window) {
 }
 
 const trackedSections = document.querySelectorAll(
-  '#home, #entry-offer, #advanced-services, #software-propio, #plans, #contact, .about-hero, .about-story-section'
+  '#home, #entry-offer, #advanced-services, #software-propio, #contact, .about-hero, .about-story-section'
 );
 
 if ('IntersectionObserver' in window) {
