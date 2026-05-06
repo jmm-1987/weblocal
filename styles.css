@@ -4825,7 +4825,7 @@ main > section:not(.hero) {
   .automation-showcase-card,
   .automation-showcase-card-featured {
     flex: 0 0 min(58vw, 220px);
-    min-height: 250px;
+    min-height: 310px;
     padding: 18px;
     scroll-snap-align: start;
   }
