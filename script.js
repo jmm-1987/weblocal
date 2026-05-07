@@ -565,3 +565,217 @@ if (footerContactForm) {
   footerContactDayInput?.setAttribute('min', new Date().toISOString().split('T')[0]);
   footerContactHourInput?.setAttribute('step', '900');
 }
+
+const projectsViewport = document.getElementById('projectsViewport');
+const projectsSlider = document.getElementById('slider');
+const projectImages = projectsSlider ? projectsSlider.querySelectorAll('img') : [];
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+let projectIndex = Math.min(5, Math.max(0, projectImages.length - 1));
+let projectsFirstLayout = true;
+
+const projectPrefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function scrollProjectIntoView(smooth) {
+  if (!projectsViewport || !projectImages.length) return;
+  const active = projectImages[projectIndex];
+  if (!active) return;
+  const left = active.offsetLeft - (projectsViewport.clientWidth - active.offsetWidth) / 2;
+  const max = projectsViewport.scrollWidth - projectsViewport.clientWidth;
+  const clamped = Math.max(0, Math.min(left, max));
+  projectsViewport.scrollTo({
+    left: clamped,
+    behavior: smooth && !projectPrefersReducedMotion.matches ? 'smooth' : 'auto',
+  });
+}
+
+function updateProjectsSlider() {
+  projectImages.forEach((img, i) => img.classList.toggle('active', i === projectIndex));
+  const delay = projectsFirstLayout ? 0 : 40;
+  window.setTimeout(() => {
+    scrollProjectIntoView(!projectsFirstLayout);
+    projectsFirstLayout = false;
+  }, delay);
+}
+
+if (prevBtn && nextBtn && projectImages.length) {
+  prevBtn.addEventListener('click', () => {
+    projectIndex = (projectIndex - 1 + projectImages.length) % projectImages.length;
+    updateProjectsSlider();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    projectIndex = (projectIndex + 1) % projectImages.length;
+    updateProjectsSlider();
+  });
+
+  window.addEventListener('load', () => {
+    scrollProjectIntoView(false);
+  });
+
+  window.addEventListener('resize', () => {
+    scrollProjectIntoView(false);
+  });
+
+  updateProjectsSlider();
+}
+
+const projectsData = {
+  1: {
+    title: 'Sistema de facturación sencillo (taller)',
+    images: ['img/1.png'],
+    desc: 'Un sistema de facturación pensado para el ritmo real de un taller: crear presupuestos y facturas en minutos, tener un historial por cliente/vehículo y evitar perder tiempo buscando papeles. Mejora el control del trabajo (qué se ha hecho, cuándo y a quién), reduce errores al copiar/importar datos y deja la parte administrativa ordenada para cerrar mes sin estrés.',
+  },
+  2: {
+    title: 'Seguimiento de fabricación y pedidos (fábrica de ropa)',
+    images: ['img/2.png'],
+    desc: 'Panel para controlar todo el ciclo del pedido: entrada, planificación, fabricación, preparación y envío. Permite trabajar por estados claros, registrar incidencias, automatizar cálculos de importes y márgenes, y enviar avisos por email al cliente cuando el pedido avanza. Resultado: menos llamadas de “¿cómo va lo mío?”, menos confusiones internas y más entregas a tiempo.',
+  },
+  3: {
+    title: 'CRM (inmobiliaria)',
+    images: ['img/3.png'],
+    desc: 'CRM para no perder oportunidades: seguimiento de leads, registro de contactos y acciones (llamadas, visitas, notas), y pipeline comercial visible para todo el equipo. Integración con Google Calendar para citas/recordatorios y con Telegram para avisos rápidos. Mejora la coordinación, evita duplicidades y sube la conversión porque el cliente recibe respuesta y seguimiento a tiempo.',
+  },
+  4: {
+    title: 'Gestión de citas (peluquería)',
+    images: ['img/4.png'],
+    desc: 'Agenda de citas diseñada para optimizar huecos y evitar solapes: vista diaria/semanal, duración por servicio, notas del cliente y control de disponibilidad real. Reduce llamadas, baja los “no me apuntaste” y mejora la ocupación del equipo. Además, ayuda a planificar picos de trabajo y a tener un histórico para fidelización.',
+  },
+  5: {
+    title: 'Mantenimiento de flotas (taller/empresa)',
+    images: ['img/5.png'],
+    desc: 'Control de mantenimiento de flotas con visión 360º: visitas al taller, conceptos, tickets de gasoil, kilómetros, revisiones y vencimientos (ITV/seguros). Centraliza la información por vehículo, genera alertas antes de caducar y facilita reportes para dirección. Reduce averías por falta de control, minimiza paradas y elimina el caos de “cada uno lo apunta donde puede”.',
+  },
+  6: {
+    title: 'Agenda personal con voz e imágenes (Telegram)',
+    images: ['img/6.png'],
+    desc: 'Captura ultra rápida desde Telegram: voz, fotos y textos que se convierten en notas/tareas y acaban en un panel para revisar y ejecutar. Ideal para trabajo en movimiento: no se pierden ideas, se etiqueta por temas y se consulta luego con contexto. Ahorra tiempo, evita olvidos y reduce el “lo tengo en un chat/nota/correo y no sé dónde”.',
+  },
+  7: {
+    title: 'Control de sesiones y asistencias (gimnasio)',
+    images: ['img/7.png'],
+    desc: 'Sistema integral para un gimnasio: control de sesiones/asistencias, bonos, renovaciones, ingresos y comisiones de entrenadores. Incluye gestión de salas y reservas, y módulo de tienda/ventas si aplica. Da visibilidad diaria de la operación, reduce errores en cobros y mejora la rentabilidad al tener números claros (y no “en una libreta”).',
+  },
+  8: {
+    title: 'Control de gastos de obra por fotos (IA + Telegram)',
+    images: ['img/8.png'],
+    desc: 'Control de gastos por obra sin fricción: se suben fotos por Telegram y la IA detecta y clasifica albaranes, facturas o partes de trabajo. Se asigna a obra/proveedor/concepto y queda todo trazado para revisar costes reales. Reduce horas administrativas, evita documentos perdidos y permite saber en qué se va el dinero antes de que sea tarde.',
+  },
+  9: {
+    title: 'Gestión de flotas: consumos, ITV y seguros',
+    images: ['img/9.png'],
+    desc: 'Gestión y seguimiento continuo de flotas: consumos, mantenimientos, ITV, seguros y vencimientos con alertas automáticas. Ofrece una visión clara por vehículo y por periodos (coste/km, consumo, incidencias), lo que permite tomar decisiones con datos y recortar gastos. Evita multas y paradas por olvidos.',
+  },
+  10: {
+    title: 'Software de entregas: tracking y albaranes',
+    images: ['img/10.png'],
+    desc: 'Software para operaciones de entrega: planificación, asignación, tracking, albaranes/firmas y control económico por ruta/cliente. Reduce incidencias (entregas fallidas, albaranes perdidos), mejora la comunicación con cliente y da control real de la operativa. Ideal para escalar sin depender de WhatsApps sueltos y Excel.',
+  },
+  11: {
+    title: 'Citas privadas para peluquería (Telegram clientes)',
+    images: ['img/11.png'],
+    desc: 'Sistema de citas privado con soporte por Telegram para clientes: reservas, confirmaciones, cambios y recordatorios automáticos. Reduce llamadas y mensajes manuales, baja cancelaciones de última hora y mejora la experiencia del cliente. El negocio gana tiempo, orden y una agenda fiable incluso cuando el equipo está trabajando.',
+  },
+};
+
+const projectModal = document.getElementById('projectModal');
+const projectModalTitle = document.getElementById('projectModalTitle');
+const projectModalImg = document.getElementById('projectModalImg');
+const projectModalDesc = document.getElementById('projectModalDesc');
+const projectModalPrev = document.getElementById('projectModalPrev');
+const projectModalNext = document.getElementById('projectModalNext');
+
+let modalProjectId = null;
+let modalImageIndex = 0;
+let lastFocusedEl = null;
+
+function setProjectModalOpen(isOpen) {
+  if (!projectModal) return;
+  projectModal.classList.toggle('open', isOpen);
+  projectModal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+function renderProjectModal() {
+  const data = modalProjectId ? projectsData[modalProjectId] : null;
+  if (!data) return;
+
+  const imgs = data.images || [];
+  modalImageIndex = Math.max(0, Math.min(modalImageIndex, imgs.length - 1));
+
+  projectModalTitle.textContent = data.title || `Proyecto ${modalProjectId}`;
+  projectModalDesc.textContent = data.desc || '';
+  projectModalImg.src = imgs[modalImageIndex] || '';
+  projectModalImg.alt = data.title || `Proyecto ${modalProjectId}`;
+
+  const hasMany = imgs.length > 1;
+  projectModalPrev.disabled = !hasMany || modalImageIndex === 0;
+  projectModalNext.disabled = !hasMany || modalImageIndex === imgs.length - 1;
+  projectModalPrev.style.display = hasMany ? '' : 'none';
+  projectModalNext.style.display = hasMany ? '' : 'none';
+}
+
+function openProjectModal(id) {
+  const data = projectsData[id];
+  if (!data) return;
+  lastFocusedEl = document.activeElement;
+  modalProjectId = id;
+  modalImageIndex = 0;
+  renderProjectModal();
+  setProjectModalOpen(true);
+  const closeBtn = projectModal.querySelector('.project-modal__close');
+  if (closeBtn) closeBtn.focus();
+}
+
+function closeProjectModal() {
+  setProjectModalOpen(false);
+  modalProjectId = null;
+  modalImageIndex = 0;
+  if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') lastFocusedEl.focus();
+  lastFocusedEl = null;
+}
+
+function nextModalImage(delta) {
+  const data = modalProjectId ? projectsData[modalProjectId] : null;
+  if (!data || !data.images || data.images.length <= 1) return;
+  modalImageIndex = Math.max(0, Math.min(modalImageIndex + delta, data.images.length - 1));
+  renderProjectModal();
+}
+
+document.querySelectorAll('.project-thumb').forEach((img) => {
+  img.setAttribute('tabindex', '0');
+  img.setAttribute('role', 'button');
+  img.setAttribute('aria-label', `Abrir ${img.getAttribute('alt') || 'proyecto'}`);
+
+  img.addEventListener('click', () => {
+    const id = Number(img.dataset.project);
+    openProjectModal(id);
+  });
+
+  img.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      const id = Number(img.dataset.project);
+      openProjectModal(id);
+    }
+  });
+});
+
+if (projectModal) {
+  projectModal.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target && target.getAttribute && target.getAttribute('data-close') === 'true') {
+      closeProjectModal();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!projectModal.classList.contains('open')) return;
+    if (event.key === 'Escape') closeProjectModal();
+    if (event.key === 'ArrowLeft') nextModalImage(-1);
+    if (event.key === 'ArrowRight') nextModalImage(1);
+  });
+}
+
+if (projectModalPrev) projectModalPrev.addEventListener('click', () => nextModalImage(-1));
+if (projectModalNext) projectModalNext.addEventListener('click', () => nextModalImage(1));
