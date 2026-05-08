@@ -145,7 +145,7 @@ function openContactModal(trigger) {
   document.body.style.overflow = 'hidden';
   contactModalDialog?.focus();
 
-  trackEvent('generate_lead', {
+  trackEvent('contact_modal_open', {
     contact_method: 'contact_modal',
     lead_source: 'cta_button',
   });
@@ -590,7 +590,11 @@ function scrollProjectIntoView(smooth) {
 }
 
 function updateProjectsSlider() {
-  projectImages.forEach((img, i) => img.classList.toggle('active', i === projectIndex));
+  projectImages.forEach((img, i) => {
+    const isActive = i === projectIndex;
+    img.classList.toggle('active', isActive);
+    img.closest('.project-card')?.classList.toggle('active', isActive);
+  });
   const delay = projectsFirstLayout ? 0 : 40;
   window.setTimeout(() => {
     scrollProjectIntoView(!projectsFirstLayout);
@@ -742,20 +746,23 @@ function nextModalImage(delta) {
   renderProjectModal();
 }
 
-document.querySelectorAll('.project-thumb').forEach((img) => {
-  img.setAttribute('tabindex', '0');
-  img.setAttribute('role', 'button');
-  img.setAttribute('aria-label', `Abrir ${img.getAttribute('alt') || 'proyecto'}`);
+document.querySelectorAll('.project-card').forEach((card) => {
+  const img = card.querySelector('.project-thumb');
+  const projectLabel = img?.getAttribute('alt') || 'proyecto';
 
-  img.addEventListener('click', () => {
-    const id = Number(img.dataset.project);
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-label', `Abrir ${projectLabel}`);
+
+  card.addEventListener('click', () => {
+    const id = Number(card.dataset.projectCard);
     openProjectModal(id);
   });
 
-  img.addEventListener('keydown', (event) => {
+  card.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      const id = Number(img.dataset.project);
+      const id = Number(card.dataset.projectCard);
       openProjectModal(id);
     }
   });
