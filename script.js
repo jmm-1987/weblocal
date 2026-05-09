@@ -536,6 +536,9 @@ if (footerContactForm) {
         contact_method: formaContacto.toLowerCase(),
         lead_source: 'footer_form',
       });
+      trackEvent('conversion', {
+        send_to: 'AW-18132304665/K4GxCMPbiakcEJmGlMZD',
+      });
 
       footerContactForm.reset();
       footerContactDayInput?.setAttribute('min', new Date().toISOString().split('T')[0]);
