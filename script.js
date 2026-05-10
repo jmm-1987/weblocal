@@ -24,6 +24,12 @@ function trackEvent(eventName, params = {}) {
   });
 }
 
+function reportContactConversion() {
+  if (typeof window.gtag_report_conversion !== 'function') return;
+
+  window.gtag_report_conversion();
+}
+
 function getLinkLabel(link) {
   const ariaLabel = link.getAttribute('aria-label');
   const text = link.textContent.trim().replace(/\s+/g, ' ');
@@ -71,6 +77,7 @@ document.querySelectorAll('a[href]').forEach((link) => {
           : 'content';
 
     if (href.includes('wa.me')) {
+      reportContactConversion();
       trackEvent('generate_lead', {
         contact_method: 'whatsapp',
         link_text: label,
@@ -149,6 +156,7 @@ function openContactModal(trigger) {
     contact_method: 'contact_modal',
     lead_source: 'cta_button',
   });
+  reportContactConversion();
 }
 
 contactModalOpenButtons.forEach((button) => {
@@ -535,9 +543,6 @@ if (footerContactForm) {
       trackEvent('generate_lead', {
         contact_method: formaContacto.toLowerCase(),
         lead_source: 'footer_form',
-      });
-      trackEvent('conversion', {
-        send_to: 'AW-18132304665/K4GxCMPbiakcEJmGlMZD',
       });
 
       footerContactForm.reset();
