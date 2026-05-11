@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plan Base Digital | JM2 Tech Studio</title>
+  <meta name="description" content="Plan base digital para empresas: web profesional, dominio, email corporativo, auditoria inicial y acompanamiento continuo desde 30 euros al mes." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18132304665"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18132304665');
+    gtag('config', 'G-8FMNC7J0EN');
+  </script>
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18132304665/K4GxCMPbiakcEJmGlMZD',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body class="plan-base-page">
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Ir al inicio">
+        <img class="brand-logo-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#incluye">Qu&eacute; incluye</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#para-quien">Para qui&eacute;n</a>
+        <a href="index.html#proyectos">Trabajos</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+
+      <button class="quote-btn quote-btn-contact" type="button" data-contact-modal-open aria-label="Contactar ahora">
+        Contactar ahora
+      </button>
+
+      <button class="hamburger" id="menuBtn" aria-label="Abrir men&uacute;" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-backdrop" id="backdrop"></div>
+  <aside class="mobile-panel" id="mobilePanel" aria-hidden="true">
+    <button class="mobile-close" id="closeMenuBtn" aria-label="Cerrar men&uacute;">
+      <span></span>
+    </button>
+    <a href="#home">Inicio</a>
+    <a href="#incluye">Qu&eacute; incluye</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#para-quien">Para qui&eacute;n</a>
+    <a href="index.html#proyectos">Trabajos</a>
+    <a href="#contact">Contacto</a>
+    <button class="mobile-contact-trigger" type="button" data-contact-modal-open>Contactar ahora</button>
+  </aside>
+
+  <main>
+    <section class="plan-base-hero" id="home">
+      <div class="container plan-base-hero-wrap">
+        <div class="plan-base-hero-copy reveal-on-scroll reveal-from-left reveal-delay-1">
+          <div class="eyebrow">Plan base digital para empresas</div>
+          <h1>Tu negocio con una base digital clara, profesional y acompa&ntilde;ada.</h1>
+          <p>
+            Web, dominio, email corporativo, configuraci&oacute;n inicial y consultor&iacute;a continua para ordenar
+            lo b&aacute;sico sin complicarte.
+          </p>
+          <div class="plan-base-price-row">
+            <span class="plan-base-price">Desde 30&euro;/mes + IVA</span>
+            <span class="plan-base-note">Sin saltar directamente a soluciones grandes</span>
+          </div>
+          <div class="plan-base-actions">
+            <button class="btn-primary" type="button" data-contact-modal-open>Solicitar diagn&oacute;stico</button>
+            <a class="plan-base-secondary-link" href="#incluye">Ver qu&eacute; incluye</a>
+          </div>
+        </div>
+
+        <div class="plan-base-hero-visual reveal-on-scroll reveal-from-right reveal-delay-2" aria-label="Elementos del plan base digital">
+          <div class="plan-base-orbit"></div>
+          <img class="plan-base-main-img" src="base digital.png" alt="Base digital para empresas" />
+          <img class="plan-base-float plan-base-float-web" src="1web.png" alt="Web profesional" />
+          <img class="plan-base-float plan-base-float-email" src="1email.png" alt="Email corporativo" />
+          <img class="plan-base-float plan-base-float-domain" src="1dominio.png" alt="Dominio corporativo" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section plan-base-includes-section" id="incluye">
+      <div class="container">
+        <div class="section-heading reveal-on-scroll">
+          <div class="section-label">Qu&eacute; incluye</div>
+          <h2>Una base completa para empezar con criterio</h2>
+        </div>
+
+        <div class="plan-base-includes-grid">
+          <article class="plan-base-include-card reveal-on-scroll reveal-delay-1">
+            <img src="1audit.png" alt="Auditoria de costes digitales" />
+            <h3>Auditor&iacute;a inicial</h3>
+            <p>Revisamos herramientas, servicios y gastos actuales para encontrar ahorro y evitar pagos sin sentido.</p>
+          </article>
+          <article class="plan-base-include-card reveal-on-scroll reveal-delay-2">
+            <img src="1web.png" alt="Web profesional" />
+            <h3>Web profesional</h3>
+            <p>Una web clara para presentar tu negocio, explicar tus servicios y facilitar el contacto.</p>
+          </article>
+          <article class="plan-base-include-card reveal-on-scroll reveal-delay-3">
+            <img src="1dominio.png" alt="Dominio corporativo" />
+            <h3>Dominio y configuraci&oacute;n</h3>
+            <p>Dominio, ajustes iniciales y estructura preparada para que todo quede conectado desde el principio.</p>
+          </article>
+          <article class="plan-base-include-card reveal-on-scroll reveal-delay-4">
+            <img src="1email.png" alt="Email corporativo" />
+            <h3>Email corporativo</h3>
+            <p>Correo profesional con una configuraci&oacute;n ordenada para mejorar la comunicaci&oacute;n de la empresa.</p>
+          </article>
+          <article class="plan-base-include-card reveal-on-scroll reveal-delay-5">
+            <img src="1consultoria.png" alt="Consultoria continua" />
+            <h3>Acompa&ntilde;amiento</h3>
+            <p>Consultor&iacute;a continua para decidir qu&eacute; mejorar, qu&eacute; evitar y cu&aacute;ndo dar el siguiente paso.</p>
+          </article>
+          <article class="plan-base-include-card plan-base-include-card-strong reveal-on-scroll reveal-delay-6">
+            <img src="1config.png" alt="Configuracion de servicios digitales" />
+            <h3>Base escalable</h3>
+            <p>Dejamos preparado el terreno para futuras automatizaciones, integraciones o software propio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section plan-base-process-section" id="proceso">
+      <div class="container plan-base-process-panel">
+        <div class="plan-base-process-copy reveal-on-scroll reveal-from-left reveal-delay-1">
+          <div class="section-label">Proceso</div>
+          <h2>Primero entendemos tu negocio. Luego construimos lo necesario.</h2>
+          <p>
+            El plan est&aacute; pensado para empresas que quieren avanzar con orden, sin contratar piezas sueltas
+            que luego nadie mantiene.
+          </p>
+          <button class="entry-offer-cta-btn" type="button" data-contact-modal-open>Quiero revisar mi caso</button>
+        </div>
+
+        <div class="plan-base-steps reveal-on-scroll reveal-from-right reveal-delay-2">
+          <article>
+            <span>1</span>
+            <div>
+              <h3>Diagn&oacute;stico inicial</h3>
+              <p>Hablamos de procesos, gastos, servicios actuales y necesidades reales.</p>
+            </div>
+          </article>
+          <article>
+            <span>2</span>
+            <div>
+              <h3>Ordenamos la estructura</h3>
+              <p>Definimos web, dominio, correo, formularios y configuraci&oacute;n b&aacute;sica.</p>
+            </div>
+          </article>
+          <article>
+            <span>3</span>
+            <div>
+              <h3>Acompa&ntilde;amos la evoluci&oacute;n</h3>
+              <p>Revisamos mejoras por fases y detectamos cu&aacute;ndo conviene automatizar.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section plan-base-fit-section" id="para-quien">
+      <div class="container plan-base-fit-grid">
+        <div class="plan-base-fit-card reveal-on-scroll reveal-delay-1">
+          <div class="section-label">Encaja si</div>
+          <h2>Quieres una presencia digital profesional sin perderte en decisiones t&eacute;cnicas</h2>
+          <ul>
+            <li>Tu empresa necesita web, email o dominio bien configurados.</li>
+            <li>Quieres revisar gastos digitales antes de seguir pagando por inercia.</li>
+            <li>Necesitas alguien que te acompa&ntilde;e y traduzca la parte t&eacute;cnica.</li>
+            <li>Te interesa preparar el terreno para futuras automatizaciones.</li>
+          </ul>
+        </div>
+
+        <div class="plan-base-fit-card plan-base-fit-card-dark reveal-on-scroll reveal-delay-2">
+          <div class="section-label">Siguiente fase</div>
+          <h2>Cuando la base est&eacute; clara, podemos crecer contigo</h2>
+          <p>
+            Si m&aacute;s adelante necesitas automatizar citas, facturas, registros, WhatsApp, Telegram o procesos internos,
+            partiremos de una estructura que ya conocemos y que no empieza desde cero.
+          </p>
+          <a href="index.html#advanced-services">Ver automatizaciones</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-cta reveal-on-scroll">
+        <div class="footer-cta-copy">
+          <div class="section-label footer-section-label">Contacto</div>
+          <h2>Revisamos tu base digital y vemos por d&oacute;nde empezar</h2>
+          <p>
+            Cu&eacute;ntanos tu situaci&oacute;n actual y preparamos una primera conversaci&oacute;n para detectar necesidades,
+            costes innecesarios y prioridades reales.
+          </p>
+          <button class="footer-cta-link" type="button" data-contact-modal-open>Solicitar llamada</button>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <div class="footer-column footer-brand-column reveal-on-scroll reveal-delay-1">
+          <a href="index.html" class="footer-brand" aria-label="Volver al inicio">
+            <img class="footer-brand-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
+          </a>
+          <p>
+            Plan base digital para empresas que quieren una presencia profesional, soporte cercano
+            y una estructura preparada para crecer.
+          </p>
+          <div class="footer-meta">
+            <span>M&eacute;rida</span>
+            <span>Extremadura</span>
+            <span>Desde 30&euro;/mes + IVA</span>
+          </div>
+        </div>
+
+        <div class="footer-column reveal-on-scroll reveal-delay-2">
+          <h3>Navegaci&oacute;n</h3>
+          <nav class="footer-links" aria-label="Enlaces del pie de p&aacute;gina">
+            <a href="#incluye">Qu&eacute; incluye</a>
+            <a href="#proceso">Proceso</a>
+            <a href="#para-quien">Para qui&eacute;n</a>
+            <a href="index.html">Landing principal</a>
+          </nav>
+        </div>
+
+        <div class="footer-column reveal-on-scroll reveal-delay-3">
+          <h3>Servicios del plan</h3>
+          <nav class="footer-links" aria-label="Servicios destacados">
+            <a href="#incluye">Auditor&iacute;a inicial</a>
+            <a href="#incluye">Web profesional</a>
+            <a href="#incluye">Dominio y email</a>
+            <a href="#incluye">Acompa&ntilde;amiento</a>
+          </nav>
+        </div>
+
+        <div class="footer-column reveal-on-scroll reveal-delay-4">
+          <h3>Forma de trabajo</h3>
+          <p class="footer-note">
+            Diagn&oacute;stico, configuraci&oacute;n y seguimiento continuo para que cada decisi&oacute;n digital tenga sentido.
+          </p>
+          <div class="footer-pill-list">
+            <span>Orden inicial</span>
+            <span>Costes claros</span>
+            <span>Soporte cercano</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom reveal-on-scroll reveal-delay-2">
+        <p>JM2 Tech Studio | Plan base digital para empresas.</p>
+        <a href="#home">Volver arriba</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="contact-modal" id="contactModal" aria-hidden="true">
+    <div class="contact-modal-backdrop" data-contact-modal-close></div>
+    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-label="Solicitar llamada" tabindex="-1">
+      <button class="contact-modal-close" type="button" data-contact-modal-close aria-label="Cerrar formulario">
+        <span></span>
+      </button>
+
+      <div class="contact-modal-head">
+        <div class="section-label">Contacto</div>
+        <h3>Solicita una llamada</h3>
+        <p>Indica tus datos y te llamamos en el d&iacute;a y hora que prefieras.</p>
+      </div>
+
+      <form class="footer-contact-form" id="footerContactForm" novalidate>
+        <div class="footer-contact-brandmark" aria-hidden="true">
+          <img src="favicon.png" alt="" />
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>Nombre</span>
+            <input type="text" name="nombre" autocomplete="name" required />
+          </label>
+          <label class="footer-contact-field">
+            <span>Empresa</span>
+            <input type="text" name="empresa" autocomplete="organization" required />
+          </label>
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>Forma de contacto preferida</span>
+            <select name="forma_contacto" required>
+              <option value="">Selecciona una opci&oacute;n</option>
+              <option value="Prefiere WhatsApp">WhatsApp</option>
+              <option value="Prefiere Email">Email</option>
+              <option value="Prefiere llamada">Llamada</option>
+            </select>
+          </label>
+          <label class="footer-contact-field" id="footerContactDetailField">
+            <span id="footerContactDetailLabel">Dato de contacto</span>
+            <input
+              id="footerContactDetailInput"
+              type="text"
+              name="contacto_detalle"
+              placeholder="Selecciona primero la forma de contacto"
+              autocomplete="off"
+              required
+            />
+          </label>
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>D&iacute;a para la llamada</span>
+            <input type="date" name="dia_llamada" required />
+          </label>
+          <label class="footer-contact-field">
+            <span>Hora para la llamada</span>
+            <input type="time" name="hora_llamada" required />
+          </label>
+        </div>
+
+        <button type="submit" class="footer-contact-submit">Enviar solicitud</button>
+        <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <a
+    class="whatsapp-float whatsapp-float-with-label"
+    href="https://wa.me/34625433667"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Resolver dudas por WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16.01 3.2c-7.05 0-12.8 5.62-12.8 12.53 0 2.4.7 4.73 2.02 6.75L3.2 29.2l6.94-1.97a13.03 13.03 0 0 0 5.87 1.42c7.06 0 12.8-5.62 12.8-12.53S23.07 3.2 16.01 3.2Zm0 23.32c-1.86 0-3.68-.48-5.28-1.4l-.38-.22-4.12 1.17 1.18-3.94-.25-.4a10.37 10.37 0 0 1-1.8-6c0-5.74 4.78-10.4 10.65-10.4 5.88 0 10.66 4.66 10.66 10.4s-4.78 10.79-10.66 10.79Zm5.84-7.79c-.32-.16-1.9-.92-2.2-1.02-.3-.11-.52-.16-.74.16-.21.31-.84 1.02-1.03 1.23-.19.21-.38.24-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.6-1.86-1.79-2.17-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.74-1.74-1.02-2.39-.27-.62-.54-.54-.74-.55h-.63c-.22 0-.55.08-.84.39-.29.31-1.1 1.05-1.1 2.56 0 1.5 1.13 2.96 1.29 3.17.16.21 2.23 3.33 5.4 4.67.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.76 2.17-1.49.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z" />
+    </svg>
+    <span class="whatsapp-float-label">Resuelvo aqu&iacute; tus dudas</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

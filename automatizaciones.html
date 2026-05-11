@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automatizaciones para empresas | JM2 Tech Studio</title>
+  <meta name="description" content="Automatizaciones para empresas: citas, facturas, WhatsApp, Telegram, documentos, alertas y procesos internos conectados a tu forma real de trabajar." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18132304665"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18132304665');
+    gtag('config', 'G-8FMNC7J0EN');
+  </script>
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18132304665/K4GxCMPbiakcEJmGlMZD',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body class="automation-page">
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Ir al inicio">
+        <img class="brand-logo-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#automatizaciones">Automatizaciones</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#casos">Casos</a>
+        <a href="index.html#proyectos">Trabajos</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+
+      <button class="quote-btn quote-btn-contact" type="button" data-contact-modal-open aria-label="Contactar ahora">
+        Contactar ahora
+      </button>
+
+      <button class="hamburger" id="menuBtn" aria-label="Abrir men&uacute;" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-backdrop" id="backdrop"></div>
+  <aside class="mobile-panel" id="mobilePanel" aria-hidden="true">
+    <button class="mobile-close" id="closeMenuBtn" aria-label="Cerrar men&uacute;">
+      <span></span>
+    </button>
+    <a href="#home">Inicio</a>
+    <a href="#automatizaciones">Automatizaciones</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#casos">Casos</a>
+    <a href="index.html#proyectos">Trabajos</a>
+    <a href="#contact">Contacto</a>
+    <button class="mobile-contact-trigger" type="button" data-contact-modal-open>Contactar ahora</button>
+  </aside>
+
+  <main>
+    <section class="automation-hero" id="home">
+      <div class="container automation-hero-wrap">
+        <div class="automation-hero-copy reveal-on-scroll reveal-from-left reveal-delay-1">
+          <div class="eyebrow">Automatizaciones para empresas</div>
+          <h1>Menos tareas repetitivas. M&aacute;s control sobre tu negocio.</h1>
+          <p>
+            Automatizamos citas, facturas, avisos, documentos y seguimientos para que tu equipo deje de copiar datos
+            y trabaje con procesos m&aacute;s claros.
+          </p>
+          <div class="automation-hero-tags">
+            <span>WhatsApp</span>
+            <span>Telegram</span>
+            <span>Facturas</span>
+            <span>Citas</span>
+          </div>
+          <div class="plan-base-actions">
+            <button class="btn-primary" type="button" data-contact-modal-open>Estudiar mi proceso</button>
+            <a class="plan-base-secondary-link" href="#automatizaciones">Ver ejemplos</a>
+          </div>
+        </div>
+
+        <div class="automation-hero-visual reveal-on-scroll reveal-from-right reveal-delay-2" aria-label="Automatizaciones conectadas para empresas">
+          <div class="automation-hero-orbit"></div>
+          <img class="automation-main-img" src="automatizaciones.png" alt="Automatizaciones para empresas" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section automation-examples-section" id="automatizaciones">
+      <div class="container">
+        <div class="section-heading reveal-on-scroll">
+          <div class="section-label">Ejemplos a medida</div>
+          <h2>Automatizaciones que podemos estudiar contigo</h2>
+        </div>
+
+        <div class="automation-examples-grid">
+          <article class="automation-example-card reveal-on-scroll reveal-delay-1">
+            <img src="calendar.png" alt="Sistema de citas automatizado" />
+            <span>Agenda</span>
+            <h3>Citas y reservas</h3>
+            <p>Reserva, confirma y recuerda citas sin llamadas repetidas ni mensajes sueltos.</p>
+          </article>
+          <article class="automation-example-card reveal-on-scroll reveal-delay-2">
+            <img src="verifactu.png" alt="Automatizacion de facturacion" />
+            <span>Facturaci&oacute;n</span>
+            <h3>Facturas y Verifactu</h3>
+            <p>Ordena la emisi&oacute;n, seguimiento y avisos de facturas desde un flujo claro.</p>
+          </article>
+          <article class="automation-example-card reveal-on-scroll reveal-delay-3">
+            <img src="whatsapp.png" alt="Automatizaciones por WhatsApp" />
+            <span>WhatsApp</span>
+            <h3>Mensajes y seguimientos</h3>
+            <p>Env&iacute;a avisos, recordatorios y respuestas conectadas a tus procesos internos.</p>
+          </article>
+          <article class="automation-example-card reveal-on-scroll reveal-delay-4">
+            <img src="reconocimiento.png" alt="Reconocimiento de tickets y documentos" />
+            <span>Documentos</span>
+            <h3>Tickets y OCR</h3>
+            <p>Lee tickets, facturas o PDFs y evita copiar informaci&oacute;n a mano.</p>
+          </article>
+          <article class="automation-example-card reveal-on-scroll reveal-delay-5">
+            <img src="registro.png" alt="Control horario y registros" />
+            <span>Equipo</span>
+            <h3>Fichaje y registros</h3>
+            <p>Registra entradas, salidas, partes y datos internos de forma ordenada.</p>
+          </article>
+          <article class="automation-example-card reveal-on-scroll reveal-delay-6">
+            <img src="analisis.png" alt="Analisis de datos de negocio" />
+            <span>Datos</span>
+            <h3>An&aacute;lisis y alertas</h3>
+            <p>Resume datos clave y avisa cuando ocurre algo importante para el negocio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section automation-process-section" id="proceso">
+      <div class="container automation-process-panel">
+        <div class="automation-process-copy reveal-on-scroll reveal-from-left reveal-delay-1">
+          <div class="section-label">Proceso</div>
+          <h2>No automatizamos por moda. Primero miramos d&oacute;nde se pierde tiempo.</h2>
+          <p>
+            Cada automatizaci&oacute;n parte de un proceso real: qu&eacute; se repite, qui&eacute;n lo hace, d&oacute;nde se atasca
+            y qu&eacute; datos deben quedar guardados.
+          </p>
+          <button class="entry-offer-cta-btn" type="button" data-contact-modal-open>Quiero revisar mi proceso</button>
+        </div>
+
+        <div class="automation-steps reveal-on-scroll reveal-from-right reveal-delay-2">
+          <article>
+            <span>1</span>
+            <div>
+              <h3>Detectamos tareas repetidas</h3>
+              <p>Revisamos llamadas, mensajes, hojas, documentos y pasos manuales.</p>
+            </div>
+          </article>
+          <article>
+            <span>2</span>
+            <div>
+              <h3>Dise&ntilde;amos el flujo</h3>
+              <p>Definimos disparadores, datos, avisos y herramientas que deben conectarse.</p>
+            </div>
+          </article>
+          <article>
+            <span>3</span>
+            <div>
+              <h3>Probamos y ajustamos</h3>
+              <p>Implantamos por fases para que el equipo lo use sin romper su forma de trabajar.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section automation-cases-section" id="casos">
+      <div class="container automation-cases-grid">
+        <div class="automation-case-card reveal-on-scroll reveal-delay-1">
+          <div class="section-label">Encaja si</div>
+          <h2>Tu equipo dedica horas a repetir tareas que podr&iacute;an hacerse solas</h2>
+          <ul>
+            <li>Copi&aacute;is datos entre WhatsApp, email, Excel o programas distintos.</li>
+            <li>Hay avisos, citas o seguimientos que dependen de que alguien se acuerde.</li>
+            <li>Los documentos llegan en fotos o PDFs y luego toca pasarlos a mano.</li>
+            <li>Necesitas saber qu&eacute; est&aacute; hecho, qu&eacute; falta y qui&eacute;n lo tiene pendiente.</li>
+          </ul>
+        </div>
+
+        <div class="automation-case-card automation-case-card-dark reveal-on-scroll reveal-delay-2">
+          <div class="section-label">Siguiente nivel</div>
+          <h2>Si el proceso crece, podemos convertirlo en software propio</h2>
+          <p>
+            Algunas automatizaciones empiezan conectando herramientas y terminan necesitando un panel interno.
+            Si llega ese punto, podemos construir una soluci&oacute;n adaptada a tu negocio.
+          </p>
+          <a href="index.html#software-propio">Ver software propio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-cta reveal-on-scroll">
+        <div class="footer-cta-copy">
+          <div class="section-label footer-section-label">Contacto</div>
+          <h2>Cu&eacute;ntanos qu&eacute; tarea se repite demasiado</h2>
+          <p>
+            Revisamos tu proceso actual y vemos si tiene sentido automatizarlo, conectarlo con tus herramientas
+            o plantearlo como una mejora por fases.
+          </p>
+          <button class="footer-cta-link" type="button" data-contact-modal-open>Solicitar llamada</button>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <div class="footer-column footer-brand-column reveal-on-scroll reveal-delay-1">
+          <a href="index.html" class="footer-brand" aria-label="Volver al inicio">
+            <img class="footer-brand-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
+          </a>
+          <p>
+            Automatizaciones e integraciones para empresas que quieren reducir tareas manuales
+            y ganar control sobre sus procesos diarios.
+          </p>
+          <div class="footer-meta">
+            <span>M&eacute;rida</span>
+            <span>Extremadura</span>
+            <span>Procesos conectados</span>
+          </div>
+        </div>
+
+        <div class="footer-column reveal-on-scroll reveal-delay-2">
+          <h3>Navegaci&oacute;n</h3>
+          <nav class="footer-links" aria-label="Enlaces del pie de p&aacute;gina">
+            <a href="#automatizaciones">Automatizaciones</a>
+            <a href="#proceso">Proceso</a>
+            <a href="#casos">Casos</a>
+            <a href="index.html">Landing principal</a>
+          </nav>
+        </div>
+
+        <div class="footer-column reveal-on-scroll reveal-delay-3">
+          <h3>Automatizaciones</h3>
+          <nav class="footer-links" aria-label="Servicios destacados">
+            <a href="#automatizaciones">Citas y reservas</a>
+            <a href="#automatizaciones">Facturas y avisos</a>
+            <a href="#automatizaciones">WhatsApp y Telegram</a>
+            <a href="#automatizaciones">Documentos y datos</a>
+          </nav>
+        </div>
+
+        <div class="footer-column reveal-on-scroll reveal-delay-4">
+          <h3>Forma de trabajo</h3>
+          <p class="footer-note">
+            Analizamos el proceso antes de tocar herramientas para que la automatizaci&oacute;n tenga sentido real.
+          </p>
+          <div class="footer-pill-list">
+            <span>Diagn&oacute;stico</span>
+            <span>Implantaci&oacute;n por fases</span>
+            <span>Soporte cercano</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom reveal-on-scroll reveal-delay-2">
+        <p>JM2 Tech Studio | Automatizaciones para empresas.</p>
+        <a href="#home">Volver arriba</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="contact-modal" id="contactModal" aria-hidden="true">
+    <div class="contact-modal-backdrop" data-contact-modal-close></div>
+    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-label="Solicitar llamada" tabindex="-1">
+      <button class="contact-modal-close" type="button" data-contact-modal-close aria-label="Cerrar formulario">
+        <span></span>
+      </button>
+
+      <div class="contact-modal-head">
+        <div class="section-label">Contacto</div>
+        <h3>Solicita una llamada</h3>
+        <p>Indica tus datos y te llamamos en el d&iacute;a y hora que prefieras.</p>
+      </div>
+
+      <form class="footer-contact-form" id="footerContactForm" novalidate>
+        <div class="footer-contact-brandmark" aria-hidden="true">
+          <img src="favicon.png" alt="" />
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>Nombre</span>
+            <input type="text" name="nombre" autocomplete="name" required />
+          </label>
+          <label class="footer-contact-field">
+            <span>Empresa</span>
+            <input type="text" name="empresa" autocomplete="organization" required />
+          </label>
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>Forma de contacto preferida</span>
+            <select name="forma_contacto" required>
+              <option value="">Selecciona una opci&oacute;n</option>
+              <option value="Prefiere WhatsApp">WhatsApp</option>
+              <option value="Prefiere Email">Email</option>
+              <option value="Prefiere llamada">Llamada</option>
+            </select>
+          </label>
+          <label class="footer-contact-field" id="footerContactDetailField">
+            <span id="footerContactDetailLabel">Dato de contacto</span>
+            <input
+              id="footerContactDetailInput"
+              type="text"
+              name="contacto_detalle"
+              placeholder="Selecciona primero la forma de contacto"
+              autocomplete="off"
+              required
+            />
+          </label>
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>D&iacute;a para la llamada</span>
+            <input type="date" name="dia_llamada" required />
+          </label>
+          <label class="footer-contact-field">
+            <span>Hora para la llamada</span>
+            <input type="time" name="hora_llamada" required />
+          </label>
+        </div>
+
+        <button type="submit" class="footer-contact-submit">Enviar solicitud</button>
+        <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <a
+    class="whatsapp-float whatsapp-float-with-label"
+    href="https://wa.me/34625433667"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Resolver dudas por WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16.01 3.2c-7.05 0-12.8 5.62-12.8 12.53 0 2.4.7 4.73 2.02 6.75L3.2 29.2l6.94-1.97a13.03 13.03 0 0 0 5.87 1.42c7.06 0 12.8-5.62 12.8-12.53S23.07 3.2 16.01 3.2Zm0 23.32c-1.86 0-3.68-.48-5.28-1.4l-.38-.22-4.12 1.17 1.18-3.94-.25-.4a10.37 10.37 0 0 1-1.8-6c0-5.74 4.78-10.4 10.65-10.4 5.88 0 10.66 4.66 10.66 10.4s-4.78 10.79-10.66 10.79Zm5.84-7.79c-.32-.16-1.9-.92-2.2-1.02-.3-.11-.52-.16-.74.16-.21.31-.84 1.02-1.03 1.23-.19.21-.38.24-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.6-1.86-1.79-2.17-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.74-1.74-1.02-2.39-.27-.62-.54-.54-.74-.55h-.63c-.22 0-.55.08-.84.39-.29.31-1.1 1.05-1.1 2.56 0 1.5 1.13 2.96 1.29 3.17.16.21 2.23 3.33 5.4 4.67.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.76 2.17-1.49.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z" />
+    </svg>
+    <span class="whatsapp-float-label">Resuelvo aqu&iacute; tus dudas</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
