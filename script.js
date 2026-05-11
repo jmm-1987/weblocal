@@ -429,8 +429,6 @@ const footerContactStatus = document.getElementById('footerContactStatus');
 const footerContactMethodSelect = footerContactForm?.querySelector('select[name="forma_contacto"]');
 const footerContactDetailLabel = document.getElementById('footerContactDetailLabel');
 const footerContactDetailInput = document.getElementById('footerContactDetailInput');
-const footerContactDayInput = footerContactForm?.querySelector('input[name="dia_llamada"]');
-const footerContactHourInput = footerContactForm?.querySelector('input[name="hora_llamada"]');
 const EMAILJS_SERVICE_ID = 'service_a1xi29i';
 const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
 const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
@@ -446,14 +444,6 @@ if (footerContactForm) {
     if (!footerContactMethodSelect || !footerContactDetailInput || !footerContactDetailLabel) return;
 
     const selectedMethod = footerContactMethodSelect.value;
-
-    if (selectedMethod === 'Prefiere Email') {
-      footerContactDetailLabel.textContent = 'Email';
-      footerContactDetailInput.type = 'email';
-      footerContactDetailInput.placeholder = 'tuemail@empresa.com';
-      footerContactDetailInput.autocomplete = 'email';
-      return;
-    }
 
     if (selectedMethod === 'Prefiere WhatsApp') {
       footerContactDetailLabel.textContent = 'Numero de telefono';
@@ -488,10 +478,10 @@ if (footerContactForm) {
     const empresa = String(formData.get('empresa') || '').trim();
     const formaContacto = String(formData.get('forma_contacto') || '').trim();
     const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
-    const diaLlamada = String(formData.get('dia_llamada') || '').trim();
-    const horaLlamada = String(formData.get('hora_llamada') || '').trim();
+    const diaLlamada = 'No indicado';
+    const horaLlamada = 'No indicado';
 
-    if (!nombre || !empresa || !formaContacto || !contactoDetalle || !diaLlamada || !horaLlamada) {
+    if (!nombre || !empresa || !formaContacto || !contactoDetalle) {
       if (footerContactStatus) {
         footerContactStatus.textContent = 'Completa todos los campos antes de enviar.';
       }
@@ -526,6 +516,7 @@ if (footerContactForm) {
       await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         nombre,
         email: contactoDetalle,
+        telefono: contactoDetalle,
         empresa,
         forma_de_contacto: formaContacto,
         contacto_detalle: contactoDetalle,
@@ -546,8 +537,6 @@ if (footerContactForm) {
       });
 
       footerContactForm.reset();
-      footerContactDayInput?.setAttribute('min', new Date().toISOString().split('T')[0]);
-      footerContactHourInput?.setAttribute('step', '900');
       updateContactDetailField();
       closeContactModal();
     } catch (error) {
@@ -570,8 +559,6 @@ if (footerContactForm) {
     }
   });
 
-  footerContactDayInput?.setAttribute('min', new Date().toISOString().split('T')[0]);
-  footerContactHourInput?.setAttribute('step', '900');
 }
 
 const projectsViewport = document.getElementById('projectsViewport');

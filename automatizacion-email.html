@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automatizacion de Email | JM2 Tech Studio</title>
+  <meta name="description" content="Automatizacion de email para empresas: descarga de adjuntos, reconocimiento de documentos, redirecciones, reenvios, avisos y registro automatico de datos." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18132304665"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18132304665');
+    gtag('config', 'G-8FMNC7J0EN');
+  </script>
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18132304665/K4GxCMPbiakcEJmGlMZD',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body class="email-automation-page">
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Ir al inicio">
+        <img class="brand-logo-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#problema">El problema</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-haspopup="true">
+            Automatizaciones
+          </button>
+          <div class="nav-dropdown-menu" aria-label="P&aacute;ginas de automatizaciones">
+            <a href="adios-excel.html">Adi&oacute;s Excel</a>
+            <a href="automatizacion-email.html">Email autom&aacute;tico</a>
+          </div>
+        </div>
+        <a href="#acciones">Qu&eacute; automatizamos</a>
+        <a href="#adjuntos">Adjuntos</a>
+        <a href="#proceso">Proceso</a>
+        <a href="sobremi.html">Sobre m&iacute;</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+
+      <button class="quote-btn quote-btn-contact" type="button" data-contact-modal-open aria-label="Contactar ahora">
+        Contactar ahora
+      </button>
+
+      <button class="hamburger" id="menuBtn" aria-label="Abrir men&uacute;" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-backdrop" id="backdrop"></div>
+  <aside class="mobile-panel" id="mobilePanel" aria-hidden="true">
+    <button class="mobile-close" id="closeMenuBtn" aria-label="Cerrar men&uacute;">
+      <span></span>
+    </button>
+    <a href="#home">Inicio</a>
+    <a href="#problema">El problema</a>
+    <div class="mobile-menu-group">
+      <span>Automatizaciones</span>
+      <a href="adios-excel.html">Adi&oacute;s Excel</a>
+      <a href="automatizacion-email.html">Email autom&aacute;tico</a>
+    </div>
+    <a href="#acciones">Qu&eacute; automatizamos</a>
+    <a href="#adjuntos">Adjuntos</a>
+    <a href="#proceso">Proceso</a>
+    <a href="sobremi.html">Sobre m&iacute;</a>
+    <a href="#contact">Contacto</a>
+    <button class="mobile-contact-trigger" type="button" data-contact-modal-open>Contactar ahora</button>
+  </aside>
+
+  <main>
+    <section class="email-automation-hero" id="home">
+      <div class="container email-automation-hero-wrap">
+        <div class="email-automation-hero-copy reveal-on-scroll reveal-from-left reveal-delay-1">
+          <div class="eyebrow">Automatizaci&oacute;n de email</div>
+          <h1>Tu correo puede trabajar solo antes de que alguien lo abra.</h1>
+          <p>
+            Automatizamos la lectura de emails, descarga de adjuntos, reconocimiento de documentos,
+            reenv&iacute;os, redirecciones y avisos para que cada mensaje llegue al sitio correcto.
+          </p>
+          <div class="email-automation-tags">
+            <span>Adjuntos</span>
+            <span>OCR</span>
+            <span>Reenv&iacute;os</span>
+            <span>Avisos</span>
+          </div>
+          <div class="plan-base-actions">
+            <button class="btn-primary" type="button" data-contact-modal-open>Automatizar mi correo</button>
+            <a class="plan-base-secondary-link" href="#acciones">Ver posibilidades</a>
+          </div>
+        </div>
+
+        <div class="email-automation-hero-visual reveal-on-scroll reveal-from-right reveal-delay-2" aria-label="Flujo automatizado de correos y adjuntos">
+          <div class="email-automation-inbox">
+            <div class="email-automation-inbox-top">
+              <span>Bandeja inteligente</span>
+              <strong>12 nuevos</strong>
+            </div>
+            <div class="email-automation-mail is-done">
+              <strong>Factura proveedor</strong>
+              <span>PDF descargado y clasificado</span>
+            </div>
+            <div class="email-automation-mail">
+              <strong>Pedido cliente</strong>
+              <span>Datos extra&iacute;dos y enviados al equipo</span>
+            </div>
+            <div class="email-automation-mail is-alert">
+              <strong>Incidencia urgente</strong>
+              <span>Redirigida y avisada por WhatsApp</span>
+            </div>
+            <div class="email-automation-mail">
+              <strong>Solicitud web</strong>
+              <span>Reenviada al responsable</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section email-automation-problem-section" id="problema">
+      <div class="container email-automation-split">
+        <div class="email-automation-copy reveal-on-scroll reveal-from-left reveal-delay-1">
+          <div class="section-label">El problema</div>
+          <h2>El email sigue siendo el centro de muchas empresas, pero casi todo se gestiona a mano.</h2>
+          <p>
+            Llegan facturas, pedidos, incidencias, partes, presupuestos y avisos. Alguien tiene que abrir,
+            leer, descargar, renombrar, reenviar y apuntar datos. Ah&iacute; es donde se pierde tiempo.
+          </p>
+        </div>
+        <div class="email-automation-risk-grid reveal-on-scroll reveal-from-right reveal-delay-2">
+          <article>
+            <span>01</span>
+            <h3>Adjuntos perdidos</h3>
+            <p>Documentos importantes quedan enterrados en hilos, bandejas o carpetas sin criterio.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Reenv&iacute;os manuales</h3>
+            <p>Cada correo depende de que alguien sepa a qui&eacute;n mandarlo y lo haga a tiempo.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Datos sin registrar</h3>
+            <p>La informaci&oacute;n llega por email, pero acaba copi&aacute;ndose tarde en Excel, CRM o facturaci&oacute;n.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section email-automation-actions-section" id="acciones">
+      <div class="container">
+        <div class="section-heading reveal-on-scroll">
+          <div class="section-label">Qu&eacute; automatizamos</div>
+          <h2>Del email al proceso correcto, sin pasos repetidos</h2>
+          <p>
+            Creamos reglas y flujos para que cada correo se analice, se clasifique y active la acci&oacute;n necesaria.
+          </p>
+        </div>
+
+        <div class="email-automation-actions-grid">
+          <article class="email-automation-action-card reveal-on-scroll reveal-delay-1">
+            <div class="email-automation-action-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M22 12.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8.5" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                <circle cx="17.5" cy="17.5" r="2.5" />
+                <path d="m21 21-1.7-1.7" />
+              </svg>
+            </div>
+            <span>Lectura</span>
+            <h3>Detectar correos importantes</h3>
+            <p>Identificamos remitentes, asuntos, palabras clave, importes, fechas o referencias.</p>
+          </article>
+          <article class="email-automation-action-card reveal-on-scroll reveal-delay-2">
+            <div class="email-automation-action-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V7Z" />
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                <path d="M12 12v6" />
+                <path d="m9 15 3 3 3-3" />
+              </svg>
+            </div>
+            <span>Adjuntos</span>
+            <h3>Descargar y reconocer documentos</h3>
+            <p>Guardamos PDFs, im&aacute;genes o archivos y extraemos datos con OCR o lectura estructurada.</p>
+          </article>
+          <article class="email-automation-action-card reveal-on-scroll reveal-delay-3">
+            <div class="email-automation-action-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M10.27 21a2 2 0 0 0 3.46 0" />
+                <path d="M3.26 15.33A2 2 0 0 0 5 18h14a2 2 0 0 0 1.74-2.67C20.28 14.1 19 13.35 19 10a7 7 0 1 0-14 0c0 3.35-1.28 4.1-1.74 5.33Z" />
+                <path d="M4 2C2.8 3.1 2 4.6 2 6.5" />
+                <path d="M22 6.5c0-1.9-.8-3.4-2-4.5" />
+              </svg>
+            </div>
+            <span>Avisos</span>
+            <h3>Notificar al equipo correcto</h3>
+            <p>Enviamos avisos por Telegram, WhatsApp, email o panel interno cuando algo requiere atenci&oacute;n.</p>
+          </article>
+          <article class="email-automation-action-card reveal-on-scroll reveal-delay-4">
+            <div class="email-automation-action-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
+                <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3" />
+              </svg>
+            </div>
+            <span>Registro</span>
+            <h3>Guardar datos en tu sistema</h3>
+            <p>Registramos pedidos, facturas, incidencias o leads en una base de datos, CRM o herramienta interna.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section email-automation-attachments-section" id="adjuntos">
+      <div class="container email-automation-attachments-panel">
+        <div class="email-automation-attachments-card reveal-on-scroll reveal-from-left reveal-delay-1">
+          <div class="section-label">Adjuntos</div>
+          <h2>Los archivos pueden descargarse, nombrarse y archivarse solos.</h2>
+          <p>
+            Un adjunto no deber&iacute;a depender de que alguien lo descargue en el escritorio. Podemos organizarlo
+            por cliente, fecha, proyecto, tipo de documento o estado.
+          </p>
+          <ul>
+            <li>Descarga autom&aacute;tica de PDFs, im&aacute;genes, Excels o documentos.</li>
+            <li>Renombrado con datos reales: cliente, fecha, n&uacute;mero o referencia.</li>
+            <li>Clasificaci&oacute;n en carpetas o sistemas internos.</li>
+            <li>Reconocimiento de facturas, tickets, albaranes, partes o formularios.</li>
+          </ul>
+        </div>
+        <div class="email-automation-rules reveal-on-scroll reveal-from-right reveal-delay-2">
+          <div class="email-automation-rule">
+            <span>Si llega una factura</span>
+            <strong>Descargar + extraer importe + avisar</strong>
+          </div>
+          <div class="email-automation-rule">
+            <span>Si llega una incidencia</span>
+            <strong>Reenviar + asignar responsable</strong>
+          </div>
+          <div class="email-automation-rule">
+            <span>Si llega un pedido</span>
+            <strong>Registrar + confirmar recepci&oacute;n</strong>
+          </div>
+          <div class="email-automation-rule">
+            <span>Si falta un dato</span>
+            <strong>Pedir revisi&oacute;n autom&aacute;tica</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section email-automation-process-section" id="proceso">
+      <div class="container email-automation-process-grid">
+        <article class="email-automation-process-card reveal-on-scroll reveal-delay-1">
+          <span>1</span>
+          <h3>Revisamos tus bandejas</h3>
+          <p>Analizamos qu&eacute; correos llegan, cu&aacute;les importan y qu&eacute; hace ahora el equipo con ellos.</p>
+        </article>
+        <article class="email-automation-process-card reveal-on-scroll reveal-delay-2">
+          <span>2</span>
+          <h3>Dise&ntilde;amos reglas claras</h3>
+          <p>Definimos filtros, descargas, redirecciones, reenv&iacute;os, avisos y datos a extraer.</p>
+        </article>
+        <article class="email-automation-process-card reveal-on-scroll reveal-delay-3">
+          <span>3</span>
+          <h3>Probamos con emails reales</h3>
+          <p>Ajustamos el flujo con casos reales para reducir errores antes de dejarlo funcionando.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-cta reveal-on-scroll">
+        <div class="footer-cta-copy">
+          <div class="section-label footer-section-label">Contacto</div>
+          <h2>Ens&eacute;&ntilde;anos qu&eacute; emails os hacen perder tiempo</h2>
+          <p>
+            Revisamos tus correos repetidos, adjuntos, redirecciones y datos que hoy se copian a mano
+            para proponer una automatizaci&oacute;n por fases.
+          </p>
+          <button class="footer-cta-link" type="button" data-contact-modal-open>Solicitar llamada</button>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <div class="footer-column footer-brand-column reveal-on-scroll reveal-delay-1">
+          <a href="index.html" class="footer-brand" aria-label="Volver al inicio">
+            <img class="footer-brand-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
+          </a>
+          <p>
+            Automatizaci&oacute;n de email para empresas que quieren reducir tareas manuales y ganar control sobre documentos, avisos y datos.
+          </p>
+          <div class="footer-meta">
+            <span>M&eacute;rida</span>
+            <span>Extremadura</span>
+            <span>Email automatizado</span>
+          </div>
+        </div>
+
+        <div class="footer-column reveal-on-scroll reveal-delay-2">
+          <h3>Navegaci&oacute;n</h3>
+          <nav class="footer-links" aria-label="Enlaces del pie de p&aacute;gina">
+            <a href="#problema">El problema</a>
+            <a href="#acciones">Qu&eacute; automatizamos</a>
+            <a href="#adjuntos">Adjuntos</a>
+            <a href="sobremi.html">Sobre m&iacute;</a>
+          </nav>
+        </div>
+
+        <div class="footer-column reveal-on-scroll reveal-delay-3">
+          <h3>Automatizaciones</h3>
+          <nav class="footer-links" aria-label="Servicios destacados">
+            <a href="#acciones">Lectura de emails</a>
+            <a href="#adjuntos">Descarga de adjuntos</a>
+            <a href="#acciones">Redirecciones</a>
+            <a href="#acciones">Avisos y registros</a>
+          </nav>
+        </div>
+
+        <div class="footer-column reveal-on-scroll reveal-delay-4">
+          <h3>Forma de trabajo</h3>
+          <p class="footer-note">
+            Partimos de emails reales, reglas claras y pruebas por fases para que la automatizaci&oacute;n sea fiable.
+          </p>
+          <div class="footer-pill-list">
+            <span>Emails reales</span>
+            <span>Reglas claras</span>
+            <span>Soporte cercano</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom reveal-on-scroll reveal-delay-2">
+        <p>JM2 Tech Studio | Automatizaci&oacute;n de email para empresas.</p>
+        <a href="#home">Volver arriba</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="contact-modal" id="contactModal" aria-hidden="true">
+    <div class="contact-modal-backdrop" data-contact-modal-close></div>
+    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-label="Solicitar llamada" tabindex="-1">
+      <button class="contact-modal-close" type="button" data-contact-modal-close aria-label="Cerrar formulario">
+        <span></span>
+      </button>
+
+      <div class="contact-modal-head">
+        <div class="section-label">Contacto</div>
+        <h3>Solicita una llamada</h3>
+        <p>Indica tus datos y te llamamos en el d&iacute;a y hora que prefieras.</p>
+      </div>
+
+      <form class="footer-contact-form" id="footerContactForm" novalidate>
+        <div class="footer-contact-brandmark" aria-hidden="true">
+          <img src="favicon.png" alt="" />
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>Nombre</span>
+            <input type="text" name="nombre" autocomplete="name" required />
+          </label>
+          <label class="footer-contact-field">
+            <span>Empresa</span>
+            <input type="text" name="empresa" autocomplete="organization" required />
+          </label>
+        </div>
+
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field">
+            <span>Forma de contacto preferida</span>
+            <select name="forma_contacto" required>
+              <option value="">Selecciona una opci&oacute;n</option>
+              <option value="Prefiere WhatsApp">WhatsApp</option>
+              <option value="Prefiere llamada">Llamada</option>
+            </select>
+          </label>
+          <label class="footer-contact-field" id="footerContactDetailField">
+            <span id="footerContactDetailLabel">Dato de contacto</span>
+            <input
+              id="footerContactDetailInput"
+              type="text"
+              name="contacto_detalle"
+              placeholder="Selecciona primero la forma de contacto"
+              autocomplete="off"
+              required
+            />
+          </label>
+        </div>
+
+        <button type="submit" class="footer-contact-submit">Enviar solicitud</button>
+        <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <a
+    class="whatsapp-float whatsapp-float-with-label"
+    href="https://wa.me/34625433667"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Resolver dudas por WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16.01 3.2c-7.05 0-12.8 5.62-12.8 12.53 0 2.4.7 4.73 2.02 6.75L3.2 29.2l6.94-1.97a13.03 13.03 0 0 0 5.87 1.42c7.06 0 12.8-5.62 12.8-12.53S23.07 3.2 16.01 3.2Zm0 23.32c-1.86 0-3.68-.48-5.28-1.4l-.38-.22-4.12 1.17 1.18-3.94-.25-.4a10.37 10.37 0 0 1-1.8-6c0-5.74 4.78-10.4 10.65-10.4 5.88 0 10.66 4.66 10.66 10.4s-4.78 10.79-10.66 10.79Zm5.84-7.79c-.32-.16-1.9-.92-2.2-1.02-.3-.11-.52-.16-.74.16-.21.31-.84 1.02-1.03 1.23-.19.21-.38.24-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.6-1.86-1.79-2.17-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.74-1.74-1.02-2.39-.27-.62-.54-.54-.74-.55h-.63c-.22 0-.55.08-.84.39-.29.31-1.1 1.05-1.1 2.56 0 1.5 1.13 2.96 1.29 3.17.16.21 2.23 3.33 5.4 4.67.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.76 2.17-1.49.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z" />
+    </svg>
+    <span class="whatsapp-float-label">Resuelvo aqu&iacute; tus dudas</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

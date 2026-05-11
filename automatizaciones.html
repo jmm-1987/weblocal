@@ -41,7 +41,15 @@
       </a>
 
       <nav class="nav-links" aria-label="Principal">
-        <a href="#automatizaciones">Automatizaciones</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-haspopup="true">
+            Automatizaciones
+          </button>
+          <div class="nav-dropdown-menu" aria-label="P&aacute;ginas de automatizaciones">
+            <a href="adios-excel.html">Adi&oacute;s Excel</a>
+            <a href="automatizacion-email.html">Email autom&aacute;tico</a>
+          </div>
+        </div>
         <a href="#proceso">Proceso</a>
         <a href="#casos">Casos</a>
         <a href="index.html#proyectos">Trabajos</a>
@@ -65,7 +73,11 @@
       <span></span>
     </button>
     <a href="#home">Inicio</a>
-    <a href="#automatizaciones">Automatizaciones</a>
+    <div class="mobile-menu-group">
+      <span>Automatizaciones</span>
+      <a href="adios-excel.html">Adi&oacute;s Excel</a>
+      <a href="automatizacion-email.html">Email autom&aacute;tico</a>
+    </div>
     <a href="#proceso">Proceso</a>
     <a href="#casos">Casos</a>
     <a href="index.html#proyectos">Trabajos</a>
@@ -320,7 +332,6 @@
             <select name="forma_contacto" required>
               <option value="">Selecciona una opci&oacute;n</option>
               <option value="Prefiere WhatsApp">WhatsApp</option>
-              <option value="Prefiere Email">Email</option>
               <option value="Prefiere llamada">Llamada</option>
             </select>
           </label>
@@ -334,17 +345,6 @@
               autocomplete="off"
               required
             />
-          </label>
-        </div>
-
-        <div class="footer-contact-grid">
-          <label class="footer-contact-field">
-            <span>D&iacute;a para la llamada</span>
-            <input type="date" name="dia_llamada" required />
-          </label>
-          <label class="footer-contact-field">
-            <span>Hora para la llamada</span>
-            <input type="time" name="hora_llamada" required />
           </label>
         </div>
 

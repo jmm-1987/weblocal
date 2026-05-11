@@ -43,8 +43,15 @@
 
       <nav class="nav-links" aria-label="Principal">
         <a href="#entry-offer">Base digital</a>
-        <a href="#advanced-services">Automatizaciones</a>
-        <a href="adios-excel.html">Adi&oacute;s Excel</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" type="button" aria-haspopup="true">
+            Automatizaciones
+          </button>
+          <div class="nav-dropdown-menu" aria-label="P&aacute;ginas de automatizaciones">
+            <a href="adios-excel.html">Adi&oacute;s Excel</a>
+            <a href="automatizacion-email.html">Email autom&aacute;tico</a>
+          </div>
+        </div>
         <a href="#software-propio">Software propio</a>
         <a href="sobremi.html">Sobre m&iacute;</a>
         <a href="#contact">Contacto</a>
@@ -67,8 +74,11 @@
     </button>
     <a href="#home">Inicio</a>
     <a href="#entry-offer">Base digital</a>
-    <a href="#advanced-services">Automatizaciones</a>
-    <a href="adios-excel.html">Adi&oacute;s Excel</a>
+    <div class="mobile-menu-group">
+      <span>Automatizaciones</span>
+      <a href="adios-excel.html">Adi&oacute;s Excel</a>
+      <a href="automatizacion-email.html">Email autom&aacute;tico</a>
+    </div>
     <a href="#software-propio">Software propio</a>
     <a href="sobremi.html">Sobre m&iacute;</a>
     <a href="#contact">Contacto</a>
@@ -256,6 +266,7 @@
           </p>
           <div class="entry-offer-cta-row">
             <a class="entry-offer-cta-btn" href="adios-excel.html">Ver Adi&oacute;s Excel</a>
+            <a class="entry-offer-cta-btn" href="automatizacion-email.html">Ver email autom&aacute;tico</a>
           </div>
         </div>
 
@@ -584,6 +595,7 @@
             <a href="#entry-offer">Base digital inicial</a>
             <a href="#advanced-services">Automatizaciones</a>
             <a href="adios-excel.html">Adi&oacute;s Excel</a>
+            <a href="automatizacion-email.html">Email autom&aacute;tico</a>
             <a href="#software-propio">Software propio</a>
             <a href="#advanced-services">Integraciones</a>
           </nav>
@@ -667,7 +679,6 @@
             <select name="forma_contacto" required>
               <option value="">Selecciona una opci&oacute;n</option>
               <option value="Prefiere WhatsApp">WhatsApp</option>
-              <option value="Prefiere Email">Email</option>
               <option value="Prefiere llamada">Llamada</option>
             </select>
           </label>
@@ -681,17 +692,6 @@
               autocomplete="off"
               required
             />
-          </label>
-        </div>
-
-        <div class="footer-contact-grid">
-          <label class="footer-contact-field">
-            <span>D&iacute;a para la llamada</span>
-            <input type="date" name="dia_llamada" required />
-          </label>
-          <label class="footer-contact-field">
-            <span>Hora para la llamada</span>
-            <input type="time" name="hora_llamada" required />
           </label>
         </div>
 
