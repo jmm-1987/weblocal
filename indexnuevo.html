@@ -850,6 +850,49 @@
       transform: rotate(-4deg);
     }
 
+    .automation-package-panel {
+      grid-template-columns: minmax(360px, .9fr) minmax(0, 1fr);
+    }
+
+    .automation-icon-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .automation-feature {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 16px 30px rgba(16,32,72,.09);
+    }
+
+    .automation-feature svg {
+      width: 48px;
+      height: 48px;
+      color: var(--blue);
+    }
+
+    .automation-feature strong {
+      display: block;
+      color: #202733;
+      font-size: 17px;
+      line-height: 1.15;
+    }
+
+    .automation-feature:nth-child(2),
+    .automation-feature:nth-child(3) {
+      transform: translateY(18px);
+    }
+
     @keyframes basicOrbit {
       to {
         transform: rotate(360deg);
@@ -1056,6 +1099,7 @@
       .hero-grid,
       .process-band,
       .basic-package-panel,
+      .automation-package-panel,
       .conversion-panel {
         grid-template-columns: 1fr;
       }
@@ -1155,6 +1199,17 @@
 
       .basic-package-visual {
         min-height: 310px;
+      }
+
+      .automation-icon-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .automation-feature,
+      .automation-feature:nth-child(2),
+      .automation-feature:nth-child(3) {
+        min-height: 124px;
+        transform: none;
       }
 
       .basic-asset-main {
@@ -1397,6 +1452,7 @@
               <h3>Automatizaciones</h3>
               <p>Menos tareas repetidas: emails, formularios, hojas de calculo y avisos conectados.</p>
             </div>
+            <a class="service-card-cta" href="#automatizaciones-empresa">Ver automatizaciones</a>
           </article>
 
           <article class="service-card">
@@ -1458,6 +1514,60 @@
             <div class="basic-asset basic-asset-email">
               <img src="1email.png" alt="" />
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section basic-package" id="automatizaciones-empresa">
+      <div class="container">
+        <div class="basic-package-panel automation-package-panel">
+          <div class="automation-icon-grid" aria-hidden="true">
+            <div class="automation-feature">
+              <svg viewBox="0 0 64 64" fill="none">
+                <rect x="10" y="16" width="44" height="34" rx="5" stroke="currentColor" stroke-width="4"/>
+                <path d="m12 21 20 16 20-16" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <strong>Emails que se ordenan solos</strong>
+            </div>
+            <div class="automation-feature">
+              <svg viewBox="0 0 64 64" fill="none">
+                <rect x="15" y="9" width="34" height="46" rx="5" stroke="currentColor" stroke-width="4"/>
+                <path d="M23 22h18M23 32h18M23 42h10" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                <path d="m43 41 5 5 9-12" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <strong>Formularios conectados</strong>
+            </div>
+            <div class="automation-feature">
+              <svg viewBox="0 0 64 64" fill="none">
+                <rect x="10" y="12" width="44" height="40" rx="5" stroke="currentColor" stroke-width="4"/>
+                <path d="M10 25h44M24 12v40M39 12v40" stroke="currentColor" stroke-width="4"/>
+                <path d="M17 38h30" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+              <strong>Datos sin copiar y pegar</strong>
+            </div>
+            <div class="automation-feature">
+              <svg viewBox="0 0 64 64" fill="none">
+                <path d="M18 42V29a14 14 0 0 1 28 0v13" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                <path d="M14 42h36l-5 9H19l-5-9Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M28 55h8M48 15l6-6M16 15l-6-6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+              <strong>Avisos y recordatorios</strong>
+            </div>
+          </div>
+
+          <div class="basic-package-copy">
+            <p class="section-kicker">Automatizaciones para empresas</p>
+            <h2>Si una tarea se repite cada semana, probablemente se puede automatizar.</h2>
+            <p>
+              Revisamos contigo que pasos se hacen a mano y conectamos las herramientas que ya usas para ahorrar tiempo, evitar errores y tener la informacion donde toca.
+            </p>
+            <ul class="basic-list">
+              <li>Captura de datos desde formularios, emails o documentos.</li>
+              <li>Envio automatico de avisos, respuestas y confirmaciones.</li>
+              <li>Conexion entre hojas de calculo, correo, web y herramientas internas.</li>
+              <li>Procesos por fases: empezamos por lo que mas tiempo te quita.</li>
+            </ul>
           </div>
         </div>
       </div>
