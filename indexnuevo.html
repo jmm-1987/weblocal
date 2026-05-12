@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JM2 Tech Studio | Tecnologia para negocios locales y pymes</title>
+  <meta name="description" content="JM2 Tech Studio crea paginas web, automatizaciones, software a medida e inteligencia artificial practica para negocios locales y pymes." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <style>
+    :root {
+      --blue: #0757f8;
+      --blue-2: #0d6bff;
+      --ink: #111318;
+      --muted: #5f6673;
+      --line: #dfe7f5;
+      --soft: #f6f9ff;
+      --white: #ffffff;
+      --shadow: 0 22px 55px rgba(16, 32, 72, .13);
+      --shadow-soft: 0 14px 34px rgba(16, 32, 72, .09);
+      --radius: 26px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Nunito, "Segoe UI Rounded", "Aptos Rounded", "Arial Rounded MT Bold", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(7, 87, 248, .09), transparent 25%),
+        radial-gradient(circle at 88% 34%, rgba(7, 87, 248, .055), transparent 27%),
+        linear-gradient(180deg, #fff 0%, #f8fbff 52%, #fff 100%);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    body::before {
+      background:
+        linear-gradient(rgba(7, 87, 248, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7, 87, 248, .045) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.72), rgba(0,0,0,.16) 48%, transparent 88%);
+    }
+
+    body::after {
+      z-index: -1;
+      background:
+        linear-gradient(120deg, transparent 0 16%, rgba(7, 87, 248, .08) 16.1%, transparent 16.45%),
+        linear-gradient(120deg, transparent 0 72%, rgba(7, 87, 248, .06) 72.1%, transparent 72.38%),
+        radial-gradient(circle at 9% 78%, rgba(7, 87, 248, .08), transparent 18%),
+        radial-gradient(circle at 92% 86%, rgba(7, 87, 248, .07), transparent 20%);
+      opacity: .78;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 20px;
+      z-index: 50;
+      width: min(calc(100% - 16px), 1540px);
+      margin: 20px auto 0;
+      padding: 0;
+      background: #fff;
+      border: 2px solid #202020;
+      border-radius: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+      backdrop-filter: none;
+    }
+
+    main,
+    .footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+      max-width: none;
+      min-height: 92px;
+      padding: 14px 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+      height: 68px;
+      min-width: 190px;
+      overflow: visible;
+    }
+
+    .brand-logo-image {
+      --logo-scale: 2.08;
+      display: block;
+      width: auto;
+      height: 68px;
+      object-fit: contain;
+      transform: scale(var(--logo-scale));
+      transform-origin: left center;
+      animation: brand-logo-pulse 3.4s ease-in-out infinite;
+      will-change: transform, filter;
+    }
+
+    @keyframes brand-logo-pulse {
+      0%,
+      100% {
+        transform: scale(var(--logo-scale, 1.58));
+        filter: drop-shadow(0 0 0 rgba(36, 87, 255, 0));
+      }
+
+      45% {
+        transform: scale(calc(var(--logo-scale, 1.58) * 1.03));
+        filter: drop-shadow(0 0 10px rgba(36, 87, 255, .18));
+      }
+
+      60% {
+        transform: scale(calc(var(--logo-scale, 1.58) * .99));
+        filter: drop-shadow(0 0 4px rgba(36, 87, 255, .1));
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      color: rgba(17, 17, 17, .88);
+      font-size: .95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      transition: opacity .2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: .72;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-button {
+      width: 38px;
+      height: 38px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--blue);
+      box-shadow: 0 10px 24px rgba(7, 87, 248, .09);
+    }
+
+    .quote-btn {
+      min-height: 54px;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(135deg, #4a95ff, #2f73ea);
+      box-shadow: 0 8px 18px rgba(47,115,234,.22);
+      font-weight: 600;
+      font-size: .96rem;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .quote-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 22px rgba(47,115,234,.26);
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      white-space: nowrap;
+    }
+
+    .primary-btn {
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue) 0%, #0048dd 100%);
+      box-shadow: 0 16px 30px rgba(7, 87, 248, .26);
+    }
+
+    .secondary-btn {
+      color: var(--blue);
+      background: #fff;
+      border: 1px solid #cfe0ff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 58px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(360px, .97fr);
+      align-items: center;
+      gap: 46px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 9px 13px;
+      border: 1px solid #cfe0ff;
+      border-radius: 999px;
+      color: var(--blue);
+      background: #fff;
+      box-shadow: 0 9px 22px rgba(7, 87, 248, .08);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(7, 87, 248, .12);
+    }
+
+    h1 {
+      max-width: 670px;
+      margin: 0;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .hero-copy p {
+      max-width: 610px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .brand-card {
+      position: relative;
+      min-height: 520px;
+      padding: 34px;
+      border: 1px solid rgba(220, 229, 244, .95);
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.58), rgba(248,251,255,.42));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      animation: brandCardEnter 1.15s cubic-bezier(.16, .9, .18, 1) .18s both;
+    }
+
+    @keyframes brandCardEnter {
+      0% {
+        opacity: 0;
+        transform: translateX(70px) scale(.96);
+        filter: blur(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .brand-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, transparent 0 62%, rgba(7, 87, 248, .1) 62.1%, transparent 62.5%),
+        radial-gradient(circle at 88% 15%, rgba(7, 87, 248, .12), transparent 24%);
+    }
+
+    .dot-field {
+      position: absolute;
+      top: 42px;
+      left: 34px;
+      width: 88px;
+      display: grid;
+      grid-template-columns: repeat(4, 7px);
+      gap: 14px;
+      opacity: .9;
+    }
+
+    .dot-field i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      opacity: .45;
+      animation: dotPulse 3.2s ease-in-out infinite;
+      animation-delay: calc(var(--i, 1) * 120ms);
+    }
+
+    .dot-field i:nth-child(4n+1) {
+      opacity: .95;
+    }
+
+    .dot-field i:nth-child(4n+2) {
+      opacity: .72;
+    }
+
+    .dot-field i:nth-child(4n+3) {
+      opacity: .52;
+    }
+
+    @keyframes dotPulse {
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(7, 87, 248, 0);
+      }
+
+      42% {
+        transform: scale(1.45);
+        box-shadow: 0 0 14px rgba(7, 87, 248, .32);
+      }
+    }
+
+    .circuit-lines {
+      position: absolute;
+      top: 20px;
+      right: 12px;
+      width: 170px;
+      height: 160px;
+      color: #cfdcf2;
+      opacity: .9;
+    }
+
+    .circuit-lines path {
+      stroke-dasharray: 150;
+      stroke-dashoffset: 150;
+      animation: circuitDraw 5.2s ease-in-out infinite;
+    }
+
+    .circuit-lines path:nth-child(2) {
+      animation-delay: .45s;
+    }
+
+    .circuit-lines path:nth-child(3) {
+      animation-delay: .9s;
+    }
+
+    .circuit-lines path:nth-child(4) {
+      animation-delay: 1.35s;
+    }
+
+    .circuit-lines circle {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: circuitNode 5.2s ease-in-out infinite;
+    }
+
+    .circuit-lines circle:nth-of-type(2) {
+      animation-delay: .7s;
+    }
+
+    .circuit-lines circle:nth-of-type(3) {
+      animation-delay: 1.4s;
+    }
+
+    @keyframes circuitDraw {
+      0% {
+        stroke-dashoffset: 150;
+        color: #cfdcf2;
+      }
+
+      38%,
+      72% {
+        stroke-dashoffset: 0;
+        color: rgba(7, 87, 248, .42);
+      }
+
+      100% {
+        stroke-dashoffset: -150;
+        color: #cfdcf2;
+      }
+    }
+
+    @keyframes circuitNode {
+      0%,
+      100% {
+        transform: scale(1);
+        color: #cfdcf2;
+      }
+
+      48% {
+        transform: scale(1.28);
+        color: rgba(7, 87, 248, .55);
+      }
+    }
+
+    .card-logo {
+      position: relative;
+      margin-top: 78px;
+    }
+
+    .card-logo-image {
+      width: min(100%, 500px);
+      height: auto;
+      filter: drop-shadow(0 18px 24px rgba(17, 19, 24, .18));
+    }
+
+    .signature {
+      position: relative;
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .signature span {
+      display: block;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(31px, 4vw, 48px);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 370px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 225px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px 24px;
+      border-right: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,1), rgba(249,251,255,1));
+      overflow: hidden;
+    }
+
+    .service-card {
+      opacity: 0;
+      transform: translateY(26px) scale(.98);
+      filter: blur(8px);
+      transition:
+        opacity 1.15s ease,
+        transform 1.15s cubic-bezier(.16, .9, .18, 1),
+        filter 1.15s ease,
+        box-shadow .25s ease;
+      transition-delay: var(--service-delay, 0ms);
+    }
+
+    .services-grid.is-visible .service-card {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .service-card:nth-child(1) {
+      --service-delay: 0ms;
+    }
+
+    .service-card:nth-child(2) {
+      --service-delay: 220ms;
+    }
+
+    .service-card:nth-child(3) {
+      --service-delay: 440ms;
+    }
+
+    .service-card:nth-child(4) {
+      --service-delay: 660ms;
+    }
+
+    .service-card:nth-child(5) {
+      --service-delay: 880ms;
+    }
+
+    .service-card:hover {
+      position: relative;
+      z-index: 1;
+      box-shadow: inset 0 0 0 1px rgba(7, 87, 248, .16), 0 18px 36px rgba(7, 87, 248, .11);
+    }
+
+    .service-card-cta {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(7, 87, 248, .94), rgba(0, 67, 214, .92));
+      font-size: 18px;
+      font-weight: 900;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .28s ease, transform .28s ease;
+    }
+
+    .service-card-cta::after {
+      content: "->";
+      margin-left: 8px;
+    }
+
+    .service-card:hover .service-card-cta,
+    .service-card:focus-within .service-card-cta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card:last-child {
+      border-right: 0;
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      color: var(--blue);
+    }
+
+    .service-card h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+      line-height: 1.1;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .blue-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      min-height: 86px;
+      border-radius: 0 0 var(--radius) var(--radius);
+      color: #fff;
+      background: linear-gradient(135deg, #0757f8, #0046d7);
+      box-shadow: 0 18px 34px rgba(7, 87, 248, .23);
+      font-size: clamp(17px, 2.5vw, 25px);
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(34px) scaleX(.92);
+      transform-origin: center;
+      filter: blur(10px);
+      transition:
+        opacity .95s ease,
+        transform 1s cubic-bezier(.14, 1.08, .18, 1),
+        filter .95s ease;
+    }
+
+    .blue-strip.is-visible {
+      opacity: 1;
+      transform: translateY(0) scaleX(1);
+      filter: blur(0);
+    }
+
+    .blue-strip::before,
+    .blue-strip::after {
+      content: "";
+      width: min(210px, 18vw);
+      height: 2px;
+      background: rgba(255,255,255,.75);
+      transform: scaleX(0);
+      transition: transform .8s ease .35s;
+    }
+
+    .blue-strip::before {
+      transform-origin: right;
+    }
+
+    .blue-strip::after {
+      transform-origin: left;
+    }
+
+    .blue-strip.is-visible::before,
+    .blue-strip.is-visible::after {
+      transform: scaleX(1);
+    }
+
+    .basic-package {
+      padding-top: 34px;
+    }
+
+    .basic-package-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .86fr);
+      gap: 34px;
+      align-items: center;
+      padding: 42px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: rgba(255,255,255,.86);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .basic-package-panel::before {
+      content: "";
+      position: absolute;
+      inset: -120px -80px auto auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(7,87,248,.13), transparent 68%);
+    }
+
+    .basic-package-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .basic-package-copy p {
+      max-width: 690px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .basic-price {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      margin-top: 22px;
+      padding: 0 14px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: #edf4ff;
+      font-weight: 900;
+    }
+
+    .basic-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .basic-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      color: #28303d;
+      font-weight: 800;
+      box-shadow: 0 10px 22px rgba(16, 32, 72, .06);
+    }
+
+    .basic-list li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-top: 7px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(7,87,248,.1);
+    }
+
+    .basic-package-visual {
+      position: relative;
+      z-index: 1;
+      min-height: 390px;
+    }
+
+    .basic-orbit {
+      position: absolute;
+      inset: 34px;
+      border: 1px dashed rgba(7,87,248,.22);
+      border-radius: 50%;
+      animation: basicOrbit 18s linear infinite;
+    }
+
+    .basic-asset {
+      position: absolute;
+      width: 142px;
+      height: 142px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(223,231,245,.95);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 18px 30px rgba(16,32,72,.12);
+    }
+
+    .basic-asset img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
+    }
+
+    .basic-asset-main {
+      width: 210px;
+      height: 210px;
+      top: 86px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+
+    .basic-asset-web {
+      left: 4px;
+      bottom: 28px;
+      transform: rotate(-6deg);
+    }
+
+    .basic-asset-domain {
+      right: 20px;
+      bottom: 12px;
+      transform: rotate(7deg);
+    }
+
+    .basic-asset-email {
+      top: 12px;
+      right: 58px;
+      width: 118px;
+      height: 118px;
+      transform: rotate(-4deg);
+    }
+
+    @keyframes basicOrbit {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .process-band {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .diagnosis-card,
+    .steps-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .diagnosis-card {
+      padding: 34px;
+    }
+
+    .diagnosis-card h3 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.1;
+    }
+
+    .diagnosis-card p {
+      margin: 18px 0 0;
+      color: var(--muted);
+    }
+
+    .diagnosis-list {
+      display: grid;
+      gap: 13px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .diagnosis-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-weight: 800;
+    }
+
+    .diagnosis-list li::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(7, 87, 248, .11);
+    }
+
+    .steps-card {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      overflow: hidden;
+    }
+
+    .step {
+      min-height: 210px;
+      padding: 30px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .step:nth-last-child(-n+2) {
+      border-bottom: 0;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .step h4 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .conversion-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 390px;
+      gap: 32px;
+      align-items: center;
+      padding: 42px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .conversion-panel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 430px;
+      width: 2px;
+      background: var(--blue);
+      opacity: .85;
+    }
+
+    .conversion-panel h2 {
+      max-width: 690px;
+    }
+
+    .conversion-panel p {
+      max-width: 640px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .contact-box {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      z-index: 1;
+    }
+
+    .contact-box a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 58px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--soft);
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+    .mini-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .footer {
+      padding: 34px 0 44px;
+      color: #687080;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    @media (max-width: 1060px) {
+      .nav-links {
+        display: none;
+      }
+
+      .quote-btn {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: inline-grid;
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        color: #fff;
+        background: #22b455;
+        box-shadow: 0 10px 22px rgba(34, 180, 85, .28);
+      }
+
+      .hero-grid,
+      .process-band,
+      .basic-package-panel,
+      .conversion-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-card {
+        min-height: auto;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .service-card {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .service-card:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .service-card:last-child {
+        grid-column: span 2;
+      }
+
+      .conversion-panel::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .site-header {
+        position: fixed;
+        top: 14px;
+        left: 7px;
+        right: 7px;
+        width: calc(100% - 14px);
+        margin-top: 0;
+        transform: translateY(-120%);
+        opacity: 0;
+        transition: transform .38s ease, opacity .38s ease;
+      }
+
+      body.mobile-header-visible .site-header {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .nav {
+        min-height: 70px;
+        padding: 10px 14px;
+      }
+
+      .brand {
+        height: 46px;
+        min-width: 150px;
+      }
+
+      .brand-logo-image {
+        --logo-scale: 1.68;
+        width: 100%;
+        height: 46px;
+        max-height: none;
+      }
+
+      .hero {
+        padding-top: 14px;
+      }
+
+      h1 {
+        font-size: clamp(39px, 13vw, 54px);
+      }
+
+      .hero-copy p {
+        font-size: 17px;
+      }
+
+      .steps-card,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-card,
+      .basic-package-panel,
+      .diagnosis-card,
+      .conversion-panel {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .basic-list {
+        grid-template-columns: 1fr;
+      }
+
+      .basic-package-visual {
+        min-height: 310px;
+      }
+
+      .basic-asset-main {
+        width: 170px;
+        height: 170px;
+        top: 70px;
+      }
+
+      .basic-asset {
+        width: 112px;
+        height: 112px;
+      }
+
+      .basic-asset-email {
+        width: 96px;
+        height: 96px;
+        right: 34px;
+      }
+
+      .dot-field,
+      .circuit-lines {
+        opacity: .42;
+      }
+
+      .card-logo {
+        margin-top: 62px;
+      }
+
+      .card-logo-image {
+        width: min(100%, 420px);
+      }
+
+      .signature span {
+        font-size: 12px;
+      }
+
+      .section {
+        padding: 50px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 14px;
+      }
+
+      .service-card,
+      .service-card:nth-child(2n),
+      .service-card:last-child {
+        grid-column: auto;
+        border-right: 0;
+      }
+
+      .step,
+      .step:nth-child(2n),
+      .step:nth-last-child(-n+2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .step:last-child {
+        border-bottom: 0;
+      }
+
+      .blue-strip {
+        padding: 20px 18px;
+        line-height: 1.25;
+        letter-spacing: .08em;
+      }
+
+      .blue-strip::before,
+      .blue-strip::after {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .service-card {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+      }
+
+      .blue-strip {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+      }
+
+      .blue-strip::before,
+      .blue-strip::after {
+        transform: none;
+        transition: none;
+      }
+
+      .dot-field i {
+        animation: none;
+      }
+
+      .circuit-lines path,
+      .circuit-lines circle {
+        animation: none;
+      }
+
+      .brand-card {
+        animation: none;
+      }
+
+      .brand-logo-image {
+        transition: none;
+        animation: none;
+      }
+
+      .basic-orbit {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="JM2 Tech Studio">
+        <img class="brand-logo-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#metodo">Metodo</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="quote-btn quote-btn-contact" href="#contacto">Contactar ahora</a>
+        <a class="icon-button mobile-menu" href="#contacto" aria-label="Ir a contacto">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Servicios tecnologicos para que tu empresa avance sin complicarse.</h1>
+          <p>
+            Me cuentas que necesita mejorar tu negocio y preparo la solucion adecuada: presencia web, soporte digital, automatizaciones, software a medida o inteligencia artificial practica para tu dia a dia.
+          </p>
+        </div>
+
+        <div class="brand-card" aria-label="Tarjeta visual JM2 Tech Studio">
+          <div class="dot-field" aria-hidden="true">
+            <i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i>
+            <i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i>
+            <i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i>
+            <i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i>
+          </div>
+          <svg class="circuit-lines" viewBox="0 0 170 160" fill="none" aria-hidden="true">
+            <path d="M18 10h48l24 24h54" stroke="currentColor" stroke-width="2"/>
+            <path d="M22 52h82l18-18h25" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 88h72l22 22h47" stroke="currentColor" stroke-width="2"/>
+            <path d="M40 128h56l20-20h36" stroke="currentColor" stroke-width="2"/>
+            <circle cx="146" cy="34" r="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="149" cy="88" r="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="152" cy="108" r="5" stroke="currentColor" stroke-width="2"/>
+          </svg>
+
+          <div class="card-logo">
+            <img class="card-logo-image" src="logologo.png" alt="JM2 Tech Studio" />
+          </div>
+
+          <div class="signature">
+            <span>Desarrollo y soluciones tecnologicas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Servicios para empresas</p>
+            <h2>Lo justo para avanzar: presencia, procesos y herramientas propias.</h2>
+          </div>
+          <p>Una propuesta pensada para negocios que quieren tecnologia util, explicada sin ruido y preparada para el dia a dia.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path d="M15 48v-4a11 11 0 0 1 22 0v4" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="26" cy="24" r="8" stroke="currentColor" stroke-width="4"/>
+              <path d="M39 47v-3a9 9 0 0 1 14 0v3" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="46" cy="26" r="6" stroke="currentColor" stroke-width="4"/>
+            </svg>
+            <div>
+              <h3>Servicios a empresas</h3>
+              <p>Analisis, soporte y mejora digital para que cada decision tenga sentido.</p>
+            </div>
+            <a class="service-card-cta" href="#paquete-basico">Ver paquete basico</a>
+          </article>
+
+          <article class="service-card">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <rect x="10" y="13" width="44" height="38" rx="5" stroke="currentColor" stroke-width="4"/>
+              <path d="M10 24h44M18 18h1M26 18h1M34 18h1" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <path d="M18 44h14l7-9 7 9" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <h3>Paginas web</h3>
+              <p>Webs y tiendas online claras, rapidas y preparadas para convertir visitas en contactos y ventas.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <g transform="translate(32 34) scale(.58) translate(-32 -34)">
+                <path d="M25.5 9h13l2 8a20 20 0 0 1 4.4 2.5l7.8-2.4 6.5 11.2-5.8 5.8c.2 1.3.2 2.6 0 3.9l5.8 5.8-6.5 11.2-7.8-2.4a20 20 0 0 1-4.4 2.5l-2 8h-13l-2-8a20 20 0 0 1-4.4-2.5l-7.8 2.4-6.5-11.2 5.8-5.8a18 18 0 0 1 0-3.9l-5.8-5.8 6.5-11.2 7.8 2.4a20 20 0 0 1 4.4-2.5l2-8Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                <circle cx="32" cy="36" r="9" stroke="currentColor" stroke-width="4"/>
+              </g>
+              <path d="M17 12A29 29 0 0 1 50 19" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <path d="M50 19h-9M50 19l-3-8" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M47 56A29 29 0 0 1 14 49" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <path d="M14 49h9M14 49l3 8" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <h3>Automatizaciones</h3>
+              <p>Menos tareas repetidas: emails, formularios, hojas de calculo y avisos conectados.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path d="M25 18 11 32l14 14M39 18l14 14-14 14M35 12 29 52" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <h3>Software a medida</h3>
+              <p>Paneles, bases de datos y herramientas internas adaptadas a tu forma de trabajar.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <rect x="18" y="16" width="28" height="32" rx="5" stroke="currentColor" stroke-width="4"/>
+              <path d="M26 40V25h12v15M28 34h8M12 24h6M12 32h6M12 40h6M46 24h6M46 32h6M46 40h6M24 10v6M32 10v6M40 10v6M24 48v6M32 48v6M40 48v6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <h3>Inteligencia artificial</h3>
+              <p>IA practica para responder, ordenar informacion y acelerar procesos reales.</p>
+            </div>
+          </article>
+        </div>
+        <div class="blue-strip">Tecnologia que impulsa tu negocio</div>
+      </div>
+    </section>
+
+    <section class="section basic-package" id="paquete-basico">
+      <div class="container">
+        <div class="basic-package-panel">
+          <div class="basic-package-copy">
+            <p class="section-kicker">Paquete basico para empresas</p>
+            <h2>Una base digital ordenada para empezar con buen pie.</h2>
+            <p>
+              Revisamos como esta tu empresa a nivel digital y montamos lo esencial para trabajar con mas claridad: presencia web, dominio, email corporativo, configuracion inicial y acompanamiento para decidir los siguientes pasos.
+            </p>
+            <div class="basic-price">Desde 30 EUR/mes + IVA</div>
+            <ul class="basic-list">
+              <li>Auditoria inicial de costes y servicios digitales.</li>
+              <li>Web profesional para presentar tu negocio.</li>
+              <li>Dominio, email corporativo y configuracion base.</li>
+              <li>Formulario de contacto y datos clave de empresa.</li>
+              <li>Soporte y consultoria para avanzar por fases.</li>
+              <li>Preparacion para futuras automatizaciones.</li>
+            </ul>
+          </div>
+
+          <div class="basic-package-visual" aria-hidden="true">
+            <div class="basic-orbit"></div>
+            <div class="basic-asset basic-asset-main">
+              <img src="1audit.png" alt="" />
+            </div>
+            <div class="basic-asset basic-asset-web">
+              <img src="1web.png" alt="" />
+            </div>
+            <div class="basic-asset basic-asset-domain">
+              <img src="1dominio.png" alt="" />
+            </div>
+            <div class="basic-asset basic-asset-email">
+              <img src="1email.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metodo">
+      <div class="container process-band">
+        <div class="diagnosis-card">
+          <p class="section-kicker">Metodo cercano</p>
+          <h3>Primero entendemos el negocio. Luego construimos lo que toca.</h3>
+          <p>
+            La tecnologia funciona mejor cuando nace de un problema concreto: perder tiempo, no recibir contactos, depender demasiado de Excel o no tener datos claros.
+          </p>
+          <ul class="diagnosis-list">
+            <li>Revision sencilla de tu situacion actual.</li>
+            <li>Propuesta por fases, sin prometer castillos en el aire.</li>
+            <li>Entrega clara, soporte directo y mejoras medibles.</li>
+          </ul>
+        </div>
+
+        <div class="steps-card" aria-label="Proceso de trabajo">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h4>Escucha</h4>
+            <p>Hablamos de tu negocio, clientes, tareas y puntos de friccion.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">2</div>
+            <h4>Propuesta</h4>
+            <p>Definimos una solucion concreta con alcance, prioridades y precio.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">3</div>
+            <h4>Desarrollo</h4>
+            <p>Construimos con revisiones cortas para que puedas ver avances reales.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">4</div>
+            <h4>Acompanamiento</h4>
+            <p>Dejamos la solucion funcionando y preparada para evolucionar contigo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="conversion-panel">
+          <div>
+            <p class="section-kicker">Contacto directo</p>
+            <h2>Cu&eacute;ntame que quieres mejorar y te digo por donde empezaria.</h2>
+            <p>
+              Si tienes una pyme, comercio, despacho, servicio local o proyecto profesional, podemos revisar que parte de tu presencia digital o de tus procesos tiene mas retorno.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-btn" href="https://wa.me/34625433667?text=Hola%20JM2%20Tech%20Studio,%20quiero%20una%20propuesta%20para%20mi%20negocio" target="_blank" rel="noopener">Abrir WhatsApp</a>
+              <a class="secondary-btn" href="mailto:jomma.tech@gmail.com?subject=Proyecto%20para%20JM2%20Tech%20Studio">Enviar email</a>
+            </div>
+          </div>
+
+          <div class="contact-box">
+            <a href="tel:+34625433667">
+              <span class="mini-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.62 2.65a2 2 0 0 1-.45 2.11L8 9.77a16 16 0 0 0 6.2 6.2l1.29-1.28a2 2 0 0 1 2.11-.45c.85.29 1.74.5 2.65.62A2 2 0 0 1 22 16.9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              625 433 667
+            </a>
+            <a href="mailto:jomma.tech@gmail.com">
+              <span class="mini-icon" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              jomma.tech@gmail.com
+            </a>
+            <a href="https://www.jm2-tech.es">
+              <span class="mini-icon" aria-hidden="true">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+              www.jm2-tech.es
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      JM2 Tech Studio - Desarrollo y soluciones tecnologicas para negocios locales y pymes.
+    </div>
+  </footer>
+
+  <script>
+    const servicesGrid = document.querySelector('.services-grid');
+    const blueStrip = document.querySelector('.blue-strip');
+    const mobileHeaderQuery = window.matchMedia('(max-width: 720px)');
+
+    function updateMobileHeader() {
+      if (!mobileHeaderQuery.matches) {
+        document.body.classList.remove('mobile-header-visible');
+        return;
+      }
+
+      document.body.classList.toggle('mobile-header-visible', window.scrollY > 120);
+    }
+
+    updateMobileHeader();
+    window.addEventListener('scroll', updateMobileHeader, { passive: true });
+    mobileHeaderQuery.addEventListener?.('change', updateMobileHeader);
+
+    if (servicesGrid) {
+      if ('IntersectionObserver' in window) {
+        const servicesObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              window.setTimeout(() => {
+                blueStrip?.classList.add('is-visible');
+              }, 2050);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.24 });
+
+        servicesObserver.observe(servicesGrid);
+      } else {
+        servicesGrid.classList.add('is-visible');
+        blueStrip?.classList.add('is-visible');
+      }
+    }
+  </script>
+</body>
+</html>
