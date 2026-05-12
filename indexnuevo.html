@@ -348,6 +348,32 @@
         radial-gradient(circle at 88% 15%, rgba(7, 87, 248, .12), transparent 24%);
     }
 
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(34px) scale(.985);
+      filter: blur(10px);
+      transition:
+        opacity 1s ease,
+        transform 1.05s cubic-bezier(.16, .9, .18, 1),
+        filter 1s ease;
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal-from-left {
+      transform: translateX(-42px) scale(.985);
+    }
+
+    .reveal-from-right {
+      transform: translateX(42px) scale(.985);
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+      filter: blur(0);
+    }
+
     .dot-field {
       position: absolute;
       top: 42px;
@@ -1437,7 +1463,9 @@
         opacity: 0;
         pointer-events: none;
         transform: translateY(-8px);
-        transition: transform .28s ease, opacity .28s ease;
+        transition:
+          transform .68s cubic-bezier(.16, .9, .18, 1),
+          opacity .58s ease;
       }
 
       .mobile-panel.open {
@@ -1476,7 +1504,7 @@
         background: rgba(7, 13, 48, .18);
         opacity: 0;
         pointer-events: none;
-        transition: opacity .28s ease;
+        transition: opacity .5s ease;
       }
 
       .mobile-backdrop.show {
@@ -1610,6 +1638,13 @@
       }
 
       .service-card {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+      }
+
+      .reveal-on-scroll {
         opacity: 1;
         transform: none;
         filter: none;
@@ -2045,6 +2080,34 @@
     const entryModalButtons = Array.from(document.querySelectorAll('[data-entry-modal]'));
     const entryModalCloseButtons = Array.from(document.querySelectorAll('[data-entry-modal-close]'));
     let activeEntryModalButton = null;
+    const revealGroups = [
+      ['.hero-copy', 'reveal-from-left'],
+      ['.brand-card', 'reveal-from-right'],
+      ['.section-head', 'reveal-from-left'],
+      ['.basic-package-copy', 'reveal-from-left'],
+      ['.basic-package-visual', 'reveal-from-right'],
+      ['.automation-icon-grid', 'reveal-from-left'],
+      ['.automation-feature', ''],
+      ['.diagnosis-card', 'reveal-from-left'],
+      ['.steps-card', 'reveal-from-right'],
+      ['.step', ''],
+      ['.conversion-panel > div:first-child', 'reveal-from-left'],
+      ['.contact-box', 'reveal-from-right'],
+    ];
+    const revealItems = [];
+
+    revealGroups.forEach(([selector, direction]) => {
+      document.querySelectorAll(selector).forEach((item, index) => {
+        item.classList.add('reveal-on-scroll');
+
+        if (direction) {
+          item.classList.add(direction);
+        }
+
+        item.style.setProperty('--reveal-delay', `${Math.min(index * 120, 360)}ms`);
+        revealItems.push(item);
+      });
+    });
 
     function updateMobileHeader() {
       if (!mobileHeaderQuery.matches) {
@@ -2139,6 +2202,24 @@
         closeEntryModal();
       }
     });
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      });
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+    }
 
     if (servicesGrid) {
       if ('IntersectionObserver' in window) {
