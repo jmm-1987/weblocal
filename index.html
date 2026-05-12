@@ -1,13 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JM2_tech_studio</title>
+  <title>JM2 Tech Studio | Tecnologia para negocios locales y pymes</title>
+  <meta name="description" content="JM2 Tech Studio crea paginas web, automatizaciones, software a medida e inteligencia artificial practica para negocios locales y pymes." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18132304665"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -17,7 +16,6 @@
     gtag('config', 'AW-18132304665');
     gtag('config', 'G-8FMNC7J0EN');
   </script>
-  <!-- Event snippet for Contacto conversion page -->
   <script>
     function gtag_report_conversion(url) {
       var callback = function () {
@@ -33,346 +31,3529 @@
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+    :root {
+      --blue: #0757f8;
+      --blue-2: #0d6bff;
+      --ink: #111318;
+      --muted: #5f6673;
+      --line: #dfe7f5;
+      --soft: #f6f9ff;
+      --white: #ffffff;
+      --shadow: 0 22px 55px rgba(16, 32, 72, .13);
+      --shadow-soft: 0 14px 34px rgba(16, 32, 72, .09);
+      --radius: 26px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Nunito, "Segoe UI Rounded", "Aptos Rounded", "Arial Rounded MT Bold", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(7, 87, 248, .09), transparent 25%),
+        radial-gradient(circle at 88% 34%, rgba(7, 87, 248, .055), transparent 27%),
+        linear-gradient(180deg, #fff 0%, #f8fbff 52%, #fff 100%);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    body::before {
+      background:
+        linear-gradient(rgba(7, 87, 248, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7, 87, 248, .045) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.72), rgba(0,0,0,.16) 48%, transparent 88%);
+    }
+
+    body::after {
+      z-index: -1;
+      background:
+        linear-gradient(120deg, transparent 0 16%, rgba(7, 87, 248, .08) 16.1%, transparent 16.45%),
+        linear-gradient(120deg, transparent 0 72%, rgba(7, 87, 248, .06) 72.1%, transparent 72.38%),
+        radial-gradient(circle at 9% 78%, rgba(7, 87, 248, .08), transparent 18%),
+        radial-gradient(circle at 92% 86%, rgba(7, 87, 248, .07), transparent 20%);
+      opacity: .78;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 20px;
+      z-index: 50;
+      width: min(calc(100% - 16px), 1540px);
+      margin: 20px auto 0;
+      padding: 0;
+      background: #fff;
+      border: 2px solid #202020;
+      border-radius: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+      backdrop-filter: none;
+    }
+
+    main,
+    .footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+      max-width: none;
+      min-height: 92px;
+      padding: 14px 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+      height: 68px;
+      min-width: 190px;
+      overflow: visible;
+    }
+
+    .brand-logo-image {
+      --logo-scale: 2.08;
+      display: block;
+      width: auto;
+      height: 68px;
+      object-fit: contain;
+      transform: scale(var(--logo-scale));
+      transform-origin: left center;
+      animation: brand-logo-pulse 3.4s ease-in-out infinite;
+      will-change: transform, filter;
+    }
+
+    @keyframes brand-logo-pulse {
+      0%,
+      100% {
+        transform: scale(var(--logo-scale, 1.58));
+        filter: drop-shadow(0 0 0 rgba(36, 87, 255, 0));
+      }
+
+      45% {
+        transform: scale(calc(var(--logo-scale, 1.58) * 1.03));
+        filter: drop-shadow(0 0 10px rgba(36, 87, 255, .18));
+      }
+
+      60% {
+        transform: scale(calc(var(--logo-scale, 1.58) * .99));
+        filter: drop-shadow(0 0 4px rgba(36, 87, 255, .1));
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      color: rgba(17, 17, 17, .88);
+      font-size: .95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      transition: opacity .2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: .72;
+    }
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0;
+      border: 0;
+      color: inherit;
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .nav-dropdown-trigger::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform .2s ease;
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      z-index: 80;
+      display: grid;
+      min-width: 280px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      padding: 10px;
+      border: 2px solid #202020;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 18px 34px rgba(0,0,0,.14);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -6px);
+      transition: opacity .18s ease, transform .18s ease;
+    }
+
+    .nav-dropdown-menu::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -16px;
+      height: 16px;
+    }
+
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 10px;
+      color: var(--ink);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .nav-dropdown-menu a:hover {
+      opacity: 1;
+      background: rgba(7, 87, 248, .1);
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0);
+    }
+
+    .nav-dropdown:hover .nav-dropdown-trigger::after,
+    .nav-dropdown:focus-within .nav-dropdown-trigger::after {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-button {
+      width: 38px;
+      height: 38px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--blue);
+      box-shadow: 0 10px 24px rgba(7, 87, 248, .09);
+    }
+
+    .quote-btn {
+      min-height: 54px;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(135deg, #4a95ff, #2f73ea);
+      box-shadow: 0 8px 18px rgba(47,115,234,.22);
+      font-weight: 600;
+      font-size: .96rem;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .quote-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 22px rgba(47,115,234,.26);
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      white-space: nowrap;
+    }
+
+    .primary-btn {
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue) 0%, #0048dd 100%);
+      box-shadow: 0 16px 30px rgba(7, 87, 248, .26);
+    }
+
+    .secondary-btn {
+      color: var(--blue);
+      background: #fff;
+      border: 1px solid #cfe0ff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 58px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(360px, .97fr);
+      align-items: center;
+      gap: 46px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 9px 13px;
+      border: 1px solid #cfe0ff;
+      border-radius: 999px;
+      color: var(--blue);
+      background: #fff;
+      box-shadow: 0 9px 22px rgba(7, 87, 248, .08);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(7, 87, 248, .12);
+    }
+
+    h1 {
+      max-width: 670px;
+      margin: 0;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .hero-copy p {
+      max-width: 610px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .brand-card {
+      position: relative;
+      min-height: 520px;
+      padding: 34px;
+      border: 1px solid rgba(220, 229, 244, .52);
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.28), rgba(248,251,255,.18));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      animation: brandCardEnter 1.15s cubic-bezier(.16, .9, .18, 1) .18s both;
+    }
+
+    @keyframes brandCardEnter {
+      0% {
+        opacity: 0;
+        transform: translateX(70px) scale(.96);
+        filter: blur(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .brand-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, transparent 0 62%, rgba(7, 87, 248, .1) 62.1%, transparent 62.5%),
+        radial-gradient(circle at 88% 15%, rgba(7, 87, 248, .12), transparent 24%);
+    }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(34px) scale(.985);
+      filter: blur(10px);
+      transition:
+        opacity 1s ease,
+        transform 1.05s cubic-bezier(.16, .9, .18, 1),
+        filter 1s ease;
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal-from-left {
+      transform: translateX(-42px) scale(.985);
+    }
+
+    .reveal-from-right {
+      transform: translateX(42px) scale(.985);
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .dot-field {
+      position: absolute;
+      top: 42px;
+      left: 34px;
+      width: 88px;
+      display: grid;
+      grid-template-columns: repeat(4, 7px);
+      gap: 14px;
+      opacity: .9;
+    }
+
+    .dot-field i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      opacity: .45;
+      animation: dotPulse 3.2s ease-in-out infinite;
+      animation-delay: calc(var(--i, 1) * 120ms);
+    }
+
+    .dot-field i:nth-child(4n+1) {
+      opacity: .95;
+    }
+
+    .dot-field i:nth-child(4n+2) {
+      opacity: .72;
+    }
+
+    .dot-field i:nth-child(4n+3) {
+      opacity: .52;
+    }
+
+    @keyframes dotPulse {
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(7, 87, 248, 0);
+      }
+
+      42% {
+        transform: scale(1.45);
+        box-shadow: 0 0 14px rgba(7, 87, 248, .32);
+      }
+    }
+
+    .circuit-lines {
+      position: absolute;
+      top: 20px;
+      right: 12px;
+      width: 170px;
+      height: 160px;
+      color: #cfdcf2;
+      opacity: .9;
+    }
+
+    .circuit-lines path {
+      stroke-dasharray: 150;
+      stroke-dashoffset: 150;
+      animation: circuitDraw 5.2s ease-in-out infinite;
+    }
+
+    .circuit-lines path:nth-child(2) {
+      animation-delay: .45s;
+    }
+
+    .circuit-lines path:nth-child(3) {
+      animation-delay: .9s;
+    }
+
+    .circuit-lines path:nth-child(4) {
+      animation-delay: 1.35s;
+    }
+
+    .circuit-lines circle {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: circuitNode 5.2s ease-in-out infinite;
+    }
+
+    .circuit-lines circle:nth-of-type(2) {
+      animation-delay: .7s;
+    }
+
+    .circuit-lines circle:nth-of-type(3) {
+      animation-delay: 1.4s;
+    }
+
+    @keyframes circuitDraw {
+      0% {
+        stroke-dashoffset: 150;
+        color: #cfdcf2;
+      }
+
+      38%,
+      72% {
+        stroke-dashoffset: 0;
+        color: rgba(7, 87, 248, .42);
+      }
+
+      100% {
+        stroke-dashoffset: -150;
+        color: #cfdcf2;
+      }
+    }
+
+    @keyframes circuitNode {
+      0%,
+      100% {
+        transform: scale(1);
+        color: #cfdcf2;
+      }
+
+      48% {
+        transform: scale(1.28);
+        color: rgba(7, 87, 248, .55);
+      }
+    }
+
+    .card-logo {
+      position: relative;
+      margin-top: 78px;
+    }
+
+    .card-logo-image {
+      width: min(100%, 500px);
+      height: auto;
+      filter: drop-shadow(0 18px 24px rgba(17, 19, 24, .18));
+    }
+
+    .signature {
+      position: relative;
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .signature span {
+      display: block;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(31px, 4vw, 48px);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 370px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 225px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px 24px;
+      border-right: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,1), rgba(249,251,255,1));
+      overflow: hidden;
+    }
+
+    .service-card {
+      opacity: 0;
+      transform: translateY(26px) scale(.98);
+      filter: blur(8px);
+      transition:
+        opacity 1.15s ease,
+        transform 1.15s cubic-bezier(.16, .9, .18, 1),
+        filter 1.15s ease,
+        box-shadow .25s ease;
+      transition-delay: var(--service-delay, 0ms);
+    }
+
+    .services-grid.is-visible .service-card {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .service-card:nth-child(1) {
+      --service-delay: 0ms;
+    }
+
+    .service-card:nth-child(2) {
+      --service-delay: 220ms;
+    }
+
+    .service-card:nth-child(3) {
+      --service-delay: 440ms;
+    }
+
+    .service-card:nth-child(4) {
+      --service-delay: 660ms;
+    }
+
+    .service-card:nth-child(5) {
+      --service-delay: 880ms;
+    }
+
+    .service-card:hover {
+      position: relative;
+      z-index: 1;
+      box-shadow: inset 0 0 0 1px rgba(7, 87, 248, .16), 0 18px 36px rgba(7, 87, 248, .11);
+    }
+
+    .service-mobile-arrow {
+      display: none;
+    }
+
+    .service-card-cta {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(7, 87, 248, .94), rgba(0, 67, 214, .92));
+      font-size: 18px;
+      font-weight: 900;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .28s ease, transform .28s ease;
+    }
+
+    .service-card-cta::after {
+      content: "->";
+      margin-left: 8px;
+    }
+
+    .service-card:hover .service-card-cta,
+    .service-card:focus-within .service-card-cta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card:last-child {
+      border-right: 0;
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      color: var(--blue);
+    }
+
+    .service-card h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+      line-height: 1.1;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .blue-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      min-height: 86px;
+      border-radius: 0 0 var(--radius) var(--radius);
+      color: #fff;
+      background: linear-gradient(135deg, #0757f8, #0046d7);
+      box-shadow: 0 18px 34px rgba(7, 87, 248, .23);
+      font-size: clamp(17px, 2.5vw, 25px);
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(34px) scaleX(.92);
+      transform-origin: center;
+      filter: blur(10px);
+      transition:
+        opacity .95s ease,
+        transform 1s cubic-bezier(.14, 1.08, .18, 1),
+        filter .95s ease;
+    }
+
+    .blue-strip.is-visible {
+      opacity: 1;
+      transform: translateY(0) scaleX(1);
+      filter: blur(0);
+    }
+
+    .blue-strip::before,
+    .blue-strip::after {
+      content: "";
+      width: min(210px, 18vw);
+      height: 2px;
+      background: rgba(255,255,255,.75);
+      transform: scaleX(0);
+      transition: transform .8s ease .35s;
+    }
+
+    .blue-strip::before {
+      transform-origin: right;
+    }
+
+    .blue-strip::after {
+      transform-origin: left;
+    }
+
+    .blue-strip.is-visible::before,
+    .blue-strip.is-visible::after {
+      transform: scaleX(1);
+    }
+
+    .basic-package {
+      padding-top: 34px;
+    }
+
+    .basic-package-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .86fr);
+      gap: 34px;
+      align-items: center;
+      padding: 42px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: rgba(255,255,255,.86);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .basic-package-panel::before {
+      content: "";
+      position: absolute;
+      inset: -120px -80px auto auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(7,87,248,.13), transparent 68%);
+    }
+
+    .basic-package-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .basic-package-copy p {
+      max-width: 690px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .basic-price {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      margin-top: 22px;
+      padding: 0 14px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: #edf4ff;
+      font-weight: 900;
+    }
+
+    .entry-offer-cta-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .entry-offer-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--blue), #2ec5ff);
+      color: #fff;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 14px 26px rgba(7, 87, 248, .24);
+      transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+    }
+
+    .entry-offer-cta-btn:hover,
+    .entry-offer-cta-btn:focus-visible {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+      box-shadow: 0 18px 32px rgba(7, 87, 248, .3);
+    }
+
+    .basic-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .basic-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      color: #28303d;
+      font-weight: 800;
+      box-shadow: 0 10px 22px rgba(16, 32, 72, .06);
+    }
+
+    .basic-list li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-top: 7px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(7,87,248,.1);
+    }
+
+    .basic-package-visual {
+      position: relative;
+      z-index: 1;
+      min-height: 390px;
+    }
+
+    .basic-orbit {
+      position: absolute;
+      inset: 34px;
+      border: 2px dashed rgba(7,87,248,.42);
+      border-radius: 50%;
+      animation: basicOrbit 18s linear infinite;
+      box-shadow: 0 0 28px rgba(7,87,248,.08);
+    }
+
+    .basic-orbit-secondary {
+      inset: 78px 58px 62px;
+      border-style: solid;
+      border-color: rgba(7,87,248,.24);
+      animation-duration: 24s;
+      animation-direction: reverse;
+    }
+
+    .basic-asset {
+      position: absolute;
+      width: 168px;
+      height: 168px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      font: inherit;
+      cursor: pointer;
+      appearance: none;
+    }
+
+    .basic-asset img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
+      mix-blend-mode: multiply;
+    }
+
+    .entry-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .24s ease, visibility .24s ease;
+    }
+
+    .entry-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .entry-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 18, 44, .56);
+      backdrop-filter: blur(8px);
+    }
+
+    .entry-modal-dialog {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 520px);
+      max-height: min(86vh, 720px);
+      overflow: auto;
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(244,247,255,.98));
+      box-shadow: 0 28px 70px rgba(10, 24, 92, .28);
+      transform: translateY(18px) scale(.97);
+      transition: transform .24s ease;
+    }
+
+    .entry-modal.is-open .entry-modal-dialog {
+      transform: translateY(0) scale(1);
+    }
+
+    .entry-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 14px;
+      background: rgba(7, 87, 248, .1);
+      cursor: pointer;
+    }
+
+    .entry-modal-close span,
+    .entry-modal-close span::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .entry-modal-close span {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .entry-modal-close span::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .entry-modal-content {
+      display: none;
+    }
+
+    .entry-modal-content.is-active {
+      display: block;
+    }
+
+    .entry-modal-img {
+      width: 100%;
+      height: 210px;
+      margin: 6px 0 22px;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 26px rgba(7, 87, 248, .16));
+      mix-blend-mode: multiply;
+    }
+
+    .entry-modal-content h3 {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: clamp(1.55rem, 4vw, 2rem);
+      line-height: 1.1;
+    }
+
+    .entry-modal-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .entry-modal-price-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      margin: 2px 0 14px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--blue), #4d8dff);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(7, 87, 248, .22);
+    }
+
+    .plan-features {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plan-features li {
+      position: relative;
+      padding-left: 22px;
+      color: #46526e;
+      line-height: 1.45;
+    }
+
+    .plan-features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .48em;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 4px rgba(7, 87, 248, .08);
+    }
+
+    .basic-asset-main {
+      width: 248px;
+      height: 248px;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+
+    .basic-asset-web {
+      left: -8px;
+      bottom: 14px;
+      transform: rotate(-6deg);
+    }
+
+    .basic-asset-domain {
+      right: 4px;
+      bottom: 0;
+      transform: rotate(7deg);
+    }
+
+    .basic-asset-email {
+      top: 0;
+      right: 44px;
+      width: 142px;
+      height: 142px;
+      transform: rotate(-4deg);
+    }
+
+    .automation-package-panel {
+      grid-template-columns: minmax(360px, .9fr) minmax(0, 1fr);
+    }
+
+    .automation-icon-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .automation-feature {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 16px 30px rgba(16,32,72,.09);
+    }
+
+    .automation-feature svg {
+      width: 48px;
+      height: 48px;
+      color: var(--blue);
+    }
+
+    .automation-feature strong {
+      display: block;
+      color: #202733;
+      font-size: 17px;
+      line-height: 1.15;
+    }
+
+    .automation-feature:nth-child(2),
+    .automation-feature:nth-child(3) {
+      transform: translateY(18px);
+    }
+
+    .automation-section {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding-top: 54px;
+      padding-bottom: 76px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(46, 197, 255, .22), transparent 28%),
+        radial-gradient(circle at 86% 12%, rgba(34, 180, 85, .18), transparent 24%),
+        linear-gradient(135deg, #07142f 0%, #0a2560 52%, #081a3e 100%);
+    }
+
+    .automation-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(180deg, transparent, #000 14%, #000 78%, transparent);
+    }
+
+    .automation-section::after {
+      content: "";
+      position: absolute;
+      inset: -20% auto auto 8%;
+      z-index: -1;
+      width: 64vw;
+      height: 64vw;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow:
+        0 0 0 42px rgba(255,255,255,.025),
+        0 0 90px rgba(46,197,255,.14);
+      animation: automationHalo 18s linear infinite;
+    }
+
+    .automation-suite {
+      position: relative;
+      overflow: hidden;
+      padding: 38px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(34, 180, 85, .16), transparent 24%),
+        radial-gradient(circle at 86% 16%, rgba(46, 197, 255, .18), transparent 26%),
+        linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.08));
+      box-shadow: 0 30px 70px rgba(0,0,0,.24);
+      backdrop-filter: blur(18px);
+    }
+
+    .automation-suite-head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 26px;
+    }
+
+    .automation-suite-head p {
+      max-width: 420px;
+      margin: 0;
+      color: rgba(255,255,255,.76);
+      font-size: 16px;
+    }
+
+    .automation-suite .section-kicker {
+      color: #7ed7ff;
+    }
+
+    .automation-suite h2 {
+      color: #fff;
+    }
+
+    .automation-cards {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .automation-card {
+      position: relative;
+      min-height: 248px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 22px;
+      color: inherit;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 16px 30px rgba(0,0,0,.12);
+      transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+    }
+
+    .automation-card[href]:hover,
+    .automation-card[href]:focus-visible {
+      transform: translateY(-6px);
+      border-color: rgba(7, 87, 248, .28);
+      box-shadow: 0 22px 40px rgba(16,32,72,.13);
+      outline: none;
+    }
+
+    .automation-card-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      color: var(--blue);
+      background: rgba(7, 87, 248, .08);
+    }
+
+    .automation-card-icon svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .automation-card h3 {
+      margin: 0 0 8px;
+      color: #202733;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .automation-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .automation-card-label {
+      display: inline-flex;
+      width: fit-content;
+      min-height: 30px;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(7, 87, 248, .08);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .automation-card.is-live .automation-card-label {
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), #2ec5ff);
+    }
+
+    @keyframes automationHalo {
+      from {
+        transform: rotate(0deg) scale(1);
+      }
+
+      to {
+        transform: rotate(360deg) scale(1.04);
+      }
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .software-section {
+      padding-top: 62px;
+      padding-bottom: 54px;
+    }
+
+    .software-panel {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 46px;
+      align-items: center;
+      padding: 34px;
+      border: 1px solid rgba(7, 87, 248, .08);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(34, 180, 85, .12), transparent 26%),
+        radial-gradient(circle at 86% 8%, rgba(7, 87, 248, .1), transparent 24%),
+        linear-gradient(180deg, rgba(248, 251, 255, .98), rgba(235, 241, 255, .94));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .software-copy h2 {
+      max-width: 680px;
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 3.2vw, 3.05rem);
+      line-height: 1.06;
+    }
+
+    .software-copy > p {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .software-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(7, 87, 248, .08);
+      border-radius: 26px;
+      background: #fff;
+      box-shadow: 0 30px 70px rgba(16, 32, 72, .16);
+    }
+
+    .software-card-visual {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255,255,255,.98), rgba(244,248,255,.9) 48%, rgba(235,241,255,.72) 100%),
+        linear-gradient(180deg, #f4f8ff, #fff);
+    }
+
+    .software-card-aro,
+    .software-card-pc {
+      position: absolute;
+      display: block;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .software-card-aro {
+      width: min(82%, 520px);
+      max-width: none;
+      opacity: .78;
+      transform: translateY(2px) scale(1.02);
+      filter: drop-shadow(0 18px 28px rgba(7, 87, 248, .12));
+      animation: softwareAroSpin 18s linear infinite;
+    }
+
+    .software-card-pc {
+      width: min(104%, 620px);
+      max-width: none;
+      z-index: 1;
+      transform: translateY(2px);
+      filter: drop-shadow(0 22px 32px rgba(16, 39, 201, .18));
+    }
+
+    @keyframes softwareAroSpin {
+      from {
+        transform: translateY(2px) scale(1.02) rotate(0deg);
+      }
+
+      to {
+        transform: translateY(2px) scale(1.02) rotate(360deg);
+      }
+    }
+
+    .software-card-content {
+      padding: 24px 30px 30px;
+    }
+
+    .software-card-content h3 {
+      margin: 0 0 16px;
+      font-size: 1.28rem;
+      line-height: 1.15;
+    }
+
+    .software-card-content ul {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .software-card-content li {
+      position: relative;
+      padding-left: 26px;
+      color: var(--muted);
+    }
+
+    .software-card-content li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .62em;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(7, 87, 248, .1);
+    }
+
+    .projects-section {
+      padding: 110px 20px 120px;
+      text-align: center;
+      background: #f5f7fb;
+    }
+
+    .projects-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .projects-label {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border: 1px solid rgba(7, 87, 248, .08);
+      border-radius: 999px;
+      color: #7a88a5;
+      background: #f7f9ff;
+      font-size: .84rem;
+      font-weight: 900;
+    }
+
+    .projects-title {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.08;
+      text-align: center;
+    }
+
+    .projects-subtitle {
+      max-width: 700px;
+      margin: 0 auto 60px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.5;
+    }
+
+    .projects-controls {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .projects-controls button {
+      width: 50px;
+      height: 50px;
+      border: 0;
+      border-radius: 50%;
+      color: #fff;
+      background: #4b86ff;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .projects-viewport {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x;
+      scrollbar-width: thin;
+      padding-bottom: 8px;
+    }
+
+    .projects-slider {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      width: max-content;
+      margin: 0 auto;
+      padding: 8px 12px 12px;
+    }
+
+    .project-card {
+      width: 260px;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: width .35s ease;
+    }
+
+    .projects-slider img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 16px;
+      opacity: .4;
+      transform: scale(.85);
+      transition: width .35s ease, height .35s ease, opacity .35s ease, transform .35s ease, box-shadow .35s ease;
+    }
+
+    .project-card-caption {
+      min-height: 62px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.38;
+      text-align: center;
+      opacity: .72;
+      transition: color .35s ease, opacity .35s ease;
+    }
+
+    .project-card.active {
+      width: 420px;
+    }
+
+    .projects-slider img.active {
+      height: 260px;
+      opacity: 1;
+      transform: scale(1);
+      border: 3px solid #4b86ff;
+      box-shadow: 0 20px 40px rgba(0,0,0,.2);
+    }
+
+    .project-card.active .project-card-caption {
+      color: var(--ink);
+      opacity: 1;
+    }
+
+    .project-card:focus-visible {
+      outline: 3px solid rgba(75, 134, 255, .45);
+      outline-offset: 6px;
+      border-radius: 18px;
+    }
+
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .project-modal.open {
+      display: flex;
+    }
+
+    .project-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(6px);
+    }
+
+    .project-modal__panel {
+      position: relative;
+      width: min(980px, calc(100vw - 40px));
+      max-height: min(86vh, 860px);
+      overflow: auto;
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 26px 70px rgba(0,0,0,.35);
+    }
+
+    .project-modal__top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+
+    .project-modal__title {
+      margin: 0;
+      color: #111;
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .project-modal__close {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 0;
+      border-radius: 12px;
+      color: #111;
+      background: rgba(0,0,0,.06);
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .project-modal__media {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: 14px;
+      background: #f3f3f3;
+    }
+
+    .project-modal__img {
+      width: 100%;
+      height: auto;
+      max-height: 52vh;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .project-modal__nav {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      pointer-events: none;
+    }
+
+    .project-modal__nav button {
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 10px 22px rgba(0,0,0,.14);
+      cursor: pointer;
+      font-size: 1.1rem;
+      pointer-events: auto;
+    }
+
+    .project-modal__nav button[disabled] {
+      opacity: .35;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    .project-modal__desc {
+      margin-top: 14px;
+      color: #444;
+      font-size: 1.02rem;
+      line-height: 1.65;
+      text-align: left;
+    }
+
+    .personal-section {
+      padding-top: 72px;
+      padding-bottom: 34px;
+    }
+
+    .personal-grid {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 40px;
+      align-items: center;
+      padding: 34px;
+      border: 1px solid rgba(7, 87, 248, .08);
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(245,248,255,.98)),
+        linear-gradient(135deg, rgba(7, 87, 248, .08), rgba(83, 211, 255, .06));
+      box-shadow: 0 18px 44px rgba(29, 54, 126, .08);
+    }
+
+    .personal-grid::before,
+    .personal-grid::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .personal-grid::before {
+      inset: -20% auto auto -10%;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(7, 87, 248, .14), transparent 66%);
+      animation: personalFloat 12s ease-in-out infinite;
+    }
+
+    .personal-grid::after {
+      top: -30%;
+      right: -8%;
+      width: 320px;
+      height: 180%;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,.36), transparent);
+      transform: rotate(18deg);
+      opacity: .55;
+      animation: personalSheen 9s linear infinite;
+    }
+
+    .personal-media {
+      position: relative;
+      z-index: 1;
+    }
+
+    .personal-photo-frame {
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, #eff4ff, #fff);
+      box-shadow: var(--shadow);
+      transform: perspective(1400px) rotateY(-3deg) rotateX(1deg);
+      transition: transform .5s ease, box-shadow .5s ease;
+    }
+
+    .personal-photo-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.2), transparent 36%),
+        linear-gradient(180deg, transparent 55%, rgba(7, 87, 248, .12));
+      pointer-events: none;
+    }
+
+    .personal-photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.03);
+      transition: transform .7s ease;
+    }
+
+    .personal-media-badge {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      z-index: 2;
+      max-width: 240px;
+      padding: 14px 18px;
+      border-radius: 18px;
+      color: #fff;
+      background: rgba(7, 87, 248, .88);
+      box-shadow: 0 16px 32px rgba(7, 87, 248, .22);
+      backdrop-filter: blur(10px);
+      font-weight: 800;
+      line-height: 1.3;
+      animation: personalBadgeDrift 6s ease-in-out infinite;
+    }
+
+    .personal-contact-box {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px solid rgba(7, 87, 248, .1);
+      border-radius: 22px;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 16px 34px rgba(16, 32, 72, .09);
+    }
+
+    .personal-contact-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .personal-contact-actions a,
+    .personal-contact-box > a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: #fff;
+      color: #28303d;
+      font-weight: 900;
+      word-break: break-word;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .personal-contact-actions a:first-child {
+      color: #fff;
+      border-color: transparent;
+      background: #22b455;
+    }
+
+    .personal-contact-actions a:hover,
+    .personal-contact-box > a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(7, 87, 248, .22);
+      box-shadow: 0 12px 22px rgba(16, 32, 72, .08);
+    }
+
+    .personal-copy {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      padding: 6px 6px 6px 2px;
+    }
+
+    .personal-intro {
+      margin: 0 0 26px;
+      text-align: left;
+    }
+
+    .personal-intro h2 {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-size: clamp(2.1rem, 3.8vw, 3.5rem);
+      line-height: 1.04;
+    }
+
+    .personal-copy p,
+    .personal-intro p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .personal-signals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .personal-signals span {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border: 1px solid rgba(7, 87, 248, .08);
+      border-radius: 999px;
+      color: #3150bf;
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 10px 24px rgba(34, 52, 116, .06);
+      font-size: .95rem;
+      font-weight: 800;
+    }
+
+    .personal-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .personal-point {
+      position: relative;
+      overflow: hidden;
+      padding: 20px 18px;
+      border: 1px solid rgba(7, 87, 248, .08);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(244,247,255,.94), rgba(255,255,255,.98));
+      box-shadow: 0 10px 24px rgba(34, 52, 116, .06);
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .personal-point h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 10px;
+      color: #1c2b54;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .personal-point p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: #67738e;
+      font-size: .94rem;
+    }
+
+    .personal-point:hover {
+      transform: translateY(-8px);
+      border-color: rgba(7, 87, 248, .18);
+      box-shadow: 0 18px 34px rgba(34, 52, 116, .12);
+    }
+
+    .personal-quote {
+      position: relative;
+      overflow: hidden;
+      margin-top: 26px;
+      padding: 22px 24px;
+      border-radius: 22px;
+      color: #fff;
+      background: linear-gradient(135deg, #0a2f90 0%, #0757f8 58%, #2ec5ff 130%);
+      box-shadow: 0 20px 38px rgba(20, 52, 184, .18);
+      font-size: 1.02rem;
+      line-height: 1.5;
+    }
+
+    .personal-media:hover .personal-photo-frame {
+      transform: perspective(1400px) rotateY(0deg) rotateX(0deg) translateY(-6px);
+      box-shadow: 0 22px 46px rgba(21, 39, 126, .16);
+    }
+
+    .personal-media:hover .personal-photo {
+      transform: scale(1.08);
+    }
+
+    @keyframes personalFloat {
+      0%, 100% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      50% {
+        transform: translate3d(0, -16px, 0);
+      }
+    }
+
+    @keyframes personalBadgeDrift {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes personalSheen {
+      0% {
+        transform: translateX(-140%) rotate(18deg);
+      }
+
+      100% {
+        transform: translateX(180%) rotate(18deg);
+      }
+    }
+
+    @keyframes basicOrbit {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .process-band {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .diagnosis-card,
+    .steps-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .diagnosis-card {
+      padding: 34px;
+    }
+
+    .diagnosis-card h3 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.1;
+    }
+
+    .diagnosis-card p {
+      margin: 18px 0 0;
+      color: var(--muted);
+    }
+
+    .diagnosis-list {
+      display: grid;
+      gap: 13px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .diagnosis-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-weight: 800;
+    }
+
+    .diagnosis-list li::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(7, 87, 248, .11);
+    }
+
+    .steps-card {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      overflow: hidden;
+    }
+
+    .step {
+      min-height: 210px;
+      padding: 30px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .step:nth-last-child(-n+2) {
+      border-bottom: 0;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .step h4 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .mini-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .footer {
+      padding: 34px 0 44px;
+      color: #687080;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .site-footer {
+      position: relative;
+      overflow: hidden;
+      padding: 0 0 30px;
+      color: rgba(255,255,255,.82);
+      background:
+        radial-gradient(circle at top right, rgba(67, 133, 255, .2), transparent 24%),
+        radial-gradient(circle at left center, rgba(62, 199, 244, .12), transparent 22%),
+        linear-gradient(180deg, #08112f 0%, #0b163e 54%, #0d1735 100%);
+    }
+
+    .site-footer::before {
+      content: "";
+      position: absolute;
+      inset: 80px auto auto -120px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(83, 211, 255, .16), transparent 68%);
+      pointer-events: none;
+    }
+
+    .site-footer .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-cta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 26px;
+      margin: 24px 0 34px;
+      padding: 34px 38px;
+      border-radius: 28px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(7, 87, 248, .94), rgba(62, 199, 244, .86)),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0));
+      box-shadow: 0 28px 60px rgba(4, 12, 46, .32);
+    }
+
+    .footer-section-label {
+      color: rgba(255,255,255,.82);
+    }
+
+    .footer-cta-copy h2 {
+      max-width: 650px;
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 3vw, 2.9rem);
+      line-height: 1.04;
+    }
+
+    .footer-cta-copy p {
+      max-width: 620px;
+      margin: 0;
+      color: rgba(255,255,255,.84);
+      font-size: 1rem;
+    }
+
+    .footer-cta-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 220px;
+      margin-top: 22px;
+      padding: 16px 22px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 14px;
+      color: #fff;
+      background: rgba(255,255,255,.14);
+      box-shadow: 0 18px 32px rgba(7, 14, 43, .18);
+      font-weight: 800;
+      transition: transform .22s ease, background .22s ease;
+    }
+
+    .footer-cta-link:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.2);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, minmax(0, .75fr));
+      gap: 30px;
+      padding: 34px 0;
+      text-align: left;
+    }
+
+    .footer-column h3 {
+      margin: 0 0 14px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .footer-column p,
+    .footer-note {
+      margin: 0;
+      color: rgba(255,255,255,.72);
+      line-height: 1.6;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand-image {
+      height: 58px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-meta,
+    .footer-pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .footer-meta span,
+    .footer-pill-list span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      color: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.08);
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-links a,
+    .footer-location-copy a,
+    .footer-bottom a {
+      color: rgba(255,255,255,.78);
+      transition: color .2s ease, opacity .2s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-location-copy a:hover,
+    .footer-bottom a:hover {
+      color: #fff;
+    }
+
+    .footer-location {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(300px, 1.2fr);
+      gap: 22px;
+      align-items: stretch;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      background: rgba(255,255,255,.07);
+      text-align: left;
+    }
+
+    .footer-location-copy h3 {
+      margin: 0 0 8px;
+      color: #fff;
+    }
+
+    .footer-location-copy p {
+      margin: 0 0 12px;
+      color: rgba(255,255,255,.72);
+    }
+
+    .footer-map {
+      min-height: 230px;
+      overflow: hidden;
+      border-radius: 18px;
+      background: rgba(255,255,255,.1);
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 230px;
+      border: 0;
+      filter: saturate(.9) contrast(.95);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 24px;
+      color: rgba(255,255,255,.62);
+      text-align: left;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+    }
+
+    .hamburger,
+    .mobile-panel,
+    .mobile-backdrop,
+    .mobile-close {
+      display: none;
+    }
+
+    .hamburger {
+      width: 56px;
+      height: 56px;
+      border: 0;
+      border-radius: 14px;
+      background: #22b455;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(34,180,85,.25);
+    }
+
+    .hamburger span,
+    .hamburger span::before,
+    .hamburger span::after {
+      content: "";
+      position: relative;
+      display: block;
+      width: 24px;
+      height: 3px;
+      border-radius: 99px;
+      background: #fff;
+    }
+
+    .hamburger span::before,
+    .hamburger span::after {
+      position: absolute;
+      left: 0;
+    }
+
+    .hamburger span::before {
+      top: -8px;
+    }
+
+    .hamburger span::after {
+      top: 8px;
+    }
+
+    @media (max-width: 1060px) {
+      .nav-links {
+        display: none;
+      }
+
+      .quote-btn {
+        display: none;
+      }
+
+      .hamburger {
+        display: inline-flex;
+      }
+
+      .hero-grid,
+      .basic-package-panel,
+      .automation-package-panel,
+      .software-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-card {
+        min-height: auto;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .automation-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .service-card {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .service-card:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .service-card:last-child {
+        grid-column: span 2;
+      }
+
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .site-header {
+        position: fixed;
+        top: 14px;
+        left: auto;
+        right: 14px;
+        width: 56px;
+        margin-top: 0;
+        transform: none;
+        opacity: 1;
+        border-color: transparent;
+        background: transparent;
+        box-shadow: none;
+        transition: width .28s ease, right .28s ease, border-color .28s ease, background .28s ease, box-shadow .28s ease;
+      }
+
+      body.mobile-header-visible .site-header {
+        top: 22px;
+        left: 7px;
+        right: 7px;
+        width: calc(100% - 14px);
+        transform: none;
+        opacity: 1;
+        border-color: #202020;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,.06);
+      }
+
+      .nav {
+        min-height: 70px;
+        padding: 0;
+        justify-content: end;
+        gap: 0;
+      }
+
+      body.mobile-header-visible .nav {
+        padding: 10px 14px;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: none;
+        height: 46px;
+        min-width: 150px;
+      }
+
+      body.mobile-header-visible .brand {
+        display: inline-flex;
+      }
+
+      .brand-logo-image {
+        --logo-scale: 1.68;
+        width: 100%;
+        height: 46px;
+        max-height: none;
+      }
+
+      .mobile-panel {
+        display: block;
+        position: fixed;
+        top: 106px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        max-height: calc(100vh - 126px);
+        overflow-y: auto;
+        z-index: 60;
+        padding: 14px;
+        border: 2px solid #202020;
+        border-radius: 16px;
+        background: #efeff2;
+        box-shadow: 0 14px 28px rgba(0,0,0,.12);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition:
+          transform .68s cubic-bezier(.16, .9, .18, 1),
+          opacity .58s ease;
+      }
+
+      .mobile-panel.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .mobile-panel a {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 10px;
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .mobile-panel a:hover {
+        background: rgba(7, 87, 248, .12);
+      }
+
+      .mobile-menu-group {
+        display: grid;
+        gap: 4px;
+        padding: 8px 0;
+      }
+
+      .mobile-menu-group > span {
+        padding: 8px 14px 4px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+      }
+
+      .mobile-menu-group a {
+        padding-left: 24px;
+      }
+
+      .mobile-contact-trigger {
+        width: 100%;
+        min-height: 44px;
+        margin-top: 6px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--blue);
+        color: #fff;
+        font-weight: 800;
+      }
+
+      .mobile-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        background: rgba(7, 13, 48, .18);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .5s ease;
+      }
+
+      .mobile-backdrop.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .hero {
+        padding-top: 14px;
+      }
+
+      h1 {
+        font-size: clamp(39px, 13vw, 54px);
+      }
+
+      .hero-copy p {
+        font-size: 17px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-card,
+      .basic-package-panel {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .basic-list {
+        grid-template-columns: 1fr;
+      }
+
+      .basic-package-visual {
+        min-height: 310px;
+      }
+
+      .automation-suite {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .automation-suite-head {
+        display: block;
+      }
+
+      .automation-suite-head p {
+        margin-top: 14px;
+      }
+
+      .automation-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .automation-card {
+        min-height: 220px;
+      }
+
+      .software-section {
+        padding-top: 46px;
+        padding-bottom: 22px;
+      }
+
+      .software-panel {
+        padding: 22px;
+        border-radius: 28px;
+      }
+
+      .software-copy h2 {
+        font-size: 2.18rem;
+      }
+
+      .software-card-visual {
+        height: 340px;
+      }
+
+      .software-card-aro {
+        width: min(82%, 330px);
+      }
+
+      .software-card-pc {
+        width: min(110%, 430px);
+      }
+
+      .project-card {
+        width: 180px;
+      }
+
+      .project-card.active {
+        width: 260px;
+      }
+
+      .projects-slider img {
+        height: 120px;
+      }
+
+      .projects-slider img.active {
+        height: 160px;
+      }
+
+      .project-card-caption {
+        min-height: 78px;
+        font-size: .82rem;
+      }
+
+      .project-modal__panel {
+        width: calc(100vw - 24px);
+        padding: 14px 14px 16px;
+        border-radius: 16px;
+      }
+
+      .project-modal__title {
+        font-size: 1.1rem;
+      }
+
+      .project-modal__desc {
+        font-size: .98rem;
+      }
+
+      .personal-section {
+        padding-top: 52px;
+        padding-bottom: 18px;
+      }
+
+      .personal-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 22px;
+        border-radius: 28px;
+      }
+
+      .personal-intro h2 {
+        font-size: 2.2rem;
+      }
+
+      .personal-signals {
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .personal-signals span {
+        padding: 9px 14px;
+        font-size: .88rem;
+      }
+
+      .personal-photo-frame {
+        min-height: 300px;
+      }
+
+      .personal-media-badge {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        max-width: none;
+        padding: 12px 14px;
+        font-size: .92rem;
+      }
+
+      .personal-contact-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .personal-copy {
+        padding: 4px 0 0;
+      }
+
+      .personal-points {
+        grid-template-columns: 1fr;
+      }
+
+      .personal-copy p,
+      .personal-quote {
+        font-size: .98rem;
+      }
+
+      .footer-cta {
+        padding: 28px 22px;
+        margin-bottom: 28px;
+        border-radius: 26px;
+      }
+
+      .footer-cta-copy h2 {
+        font-size: 2.1rem;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-location {
+        grid-template-columns: 1fr;
+        padding: 18px;
+      }
+
+      .footer-brand-image {
+        height: 52px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 20px;
+      }
+
+      .automation-icon-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .automation-feature,
+      .automation-feature:nth-child(2),
+      .automation-feature:nth-child(3) {
+        min-height: 124px;
+        transform: none;
+      }
+
+      .basic-asset-main {
+        width: 198px;
+        height: 198px;
+        top: 56px;
+      }
+
+      .basic-asset {
+        width: 132px;
+        height: 132px;
+      }
+
+      .basic-asset-email {
+        width: 112px;
+        height: 112px;
+        right: 24px;
+      }
+
+      .dot-field,
+      .circuit-lines {
+        opacity: .42;
+      }
+
+      .card-logo {
+        margin-top: 62px;
+      }
+
+      .card-logo-image {
+        width: min(100%, 420px);
+      }
+
+      .signature span {
+        font-size: 12px;
+      }
+
+      .section {
+        padding: 50px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 14px;
+      }
+
+      .service-card,
+      .service-card:nth-child(2n),
+      .service-card:last-child {
+        min-height: 118px;
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr) 34px;
+        align-items: center;
+        gap: 14px;
+        padding: 16px;
+        grid-column: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255,255,255,.92);
+        box-shadow: none;
+        cursor: pointer;
+        transition: transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;
+      }
+
+      .service-card:active {
+        transform: scale(.985);
+      }
+
+      .service-card:hover,
+      .service-card:focus-within {
+        background: #fff;
+        box-shadow: 0 14px 28px rgba(16,32,72,.1);
+      }
+
+      .service-icon {
+        width: 44px;
+        height: 44px;
+        padding: 8px;
+        border-radius: 15px;
+        background: rgba(7, 87, 248, .08);
+      }
+
+      .service-card h3 {
+        margin: 0 0 4px;
+        font-size: 17px;
+      }
+
+      .service-card p {
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .service-mobile-arrow {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        color: #fff;
+        background: var(--blue);
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .service-card-cta {
+        display: block;
+        background: transparent;
+        color: transparent;
+        opacity: 1;
+        transform: none;
+        padding: 0;
+      }
+
+      .service-card-cta::after {
+        content: "";
+      }
+
+      .blue-strip {
+        padding: 20px 18px;
+        line-height: 1.25;
+        letter-spacing: .08em;
+      }
+
+      .blue-strip::before,
+      .blue-strip::after {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .service-card {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+      }
+
+      .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+      }
+
+      .blue-strip {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+      }
+
+      .blue-strip::before,
+      .blue-strip::after {
+        transform: none;
+        transition: none;
+      }
+
+      .dot-field i {
+        animation: none;
+      }
+
+      .circuit-lines path,
+      .circuit-lines circle {
+        animation: none;
+      }
+
+      .brand-card {
+        animation: none;
+      }
+
+      .brand-logo-image {
+        transition: none;
+        animation: none;
+      }
+
+      .basic-orbit {
+        animation: none;
+      }
+
+      .software-card-aro {
+        animation: none;
+      }
+
+      .automation-section::after {
+        animation: none;
+      }
+
+      .personal-grid::before,
+      .personal-grid::after,
+      .personal-media-badge {
+        animation: none;
+      }
+    }
+    .contact-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 130;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .22s ease, visibility .22s ease;
+    }
+
+    .contact-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .contact-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 12, 34, .66);
+      backdrop-filter: blur(6px);
+    }
+
+    .contact-modal-dialog {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 740px);
+      max-height: min(92vh, 900px);
+      overflow: auto;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #f9fbff, #eff4ff);
+      padding: 22px;
+      box-shadow: 0 26px 70px rgba(8, 22, 66, .34);
+    }
+
+    .contact-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 10px;
+      background: rgba(7, 87, 248, .12);
+      cursor: pointer;
+    }
+
+    .contact-modal-close span,
+    .contact-modal-close span::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .contact-modal-close span {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .contact-modal-close span::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .contact-modal-head h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+    }
+
+    .contact-modal-head p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .footer-contact-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .footer-contact-brandmark {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: rgba(7, 87, 248, .08);
+      border: 1px solid rgba(7, 87, 248, .22);
+    }
+
+    .footer-contact-brandmark img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .footer-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .footer-contact-field {
+      display: grid;
+      gap: 5px;
+    }
+
+    .footer-contact-field span {
+      color: #243a70;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .footer-contact-field input,
+    .footer-contact-field select {
+      min-height: 42px;
+      border: 1px solid rgba(7, 87, 248, .2);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .footer-contact-submit {
+      width: fit-content;
+      min-height: 42px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+      padding: 0 16px;
+      cursor: pointer;
+    }
+
+    .footer-contact-status {
+      margin: 0;
+      min-height: 18px;
+      color: #2d467f;
+      font-size: 13px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: 18px;
+      z-index: 70;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      min-width: 58px;
+      max-width: calc(100vw - 32px);
+      height: 58px;
+      gap: 9px;
+      padding: 10px 16px 10px 12px;
+      border-radius: 999px;
+      color: #fff;
+      background: #22b455;
+      box-shadow: 0 16px 30px rgba(34, 180, 85, .34);
+      font-weight: 900;
+      font-size: .9rem;
+      line-height: 1.12;
+    }
+
+    .whatsapp-float svg {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      fill: #fff;
+    }
+
+    .whatsapp-float-label {
+      display: block;
+      max-width: 122px;
+    }
+
+    @media (max-width: 720px) {
+      .footer-contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-modal-dialog {
+        padding: 18px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a href="#" class="brand" aria-label="Ir al inicio">
+      <a class="brand" href="#inicio" aria-label="JM2 Tech Studio">
         <img class="brand-logo-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
       </a>
 
       <nav class="nav-links" aria-label="Principal">
-        <a href="#entry-offer">Base digital</a>
+        <a href="#servicios">Servicios</a>
+        <a href="plan-base2.html">Base digital</a>
         <div class="nav-dropdown">
           <button class="nav-dropdown-trigger" type="button" aria-haspopup="true">
             Automatizaciones
           </button>
-          <div class="nav-dropdown-menu" aria-label="P&aacute;ginas de automatizaciones">
-            <a href="adios-excel.html">Adi&oacute;s Excel</a>
-            <a href="automatizacion-email.html">Email autom&aacute;tico</a>
+          <div class="nav-dropdown-menu" aria-label="Paginas de automatizaciones">
+            <a href="adios-excel.html">Adios Excel</a>
+            <a href="automatizacion-email.html">Email automatico</a>
+            <a href="lectura-albaranes.html">Lectura de albaranes</a>
+            <a href="gestion-citas.html">Gestion de citas</a>
+            <a href="facturas-automaticas.html">Facturas automaticas</a>
+            <a href="informes-consumos.html">Informes de consumos</a>
+            <a href="recordatorios-automaticos.html">Recordatorios</a>
+            <a href="avisos-whatsapp-telegram.html">Avisos WhatsApp/Telegram</a>
           </div>
         </div>
-        <a href="#software-propio">Software propio</a>
-        <a href="sobremi.html">Sobre m&iacute;</a>
-        <a href="#contact">Contacto</a>
+        <a href="#software-propio">Plan avanzado</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
       </nav>
 
-      <button class="quote-btn quote-btn-contact" type="button" data-contact-modal-open aria-label="Contactar ahora">
-        Contactar ahora
-      </button>
-
-      <button class="hamburger" id="menuBtn" aria-label="Abrir men&uacute;" aria-expanded="false">
-        <span></span>
-      </button>
+      <div class="nav-actions">
+        <button class="quote-btn quote-btn-contact" type="button" data-contact-modal-open>Contactar ahora</button>
+        <button class="hamburger" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="mobile-backdrop" id="backdrop"></div>
   <aside class="mobile-panel" id="mobilePanel" aria-hidden="true">
-    <button class="mobile-close" id="closeMenuBtn" aria-label="Cerrar men&uacute;">
-      <span></span>
-    </button>
-    <a href="#home">Inicio</a>
-    <a href="#entry-offer">Base digital</a>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="plan-base2.html">Base digital</a>
     <div class="mobile-menu-group">
       <span>Automatizaciones</span>
-      <a href="adios-excel.html">Adi&oacute;s Excel</a>
-      <a href="automatizacion-email.html">Email autom&aacute;tico</a>
+      <a href="#automatizaciones-empresa">Ver todas</a>
+      <a href="adios-excel.html">Adios Excel</a>
+      <a href="automatizacion-email.html">Email automatico</a>
+      <a href="lectura-albaranes.html">Lectura de albaranes</a>
+      <a href="gestion-citas.html">Gestion de citas</a>
+      <a href="facturas-automaticas.html">Facturas automaticas</a>
+      <a href="informes-consumos.html">Informes de consumos</a>
+      <a href="recordatorios-automaticos.html">Recordatorios</a>
+      <a href="avisos-whatsapp-telegram.html">Avisos WhatsApp/Telegram</a>
     </div>
-    <a href="#software-propio">Software propio</a>
-    <a href="sobremi.html">Sobre m&iacute;</a>
-    <a href="#contact">Contacto</a>
+    <a href="#software-propio">Plan avanzado</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
     <button class="mobile-contact-trigger" type="button" data-contact-modal-open>Contactar ahora</button>
   </aside>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-wrap">
-        <div class="hero-copy reveal-on-scroll reveal-delay-2">
-          <div class="eyebrow">Sistemas digitales para empresas</div>
-          <h1>Software que se adapta a tu negocio.</h1>
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Servicios tecnologicos para que tu empresa avance sin complicarse.</h1>
           <p>
-            Centraliza tu operativa, automatiza procesos y conecta las herramientas que usas cada d&iacute;a
-            en un &uacute;nico sistema.
+            Me cuentas que necesita mejorar tu negocio y preparo la solucion adecuada: presencia web, soporte digital, automatizaciones, software a medida o inteligencia artificial practica para tu dia a dia.
           </p>
-          <p>
-            Con soporte continuo, mejoras constantes y una soluci&oacute;n pensada para crecer contigo.
-          </p>
-          <div class="hero-mobile-actions">
-            <button class="hero-mobile-cta" type="button" data-contact-modal-open>Contactar ahora</button>
-            <a class="hero-mobile-cta hero-mobile-cta-secondary" href="#proyectos">Trabajos</a>
-          </div>
         </div>
 
-        <div class="hero-art reveal-on-scroll reveal-from-right reveal-delay-1" aria-hidden="true">
-          <div class="art-orbit"></div>
+        <div class="brand-card" aria-label="Tarjeta visual JM2 Tech Studio">
+          <div class="dot-field" aria-hidden="true">
+            <i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i>
+            <i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i>
+            <i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i>
+            <i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i>
+          </div>
+          <svg class="circuit-lines" viewBox="0 0 170 160" fill="none" aria-hidden="true">
+            <path d="M18 10h48l24 24h54" stroke="currentColor" stroke-width="2"/>
+            <path d="M22 52h82l18-18h25" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 88h72l22 22h47" stroke="currentColor" stroke-width="2"/>
+            <path d="M40 128h56l20-20h36" stroke="currentColor" stroke-width="2"/>
+            <circle cx="146" cy="34" r="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="149" cy="88" r="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="152" cy="108" r="5" stroke="currentColor" stroke-width="2"/>
+          </svg>
 
-          <div class="social-orbit social-orbit-inst">
-            <div class="social-orbit-track">
-              <div class="social-badge social-badge-inst">
-                <img src="inst.png" alt="" />
-              </div>
-            </div>
+          <div class="card-logo">
+            <img class="card-logo-image" src="logologo.png" alt="JM2 Tech Studio" />
           </div>
 
-          <div class="social-orbit social-orbit-facebook">
-            <div class="social-orbit-track">
-              <div class="social-badge social-badge-facebook">
-                <img src="facebook.png" alt="" />
-              </div>
-            </div>
+          <div class="signature">
+            <span>Desarrollo y soluciones tecnologicas</span>
           </div>
-
-          <img class="hero-art-image" src="portada.png" alt="" />
         </div>
       </div>
     </section>
 
-    <section class="section entry-offer-section" id="entry-offer">
+    <section class="section" id="servicios">
       <div class="container">
-        <div class="entry-offer-panel">
-          <div class="entry-offer-copy reveal-on-scroll reveal-from-left reveal-delay-1">
-            <div class="entry-offer-head">
-              <div class="section-label">Diagn&oacute;stico inicial</div>
-            </div>
-            <h2>Muchas empresas trabajan con tecnolog&iacute;a, pero sin un sistema claro</h2>
-            <p>
-              El problema no suele ser una sola herramienta, sino todo lo que queda separado,
-              duplicado o pendiente de hacer a mano cada d&iacute;a.
-            </p>
-            <ul class="business-problem-list">
-              <li>Altos costes en tecnolog&iacute;a y servicios que apenas se usan.</li>
-              <li>Facturas, presupuestos, emails y documentos repartidos en sitios distintos.</li>
-              <li>Tareas manuales que consumen horas y provocan errores.</li>
-              <li>Herramientas que no se conectan entre s&iacute; y obligan a copiar datos.</li>
-            </ul>
+        <div class="section-head">
+          <div>
+            <h2>Servicios</h2>
           </div>
         </div>
 
-        <div class="entry-offer-includes" id="entry-offer-includes">
-          <div class="diagnosis-plan-panel">
-            <div class="diagnosis-plan-copy reveal-on-scroll reveal-from-left reveal-delay-2">
-              <div class="section-label">Plan de acompa&ntilde;amiento</div>
-              <h3>El primer paso siempre es entender c&oacute;mo funciona tu empresa</h3>
-              <p>
-                Antes de construir nada, hacemos un primer diagn&oacute;stico: conocemos tus procesos,
-                revisamos los gastos tecnol&oacute;gicos que ya existen y buscamos c&oacute;mo reducirlos con criterio.
-              </p>
-              <p>
-                A partir de ah&iacute;, ofrecemos un paquete completo de servicios b&aacute;sicos y consultor&iacute;a continua
-                para ordenar la base digital, acompa&ntilde;arte en las decisiones y preparar el terreno para futuras
-                automatizaciones.
-              </p>
-              <ul class="diagnosis-plan-points">
-                <li>An&aacute;lisis de procesos reales de la empresa.</li>
-                <li>Revisi&oacute;n de costes, herramientas y servicios existentes.</li>
-                <li>Base digital completa: web, dominio, email y configuraci&oacute;n inicial.</li>
-                <li>Consultor&iacute;a constante para mejorar por fases.</li>
-              </ul>
-              <div class="entry-offer-cta-row">
-                <button class="entry-offer-cta-btn" type="button" data-entry-modal="includes">Qu&eacute; incluye</button>
-              </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path d="M15 48v-4a11 11 0 0 1 22 0v4" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="26" cy="24" r="8" stroke="currentColor" stroke-width="4"/>
+              <path d="M39 47v-3a9 9 0 0 1 14 0v3" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="46" cy="26" r="6" stroke="currentColor" stroke-width="4"/>
+            </svg>
+            <div>
+              <h3>Servicios a empresas</h3>
+              <p>Analisis, soporte y mejora digital para que cada decision tenga sentido.</p>
             </div>
-
-            <div class="entry-offer-visual reveal-on-scroll reveal-from-right reveal-delay-2">
-              <div class="entry-offer-glow"></div>
-              <div class="entry-offer-image-wrap">
-                <div class="entry-offer-image-stack" aria-label="Elementos del plan de acompa&ntilde;amiento">
-                  <button class="entry-offer-image-card entry-offer-image-card-audit" type="button" data-entry-modal="audit" aria-label="Ver detalle de Auditoria de costes y servicios">
-                    <img class="entry-offer-image" src="1audit.png" alt="Auditoria de costes y servicios" />
-                  </button>
-                  <button class="entry-offer-image-card entry-offer-image-card-web" type="button" data-entry-modal="web" aria-label="Ver detalle de Web profesional">
-                    <img class="entry-offer-image" src="1web.png" alt="Web profesional" />
-                  </button>
-                  <button class="entry-offer-image-card entry-offer-image-card-domain" type="button" data-entry-modal="web" aria-label="Ver detalle de Dominio corporativo">
-                    <img class="entry-offer-image" src="1dominio.png" alt="Dominio corporativo" />
-                  </button>
-                  <button class="entry-offer-image-card entry-offer-image-card-email" type="button" data-entry-modal="email" aria-label="Ver detalle de Email corporativo">
-                    <img class="entry-offer-image" src="1email.png" alt="Email corporativo" />
-                  </button>
-                  <button class="entry-offer-image-card entry-offer-image-card-consultoria" type="button" data-entry-modal="support" aria-label="Ver detalle de Consultoria y acompanamiento">
-                    <img class="entry-offer-image" src="1consultoria.png" alt="Consultoria y acompanamiento continuo" />
-                  </button>
-                  <button class="entry-offer-image-card entry-offer-image-card-config" type="button" data-entry-modal="web" aria-label="Ver detalle de Configuracion inicial">
-                    <img class="entry-offer-image" src="1config.png" alt="Configuracion inicial de servicios digitales" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="entry-modal" data-entry-modal-root aria-hidden="true">
-      <div class="entry-modal-backdrop" data-entry-modal-close></div>
-      <div class="entry-modal-dialog" role="dialog" aria-modal="true" aria-label="Detalle del plan b&aacute;sico" tabindex="-1">
-        <button class="entry-modal-close" type="button" data-entry-modal-close aria-label="Cerrar detalle">
-          <span></span>
-        </button>
-
-        <article class="entry-modal-content is-active" data-entry-modal-panel="audit">
-          <img class="entry-modal-img" src="costes.png" alt="Auditor&iacute;a inicial para detectar ahorro de costes en servicios digitales" />
-          <div class="section-label">Auditor&iacute;a inicial</div>
-          <h3>Auditor&iacute;a para ahorro de costes</h3>
-          <p>Estudiamos los servicios que ya est&aacute; pagando tu empresa para detectar duplicidades, cuotas por encima de lo necesario y herramientas infrautilizadas. La idea es clara: pagar solo por lo que realmente necesitas y abaratar la base digital desde el inicio.</p>
-        </article>
-
-          <article class="entry-modal-content" data-entry-modal-panel="includes">
-            <div class="section-label">Plan de acompa&ntilde;amiento</div>
-            <h3>Qu&eacute; incluye el paquete b&aacute;sico</h3>
-            <div class="entry-modal-price-chip">Desde 30&euro;/mes + IVA</div>
-            <ul class="plan-features">
-              <li>Auditor&iacute;a inicial de costes y servicios digitales</li>
-              <li>Web profesional para presentar tu negocio</li>
-              <li>Dominio y configuraci&oacute;n inicial</li>
-              <li>Email corporativo bien estructurado</li>
-              <li>Formulario de contacto y datos clave de empresa</li>
-              <li>Acompa&ntilde;amiento continuo para decidir con criterio</li>
-            </ul>
+            <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
+            <a class="service-card-cta" href="plan-base2.html">Ver paquete basico</a>
           </article>
 
-        <article class="entry-modal-content" data-entry-modal-panel="web">
-          <img class="entry-modal-img" src="web1.png" alt="Web y presencia digital para negocios" />
-          <div class="section-label">Presencia digital</div>
-          <h3>Web y presencia digital</h3>
-          <p>Una web profesional para presentar tu negocio con claridad, transmitir confianza y facilitar el contacto con tus clientes.</p>
-        </article>
+          <article class="service-card">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <rect x="10" y="13" width="44" height="38" rx="5" stroke="currentColor" stroke-width="4"/>
+              <path d="M10 24h44M18 18h1M26 18h1M34 18h1" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <path d="M18 44h14l7-9 7 9" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <h3>Paginas web</h3>
+              <p>Webs y tiendas online claras, rapidas y preparadas para convertir visitas en contactos y ventas.</p>
+            </div>
+            <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
+            <a class="service-card-cta" href="#contacto">Consultar paginas web</a>
+          </article>
 
-        <article class="entry-modal-content" data-entry-modal-panel="email">
-          <img class="entry-modal-img" src="email.png" alt="Email corporativo bien configurado para empresas" />
-          <div class="section-label">Correo profesional</div>
-          <h3>Email corporativo bien configurado</h3>
-          <p>Correo profesional, ordenado y preparado para que la comunicaci&oacute;n de tu empresa sea clara, fiable y f&aacute;cil de gestionar.</p>
-        </article>
+          <article class="service-card">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <g transform="translate(32 34) scale(.58) translate(-32 -34)">
+                <path d="M25.5 9h13l2 8a20 20 0 0 1 4.4 2.5l7.8-2.4 6.5 11.2-5.8 5.8c.2 1.3.2 2.6 0 3.9l5.8 5.8-6.5 11.2-7.8-2.4a20 20 0 0 1-4.4 2.5l-2 8h-13l-2-8a20 20 0 0 1-4.4-2.5l-7.8 2.4-6.5-11.2 5.8-5.8a18 18 0 0 1 0-3.9l-5.8-5.8 6.5-11.2 7.8 2.4a20 20 0 0 1 4.4-2.5l2-8Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                <circle cx="32" cy="36" r="9" stroke="currentColor" stroke-width="4"/>
+              </g>
+              <path d="M17 12A29 29 0 0 1 50 19" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <path d="M50 19h-9M50 19l-3-8" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M47 56A29 29 0 0 1 14 49" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+              <path d="M14 49h9M14 49l3 8" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <h3>Automatizaciones</h3>
+              <p>Menos tareas repetidas: emails, formularios, hojas de calculo y avisos conectados.</p>
+            </div>
+            <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
+            <a class="service-card-cta" href="#automatizaciones-empresa">Ver automatizaciones</a>
+          </article>
 
-        <article class="entry-modal-content" data-entry-modal-panel="support">
-          <img class="entry-modal-img" src="oficina.png" alt="Acompa&ntilde;amiento y consultor&iacute;a constante para empresas" />
-          <div class="section-label">Acompa&ntilde;amiento</div>
-          <h3>Acompa&ntilde;amiento y consultor&iacute;a constante</h3>
-          <p>Te acompa&ntilde;amos de forma continua para resolver dudas, revisar decisiones tecnol&oacute;gicas y mantener una direcci&oacute;n clara a medida que tu empresa avanza.</p>
-        </article>
-      </div>
-    </div>
+          <article class="service-card">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path d="M25 18 11 32l14 14M39 18l14 14-14 14M35 12 29 52" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <h3>Software a medida</h3>
+              <p>Paneles, bases de datos y herramientas internas adaptadas a tu forma de trabajar.</p>
+            </div>
+            <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
+            <a class="service-card-cta" href="#software-propio">Ver plan avanzado</a>
+          </article>
 
-    <section class="section entry-offer-section entry-offer-section-secondary" id="advanced-services">
-      <div class="container">
-        <div class="section-heading entry-offer-section-heading reveal-on-scroll">
-          <div class="section-label">Evoluci&oacute;n opcional</div>
-          <h2>Si quieres llevar tu sistema m&aacute;s all&aacute;</h2>
-          <p>
-            Podemos incorporar software y automatizaciones por fases, manteniendo el acompa&ntilde;amiento
-            y adaptando la cuota a lo que tu empresa necesite en cada momento.
-          </p>
-          <div class="entry-offer-cta-row">
-            <a class="entry-offer-cta-btn" href="adios-excel.html">Ver Adi&oacute;s Excel</a>
-            <a class="entry-offer-cta-btn" href="automatizacion-email.html">Ver email autom&aacute;tico</a>
-          </div>
+          <article class="service-card">
+            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <rect x="18" y="16" width="28" height="32" rx="5" stroke="currentColor" stroke-width="4"/>
+              <path d="M26 40V25h12v15M28 34h8M12 24h6M12 32h6M12 40h6M46 24h6M46 32h6M46 40h6M24 10v6M32 10v6M40 10v6M24 48v6M32 48v6M40 48v6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <h3>Inteligencia artificial</h3>
+              <p>IA practica para responder, ordenar informacion y acelerar procesos reales.</p>
+            </div>
+            <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
+            <a class="service-card-cta" href="#contacto">Consultar IA practica</a>
+          </article>
         </div>
+        <div class="blue-strip">Tecnologia que impulsa tu negocio</div>
+      </div>
+    </section>
 
-        <div class="entry-offer-panel entry-offer-panel-secondary">
-          <div class="automation-slider reveal-on-scroll reveal-delay-2" aria-label="Ejemplos de automatizaciones">
-            <div class="automation-slider-head">
+    <section class="section automation-section" id="automatizaciones-empresa">
+      <div class="container">
+        <div class="automation-suite">
+          <div class="automation-suite-head">
+            <div>
+              <p class="section-kicker">Automatizaciones para empresas</p>
+              <h2>Procesos que dejan de depender de copiar, perseguir y recordar.</h2>
+            </div>
+            <p>Empezamos por una tarea concreta, la conectamos con tus herramientas y la dejamos lista para ahorrar tiempo cada semana.</p>
+          </div>
+
+          <div class="automation-cards">
+            <a class="automation-card is-live" href="adios-excel.html">
+              <span class="automation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect x="10" y="12" width="44" height="40" rx="5" stroke="currentColor" stroke-width="4"/>
+                  <path d="M10 25h44M24 12v40M39 12v40" stroke="currentColor" stroke-width="4"/>
+                  <path d="M17 38h30" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </span>
               <div>
-                <div class="section-label">Ejemplos a medida</div>
-                <h3>Automatizaciones que podemos estudiar contigo</h3>
+                <h3>Adios Excel</h3>
+                <p>Paneles y registros internos para dejar atras hojas dispersas, versiones duplicadas y datos perdidos.</p>
               </div>
-            </div>
+              <span class="automation-card-label">Ver pagina</span>
+            </a>
 
-            <div class="automation-scroll-hint" aria-hidden="true">
-              <span>Desliza para ver m&aacute;s</span>
-            </div>
+            <a class="automation-card is-live" href="automatizacion-email.html">
+              <span class="automation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect x="10" y="16" width="44" height="34" rx="5" stroke="currentColor" stroke-width="4"/>
+                  <path d="m12 21 20 16 20-16" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M42 44h12M48 38v12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Email automatico</h3>
+                <p>Respuestas, avisos y clasificacion de correos para que la bandeja no marque el ritmo del dia.</p>
+              </div>
+              <span class="automation-card-label">Ver pagina</span>
+            </a>
 
-            <div class="automation-showcase" aria-label="Automatizaciones opcionales">
-              <article class="automation-showcase-card">
-                <div class="automation-showcase-media">
-                  <img src="registro.png" alt="Control horario y fichaje" />
-                </div>
-                <div class="automation-showcase-copy">
-                  <span>Equipo</span>
-                  <h4>Fichaje y registros</h4>
-                  <p>Registra entradas, salidas y datos internos de forma ordenada.</p>
-                </div>
-              </article>
+            <a class="automation-card is-live" href="lectura-albaranes.html">
+              <span class="automation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <path d="M18 8h24l8 8v40H18z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                  <path d="M42 8v10h10M25 28h18M25 38h12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                  <circle cx="45" cy="45" r="8" stroke="currentColor" stroke-width="4"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Lectura inteligente de albaranes</h3>
+                <p>Extraer proveedor, importes, fechas y conceptos desde documentos o fotos sin picarlo a mano.</p>
+              </div>
+              <span class="automation-card-label">Ver pagina</span>
+            </a>
 
-              <article class="automation-showcase-card">
-                <div class="automation-showcase-media">
-                  <img src="verifactu.png" alt="Automatizaci&oacute;n de facturaci&oacute;n" />
-                </div>
-                <div class="automation-showcase-copy">
-                  <span>Facturaci&oacute;n</span>
-                  <h4>Facturas y Verifactu</h4>
-                  <p>Ordena la emisi&oacute;n y seguimiento de facturas desde un flujo claro.</p>
-                </div>
-              </article>
+            <a class="automation-card is-live" href="gestion-citas.html">
+              <span class="automation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect x="12" y="14" width="40" height="38" rx="5" stroke="currentColor" stroke-width="4"/>
+                  <path d="M20 10v8M44 10v8M12 25h40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M23 36h7M36 36h7M23 44h7" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Gestion de citas</h3>
+                <p>Reservas, cambios, confirmaciones y huecos disponibles conectados a tu agenda real.</p>
+              </div>
+              <span class="automation-card-label">Ver pagina</span>
+            </a>
 
-              <article class="automation-showcase-card">
-                <div class="automation-showcase-media">
-                  <img src="calendar.png" alt="Sistema de citas automatizado" />
-                </div>
-                <div class="automation-showcase-copy">
-                  <span>Agenda</span>
-                  <h4>Citas y reservas</h4>
-                  <p>Reserva, confirma y recuerda citas sin llamadas repetidas.</p>
-                </div>
-              </article>
+            <a class="automation-card is-live" href="facturas-automaticas.html">
+              <span class="automation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect x="16" y="8" width="32" height="48" rx="5" stroke="currentColor" stroke-width="4"/>
+                  <path d="M24 22h16M24 31h16M24 40h8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M40 44l4 4 8-10" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Facturas automaticas</h3>
+                <p>Generacion, envio y seguimiento de facturas o presupuestos desde datos ya registrados.</p>
+              </div>
+              <span class="automation-card-label">Ver pagina</span>
+            </a>
 
-              <article class="automation-showcase-card">
-                <div class="automation-showcase-media">
-                  <img src="analisis.png" alt="An&aacute;lisis de datos de negocio" />
-                </div>
-                <div class="automation-showcase-copy">
-                  <span>Datos</span>
-                  <h4>An&aacute;lisis y alertas</h4>
-                  <p>Resume datos clave y detecta cambios importantes a tiempo.</p>
-                </div>
-              </article>
+            <a class="automation-card is-live" href="informes-consumos.html">
+              <span class="automation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <path d="M12 50h40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                  <rect x="16" y="32" width="8" height="18" rx="2" stroke="currentColor" stroke-width="4"/>
+                  <rect x="28" y="22" width="8" height="28" rx="2" stroke="currentColor" stroke-width="4"/>
+                  <rect x="40" y="14" width="8" height="36" rx="2" stroke="currentColor" stroke-width="4"/>
+                  <path d="M18 20c10 2 16-8 28-6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Informes de consumos</h3>
+                <p>Resumir gastos, kilometros, energia, materiales o consumos para ver desviaciones a tiempo.</p>
+              </div>
+              <span class="automation-card-label">Ver pagina</span>
+            </a>
 
-              <article class="automation-showcase-card">
-                <div class="automation-showcase-media">
-                  <img src="reconocimiento.png" alt="Reconocimiento de tickets y documentos" />
-                </div>
-                <div class="automation-showcase-copy">
-                  <span>Documentos</span>
-                  <h4>Tickets y OCR</h4>
-                  <p>Lee tickets, facturas o PDFs y evita copiar informaci&oacute;n a mano.</p>
-                </div>
-              </article>
+            <a class="automation-card is-live" href="recordatorios-automaticos.html">
+              <span class="automation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <path d="M18 42V29a14 14 0 0 1 28 0v13" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M14 42h36l-5 9H19l-5-9Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                  <path d="M28 55h8M48 15l6-6M16 15l-6-6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Recordatorios automaticos</h3>
+                <p>Avisos de vencimientos, citas, revisiones, cobros o tareas pendientes antes de que se olviden.</p>
+              </div>
+              <span class="automation-card-label">Ver pagina</span>
+            </a>
 
-              <article class="automation-showcase-card">
-                <div class="automation-showcase-media">
-                  <img src="registro.png" alt="Seguimiento de pedidos y estados" />
-                </div>
-                <div class="automation-showcase-copy">
-                  <span>Operaciones</span>
-                  <h4>Pedidos y estados</h4>
-                  <p>Centraliza estados, responsables y avisos de cada pedido.</p>
-                </div>
-              </article>
-
-              <article class="automation-showcase-card">
-                <div class="automation-showcase-media">
-                  <img src="whatsapp.png" alt="Automatizaciones por WhatsApp" />
-                </div>
-                <div class="automation-showcase-copy">
-                  <span>WhatsApp</span>
-                  <h4>Mensajes y seguimientos</h4>
-                  <p>Env&iacute;a avisos, recordatorios y respuestas conectadas a tus procesos.</p>
-                </div>
-              </article>
-
-              <article class="automation-showcase-card">
-                <div class="automation-showcase-media">
-                  <img src="telegram.png" alt="Automatizaciones con Telegram" />
-                </div>
-                <div class="automation-showcase-copy">
-                  <span>Telegram</span>
-                  <h4>Avisos internos</h4>
-                  <p>Notifica al equipo cuando ocurre algo importante.</p>
-                </div>
-              </article>
-            </div>
-
+            <a class="automation-card is-live" href="avisos-whatsapp-telegram.html">
+              <span class="automation-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <path d="M16 18h32v24H24l-8 8V18Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                  <path d="M24 27h16M24 35h10" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M46 46l6 6M52 46l-6 6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Avisos por WhatsApp o Telegram</h3>
+                <p>Notificaciones internas o mensajes a clientes cuando cambia un estado o entra una solicitud.</p>
+              </div>
+              <span class="automation-card-label">Ver pagina</span>
+            </a>
           </div>
         </div>
       </div>
@@ -380,27 +3561,27 @@
 
     <section class="section software-section" id="software-propio">
       <div class="container software-panel">
-        <div class="software-copy reveal-on-scroll reveal-from-left reveal-delay-1">
+        <div class="software-copy reveal-on-scroll reveal-from-left">
           <div class="section-label">Plan avanzado</div>
-          <h2>Imagina todo esto dentro de un &uacute;nico sistema adaptado a tu negocio</h2>
+          <h2>Imagina todo esto dentro de un unico sistema adaptado a tu negocio</h2>
           <p>
             Cuando la base digital y las automatizaciones concretas ya se quedan cortas, construimos
             un software propio alrededor de tu forma real de trabajar: menos datos dispersos,
-            menos pasos repetidos y m&aacute;s control sobre lo que ocurre cada d&iacute;a.
+            menos pasos repetidos y mas control sobre lo que ocurre cada dia.
           </p>
         </div>
 
-        <div class="software-card reveal-on-scroll reveal-from-right reveal-delay-2">
+        <div class="software-card reveal-on-scroll reveal-from-right">
           <div class="software-card-visual" role="img" aria-label="Software propio conectado con herramientas de empresa">
-            <img class="software-card-aro" src="aro.png" alt="" />
-            <img class="software-card-pc" src="pc.png" alt="" />
+
+            <img class="software-card-pc" src="portada3d.png" alt="" />
           </div>
           <div class="software-card-content">
             <h3>EVITAMOS:</h3>
             <ul>
               <li>Procesos internos desordenados o repartidos en demasiadas herramientas.</li>
               <li>Documentos, PDFs, partes o facturas que obligan a copiar datos a mano.</li>
-              <li>Falta de control sobre qu&eacute; est&aacute; hecho, qu&eacute; falta y qui&eacute;n tiene cada tarea.</li>
+              <li>Falta de control sobre que esta hecho, que falta y quien tiene cada tarea.</li>
               <li>Paneles internos, registros, avisos e integraciones conectadas en una herramienta propia.</li>
             </ul>
           </div>
@@ -427,27 +3608,27 @@
           <div class="projects-slider" id="slider">
             <article class="project-card" data-project-card="1">
               <img class="project-thumb" src="img/1.png" alt="Proyecto 1" data-project="1">
-              <p class="project-card-caption">Facturaci&oacute;n r&aacute;pida para taller, con clientes, veh&iacute;culos e historial siempre localizados.</p>
+              <p class="project-card-caption">Facturacion rapida para taller, con clientes, vehiculos e historial siempre localizados.</p>
             </article>
             <article class="project-card" data-project-card="2">
               <img class="project-thumb" src="img/2.png" alt="Proyecto 2" data-project="2">
-              <p class="project-card-caption">Pedidos de f&aacute;brica organizados por estados para saber qu&eacute; se fabrica, qu&eacute; falta y qu&eacute; se entrega.</p>
+              <p class="project-card-caption">Pedidos de fabrica organizados por estados para saber que se fabrica, que falta y que se entrega.</p>
             </article>
             <article class="project-card" data-project-card="3">
               <img class="project-thumb" src="img/3.png" alt="Proyecto 3" data-project="3">
-              <p class="project-card-caption">CRM inmobiliario para seguir leads, visitas y oportunidades sin perder ning&uacute;n contacto.</p>
+              <p class="project-card-caption">CRM inmobiliario para seguir leads, visitas y oportunidades sin perder ningun contacto.</p>
             </article>
             <article class="project-card" data-project-card="4">
               <img class="project-thumb" src="img/4.png" alt="Proyecto 4" data-project="4">
-              <p class="project-card-caption">Agenda de peluquer&iacute;a pensada para evitar solapes, huecos perdidos y mensajes manuales.</p>
+              <p class="project-card-caption">Agenda de peluqueria pensada para evitar solapes, huecos perdidos y mensajes manuales.</p>
             </article>
             <article class="project-card" data-project-card="5">
               <img class="project-thumb" src="img/5.png" alt="Proyecto 5" data-project="5">
-              <p class="project-card-caption">Mantenimiento de flotas con revisiones, tickets, kil&oacute;metros y avisos antes de que algo caduque.</p>
+              <p class="project-card-caption">Mantenimiento de flotas con revisiones, tickets, kilometros y avisos antes de que algo caduque.</p>
             </article>
             <article class="project-card" data-project-card="6">
               <img class="project-thumb" src="img/6.png" alt="Proyecto 6" data-project="6">
-              <p class="project-card-caption">Notas, tareas, voz e im&aacute;genes desde Telegram convertidas en una agenda clara para actuar.</p>
+              <p class="project-card-caption">Notas, tareas, voz e imagenes desde Telegram convertidas en una agenda clara para actuar.</p>
             </article>
             <article class="project-card" data-project-card="7">
               <img class="project-thumb" src="img/7.png" alt="Proyecto 7" data-project="7">
@@ -463,11 +3644,11 @@
             </article>
             <article class="project-card" data-project-card="10">
               <img class="project-thumb" src="img/10.png" alt="Proyecto 10" data-project="10">
-              <p class="project-card-caption">Entregas con rutas, tracking, albaranes y control econ&oacute;mico sin depender de mensajes sueltos.</p>
+              <p class="project-card-caption">Entregas con rutas, tracking, albaranes y control economico sin depender de mensajes sueltos.</p>
             </article>
             <article class="project-card" data-project-card="11">
               <img class="project-thumb" src="img/11.png" alt="Proyecto 11" data-project="11">
-              <p class="project-card-caption">Citas privadas por Telegram con reservas, cambios, confirmaciones y recordatorios autom&aacute;ticos.</p>
+              <p class="project-card-caption">Citas privadas por Telegram con reservas, cambios, confirmaciones y recordatorios automaticos.</p>
             </article>
           </div>
         </div>
@@ -494,28 +3675,60 @@
       </div>
     </div>
 
-    <section class="section personal-section">
+    <section class="section personal-section" id="contacto">
       <div class="container personal-panel">
         <div class="personal-grid">
-          <div class="personal-media reveal-on-scroll reveal-from-left reveal-delay-1">
+          <div class="personal-media reveal-on-scroll reveal-from-left">
             <div class="personal-photo-frame">
               <img class="personal-photo" src="yo.png" alt="Trabajo cercano con empresas desde la oficina" />
             </div>
-            <a class="personal-media-badge" href="sobremi.html">Sobre m&iacute;</a>
+            <a class="personal-media-badge" href="sobremi.html">Sobre mi</a>
+            <div class="personal-contact-box">
+              <div class="personal-contact-actions">
+                <a href="https://wa.me/34625433667?text=Hola%20JM2%20Tech%20Studio,%20quiero%20una%20propuesta%20para%20mi%20negocio" target="_blank" rel="noopener">Abrir WhatsApp</a>
+                <a href="mailto:jomma.tech@gmail.com?subject=Proyecto%20para%20JM2%20Tech%20Studio">Enviar email</a>
+              </div>
+              <a href="tel:+34625433667">
+                <span class="mini-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.62 2.65a2 2 0 0 1-.45 2.11L8 9.77a16 16 0 0 0 6.2 6.2l1.29-1.28a2 2 0 0 1 2.11-.45c.85.29 1.74.5 2.65.62A2 2 0 0 1 22 16.9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                625 433 667
+              </a>
+              <a href="mailto:jomma.tech@gmail.com">
+                <span class="mini-icon" aria-hidden="true">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                jomma.tech@gmail.com
+              </a>
+              <a href="https://www.jm2-tech.es">
+                <span class="mini-icon" aria-hidden="true">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </span>
+                www.jm2-tech.es
+              </a>
+            </div>
           </div>
 
-          <div class="personal-copy reveal-on-scroll reveal-from-right reveal-delay-2">
+          <div class="personal-copy reveal-on-scroll reveal-from-right">
             <div class="personal-intro">
               <div class="section-label">Trato personal</div>
-              <h2>Servicios a medida, con atenci&oacute;n cercana para tu negocio</h2>
+              <h2>Servicios a medida, con atencion cercana para tu negocio</h2>
               <p>
                 Antes de hablar de herramientas, hablamos de tu empresa, de tus procesos y de lo que realmente
-                necesitas mejorar. Desde M&eacute;rida, acompa&ntilde;amos a empresas de toda Extremadura con una cercan&iacute;a real
-                que hace que cada soluci&oacute;n tenga sentido.
+                necesitas mejorar. Desde Merida, acompanamos a empresas de toda Extremadura con una cercania real
+                que hace que cada solucion tenga sentido.
               </p>
 
               <div class="personal-signals">
-                <span>Desde M&eacute;rida</span>
+                <span>Desde Merida</span>
                 <span>Escucha cercana</span>
                 <span>Toda Extremadura</span>
               </div>
@@ -524,22 +3737,22 @@
             <div class="personal-points">
               <article class="personal-point">
                 <h3>Escuchamos antes de proponer</h3>
-                <p>Cada servicio parte de comprender tu situaci&oacute;n, tus dudas y el momento real de tu empresa.</p>
+                <p>Cada servicio parte de comprender tu situacion, tus dudas y el momento real de tu empresa.</p>
               </article>
 
               <article class="personal-point">
                 <h3>Soluciones hechas a medida</h3>
-                <p>No aplicamos una plantilla gen&eacute;rica: ajustamos procesos, canales y automatizaciones a tu forma de trabajar.</p>
+                <p>No aplicamos una plantilla generica: ajustamos procesos, canales y automatizaciones a tu forma de trabajar.</p>
               </article>
 
               <article class="personal-point">
-                <h3>Acompa&ntilde;amiento cercano</h3>
-                <p>Te ayudamos a tomar decisiones con criterio, explicando cada paso para que la tecnolog&iacute;a sume de verdad.</p>
+                <h3>Acompanamiento cercano</h3>
+                <p>Te ayudamos a tomar decisiones con criterio, explicando cada paso para que la tecnologia sume de verdad.</p>
               </article>
             </div>
 
             <div class="personal-quote">
-              La diferencia no est&aacute; solo en la herramienta, sino en contar con un equipo que entiende tu negocio y lo convierte en una soluci&oacute;n &uacute;til.
+              La diferencia no esta solo en la herramienta, sino en contar con un equipo que entiende tu negocio y lo convierte en una solucion util.
             </div>
           </div>
         </div>
@@ -548,77 +3761,72 @@
 
   </main>
 
-  <footer class="site-footer" id="contact">
+  <footer class="site-footer" id="footer">
     <div class="container">
-      <div class="footer-cta reveal-on-scroll">
-        <div class="footer-cta-copy">
-          <div class="section-label footer-section-label">Contacto</div>
-          <h2>Tu socio tecnol&oacute;gico para crecer con orden</h2>
-          <p>
-            Plan b&aacute;sico de acompa&ntilde;amiento desde 30&euro;/mes.
-            Si necesitas la base digital completa (web, dominio, email y soporte), desde 30&euro;/mes + IVA.
-            Todo es totalmente escalable con automatizaciones, integraciones y software propio.
-          </p>
-          <button class="footer-cta-link" type="button" data-contact-modal-open>Contactar ahora</button>
-        </div>
-      </div>
-
       <div class="footer-main">
-        <div class="footer-column footer-brand-column reveal-on-scroll reveal-delay-1">
-          <a href="#home" class="footer-brand" aria-label="Volver al inicio">
+        <div class="footer-column footer-brand-column">
+          <a href="#inicio" class="footer-brand" aria-label="Volver al inicio">
             <img class="footer-brand-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
           </a>
           <p>
             Base digital, automatizaciones e integraciones para empresas que quieren avanzar
-            con m&aacute;s orden, mejor comunicaci&oacute;n y una estructura tecnol&oacute;gica coherente.
+            con mas orden, mejor comunicacion y una estructura tecnologica coherente.
           </p>
           <div class="footer-meta">
-            <span>M&eacute;rida</span>
+            <span>Merida</span>
             <span>Extremadura</span>
             <span>Proyectos para empresas</span>
           </div>
         </div>
 
-        <div class="footer-column reveal-on-scroll reveal-delay-2">
-          <h3>Navegaci&oacute;n</h3>
-          <nav class="footer-links" aria-label="Enlaces del pie de p&aacute;gina">
-            <a href="sobremi.html">Sobre m&iacute;</a>
-            <a href="#advanced-services">Automatizaciones</a>
-            <a href="#entry-offer">Base digital</a>
-            <a href="#contact">Contacto</a>
+        <div class="footer-column">
+          <h3>Navegacion</h3>
+          <nav class="footer-links" aria-label="Enlaces del pie de pagina">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="plan-base2.html">Base digital</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="sobremi.html">Sobre mi</a>
+            <a href="#contacto">Contacto</a>
           </nav>
         </div>
 
-        <div class="footer-column reveal-on-scroll reveal-delay-3">
+        <div class="footer-column">
           <h3>Servicios clave</h3>
           <nav class="footer-links" aria-label="Servicios destacados">
-            <a href="#entry-offer">Base digital inicial</a>
-            <a href="#advanced-services">Automatizaciones</a>
-            <a href="adios-excel.html">Adi&oacute;s Excel</a>
-            <a href="automatizacion-email.html">Email autom&aacute;tico</a>
+            <a href="plan-base2.html">Base digital inicial</a>
+            <a href="#automatizaciones-empresa">Automatizaciones</a>
+            <a href="adios-excel.html">Adios Excel</a>
+            <a href="automatizacion-email.html">Email automatico</a>
+            <a href="lectura-albaranes.html">Lectura de albaranes</a>
+            <a href="gestion-citas.html">Gestion de citas</a>
+            <a href="facturas-automaticas.html">Facturas automaticas</a>
+            <a href="informes-consumos.html">Informes de consumos</a>
+            <a href="recordatorios-automaticos.html">Recordatorios automaticos</a>
+            <a href="avisos-whatsapp-telegram.html">Avisos WhatsApp/Telegram</a>
             <a href="#software-propio">Software propio</a>
-            <a href="#advanced-services">Integraciones</a>
+            <a href="#proyectos">Casos reales</a>
           </nav>
         </div>
 
-        <div class="footer-column reveal-on-scroll reveal-delay-4">
+        <div class="footer-column">
           <h3>Forma de trabajo</h3>
           <p class="footer-note">
-            Trabajamos con diagn&oacute;stico previo, propuesta clara y una implantaci&oacute;n pensada
-            para que la tecnolog&iacute;a sume de verdad al d&iacute;a a d&iacute;a de tu empresa.
+            Trabajamos con diagnostico previo, propuesta clara y una implantacion pensada
+            para que la tecnologia sume de verdad al dia a dia de tu empresa.
           </p>
           <div class="footer-pill-list">
             <span>Escucha inicial</span>
             <span>Propuesta a medida</span>
-            <span>Acompa&ntilde;amiento cercano</span>
+            <span>Acompanamiento cercano</span>
           </div>
         </div>
       </div>
 
-      <div class="footer-location reveal-on-scroll reveal-delay-2">
+      <div class="footer-location">
         <div class="footer-location-copy">
-          <h3>D&oacute;nde estamos</h3>
-          <p>Calle Pamplona 34, M&eacute;rida, Badajoz</p>
+          <h3>Donde estamos</h3>
+          <p>Calle Pamplona 34, Merida, Badajoz</p>
           <a
             href="https://www.google.com/maps/search/?api=1&query=Calle%20Pamplona%2034%2C%20M%C3%A9rida%2C%20Badajoz"
             target="_blank"
@@ -627,9 +3835,9 @@
             Abrir en Google Maps
           </a>
         </div>
-        <div class="footer-map" aria-label="Mapa de Calle Pamplona 38, M&eacute;rida, Badajoz">
+        <div class="footer-map" aria-label="Mapa de Calle Pamplona 38, Merida, Badajoz">
           <iframe
-            title="Mapa de JM2 Tech Studio en M&eacute;rida"
+            title="Mapa de JM2 Tech Studio en Merida"
             src="https://www.google.com/maps?q=Calle%20Pamplona%2038%2C%20M%C3%A9rida%2C%20Badajoz&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -637,9 +3845,9 @@
         </div>
       </div>
 
-      <div class="footer-bottom reveal-on-scroll reveal-delay-2">
+      <div class="footer-bottom">
         <p>JM2 Tech Studio | Soluciones digitales conectadas para empresas.</p>
-        <a href="#home">Volver arriba</a>
+        <a href="#inicio">Volver arriba</a>
       </div>
     </div>
   </footer>
@@ -650,18 +3858,15 @@
       <button class="contact-modal-close" type="button" data-contact-modal-close aria-label="Cerrar formulario">
         <span></span>
       </button>
-
       <div class="contact-modal-head">
         <div class="section-label">Contacto</div>
         <h3>Solicita una llamada</h3>
-        <p>Indica tus datos y te llamamos en el d&iacute;a y hora que prefieras.</p>
+        <p>Indica tus datos y te llamamos en el dia y hora que prefieras.</p>
       </div>
-
       <form class="footer-contact-form" id="footerContactForm" novalidate>
         <div class="footer-contact-brandmark" aria-hidden="true">
           <img src="favicon.png" alt="" />
         </div>
-
         <div class="footer-contact-grid">
           <label class="footer-contact-field">
             <span>Nombre</span>
@@ -672,29 +3877,20 @@
             <input type="text" name="empresa" autocomplete="organization" required />
           </label>
         </div>
-
         <div class="footer-contact-grid">
           <label class="footer-contact-field">
             <span>Forma de contacto preferida</span>
             <select name="forma_contacto" required>
-              <option value="">Selecciona una opci&oacute;n</option>
+              <option value="">Selecciona una opcion</option>
               <option value="Prefiere WhatsApp">WhatsApp</option>
               <option value="Prefiere llamada">Llamada</option>
             </select>
           </label>
           <label class="footer-contact-field" id="footerContactDetailField">
             <span id="footerContactDetailLabel">Dato de contacto</span>
-            <input
-              id="footerContactDetailInput"
-              type="text"
-              name="contacto_detalle"
-              placeholder="Selecciona primero la forma de contacto"
-              autocomplete="off"
-              required
-            />
+            <input id="footerContactDetailInput" type="text" name="contacto_detalle" placeholder="Selecciona primero la forma de contacto" autocomplete="off" required />
           </label>
         </div>
-
         <button type="submit" class="footer-contact-submit">Enviar solicitud</button>
         <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
       </form>
@@ -711,9 +3907,509 @@
     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
       <path d="M16.01 3.2c-7.05 0-12.8 5.62-12.8 12.53 0 2.4.7 4.73 2.02 6.75L3.2 29.2l6.94-1.97a13.03 13.03 0 0 0 5.87 1.42c7.06 0 12.8-5.62 12.8-12.53S23.07 3.2 16.01 3.2Zm0 23.32c-1.86 0-3.68-.48-5.28-1.4l-.38-.22-4.12 1.17 1.18-3.94-.25-.4a10.37 10.37 0 0 1-1.8-6c0-5.74 4.78-10.4 10.65-10.4 5.88 0 10.66 4.66 10.66 10.4s-4.78 10.79-10.66 10.79Zm5.84-7.79c-.32-.16-1.9-.92-2.2-1.02-.3-.11-.52-.16-.74.16-.21.31-.84 1.02-1.03 1.23-.19.21-.38.24-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.6-1.86-1.79-2.17-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.74-1.74-1.02-2.39-.27-.62-.54-.54-.74-.55h-.63c-.22 0-.55.08-.84.39-.29.31-1.1 1.05-1.1 2.56 0 1.5 1.13 2.96 1.29 3.17.16.21 2.23 3.33 5.4 4.67.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.76 2.17-1.49.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z" />
     </svg>
-    <span class="whatsapp-float-label">Resuelvo aqu&iacute; tus dudas</span>
+    <span class="whatsapp-float-label">Resuelvo aqui tus dudas</span>
   </a>
 
-  <script src="script.js"></script>
+  <script>
+    const servicesGrid = document.querySelector('.services-grid');
+    const servicesSection = document.getElementById('servicios');
+    const blueStrip = document.querySelector('.blue-strip');
+    const mobileHeaderQuery = window.matchMedia('(max-width: 720px)');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
+    const backdrop = document.getElementById('backdrop');
+    const projectsViewport = document.getElementById('projectsViewport');
+    const projectsSlider = document.getElementById('slider');
+    const projectImages = projectsSlider ? Array.from(projectsSlider.querySelectorAll('img')) : [];
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const projectModal = document.getElementById('projectModal');
+    const projectModalTitle = document.getElementById('projectModalTitle');
+    const projectModalImg = document.getElementById('projectModalImg');
+    const projectModalDesc = document.getElementById('projectModalDesc');
+    const projectModalPrev = document.getElementById('projectModalPrev');
+    const projectModalNext = document.getElementById('projectModalNext');
+    const contactModal = document.getElementById('contactModal');
+    const contactModalDialog = contactModal?.querySelector('.contact-modal-dialog');
+    const contactModalOpenButtons = Array.from(document.querySelectorAll('[data-contact-modal-open]'));
+    const contactModalCloseButtons = Array.from(document.querySelectorAll('[data-contact-modal-close]'));
+    const footerContactForm = document.getElementById('footerContactForm');
+    const footerContactStatus = document.getElementById('footerContactStatus');
+    const footerContactMethodSelect = footerContactForm?.querySelector('select[name="forma_contacto"]');
+    const footerContactDetailLabel = document.getElementById('footerContactDetailLabel');
+    const footerContactDetailInput = document.getElementById('footerContactDetailInput');
+    const EMAILJS_SERVICE_ID = 'service_a1xi29i';
+    const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
+    const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
+    let activeContactModalButton = null;
+    let projectIndex = Math.min(5, Math.max(0, projectImages.length - 1));
+    let projectsFirstLayout = true;
+    let modalProjectId = null;
+    let modalImageIndex = 0;
+    let lastFocusedProjectEl = null;
+    const projectPrefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const projectsData = {
+      1: {
+        title: 'Sistema de facturacion sencillo (taller)',
+        images: ['img/1.png'],
+        desc: 'Un sistema de facturacion pensado para el ritmo real de un taller: presupuestos y facturas en minutos, historial por cliente y vehiculo, y menos tiempo perdido buscando papeles.',
+      },
+      2: {
+        title: 'Seguimiento de fabricacion y pedidos',
+        images: ['img/2.png'],
+        desc: 'Panel para controlar entrada, planificacion, fabricacion, preparacion y envio de pedidos con estados claros y menos confusiones internas.',
+      },
+      3: {
+        title: 'CRM inmobiliario',
+        images: ['img/3.png'],
+        desc: 'CRM para seguir leads, contactos, visitas y oportunidades sin perder ningun cliente por falta de seguimiento.',
+      },
+      4: {
+        title: 'Gestion de citas para peluqueria',
+        images: ['img/4.png'],
+        desc: 'Agenda de citas para optimizar huecos, evitar solapes y reducir llamadas o mensajes manuales.',
+      },
+      5: {
+        title: 'Mantenimiento de flotas',
+        images: ['img/5.png'],
+        desc: 'Control de vehiculos, revisiones, tickets, kilometros y vencimientos para evitar olvidos caros y paradas innecesarias.',
+      },
+      6: {
+        title: 'Agenda con voz e imagenes desde Telegram',
+        images: ['img/6.png'],
+        desc: 'Captura rapida desde Telegram: voz, fotos y textos convertidos en notas y tareas dentro de un panel claro.',
+      },
+      7: {
+        title: 'Control de gimnasio',
+        images: ['img/7.png'],
+        desc: 'Gestion de sesiones, bonos, reservas, ingresos y comisiones en un mismo sistema.',
+      },
+      8: {
+        title: 'Control de gastos de obra con IA',
+        images: ['img/8.png'],
+        desc: 'Clasificacion de fotos, facturas y albaranes para asociar cada gasto a su obra y revisar costes reales.',
+      },
+      9: {
+        title: 'Flotas: consumos, ITV y seguros',
+        images: ['img/9.png'],
+        desc: 'Seguimiento de consumos, mantenimientos, ITV, seguros y vencimientos con alertas automaticas.',
+      },
+      10: {
+        title: 'Software de entregas',
+        images: ['img/10.png'],
+        desc: 'Rutas, tracking, albaranes y control economico para no depender de mensajes sueltos ni hojas dispersas.',
+      },
+      11: {
+        title: 'Citas privadas por Telegram',
+        images: ['img/11.png'],
+        desc: 'Reservas, cambios, confirmaciones y recordatorios automaticos para reducir mensajes manuales.',
+      },
+    };
+    const revealGroups = [
+      ['.hero-copy', 'reveal-from-left'],
+      ['.brand-card', 'reveal-from-right'],
+      ['.section-head', 'reveal-from-left'],
+      ['.basic-package-copy', 'reveal-from-left'],
+      ['.automation-suite-head', 'reveal-from-left'],
+      ['.automation-card', ''],
+      ['.software-copy', 'reveal-from-left'],
+      ['.software-card', 'reveal-from-right'],
+      ['.projects-label', ''],
+      ['.projects-title', ''],
+      ['.projects-subtitle', ''],
+      ['.projects-controls', ''],
+      ['.projects-viewport', ''],
+      ['.personal-media', 'reveal-from-left'],
+      ['.personal-contact-box', ''],
+      ['.personal-copy', 'reveal-from-right'],
+      ['.personal-point', ''],
+      ['.personal-quote', ''],
+      ['.footer-column', ''],
+      ['.footer-location', ''],
+      ['.footer-bottom', ''],
+    ];
+    const revealItems = [];
+
+    revealGroups.forEach(([selector, direction]) => {
+      document.querySelectorAll(selector).forEach((item, index) => {
+        item.classList.add('reveal-on-scroll');
+
+        if (direction) {
+          item.classList.add(direction);
+        }
+
+        item.style.setProperty('--reveal-delay', `${Math.min(index * 120, 360)}ms`);
+        revealItems.push(item);
+      });
+    });
+
+    function updateMobileHeader() {
+      if (!mobileHeaderQuery.matches) {
+        document.body.classList.remove('mobile-header-visible');
+        return;
+      }
+
+      const servicesTop = servicesSection
+        ? servicesSection.getBoundingClientRect().top + window.scrollY
+        : 120;
+
+      document.body.classList.toggle('mobile-header-visible', window.scrollY >= servicesTop - 88);
+    }
+
+    updateMobileHeader();
+    window.addEventListener('scroll', updateMobileHeader, { passive: true });
+    mobileHeaderQuery.addEventListener?.('change', updateMobileHeader);
+
+    function closeMenu() {
+      if (!menuBtn || !mobilePanel || !backdrop) return;
+
+      mobilePanel.classList.remove('open');
+      backdrop.classList.remove('show');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      mobilePanel.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+      if (!menuBtn || !mobilePanel || !backdrop) return;
+
+      mobilePanel.classList.add('open');
+      backdrop.classList.add('show');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      mobilePanel.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = mobilePanel?.classList.contains('open');
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    backdrop?.addEventListener('click', closeMenu);
+    mobilePanel?.querySelectorAll('a, button').forEach((item) => {
+      item.addEventListener('click', closeMenu);
+    });
+
+    function trackEvent(eventName, params = {}) {
+      if (typeof window.gtag !== 'function') return;
+      window.gtag('event', eventName, {
+        page_path: window.location.pathname,
+        page_title: document.title,
+        ...params,
+      });
+    }
+
+    function reportContactConversion() {
+      if (typeof window.gtag_report_conversion === 'function') {
+        window.gtag_report_conversion();
+      }
+    }
+
+    function closeContactModal() {
+      if (!contactModal) return;
+      contactModal.classList.remove('is-open');
+      contactModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      activeContactModalButton?.focus?.();
+    }
+
+    function openContactModal(trigger) {
+      if (!contactModal) return;
+      activeContactModalButton = trigger;
+      contactModal.classList.add('is-open');
+      contactModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      contactModalDialog?.focus();
+      trackEvent('contact_modal_open', { contact_method: 'contact_modal', lead_source: 'cta_button' });
+      reportContactConversion();
+    }
+
+    contactModalOpenButtons.forEach((button) => {
+      button.addEventListener('click', () => openContactModal(button));
+    });
+
+    contactModalCloseButtons.forEach((button) => {
+      button.addEventListener('click', closeContactModal);
+    });
+
+    document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        reportContactConversion();
+        trackEvent('generate_lead', { contact_method: 'whatsapp', lead_source: 'whatsapp_link' });
+        trackEvent('whatsapp_click', { link_text: link.textContent.trim() || link.getAttribute('aria-label') || 'WhatsApp' });
+      });
+    });
+
+    if (window.emailjs) {
+      window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    }
+
+    function updateContactDetailField() {
+      if (!footerContactMethodSelect || !footerContactDetailInput || !footerContactDetailLabel) return;
+      const selectedMethod = footerContactMethodSelect.value;
+      if (selectedMethod === 'Prefiere WhatsApp' || selectedMethod === 'Prefiere llamada') {
+        footerContactDetailLabel.textContent = 'Numero de telefono';
+        footerContactDetailInput.type = 'tel';
+        footerContactDetailInput.placeholder = 'Tu numero de telefono';
+        footerContactDetailInput.autocomplete = 'tel';
+        return;
+      }
+      footerContactDetailLabel.textContent = 'Dato de contacto';
+      footerContactDetailInput.type = 'text';
+      footerContactDetailInput.placeholder = 'Selecciona primero la forma de contacto';
+      footerContactDetailInput.autocomplete = 'off';
+    }
+
+    footerContactMethodSelect?.addEventListener('change', updateContactDetailField);
+    updateContactDetailField();
+
+    footerContactForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(footerContactForm);
+      const nombre = String(formData.get('nombre') || '').trim();
+      const empresa = String(formData.get('empresa') || '').trim();
+      const formaContacto = String(formData.get('forma_contacto') || '').trim();
+      const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
+
+      if (!nombre || !empresa || !formaContacto || !contactoDetalle) {
+        if (footerContactStatus) footerContactStatus.textContent = 'Completa todos los campos antes de enviar.';
+        return;
+      }
+
+      if (!window.emailjs) {
+        if (footerContactStatus) footerContactStatus.textContent = 'No se pudo cargar EmailJS.';
+        return;
+      }
+
+      const submitButton = footerContactForm.querySelector('button[type="submit"]');
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+      }
+      if (footerContactStatus) footerContactStatus.textContent = 'Enviando mensaje...';
+
+      try {
+        await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          nombre,
+          email: contactoDetalle,
+          telefono: contactoDetalle,
+          empresa,
+          forma_de_contacto: formaContacto,
+          contacto_detalle: contactoDetalle,
+          dia_llamada: 'No indicado',
+          hora_llamada: 'No indicado',
+          'forma de contacto': formaContacto,
+        }, { publicKey: EMAILJS_PUBLIC_KEY });
+
+        if (footerContactStatus) footerContactStatus.textContent = 'Mensaje enviado correctamente. Te contactaremos pronto.';
+        trackEvent('generate_lead', { contact_method: formaContacto.toLowerCase(), lead_source: 'footer_form' });
+        footerContactForm.reset();
+        updateContactDetailField();
+        closeContactModal();
+      } catch (error) {
+        const errorText = error && typeof error === 'object' && 'text' in error ? String(error.text) : 'error desconocido';
+        if (footerContactStatus) footerContactStatus.textContent = `No se pudo enviar (${errorText}).`;
+      } finally {
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Enviar solicitud';
+        }
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1060) closeMenu();
+    });
+
+    function scrollProjectIntoView(smooth) {
+      if (!projectsViewport || !projectImages.length) return;
+
+      const active = projectImages[projectIndex];
+      if (!active) return;
+
+      const left = active.offsetLeft - (projectsViewport.clientWidth - active.offsetWidth) / 2;
+      const max = projectsViewport.scrollWidth - projectsViewport.clientWidth;
+      const clamped = Math.max(0, Math.min(left, max));
+
+      projectsViewport.scrollTo({
+        left: clamped,
+        behavior: smooth && !projectPrefersReducedMotion.matches ? 'smooth' : 'auto',
+      });
+    }
+
+    function updateProjectsSlider() {
+      projectImages.forEach((img, index) => {
+        const isActive = index === projectIndex;
+        img.classList.toggle('active', isActive);
+        img.closest('.project-card')?.classList.toggle('active', isActive);
+      });
+
+      const delay = projectsFirstLayout ? 0 : 40;
+      window.setTimeout(() => {
+        scrollProjectIntoView(!projectsFirstLayout);
+        projectsFirstLayout = false;
+      }, delay);
+    }
+
+    function setProjectModalOpen(isOpen) {
+      if (!projectModal) return;
+
+      projectModal.classList.toggle('open', isOpen);
+      projectModal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    function renderProjectModal() {
+      const data = modalProjectId ? projectsData[modalProjectId] : null;
+      if (!data || !projectModalTitle || !projectModalImg || !projectModalDesc) return;
+
+      const images = data.images || [];
+      modalImageIndex = Math.max(0, Math.min(modalImageIndex, images.length - 1));
+
+      projectModalTitle.textContent = data.title || `Proyecto ${modalProjectId}`;
+      projectModalDesc.textContent = data.desc || '';
+      projectModalImg.src = images[modalImageIndex] || '';
+      projectModalImg.alt = data.title || `Proyecto ${modalProjectId}`;
+
+      const hasMany = images.length > 1;
+      if (projectModalPrev) {
+        projectModalPrev.disabled = !hasMany || modalImageIndex === 0;
+        projectModalPrev.style.display = hasMany ? '' : 'none';
+      }
+      if (projectModalNext) {
+        projectModalNext.disabled = !hasMany || modalImageIndex === images.length - 1;
+        projectModalNext.style.display = hasMany ? '' : 'none';
+      }
+    }
+
+    function openProjectModal(id) {
+      const data = projectsData[id];
+      if (!data) return;
+
+      lastFocusedProjectEl = document.activeElement;
+      modalProjectId = id;
+      modalImageIndex = 0;
+      renderProjectModal();
+      setProjectModalOpen(true);
+      projectModal?.querySelector('.project-modal__close')?.focus();
+    }
+
+    function closeProjectModal() {
+      setProjectModalOpen(false);
+      modalProjectId = null;
+      modalImageIndex = 0;
+      lastFocusedProjectEl?.focus?.();
+      lastFocusedProjectEl = null;
+    }
+
+    function nextModalImage(delta) {
+      const data = modalProjectId ? projectsData[modalProjectId] : null;
+      if (!data || !data.images || data.images.length <= 1) return;
+
+      modalImageIndex = Math.max(0, Math.min(modalImageIndex + delta, data.images.length - 1));
+      renderProjectModal();
+    }
+
+    if (prevBtn && nextBtn && projectImages.length) {
+      prevBtn.addEventListener('click', () => {
+        projectIndex = (projectIndex - 1 + projectImages.length) % projectImages.length;
+        updateProjectsSlider();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        projectIndex = (projectIndex + 1) % projectImages.length;
+        updateProjectsSlider();
+      });
+
+      window.addEventListener('load', () => scrollProjectIntoView(false));
+      window.addEventListener('resize', () => scrollProjectIntoView(false));
+      updateProjectsSlider();
+    }
+
+    document.querySelectorAll('.project-card').forEach((card) => {
+      const img = card.querySelector('.project-thumb');
+      const projectLabel = img?.getAttribute('alt') || 'proyecto';
+
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `Abrir ${projectLabel}`);
+
+      card.addEventListener('click', () => {
+        openProjectModal(Number(card.dataset.projectCard));
+      });
+
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openProjectModal(Number(card.dataset.projectCard));
+        }
+      });
+    });
+
+    projectModal?.addEventListener('click', (event) => {
+      const target = event.target;
+      if (target?.getAttribute?.('data-close') === 'true') {
+        closeProjectModal();
+      }
+    });
+
+    projectModalPrev?.addEventListener('click', () => nextModalImage(-1));
+    projectModalNext?.addEventListener('click', () => nextModalImage(1));
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobilePanel?.classList.contains('open')) {
+        closeMenu();
+      }
+
+      if (event.key === 'Escape' && contactModal?.classList.contains('is-open')) {
+        closeContactModal();
+      }
+
+      if (projectModal?.classList.contains('open')) {
+        if (event.key === 'Escape') closeProjectModal();
+        if (event.key === 'ArrowLeft') nextModalImage(-1);
+        if (event.key === 'ArrowRight') nextModalImage(1);
+      }
+    });
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      });
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+    }
+
+    if (servicesGrid) {
+      if ('IntersectionObserver' in window) {
+        const servicesObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              window.setTimeout(() => {
+                blueStrip?.classList.add('is-visible');
+              }, 2050);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.24 });
+
+        servicesObserver.observe(servicesGrid);
+      } else {
+        servicesGrid.classList.add('is-visible');
+        blueStrip?.classList.add('is-visible');
+      }
+    }
+  </script>
 </body>
 </html>

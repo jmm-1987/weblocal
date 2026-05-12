@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plan Base Digital | JM2 Tech Studio</title>
+  <meta name="description" content="Plan base digital para empresas: web profesional, dominio, email corporativo, auditoria inicial y acompanamiento continuo desde 30 euros al mes." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18132304665"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18132304665');
+    gtag('config', 'G-8FMNC7J0EN');
+  </script>
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18132304665/K4GxCMPbiakcEJmGlMZD',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+    :root {
+      --blue: #0757f8;
+      --blue-2: #0d6bff;
+      --ink: #111318;
+      --muted: #5f6673;
+      --line: #dfe7f5;
+      --soft: #f6f9ff;
+      --white: #fff;
+      --shadow: 0 22px 55px rgba(16, 32, 72, .13);
+      --shadow-soft: 0 14px 34px rgba(16, 32, 72, .09);
+      --radius: 26px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Nunito, "Segoe UI Rounded", "Aptos Rounded", "Arial Rounded MT Bold", ui-sans-serif, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(7,87,248,.09), transparent 25%),
+        radial-gradient(circle at 88% 34%, rgba(7,87,248,.055), transparent 27%),
+        linear-gradient(180deg, #fff 0%, #f8fbff 52%, #fff 100%);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(7,87,248,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7,87,248,.045) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.72), rgba(0,0,0,.16) 48%, transparent 88%);
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 20px;
+      z-index: 50;
+      width: min(calc(100% - 16px), 1540px);
+      margin: 20px auto 0;
+      background: #fff;
+      border: 2px solid #202020;
+      border-radius: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 92px;
+      padding: 14px 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      height: 68px;
+      min-width: 190px;
+      overflow: visible;
+    }
+
+    .brand-logo-image {
+      --logo-scale: 2.08;
+      width: auto;
+      height: 68px;
+      object-fit: contain;
+      transform: scale(var(--logo-scale));
+      transform-origin: left center;
+      animation: brandLogoPulse 3.4s ease-in-out infinite;
+    }
+
+    @keyframes brandLogoPulse {
+      0%, 100% { transform: scale(var(--logo-scale)); filter: drop-shadow(0 0 0 rgba(7,87,248,0)); }
+      45% { transform: scale(calc(var(--logo-scale) * 1.03)); filter: drop-shadow(0 0 10px rgba(7,87,248,.18)); }
+      60% { transform: scale(calc(var(--logo-scale) * .99)); filter: drop-shadow(0 0 4px rgba(7,87,248,.1)); }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      color: rgba(17,17,17,.88);
+      font-size: .95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { opacity: .72; }
+
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+    .quote-btn,
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+    }
+
+    .quote-btn,
+    .primary-btn {
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), #0048dd);
+      box-shadow: 0 16px 30px rgba(7,87,248,.26);
+    }
+
+    .secondary-btn {
+      color: var(--blue);
+      background: #fff;
+      border: 1px solid #cfe0ff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .quote-btn:hover,
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+    }
+
+    .hamburger,
+    .mobile-panel,
+    .mobile-backdrop { display: none; }
+
+    .hamburger {
+      width: 56px;
+      height: 56px;
+      border: 0;
+      border-radius: 14px;
+      background: #22b455;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(34,180,85,.25);
+    }
+
+    .hamburger span,
+    .hamburger span::before,
+    .hamburger span::after {
+      content: "";
+      position: relative;
+      display: block;
+      width: 24px;
+      height: 3px;
+      border-radius: 99px;
+      background: #fff;
+    }
+
+    .hamburger span::before,
+    .hamburger span::after {
+      position: absolute;
+      left: 0;
+    }
+
+    .hamburger span::before { top: -8px; }
+    .hamburger span::after { top: 8px; }
+
+    .hero {
+      padding: 66px 0 58px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .92fr);
+      align-items: center;
+      gap: 46px;
+    }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 800px;
+      margin-bottom: 18px;
+      font-size: clamp(31px, 4vw, 48px);
+      line-height: 1.06;
+    }
+
+    .hero-copy p,
+    .section-head p,
+    .panel-copy p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin: 26px 0;
+    }
+
+    .price-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: #edf4ff;
+      font-weight: 900;
+    }
+
+    .note-chip {
+      color: #687080;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+      padding: 34px;
+      border: 1px solid rgba(220,229,244,.52);
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(255,255,255,.28), rgba(248,251,255,.18));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-orbit,
+    .hero-orbit-secondary {
+      position: absolute;
+      inset: 42px;
+      border: 2px dashed rgba(7,87,248,.42);
+      border-radius: 50%;
+      animation: orbit 18s linear infinite;
+      box-shadow: 0 0 28px rgba(7,87,248,.08);
+    }
+
+    .hero-orbit-secondary {
+      inset: 90px 68px 70px;
+      border-style: solid;
+      border-color: rgba(7,87,248,.24);
+      animation-duration: 24s;
+      animation-direction: reverse;
+    }
+
+    @keyframes orbit { to { transform: rotate(360deg); } }
+
+    .main-asset,
+    .float-asset {
+      position: absolute;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 18px 24px rgba(17,19,24,.12));
+    }
+
+    .main-asset {
+      width: 320px;
+      top: 96px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+
+    .float-web {
+      width: 166px;
+      left: 12px;
+      bottom: 40px;
+      transform: rotate(-7deg);
+    }
+
+    .float-domain {
+      width: 166px;
+      right: 16px;
+      bottom: 22px;
+      transform: rotate(7deg);
+    }
+
+    .float-email {
+      width: 136px;
+      top: 26px;
+      right: 62px;
+      transform: rotate(-5deg);
+    }
+
+    .section { padding: 74px 0; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .section-head p { max-width: 390px; margin-bottom: 0; }
+
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .include-card,
+    .fit-card,
+    .process-panel,
+    .contact-panel {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.86);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+    }
+
+    .include-card {
+      min-height: 305px;
+      padding: 24px;
+      border-radius: 22px;
+    }
+
+    .include-card img {
+      width: 116px;
+      height: 116px;
+      object-fit: contain;
+      margin-bottom: 18px;
+      mix-blend-mode: multiply;
+    }
+
+    .include-card h3,
+    .step h3 {
+      margin-bottom: 8px;
+      font-size: 21px;
+      line-height: 1.12;
+    }
+
+    .include-card p,
+    .fit-card p,
+    .step p,
+    .footer p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .process-panel,
+    .contact-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(360px, 1fr);
+      gap: 34px;
+      align-items: center;
+      padding: 42px;
+      border-radius: 34px;
+      overflow: hidden;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .step span {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .fit-card {
+      padding: 32px;
+      border-radius: 26px;
+    }
+
+    .fit-card ul {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fit-card li {
+      position: relative;
+      padding-left: 24px;
+      color: #46526e;
+      font-weight: 800;
+    }
+
+    .fit-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .55em;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(7,87,248,.1);
+    }
+
+    .fit-card-dark {
+      color: #fff;
+      background: linear-gradient(135deg, #0757f8, #0046d7);
+      border-color: transparent;
+    }
+
+    .fit-card-dark .section-kicker,
+    .fit-card-dark p { color: rgba(255,255,255,.86); }
+
+    .fit-card-dark a {
+      display: inline-flex;
+      margin-top: 24px;
+      min-height: 42px;
+      align-items: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: #fff;
+      font-weight: 900;
+    }
+
+    .contact-panel {
+      grid-template-columns: 1fr auto;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+      min-width: min(360px, 100%);
+    }
+
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      min-height: 56px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .footer {
+      padding: 34px 0 44px;
+      color: #687080;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(34px) scale(.985);
+      filter: blur(10px);
+      transition:
+        opacity 1s ease,
+        transform 1.05s cubic-bezier(.16, .9, .18, 1),
+        filter 1s ease;
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .reveal-from-left { transform: translateX(-42px) scale(.985); }
+    .reveal-from-right { transform: translateX(42px) scale(.985); }
+    .reveal-on-scroll.is-visible { opacity: 1; transform: translate(0,0) scale(1); filter: blur(0); }
+
+    @media (max-width: 1060px) {
+      .nav-links,
+      .quote-btn { display: none; }
+
+      .hamburger { display: inline-flex; }
+
+      .hero-grid,
+      .process-panel,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .includes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 28px, var(--max)); }
+
+      .site-header {
+        position: fixed;
+        top: 14px;
+        left: auto;
+        right: 14px;
+        width: 56px;
+        margin-top: 0;
+        border-color: transparent;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .site-header.full {
+        top: 22px;
+        left: 7px;
+        right: 7px;
+        width: calc(100% - 14px);
+        border-color: #202020;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,.06);
+      }
+
+      .nav {
+        min-height: 70px;
+        padding: 0;
+        justify-content: end;
+        gap: 0;
+      }
+
+      .site-header.full .nav {
+        padding: 10px 14px;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: none;
+        height: 46px;
+        min-width: 150px;
+      }
+
+      .site-header.full .brand { display: inline-flex; }
+
+      .brand-logo-image {
+        --logo-scale: 1.68;
+        width: 100%;
+        height: 46px;
+      }
+
+      .mobile-panel {
+        display: block;
+        position: fixed;
+        top: 106px;
+        left: 16px;
+        right: 16px;
+        z-index: 60;
+        padding: 14px;
+        border: 2px solid #202020;
+        border-radius: 16px;
+        background: #efeff2;
+        box-shadow: 0 14px 28px rgba(0,0,0,.12);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: transform .68s cubic-bezier(.16,.9,.18,1), opacity .58s ease;
+      }
+
+      .mobile-panel.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .mobile-panel a {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 10px;
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .mobile-panel a:hover { background: rgba(7,87,248,.12); }
+
+      .mobile-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        background: rgba(7,13,48,.18);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .5s ease;
+      }
+
+      .mobile-backdrop.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .hero { padding-top: 90px; }
+      h1 { font-size: clamp(39px, 13vw, 54px); }
+
+      .hero-visual {
+        min-height: 390px;
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .main-asset { width: 230px; top: 88px; }
+      .float-web, .float-domain { width: 126px; }
+      .float-email { width: 104px; right: 30px; }
+
+      .section { padding: 58px 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 14px; }
+      .includes-grid, .fit-grid { grid-template-columns: 1fr; }
+      .process-panel, .contact-panel { padding: 24px; border-radius: 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .brand-logo-image,
+      .hero-orbit,
+      .hero-orbit-secondary { animation: none; }
+      .reveal-on-scroll { opacity: 1; transform: none; filter: none; transition: none; }
+    }
+    .contact-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 130;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .22s ease, visibility .22s ease;
+    }
+
+    .contact-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .contact-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 12, 34, .66);
+      backdrop-filter: blur(6px);
+    }
+
+    .contact-modal-dialog {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 740px);
+      max-height: min(92vh, 900px);
+      overflow: auto;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #f9fbff, #eff4ff);
+      padding: 22px;
+      box-shadow: 0 26px 70px rgba(8, 22, 66, .34);
+    }
+
+    .contact-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 10px;
+      background: rgba(7, 87, 248, .12);
+      cursor: pointer;
+    }
+
+    .contact-modal-close span,
+    .contact-modal-close span::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .contact-modal-close span {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .contact-modal-close span::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .contact-modal-head h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+    }
+
+    .contact-modal-head p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .footer-contact-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .footer-contact-brandmark {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: rgba(7, 87, 248, .08);
+      border: 1px solid rgba(7, 87, 248, .22);
+    }
+
+    .footer-contact-brandmark img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .footer-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .footer-contact-field {
+      display: grid;
+      gap: 5px;
+    }
+
+    .footer-contact-field span {
+      color: #243a70;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .footer-contact-field input,
+    .footer-contact-field select {
+      min-height: 42px;
+      border: 1px solid rgba(7, 87, 248, .2);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .footer-contact-submit {
+      width: fit-content;
+      min-height: 42px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+      padding: 0 16px;
+      cursor: pointer;
+    }
+
+    .footer-contact-status {
+      margin: 0;
+      min-height: 18px;
+      color: #2d467f;
+      font-size: 13px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: 18px;
+      z-index: 70;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      min-width: 58px;
+      max-width: calc(100vw - 32px);
+      height: 58px;
+      gap: 9px;
+      padding: 10px 16px 10px 12px;
+      border-radius: 999px;
+      color: #fff;
+      background: #22b455;
+      box-shadow: 0 16px 30px rgba(34, 180, 85, .34);
+      font-weight: 900;
+      font-size: .9rem;
+      line-height: 1.12;
+    }
+
+    .whatsapp-float svg {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      fill: #fff;
+    }
+
+    .whatsapp-float-label {
+      display: block;
+      max-width: 122px;
+    }
+
+    @media (max-width: 720px) {
+      .footer-contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-modal-dialog {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="index.html#inicio" aria-label="JM2 Tech Studio">
+        <img class="brand-logo-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="index.html#servicios">Servicios</a>
+        <a href="plan-base2.html">Base digital</a>
+        <a href="index.html#automatizaciones-empresa">Automatizaciones</a>
+        <a href="index.html#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="quote-btn" type="button" data-contact-modal-open>Contactar ahora</button>
+        <button class="hamburger" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-backdrop" id="backdrop"></div>
+  <aside class="mobile-panel" id="mobilePanel" aria-hidden="true">
+    <a href="index.html#inicio">Inicio</a>
+    <a href="index.html#servicios">Servicios</a>
+    <a href="plan-base2.html">Base digital</a>
+    <a href="index.html#automatizaciones-empresa">Automatizaciones</a>
+    <a href="index.html#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+  </aside>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal-on-scroll reveal-from-left">
+          <p class="section-kicker">Plan base digital para empresas</p>
+          <h1>Tu negocio con una base digital clara, profesional y acompanada.</h1>
+          <p>Web, dominio, email corporativo, configuracion inicial y consultoria continua para ordenar lo basico sin complicarte.</p>
+          <div class="price-row">
+            <span class="price-chip">Desde 30 EUR/mes + IVA</span>
+            <span class="note-chip">Sin saltar directamente a soluciones grandes</span>
+          </div>
+          <div class="hero-actions">
+            <button class="primary-btn" type="button" data-contact-modal-open>Solicitar diagnostico</button>
+            <a class="secondary-btn" href="#incluye">Ver que incluye</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-on-scroll reveal-from-right" aria-label="Elementos del plan base digital">
+          <div class="hero-orbit"></div>
+          <div class="hero-orbit-secondary"></div>
+          <img class="main-asset" src="1audit.png" alt="Auditoria de costes digitales" />
+          <img class="float-asset float-web" src="1web.png" alt="Web profesional" />
+          <img class="float-asset float-email" src="1email.png" alt="Email corporativo" />
+          <img class="float-asset float-domain" src="1dominio.png" alt="Dominio corporativo" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="incluye">
+      <div class="container">
+        <div class="section-head reveal-on-scroll reveal-from-left">
+          <div>
+            <p class="section-kicker">Que incluye</p>
+            <h2>Una base completa para empezar con criterio.</h2>
+          </div>
+          <p>Todo lo necesario para que tu presencia digital tenga estructura, costes claros y acompanamiento.</p>
+        </div>
+
+        <div class="includes-grid">
+          <article class="include-card reveal-on-scroll">
+            <img src="1audit.png" alt="Auditoria de costes digitales" />
+            <h3>Auditoria inicial</h3>
+            <p>Revisamos herramientas, servicios y gastos actuales para encontrar ahorro y evitar pagos sin sentido.</p>
+          </article>
+          <article class="include-card reveal-on-scroll">
+            <img src="1web.png" alt="Web profesional" />
+            <h3>Web profesional</h3>
+            <p>Una web clara para presentar tu negocio, explicar tus servicios y facilitar el contacto.</p>
+          </article>
+          <article class="include-card reveal-on-scroll">
+            <img src="1dominio.png" alt="Dominio corporativo" />
+            <h3>Dominio y configuracion</h3>
+            <p>Dominio, ajustes iniciales y estructura preparada para que todo quede conectado desde el principio.</p>
+          </article>
+          <article class="include-card reveal-on-scroll">
+            <img src="1email.png" alt="Email corporativo" />
+            <h3>Email corporativo</h3>
+            <p>Correo profesional con una configuracion ordenada para mejorar la comunicacion de la empresa.</p>
+          </article>
+          <article class="include-card reveal-on-scroll">
+            <img src="1consultoria.png" alt="Consultoria continua" />
+            <h3>Acompanamiento</h3>
+            <p>Consultoria continua para decidir que mejorar, que evitar y cuando dar el siguiente paso.</p>
+          </article>
+          <article class="include-card reveal-on-scroll">
+            <img src="1config.png" alt="Configuracion de servicios digitales" />
+            <h3>Base escalable</h3>
+            <p>Dejamos preparado el terreno para futuras automatizaciones, integraciones o software propio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proceso">
+      <div class="container process-panel">
+        <div class="panel-copy reveal-on-scroll reveal-from-left">
+          <p class="section-kicker">Proceso</p>
+          <h2>Primero entendemos tu negocio. Luego construimos lo necesario.</h2>
+          <p>El plan esta pensado para empresas que quieren avanzar con orden, sin contratar piezas sueltas que luego nadie mantiene.</p>
+          <button class="primary-btn" type="button" data-contact-modal-open>Quiero revisar mi caso</button>
+        </div>
+
+        <div class="steps reveal-on-scroll reveal-from-right">
+          <article class="step">
+            <span>1</span>
+            <div>
+              <h3>Diagnostico inicial</h3>
+              <p>Hablamos de procesos, gastos, servicios actuales y necesidades reales.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span>2</span>
+            <div>
+              <h3>Ordenamos la estructura</h3>
+              <p>Definimos web, dominio, correo, formularios y configuracion basica.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span>3</span>
+            <div>
+              <h3>Acompanamos la evolucion</h3>
+              <p>Revisamos mejoras por fases y detectamos cuando conviene automatizar.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="para-quien">
+      <div class="container fit-grid">
+        <div class="fit-card reveal-on-scroll reveal-from-left">
+          <p class="section-kicker">Encaja si</p>
+          <h2>Quieres una presencia digital profesional sin perderte en decisiones tecnicas.</h2>
+          <ul>
+            <li>Tu empresa necesita web, email o dominio bien configurados.</li>
+            <li>Quieres revisar gastos digitales antes de seguir pagando por inercia.</li>
+            <li>Necesitas alguien que te acompane y traduzca la parte tecnica.</li>
+            <li>Te interesa preparar el terreno para futuras automatizaciones.</li>
+          </ul>
+        </div>
+
+        <div class="fit-card fit-card-dark reveal-on-scroll reveal-from-right">
+          <p class="section-kicker">Siguiente fase</p>
+          <h2>Cuando la base este clara, podemos crecer contigo.</h2>
+          <p>Si mas adelante necesitas automatizar citas, facturas, registros, WhatsApp, Telegram o procesos internos, partiremos de una estructura que ya conocemos.</p>
+          <a href="index.html#automatizaciones-empresa">Ver automatizaciones</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container contact-panel">
+        <div class="panel-copy reveal-on-scroll reveal-from-left">
+          <p class="section-kicker">Contacto</p>
+          <h2>Revisamos tu base digital y vemos por donde empezar.</h2>
+          <p>Cuentame tu situacion actual y preparo una primera conversacion para detectar necesidades, costes innecesarios y prioridades reales.</p>
+        </div>
+        <div class="contact-links reveal-on-scroll reveal-from-right">
+          <a href="https://wa.me/34625433667?text=Hola%20JM2%20Tech%20Studio,%20quiero%20informacion%20sobre%20el%20plan%20base" target="_blank" rel="noopener">Abrir WhatsApp</a>
+          <a href="mailto:jomma.tech@gmail.com?subject=Plan%20base%20digital">Enviar email</a>
+          <a href="tel:+34625433667">625 433 667</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      JM2 Tech Studio - Plan base digital para empresas.
+    </div>
+  </footer>
+
+  <div class="contact-modal" id="contactModal" aria-hidden="true">
+    <div class="contact-modal-backdrop" data-contact-modal-close></div>
+    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-label="Solicitar llamada" tabindex="-1">
+      <button class="contact-modal-close" type="button" data-contact-modal-close aria-label="Cerrar formulario">
+        <span></span>
+      </button>
+      <div class="contact-modal-head">
+        <div class="section-label">Contacto</div>
+        <h3>Solicita una llamada</h3>
+        <p>Indica tus datos y te llamamos en el dia y hora que prefieras.</p>
+      </div>
+      <form class="footer-contact-form" id="footerContactForm" novalidate>
+        <div class="footer-contact-brandmark" aria-hidden="true">
+          <img src="favicon.png" alt="" />
+        </div>
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field"><span>Nombre</span><input type="text" name="nombre" autocomplete="name" required /></label>
+          <label class="footer-contact-field"><span>Empresa</span><input type="text" name="empresa" autocomplete="organization" required /></label>
+        </div>
+        <div class="footer-contact-grid">
+          <label class="footer-contact-field"><span>Forma de contacto preferida</span><select name="forma_contacto" required><option value="">Selecciona una opcion</option><option value="Prefiere WhatsApp">WhatsApp</option><option value="Prefiere llamada">Llamada</option></select></label>
+          <label class="footer-contact-field" id="footerContactDetailField"><span id="footerContactDetailLabel">Dato de contacto</span><input id="footerContactDetailInput" type="text" name="contacto_detalle" placeholder="Selecciona primero la forma de contacto" autocomplete="off" required /></label>
+        </div>
+        <button type="submit" class="footer-contact-submit">Enviar solicitud</button>
+        <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <a class="whatsapp-float whatsapp-float-with-label" href="https://wa.me/34625433667" target="_blank" rel="noopener noreferrer" aria-label="Resolver dudas por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16.01 3.2c-7.05 0-12.8 5.62-12.8 12.53 0 2.4.7 4.73 2.02 6.75L3.2 29.2l6.94-1.97a13.03 13.03 0 0 0 5.87 1.42c7.06 0 12.8-5.62 12.8-12.53S23.07 3.2 16.01 3.2Zm0 23.32c-1.86 0-3.68-.48-5.28-1.4l-.38-.22-4.12 1.17 1.18-3.94-.25-.4a10.37 10.37 0 0 1-1.8-6c0-5.74 4.78-10.4 10.65-10.4 5.88 0 10.66 4.66 10.66 10.4s-4.78 10.79-10.66 10.79Zm5.84-7.79c-.32-.16-1.9-.92-2.2-1.02-.3-.11-.52-.16-.74.16-.21.31-.84 1.02-1.03 1.23-.19.21-.38.24-.7.08-.32-.16-1.35-.49-2.57-1.55-.95-.83-1.6-1.86-1.79-2.17-.19-.32-.02-.49.14-.65.15-.14.32-.37.48-.56.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.74-1.74-1.02-2.39-.27-.62-.54-.54-.74-.55h-.63c-.22 0-.55.08-.84.39-.29.31-1.1 1.05-1.1 2.56 0 1.5 1.13 2.96 1.29 3.17.16.21 2.23 3.33 5.4 4.67.75.32 1.34.51 1.8.65.76.24 1.45.21 2 .13.61-.09 1.9-.76 2.17-1.49.27-.74.27-1.37.19-1.5-.08-.13-.29-.21-.61-.37Z" /></svg>
+    <span class="whatsapp-float-label">Resuelvo aqui tus dudas</span>
+  </a>
+
+  <script>
+    const siteHeader = document.getElementById('siteHeader');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
+    const backdrop = document.getElementById('backdrop');
+    const mobileHeaderQuery = window.matchMedia('(max-width: 720px)');
+    const revealItems = Array.from(document.querySelectorAll('.reveal-on-scroll'));
+    const contactModal = document.getElementById('contactModal');
+    const contactModalDialog = contactModal?.querySelector('.contact-modal-dialog');
+    const contactModalOpenButtons = Array.from(document.querySelectorAll('[data-contact-modal-open]'));
+    const contactModalCloseButtons = Array.from(document.querySelectorAll('[data-contact-modal-close]'));
+    const footerContactForm = document.getElementById('footerContactForm');
+    const footerContactStatus = document.getElementById('footerContactStatus');
+    const footerContactMethodSelect = footerContactForm?.querySelector('select[name="forma_contacto"]');
+    const footerContactDetailLabel = document.getElementById('footerContactDetailLabel');
+    const footerContactDetailInput = document.getElementById('footerContactDetailInput');
+    const EMAILJS_SERVICE_ID = 'service_a1xi29i';
+    const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
+    const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
+    let activeContactModalButton = null;
+
+    revealItems.forEach((item, index) => {
+      item.style.setProperty('--reveal-delay', `${Math.min(index * 80, 360)}ms`);
+    });
+
+    function updateMobileHeader() {
+      if (!mobileHeaderQuery.matches) {
+        siteHeader?.classList.remove('full');
+        return;
+      }
+
+      siteHeader?.classList.toggle('full', window.scrollY > 180);
+    }
+
+    function closeMenu() {
+      mobilePanel?.classList.remove('open');
+      backdrop?.classList.remove('show');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+      mobilePanel?.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+      mobilePanel?.classList.add('open');
+      backdrop?.classList.add('show');
+      menuBtn?.setAttribute('aria-expanded', 'true');
+      mobilePanel?.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    updateMobileHeader();
+    window.addEventListener('scroll', updateMobileHeader, { passive: true });
+    mobileHeaderQuery.addEventListener?.('change', updateMobileHeader);
+
+    menuBtn?.addEventListener('click', () => {
+      mobilePanel?.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    backdrop?.addEventListener('click', closeMenu);
+    mobilePanel?.querySelectorAll('a').forEach((item) => item.addEventListener('click', closeMenu));
+
+    function trackEvent(eventName, params = {}) {
+      if (typeof window.gtag !== 'function') return;
+      window.gtag('event', eventName, {
+        page_path: window.location.pathname,
+        page_title: document.title,
+        ...params,
+      });
+    }
+
+    function reportContactConversion() {
+      if (typeof window.gtag_report_conversion === 'function') {
+        window.gtag_report_conversion();
+      }
+    }
+
+    function closeContactModal() {
+      if (!contactModal) return;
+      contactModal.classList.remove('is-open');
+      contactModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      activeContactModalButton?.focus?.();
+    }
+
+    function openContactModal(trigger) {
+      if (!contactModal) return;
+      activeContactModalButton = trigger;
+      contactModal.classList.add('is-open');
+      contactModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      contactModalDialog?.focus();
+      trackEvent('contact_modal_open', { contact_method: 'contact_modal', lead_source: 'cta_button' });
+      reportContactConversion();
+    }
+
+    contactModalOpenButtons.forEach((button) => button.addEventListener('click', () => openContactModal(button)));
+    contactModalCloseButtons.forEach((button) => button.addEventListener('click', closeContactModal));
+
+    document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        reportContactConversion();
+        trackEvent('generate_lead', { contact_method: 'whatsapp', lead_source: 'whatsapp_link' });
+        trackEvent('whatsapp_click', { link_text: link.textContent.trim() || link.getAttribute('aria-label') || 'WhatsApp' });
+      });
+    });
+
+    if (window.emailjs) {
+      window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    }
+
+    function updateContactDetailField() {
+      if (!footerContactMethodSelect || !footerContactDetailInput || !footerContactDetailLabel) return;
+      const selectedMethod = footerContactMethodSelect.value;
+      if (selectedMethod === 'Prefiere WhatsApp' || selectedMethod === 'Prefiere llamada') {
+        footerContactDetailLabel.textContent = 'Numero de telefono';
+        footerContactDetailInput.type = 'tel';
+        footerContactDetailInput.placeholder = 'Tu numero de telefono';
+        footerContactDetailInput.autocomplete = 'tel';
+        return;
+      }
+      footerContactDetailLabel.textContent = 'Dato de contacto';
+      footerContactDetailInput.type = 'text';
+      footerContactDetailInput.placeholder = 'Selecciona primero la forma de contacto';
+      footerContactDetailInput.autocomplete = 'off';
+    }
+
+    footerContactMethodSelect?.addEventListener('change', updateContactDetailField);
+    updateContactDetailField();
+
+    footerContactForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(footerContactForm);
+      const nombre = String(formData.get('nombre') || '').trim();
+      const empresa = String(formData.get('empresa') || '').trim();
+      const formaContacto = String(formData.get('forma_contacto') || '').trim();
+      const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
+
+      if (!nombre || !empresa || !formaContacto || !contactoDetalle) {
+        if (footerContactStatus) footerContactStatus.textContent = 'Completa todos los campos antes de enviar.';
+        return;
+      }
+
+      if (!window.emailjs) {
+        if (footerContactStatus) footerContactStatus.textContent = 'No se pudo cargar EmailJS.';
+        return;
+      }
+
+      const submitButton = footerContactForm.querySelector('button[type="submit"]');
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+      }
+      if (footerContactStatus) footerContactStatus.textContent = 'Enviando mensaje...';
+
+      try {
+        await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          nombre,
+          email: contactoDetalle,
+          telefono: contactoDetalle,
+          empresa,
+          forma_de_contacto: formaContacto,
+          contacto_detalle: contactoDetalle,
+          dia_llamada: 'No indicado',
+          hora_llamada: 'No indicado',
+          'forma de contacto': formaContacto,
+        }, { publicKey: EMAILJS_PUBLIC_KEY });
+
+        if (footerContactStatus) footerContactStatus.textContent = 'Mensaje enviado correctamente. Te contactaremos pronto.';
+        trackEvent('generate_lead', { contact_method: formaContacto.toLowerCase(), lead_source: 'footer_form' });
+        footerContactForm.reset();
+        updateContactDetailField();
+        closeContactModal();
+      } catch (error) {
+        const errorText = error && typeof error === 'object' && 'text' in error ? String(error.text) : 'error desconocido';
+        if (footerContactStatus) footerContactStatus.textContent = `No se pudo enviar (${errorText}).`;
+      } finally {
+        if (submitButton instanceof HTMLButtonElement) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Enviar solicitud';
+        }
+      }
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+      if (event.key === 'Escape' && contactModal?.classList.contains('is-open')) closeContactModal();
+    });
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: .18, rootMargin: '0px 0px -8% 0px' });
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add('is-visible'));
+    }
+  </script>
+</body>
+</html>
