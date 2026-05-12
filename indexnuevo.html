@@ -314,10 +314,10 @@
       position: relative;
       min-height: 520px;
       padding: 34px;
-      border: 1px solid rgba(220, 229, 244, .95);
+      border: 1px solid rgba(220, 229, 244, .52);
       border-radius: 34px;
       background:
-        linear-gradient(145deg, rgba(255,255,255,.58), rgba(248,251,255,.42));
+        linear-gradient(145deg, rgba(255,255,255,.28), rgba(248,251,255,.18));
       box-shadow: var(--shadow);
       backdrop-filter: blur(16px);
       overflow: hidden;
@@ -755,6 +755,39 @@
       font-weight: 900;
     }
 
+    .entry-offer-cta-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .entry-offer-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--blue), #2ec5ff);
+      color: #fff;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 14px 26px rgba(7, 87, 248, .24);
+      transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+    }
+
+    .entry-offer-cta-btn:hover,
+    .entry-offer-cta-btn:focus-visible {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+      box-shadow: 0 18px 32px rgba(7, 87, 248, .3);
+    }
+
     .basic-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -797,21 +830,34 @@
     .basic-orbit {
       position: absolute;
       inset: 34px;
-      border: 1px dashed rgba(7,87,248,.22);
+      border: 2px dashed rgba(7,87,248,.42);
       border-radius: 50%;
       animation: basicOrbit 18s linear infinite;
+      box-shadow: 0 0 28px rgba(7,87,248,.08);
+    }
+
+    .basic-orbit-secondary {
+      inset: 78px 58px 62px;
+      border-style: solid;
+      border-color: rgba(7,87,248,.24);
+      animation-duration: 24s;
+      animation-direction: reverse;
     }
 
     .basic-asset {
       position: absolute;
-      width: 142px;
-      height: 142px;
+      width: 168px;
+      height: 168px;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(223,231,245,.95);
-      border-radius: 22px;
-      background: #fff;
-      box-shadow: 0 18px 30px rgba(16,32,72,.12);
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      font: inherit;
+      cursor: pointer;
+      appearance: none;
     }
 
     .basic-asset img {
@@ -819,34 +865,184 @@
       height: 100%;
       object-fit: contain;
       padding: 12px;
+      mix-blend-mode: multiply;
+    }
+
+    .entry-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .24s ease, visibility .24s ease;
+    }
+
+    .entry-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .entry-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 18, 44, .56);
+      backdrop-filter: blur(8px);
+    }
+
+    .entry-modal-dialog {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 520px);
+      max-height: min(86vh, 720px);
+      overflow: auto;
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(244,247,255,.98));
+      box-shadow: 0 28px 70px rgba(10, 24, 92, .28);
+      transform: translateY(18px) scale(.97);
+      transition: transform .24s ease;
+    }
+
+    .entry-modal.is-open .entry-modal-dialog {
+      transform: translateY(0) scale(1);
+    }
+
+    .entry-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 14px;
+      background: rgba(7, 87, 248, .1);
+      cursor: pointer;
+    }
+
+    .entry-modal-close span,
+    .entry-modal-close span::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .entry-modal-close span {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .entry-modal-close span::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .entry-modal-content {
+      display: none;
+    }
+
+    .entry-modal-content.is-active {
+      display: block;
+    }
+
+    .entry-modal-img {
+      width: 100%;
+      height: 210px;
+      margin: 6px 0 22px;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 26px rgba(7, 87, 248, .16));
+      mix-blend-mode: multiply;
+    }
+
+    .entry-modal-content h3 {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: clamp(1.55rem, 4vw, 2rem);
+      line-height: 1.1;
+    }
+
+    .entry-modal-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .entry-modal-price-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      margin: 2px 0 14px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--blue), #4d8dff);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(7, 87, 248, .22);
+    }
+
+    .plan-features {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plan-features li {
+      position: relative;
+      padding-left: 22px;
+      color: #46526e;
+      line-height: 1.45;
+    }
+
+    .plan-features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .48em;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 4px rgba(7, 87, 248, .08);
     }
 
     .basic-asset-main {
-      width: 210px;
-      height: 210px;
-      top: 86px;
+      width: 248px;
+      height: 248px;
+      top: 70px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
     }
 
     .basic-asset-web {
-      left: 4px;
-      bottom: 28px;
+      left: -8px;
+      bottom: 14px;
       transform: rotate(-6deg);
     }
 
     .basic-asset-domain {
-      right: 20px;
-      bottom: 12px;
+      right: 4px;
+      bottom: 0;
       transform: rotate(7deg);
     }
 
     .basic-asset-email {
-      top: 12px;
-      right: 58px;
-      width: 118px;
-      height: 118px;
+      top: 0;
+      right: 44px;
+      width: 142px;
+      height: 142px;
       transform: rotate(-4deg);
     }
 
@@ -1073,8 +1269,49 @@
       text-align: center;
     }
 
-    .mobile-menu {
+    .hamburger,
+    .mobile-panel,
+    .mobile-backdrop,
+    .mobile-close {
       display: none;
+    }
+
+    .hamburger {
+      width: 56px;
+      height: 56px;
+      border: 0;
+      border-radius: 14px;
+      background: #22b455;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(34,180,85,.25);
+    }
+
+    .hamburger span,
+    .hamburger span::before,
+    .hamburger span::after {
+      content: "";
+      position: relative;
+      display: block;
+      width: 24px;
+      height: 3px;
+      border-radius: 99px;
+      background: #fff;
+    }
+
+    .hamburger span::before,
+    .hamburger span::after {
+      position: absolute;
+      left: 0;
+    }
+
+    .hamburger span::before {
+      top: -8px;
+    }
+
+    .hamburger span::after {
+      top: 8px;
     }
 
     @media (max-width: 1060px) {
@@ -1086,14 +1323,8 @@
         display: none;
       }
 
-      .mobile-menu {
-        display: inline-grid;
-        width: 56px;
-        height: 56px;
-        border-radius: 14px;
-        color: #fff;
-        background: #22b455;
-        box-shadow: 0 10px 22px rgba(34, 180, 85, .28);
+      .hamburger {
+        display: inline-flex;
       }
 
       .hero-grid,
@@ -1137,28 +1368,50 @@
       .site-header {
         position: fixed;
         top: 14px;
-        left: 7px;
-        right: 7px;
-        width: calc(100% - 14px);
+        left: auto;
+        right: 14px;
+        width: 56px;
         margin-top: 0;
-        transform: translateY(-120%);
-        opacity: 0;
-        transition: transform .38s ease, opacity .38s ease;
+        transform: none;
+        opacity: 1;
+        border-color: transparent;
+        background: transparent;
+        box-shadow: none;
+        transition: width .28s ease, right .28s ease, border-color .28s ease, background .28s ease, box-shadow .28s ease;
       }
 
       body.mobile-header-visible .site-header {
-        transform: translateY(0);
+        left: 7px;
+        right: 7px;
+        width: calc(100% - 14px);
+        transform: none;
         opacity: 1;
+        border-color: #202020;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,.06);
       }
 
       .nav {
         min-height: 70px;
+        padding: 0;
+        justify-content: end;
+        gap: 0;
+      }
+
+      body.mobile-header-visible .nav {
         padding: 10px 14px;
+        justify-content: space-between;
+        gap: 20px;
       }
 
       .brand {
+        display: none;
         height: 46px;
         min-width: 150px;
+      }
+
+      body.mobile-header-visible .brand {
+        display: inline-flex;
       }
 
       .brand-logo-image {
@@ -1166,6 +1419,69 @@
         width: 100%;
         height: 46px;
         max-height: none;
+      }
+
+      .mobile-panel {
+        display: block;
+        position: fixed;
+        top: 106px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        z-index: 60;
+        padding: 14px;
+        border: 2px solid #202020;
+        border-radius: 16px;
+        background: #efeff2;
+        box-shadow: 0 14px 28px rgba(0,0,0,.12);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: transform .28s ease, opacity .28s ease;
+      }
+
+      .mobile-panel.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .mobile-panel a {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 10px;
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .mobile-panel a:hover {
+        background: rgba(7, 87, 248, .12);
+      }
+
+      .mobile-contact-trigger {
+        width: 100%;
+        min-height: 44px;
+        margin-top: 6px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--blue);
+        color: #fff;
+        font-weight: 800;
+      }
+
+      .mobile-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        background: rgba(7, 13, 48, .18);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .28s ease;
+      }
+
+      .mobile-backdrop.show {
+        opacity: 1;
+        pointer-events: auto;
       }
 
       .hero {
@@ -1213,20 +1529,20 @@
       }
 
       .basic-asset-main {
-        width: 170px;
-        height: 170px;
-        top: 70px;
+        width: 198px;
+        height: 198px;
+        top: 56px;
       }
 
       .basic-asset {
-        width: 112px;
-        height: 112px;
+        width: 132px;
+        height: 132px;
       }
 
       .basic-asset-email {
-        width: 96px;
-        height: 96px;
-        right: 34px;
+        width: 112px;
+        height: 112px;
+        right: 24px;
       }
 
       .dot-field,
@@ -1352,15 +1668,23 @@
 
       <div class="nav-actions">
         <a class="quote-btn quote-btn-contact" href="#contacto">Contactar ahora</a>
-        <a class="icon-button mobile-menu" href="#contacto" aria-label="Ir a contacto">
-          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-            <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+        <button class="hamburger" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
+
+  <div class="mobile-backdrop" id="backdrop"></div>
+  <aside class="mobile-panel" id="mobilePanel" aria-hidden="true">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#paquete-basico">Base digital</a>
+    <a href="#automatizaciones-empresa">Automatizaciones</a>
+    <a href="#metodo">Metodo</a>
+    <a href="#contacto">Contacto</a>
+    <a class="mobile-contact-trigger" href="#contacto">Contactar ahora</a>
+  </aside>
 
   <main id="inicio">
     <section class="hero">
@@ -1490,34 +1814,74 @@
               Revisamos como esta tu empresa a nivel digital y montamos lo esencial para trabajar con mas claridad: presencia web, dominio, email corporativo, configuracion inicial y acompanamiento para decidir los siguientes pasos.
             </p>
             <div class="basic-price">Desde 30 EUR/mes + IVA</div>
-            <ul class="basic-list">
-              <li>Auditoria inicial de costes y servicios digitales.</li>
-              <li>Web profesional para presentar tu negocio.</li>
-              <li>Dominio, email corporativo y configuracion base.</li>
-              <li>Formulario de contacto y datos clave de empresa.</li>
-              <li>Soporte y consultoria para avanzar por fases.</li>
-              <li>Preparacion para futuras automatizaciones.</li>
-            </ul>
+            <div class="entry-offer-cta-row">
+              <button class="entry-offer-cta-btn" type="button" data-entry-modal="includes">Que incluye</button>
+            </div>
           </div>
 
-          <div class="basic-package-visual" aria-hidden="true">
+          <div class="basic-package-visual">
             <div class="basic-orbit"></div>
-            <div class="basic-asset basic-asset-main">
+            <div class="basic-orbit basic-orbit-secondary"></div>
+            <button class="basic-asset basic-asset-main" type="button" data-entry-modal="audit" aria-label="Ver detalle de auditoria de costes">
               <img src="1audit.png" alt="" />
-            </div>
-            <div class="basic-asset basic-asset-web">
+            </button>
+            <button class="basic-asset basic-asset-web" type="button" data-entry-modal="web" aria-label="Ver detalle de web profesional">
               <img src="1web.png" alt="" />
-            </div>
-            <div class="basic-asset basic-asset-domain">
+            </button>
+            <button class="basic-asset basic-asset-domain" type="button" data-entry-modal="web" aria-label="Ver detalle de dominio corporativo">
               <img src="1dominio.png" alt="" />
-            </div>
-            <div class="basic-asset basic-asset-email">
+            </button>
+            <button class="basic-asset basic-asset-email" type="button" data-entry-modal="email" aria-label="Ver detalle de email corporativo">
               <img src="1email.png" alt="" />
-            </div>
+            </button>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="entry-modal" data-entry-modal-root aria-hidden="true">
+      <div class="entry-modal-backdrop" data-entry-modal-close></div>
+      <div class="entry-modal-dialog" role="dialog" aria-modal="true" aria-label="Detalle del plan basico" tabindex="-1">
+        <button class="entry-modal-close" type="button" data-entry-modal-close aria-label="Cerrar detalle">
+          <span></span>
+        </button>
+
+        <article class="entry-modal-content is-active" data-entry-modal-panel="includes">
+          <p class="section-kicker">Plan de acompanamiento</p>
+          <h3>Que incluye el paquete basico</h3>
+          <div class="entry-modal-price-chip">Desde 30 EUR/mes + IVA</div>
+          <ul class="plan-features">
+            <li>Auditoria inicial de costes y servicios digitales</li>
+            <li>Web profesional para presentar tu negocio</li>
+            <li>Dominio y configuracion inicial</li>
+            <li>Email corporativo bien estructurado</li>
+            <li>Formulario de contacto y datos clave de empresa</li>
+            <li>Acompanamiento continuo para decidir con criterio</li>
+          </ul>
+        </article>
+
+        <article class="entry-modal-content" data-entry-modal-panel="audit">
+          <img class="entry-modal-img" src="costes.png" alt="Auditoria inicial para detectar ahorro de costes en servicios digitales" />
+          <p class="section-kicker">Auditoria inicial</p>
+          <h3>Auditoria para ahorro de costes</h3>
+          <p>Estudiamos los servicios que ya esta pagando tu empresa para detectar duplicidades, cuotas por encima de lo necesario y herramientas infrautilizadas.</p>
+        </article>
+
+        <article class="entry-modal-content" data-entry-modal-panel="web">
+          <img class="entry-modal-img" src="web1.png" alt="Web y presencia digital para negocios" />
+          <p class="section-kicker">Presencia digital</p>
+          <h3>Web y presencia digital</h3>
+          <p>Una web profesional para presentar tu negocio con claridad, transmitir confianza y facilitar el contacto con tus clientes.</p>
+        </article>
+
+        <article class="entry-modal-content" data-entry-modal-panel="email">
+          <img class="entry-modal-img" src="email.png" alt="Email corporativo bien configurado para empresas" />
+          <p class="section-kicker">Correo profesional</p>
+          <h3>Email corporativo bien configurado</h3>
+          <p>Correo profesional, ordenado y preparado para que la comunicacion de tu empresa sea clara, fiable y facil de gestionar.</p>
+        </article>
+      </div>
+    </div>
 
     <section class="section basic-package" id="automatizaciones-empresa">
       <div class="container">
@@ -1669,8 +2033,18 @@
 
   <script>
     const servicesGrid = document.querySelector('.services-grid');
+    const servicesSection = document.getElementById('servicios');
     const blueStrip = document.querySelector('.blue-strip');
     const mobileHeaderQuery = window.matchMedia('(max-width: 720px)');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
+    const backdrop = document.getElementById('backdrop');
+    const entryModal = document.querySelector('[data-entry-modal-root]');
+    const entryModalDialog = entryModal?.querySelector('.entry-modal-dialog');
+    const entryModalPanels = Array.from(document.querySelectorAll('[data-entry-modal-panel]'));
+    const entryModalButtons = Array.from(document.querySelectorAll('[data-entry-modal]'));
+    const entryModalCloseButtons = Array.from(document.querySelectorAll('[data-entry-modal-close]'));
+    let activeEntryModalButton = null;
 
     function updateMobileHeader() {
       if (!mobileHeaderQuery.matches) {
@@ -1678,12 +2052,93 @@
         return;
       }
 
-      document.body.classList.toggle('mobile-header-visible', window.scrollY > 120);
+      const servicesTop = servicesSection
+        ? servicesSection.getBoundingClientRect().top + window.scrollY
+        : 120;
+
+      document.body.classList.toggle('mobile-header-visible', window.scrollY >= servicesTop - 88);
     }
 
     updateMobileHeader();
     window.addEventListener('scroll', updateMobileHeader, { passive: true });
     mobileHeaderQuery.addEventListener?.('change', updateMobileHeader);
+
+    function closeMenu() {
+      if (!menuBtn || !mobilePanel || !backdrop) return;
+
+      mobilePanel.classList.remove('open');
+      backdrop.classList.remove('show');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      mobilePanel.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+      if (!menuBtn || !mobilePanel || !backdrop) return;
+
+      mobilePanel.classList.add('open');
+      backdrop.classList.add('show');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      mobilePanel.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = mobilePanel?.classList.contains('open');
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    backdrop?.addEventListener('click', closeMenu);
+    mobilePanel?.querySelectorAll('a, button').forEach((item) => {
+      item.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1060) closeMenu();
+    });
+
+    function closeEntryModal() {
+      if (!entryModal) return;
+
+      entryModal.classList.remove('is-open');
+      entryModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      activeEntryModalButton?.focus();
+    }
+
+    function openEntryModal(modalName, trigger) {
+      if (!entryModal || !entryModalPanels.length) return;
+
+      entryModalPanels.forEach((panel) => {
+        panel.classList.toggle('is-active', panel.dataset.entryModalPanel === modalName);
+      });
+
+      activeEntryModalButton = trigger;
+      entryModal.classList.add('is-open');
+      entryModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      entryModalDialog?.focus();
+    }
+
+    entryModalButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        openEntryModal(button.dataset.entryModal, button);
+      });
+    });
+
+    entryModalCloseButtons.forEach((button) => {
+      button.addEventListener('click', closeEntryModal);
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobilePanel?.classList.contains('open')) {
+        closeMenu();
+      }
+
+      if (event.key === 'Escape' && entryModal?.classList.contains('is-open')) {
+        closeEntryModal();
+      }
+    });
 
     if (servicesGrid) {
       if ('IntersectionObserver' in window) {
