@@ -6259,7 +6259,8 @@ main > section:not(.hero):not(.adios-excel-hero):not(.email-automation-hero) {
     top: 22px;
     left: 7px;
     right: 7px;
-    width: calc(100% - 14px);
+    width: auto;
+    box-sizing: border-box;
     margin-top: 0;
     border-color: #202020;
     background: #fff;
