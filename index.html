@@ -18,14 +18,22 @@
   </script>
   <script>
     function gtag_report_conversion(url) {
+      var callbackCalled = false;
       var callback = function () {
-        if (typeof(url) != 'undefined') {
+        if (callbackCalled) return;
+        callbackCalled = true;
+        if (typeof url !== 'undefined') {
           window.location = url;
         }
       };
+      if (typeof gtag !== 'function') {
+        callback();
+        return false;
+      }
       gtag('event', 'conversion', {
         'send_to': 'AW-18132304665/K4GxCMPbiakcEJmGlMZD',
-        'event_callback': callback
+        'event_callback': callback,
+        'event_timeout': 2000
       });
       return false;
     }
@@ -3381,10 +3389,10 @@
         <div class="hero-copy">
           <h1>Software e IA para PYMES y autonomos que quieren trabajar mejor</h1>
           <p>
-            Creamos herramientas digitales, automatizaciones e inteligencia artificial practica para ahorrar tiempo y ordenar procesos, con <span class="hero-highlight">Pago por uso desde 30€/mes</span> <span class="hero-highlight hero-highlight-danger">Sin grandes desembolsos iniciales</span>.
+            Creamos herramientas digitales, automatizaciones e inteligencia artificial practica para ahorrar tiempo y ordenar procesos, con <span class="hero-highlight">Pago por uso desde 30�/mes</span> <span class="hero-highlight hero-highlight-danger">Sin grandes desembolsos iniciales</span>.
           </p>
           <div class="hero-actions">
-            <button class="hero-cta" type="button" data-contact-modal-open>Cuéntame qué necesitas</button>
+            <button class="hero-cta" type="button" data-contact-modal-open>Cu�ntame qu� necesitas</button>
           </div>
         </div>
 

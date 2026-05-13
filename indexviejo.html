@@ -20,14 +20,22 @@
   <!-- Event snippet for Contacto conversion page -->
   <script>
     function gtag_report_conversion(url) {
+      var callbackCalled = false;
       var callback = function () {
-        if (typeof(url) != 'undefined') {
+        if (callbackCalled) return;
+        callbackCalled = true;
+        if (typeof url !== 'undefined') {
           window.location = url;
         }
       };
+      if (typeof gtag !== 'function') {
+        callback();
+        return false;
+      }
       gtag('event', 'conversion', {
         'send_to': 'AW-18132304665/K4GxCMPbiakcEJmGlMZD',
-        'event_callback': callback
+        'event_callback': callback,
+        'event_timeout': 2000
       });
       return false;
     }

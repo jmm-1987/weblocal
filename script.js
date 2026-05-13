@@ -24,10 +24,10 @@ function trackEvent(eventName, params = {}) {
   });
 }
 
-function reportContactConversion() {
+function reportContactConversion(url) {
   if (typeof window.gtag_report_conversion !== 'function') return;
 
-  window.gtag_report_conversion();
+  window.gtag_report_conversion(url);
 }
 
 function getLinkLabel(link) {
