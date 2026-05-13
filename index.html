@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JM2 Tech Studio | Tecnologia para negocios locales y pymes</title>
-  <meta name="description" content="JM2 Tech Studio crea paginas web, automatizaciones, software a medida e inteligencia artificial practica para negocios locales y pymes." />
+  <meta name="description" content="JM2 Tech Studio crea paginas web, automatizaciones con IA y software a medida para negocios locales y pymes." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18132304665"></script>
@@ -409,11 +409,70 @@
       font-size: 19px;
     }
 
+    .hero-highlight {
+      --highlight-color: #128547;
+      --highlight-bg: #e6f8ee;
+      --highlight-shadow: rgba(18, 133, 71, .1);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 4px;
+      color: #128547;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      font-weight: 900;
+    }
+
+    .hero-highlight::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background:
+        linear-gradient(var(--highlight-color), var(--highlight-color)) 50% 50% / 10px 2px no-repeat,
+        linear-gradient(var(--highlight-color), var(--highlight-color)) 50% 50% / 2px 10px no-repeat,
+        var(--highlight-bg);
+      box-shadow: 0 0 0 4px var(--highlight-shadow);
+    }
+
+    .hero-highlight-danger {
+      --highlight-color: #dc2f3a;
+      --highlight-bg: #ffe8ea;
+      --highlight-shadow: rgba(220, 47, 58, .12);
+      color: #dc2f3a;
+    }
+
+    .hero-highlight-danger::before {
+      transform: rotate(45deg);
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
       margin-top: 32px;
+    }
+
+    .hero-cta {
+      min-width: min(100%, 360px);
+      min-height: 64px;
+      padding: 0 34px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(14, 31, 38, .92), rgba(25, 46, 54, .82));
+      box-shadow: 0 18px 36px rgba(13, 33, 41, .18);
+      font-size: 1.18rem;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .hero-cta:hover,
+    .hero-cta:focus-visible {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, rgba(20, 48, 58, .96), rgba(31, 67, 77, .88));
+      box-shadow: 0 22px 42px rgba(13, 33, 41, .24);
     }
 
     .brand-card {
@@ -664,7 +723,7 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: #fff;
@@ -2403,15 +2462,15 @@
     }
 
     .hamburger {
-      width: 56px;
-      height: 56px;
+      width: 44px;
+      height: 44px;
       border: 0;
       border-radius: 14px;
-      background: #22b455;
+      background: transparent;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 10px 20px rgba(34,180,85,.25);
+      box-shadow: none;
     }
 
     .hamburger span,
@@ -2420,10 +2479,10 @@
       content: "";
       position: relative;
       display: block;
-      width: 24px;
-      height: 3px;
+      width: 22px;
+      height: 2.5px;
       border-radius: 99px;
-      background: #fff;
+      background: #22b455;
     }
 
     .hamburger span::before,
@@ -2433,11 +2492,11 @@
     }
 
     .hamburger span::before {
-      top: -8px;
+      top: -7px;
     }
 
     .hamburger span::after {
-      top: 8px;
+      top: 7px;
     }
 
     @media (max-width: 1060px) {
@@ -2481,7 +2540,7 @@
       }
 
       .service-card:last-child {
-        grid-column: span 2;
+        grid-column: auto;
       }
 
     }
@@ -2493,16 +2552,16 @@
 
       .site-header {
         position: fixed;
-        top: 14px;
-        left: auto;
-        right: 14px;
-        width: 56px;
+        top: 22px;
+        left: 7px;
+        right: 7px;
+        width: calc(100% - 14px);
         margin-top: 0;
         transform: none;
         opacity: 1;
-        border-color: transparent;
-        background: transparent;
-        box-shadow: none;
+        border-color: #202020;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,.06);
         transition: width .28s ease, right .28s ease, border-color .28s ease, background .28s ease, box-shadow .28s ease;
       }
 
@@ -2520,9 +2579,9 @@
 
       .nav {
         min-height: 70px;
-        padding: 0;
-        justify-content: end;
-        gap: 0;
+        padding: 10px 14px;
+        justify-content: space-between;
+        gap: 20px;
       }
 
       body.mobile-header-visible .nav {
@@ -2532,7 +2591,7 @@
       }
 
       .brand {
-        display: none;
+        display: inline-flex;
         height: 46px;
         min-width: 150px;
       }
@@ -2635,7 +2694,7 @@
       }
 
       .hero {
-        padding-top: 14px;
+        padding-top: 134px;
       }
 
       h1 {
@@ -2644,6 +2703,20 @@
 
       .hero-copy p {
         font-size: 17px;
+      }
+
+      .hero-highlight {
+        display: flex;
+        width: fit-content;
+        margin: 12px 0 0;
+      }
+
+      .hero-cta {
+        width: 100%;
+        min-width: 0;
+        min-height: 58px;
+        padding: 0 22px;
+        font-size: 1.06rem;
       }
 
       .services-grid {
@@ -3247,9 +3320,9 @@
         <a href="plan-base2.html">Base digital</a>
         <div class="nav-dropdown">
           <button class="nav-dropdown-trigger" type="button" aria-haspopup="true">
-            Automatizaciones
+            Automatizaciones con IA
           </button>
-          <div class="nav-dropdown-menu" aria-label="Paginas de automatizaciones">
+          <div class="nav-dropdown-menu" aria-label="Paginas de automatizaciones con IA">
             <a href="adios-excel.html">Adios Excel</a>
             <a href="automatizacion-email.html">Email automatico</a>
             <a href="lectura-albaranes.html">Lectura de albaranes</a>
@@ -3280,7 +3353,7 @@
     <a href="#servicios">Servicios</a>
     <a href="plan-base2.html">Base digital</a>
     <div class="mobile-menu-group">
-      <span>Automatizaciones</span>
+      <span>Automatizaciones con IA</span>
       <a href="#automatizaciones-empresa">Ver todas</a>
       <a href="adios-excel.html">Adios Excel</a>
       <a href="automatizacion-email.html">Email automatico</a>
@@ -3301,10 +3374,13 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1>Servicios tecnologicos para que tu empresa avance sin complicarse.</h1>
+          <h1>Software e IA para PYMES y autonomos que quieren trabajar mejor</h1>
           <p>
-            Me cuentas que necesita mejorar tu negocio y preparo la solucion adecuada: presencia web, soporte digital, automatizaciones, software a medida o inteligencia artificial practica para tu dia a dia.
+            Creamos herramientas digitales, automatizaciones e inteligencia artificial practica para ahorrar tiempo y ordenar procesos, con <span class="hero-highlight">Pago por uso desde 30€/mes</span> <span class="hero-highlight hero-highlight-danger">Sin grandes desembolsos iniciales</span>.
           </p>
+          <div class="hero-actions">
+            <button class="hero-cta" type="button" data-contact-modal-open>Cuéntame qué necesitas</button>
+          </div>
         </div>
 
         <div class="brand-card" aria-label="Tarjeta visual JM2 Tech Studio">
@@ -3385,11 +3461,11 @@
               <path d="M14 49h9M14 49l3 8" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <div>
-              <h3>Automatizaciones</h3>
-              <p>Menos tareas repetidas: emails, formularios, hojas de calculo y avisos conectados.</p>
+              <h3>Automatizaciones con IA</h3>
+              <p>Procesos que leen, responden, clasifican y avisan sin depender de tareas manuales.</p>
             </div>
             <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
-            <a class="service-card-cta" href="#automatizaciones-empresa">Ver automatizaciones</a>
+            <a class="service-card-cta" href="#automatizaciones-empresa">Ver automatizaciones con IA</a>
           </article>
 
           <article class="service-card">
@@ -3404,18 +3480,6 @@
             <a class="service-card-cta" href="#software-propio">Ver plan avanzado</a>
           </article>
 
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <rect x="18" y="16" width="28" height="32" rx="5" stroke="currentColor" stroke-width="4"/>
-              <path d="M26 40V25h12v15M28 34h8M12 24h6M12 32h6M12 40h6M46 24h6M46 32h6M46 40h6M24 10v6M32 10v6M40 10v6M24 48v6M32 48v6M40 48v6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-            </svg>
-            <div>
-              <h3>Inteligencia artificial</h3>
-              <p>IA practica para responder, ordenar informacion y acelerar procesos reales.</p>
-            </div>
-            <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
-            <a class="service-card-cta" href="#contacto">Consultar IA practica</a>
-          </article>
         </div>
         <div class="blue-strip">Tecnologia que impulsa tu negocio</div>
       </div>
@@ -3426,10 +3490,10 @@
         <div class="automation-suite">
           <div class="automation-suite-head">
             <div>
-              <p class="section-kicker">Automatizaciones para empresas</p>
-              <h2>Procesos que dejan de depender de copiar, perseguir y recordar.</h2>
+              <p class="section-kicker">Automatizaciones con IA</p>
+              <h2>Procesos que entienden informacion, deciden el siguiente paso y te ahorran trabajo manual.</h2>
             </div>
-            <p>Empezamos por una tarea concreta, la conectamos con tus herramientas y la dejamos lista para ahorrar tiempo cada semana.</p>
+            <p>Unimos automatizacion e inteligencia artificial para leer correos, documentos, formularios o mensajes, ordenar datos y activar avisos sin que tengas que perseguir cada tarea.</p>
           </div>
 
           <div class="automation-cards">
@@ -3442,10 +3506,10 @@
                 </svg>
               </span>
               <div>
-                <h3>Adios Excel</h3>
-                <p>Paneles y registros internos para dejar atras hojas dispersas, versiones duplicadas y datos perdidos.</p>
+                <h3>Adios Excel manual</h3>
+                <p>La IA ayuda a interpretar entradas, ordenar datos y alimentar paneles sin copiar informacion de una hoja a otra.</p>
               </div>
-              <span class="automation-card-label">Ver pagina</span>
+              <span class="automation-card-label">Ver mas</span>
             </a>
 
             <a class="automation-card is-live" href="automatizacion-email.html">
@@ -3457,10 +3521,10 @@
                 </svg>
               </span>
               <div>
-                <h3>Email automatico</h3>
-                <p>Respuestas, avisos y clasificacion de correos para que la bandeja no marque el ritmo del dia.</p>
+                <h3>Email automatico con IA</h3>
+                <p>Clasificacion, borradores de respuesta y avisos inteligentes para que la bandeja no marque el ritmo del dia.</p>
               </div>
-              <span class="automation-card-label">Ver pagina</span>
+              <span class="automation-card-label">Ver mas</span>
             </a>
 
             <a class="automation-card is-live" href="lectura-albaranes.html">
@@ -3473,9 +3537,9 @@
               </span>
               <div>
                 <h3>Lectura inteligente de albaranes</h3>
-                <p>Extraer proveedor, importes, fechas y conceptos desde documentos o fotos sin picarlo a mano.</p>
+                <p>Extraer proveedor, importes, fechas y conceptos desde documentos o fotos, con revision cuando haga falta.</p>
               </div>
-              <span class="automation-card-label">Ver pagina</span>
+              <span class="automation-card-label">Ver mas</span>
             </a>
 
             <a class="automation-card is-live" href="gestion-citas.html">
@@ -3487,10 +3551,10 @@
                 </svg>
               </span>
               <div>
-                <h3>Gestion de citas</h3>
-                <p>Reservas, cambios, confirmaciones y huecos disponibles conectados a tu agenda real.</p>
+                <h3>Citas y respuestas asistidas</h3>
+                <p>Reservas, cambios, confirmaciones y mensajes de seguimiento conectados a tu agenda real.</p>
               </div>
-              <span class="automation-card-label">Ver pagina</span>
+              <span class="automation-card-label">Ver mas</span>
             </a>
 
             <a class="automation-card is-live" href="facturas-automaticas.html">
@@ -3502,10 +3566,10 @@
                 </svg>
               </span>
               <div>
-                <h3>Facturas automaticas</h3>
-                <p>Generacion, envio y seguimiento de facturas o presupuestos desde datos ya registrados.</p>
+                <h3>Facturas y presupuestos</h3>
+                <p>Generacion, envio y seguimiento desde datos ya registrados, evitando dobles entradas y olvidos.</p>
               </div>
-              <span class="automation-card-label">Ver pagina</span>
+              <span class="automation-card-label">Ver mas</span>
             </a>
 
             <a class="automation-card is-live" href="informes-consumos.html">
@@ -3519,10 +3583,10 @@
                 </svg>
               </span>
               <div>
-                <h3>Informes de consumos</h3>
-                <p>Resumir gastos, kilometros, energia, materiales o consumos para ver desviaciones a tiempo.</p>
+                <h3>Informes inteligentes</h3>
+                <p>Resumir gastos, kilometros, energia, materiales o consumos y detectar desviaciones a tiempo.</p>
               </div>
-              <span class="automation-card-label">Ver pagina</span>
+              <span class="automation-card-label">Ver mas</span>
             </a>
 
             <a class="automation-card is-live" href="recordatorios-automaticos.html">
@@ -3534,10 +3598,10 @@
                 </svg>
               </span>
               <div>
-                <h3>Recordatorios automaticos</h3>
-                <p>Avisos de vencimientos, citas, revisiones, cobros o tareas pendientes antes de que se olviden.</p>
+                <h3>Recordatorios inteligentes</h3>
+                <p>Avisos de vencimientos, citas, revisiones, cobros o tareas pendientes segun reglas reales de tu negocio.</p>
               </div>
-              <span class="automation-card-label">Ver pagina</span>
+              <span class="automation-card-label">Ver mas</span>
             </a>
 
             <a class="automation-card is-live" href="avisos-whatsapp-telegram.html">
@@ -3550,9 +3614,9 @@
               </span>
               <div>
                 <h3>Avisos por WhatsApp o Telegram</h3>
-                <p>Notificaciones internas o mensajes a clientes cuando cambia un estado o entra una solicitud.</p>
+                <p>Notificaciones internas o mensajes a clientes cuando entra una solicitud, cambia un estado o falta un dato.</p>
               </div>
-              <span class="automation-card-label">Ver pagina</span>
+              <span class="automation-card-label">Ver mas</span>
             </a>
           </div>
         </div>
@@ -3795,7 +3859,7 @@
           <h3>Servicios clave</h3>
           <nav class="footer-links" aria-label="Servicios destacados">
             <a href="plan-base2.html">Base digital inicial</a>
-            <a href="#automatizaciones-empresa">Automatizaciones</a>
+            <a href="#automatizaciones-empresa">Automatizaciones con IA</a>
             <a href="adios-excel.html">Adios Excel</a>
             <a href="automatizacion-email.html">Email automatico</a>
             <a href="lectura-albaranes.html">Lectura de albaranes</a>
@@ -3912,7 +3976,6 @@
 
   <script>
     const servicesGrid = document.querySelector('.services-grid');
-    const servicesSection = document.getElementById('servicios');
     const blueStrip = document.querySelector('.blue-strip');
     const mobileHeaderQuery = window.matchMedia('(max-width: 720px)');
     const menuBtn = document.getElementById('menuBtn');
@@ -4049,11 +4112,7 @@
         return;
       }
 
-      const servicesTop = servicesSection
-        ? servicesSection.getBoundingClientRect().top + window.scrollY
-        : 120;
-
-      document.body.classList.toggle('mobile-header-visible', window.scrollY >= servicesTop - 88);
+      document.body.classList.add('mobile-header-visible');
     }
 
     updateMobileHeader();
@@ -4413,3 +4472,7 @@
   </script>
 </body>
 </html>
+
+
+
+

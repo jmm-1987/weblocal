@@ -63,7 +63,7 @@ menuBtn.addEventListener('click', () => {
   }
 });
 
-closeMenuBtn.addEventListener('click', closeMenu);
+closeMenuBtn?.addEventListener('click', closeMenu);
 backdrop.addEventListener('click', closeMenu);
 mobilePanel.querySelectorAll('a, button').forEach((item) => item.addEventListener('click', closeMenu));
 

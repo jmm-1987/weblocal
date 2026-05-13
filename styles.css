@@ -359,31 +359,31 @@ button {
 
 .hamburger {
   display: none;
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   border-radius: 14px;
   border: none;
-  background: #22b455;
+  background: transparent;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(34,180,85,0.25);
+  box-shadow: none;
 }
 
 .hamburger span,
 .hamburger span::before,
 .hamburger span::after {
   display: block;
-  width: 24px;
-  height: 3px;
-  background: #fff;
+  width: 22px;
+  height: 2.5px;
+  background: #22b455;
   border-radius: 99px;
   position: relative;
   content: "";
 }
 
-.hamburger span::before { position: absolute; top: -8px; }
-.hamburger span::after { position: absolute; top: 8px; }
+.hamburger span::before { position: absolute; top: -7px; }
+.hamburger span::after { position: absolute; top: 7px; }
 
 .mobile-panel {
   display: none;
@@ -5499,9 +5499,19 @@ main > section:not(.hero):not(.adios-excel-hero):not(.email-automation-hero) {
   }
 
   .site-header {
-    top: 6px;
+    position: fixed;
+    top: 22px;
+    left: 7px;
+    right: 7px;
     width: calc(100% - 14px);
-    margin-top: 6px;
+    margin-top: 0;
+    border-color: #202020;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  body:not(.plan-base2-page) .site-header + .mobile-backdrop + .mobile-panel + main {
+    padding-top: 96px;
   }
 
   .nav {
