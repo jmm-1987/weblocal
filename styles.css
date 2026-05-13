@@ -415,9 +415,12 @@ button {
   min-height: 760px;
   color: #fff;
   background:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
     radial-gradient(circle at 78% 24%, rgba(18, 185, 129, 0.24), transparent 26%),
     radial-gradient(circle at 18% 80%, rgba(255, 205, 86, 0.16), transparent 28%),
     linear-gradient(135deg, #08112f 0%, #123a63 54%, #0c8f64 100%);
+  background-size: 58px 58px, 58px 58px, auto, auto, auto;
 }
 
 .adios-excel-hero::before,
@@ -442,6 +445,25 @@ button {
   width: 560px;
   height: 560px;
   background: radial-gradient(circle, rgba(18, 185, 129, 0.16), transparent 70%);
+}
+
+.adios-excel-hero-copy {
+  position: relative;
+}
+
+.adios-excel-hero-copy::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: -26px;
+  width: 92px;
+  height: 92px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(245, 200, 75, 0.32), rgba(18, 185, 129, 0.08));
+  transform: rotate(12deg);
+  filter: blur(0.2px);
+  opacity: 0.75;
+  z-index: -1;
 }
 
 .adios-excel-hero-wrap {
@@ -495,6 +517,48 @@ button {
   color: rgba(255,255,255,0.92);
   font-weight: 850;
   font-size: 0.9rem;
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
+}
+
+.adios-excel-trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 24px 0 26px;
+  color: rgba(255,255,255,0.88);
+  font-size: 0.94rem;
+  font-weight: 800;
+}
+
+.adios-excel-trust-strip span {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 18px 0 0;
+  margin-right: 18px;
+}
+
+.adios-excel-trust-strip span::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: #f5c84b;
+  box-shadow: 0 0 0 5px rgba(245, 200, 75, 0.14);
+}
+
+.adios-excel-trust-strip span:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 7px;
+  width: 1px;
+  height: 16px;
+  background: rgba(255,255,255,0.22);
 }
 
 .adios-excel-hero-visual {
@@ -516,12 +580,46 @@ button {
 }
 
 .adios-excel-board {
+  position: relative;
+  overflow: hidden;
   width: min(100%, 540px);
   padding: 22px;
   border-radius: 28px;
   color: #17224a;
-  transform: rotate(-2deg);
-  box-shadow: 0 30px 70px rgba(4, 12, 46, 0.32);
+  transform: rotate(-2deg) translateY(0);
+  box-shadow:
+    0 34px 80px rgba(4, 12, 46, 0.36),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  animation: adios-panel-float 7s ease-in-out infinite;
+}
+
+.adios-excel-board::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 0 34%, rgba(255,255,255,0.48) 45%, transparent 58%),
+    radial-gradient(circle at 84% 12%, rgba(18, 185, 129, 0.16), transparent 28%);
+  transform: translateX(-120%);
+  animation: adios-panel-sheen 6.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.adios-excel-board::after {
+  content: "Diagnostico gratuito";
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #f5c84b;
+  color: #17224a;
+  font-size: 0.72rem;
+  font-weight: 950;
 }
 
 .adios-excel-board-head,
@@ -536,7 +634,7 @@ button {
 
 .adios-excel-board-head {
   min-height: 42px;
-  padding: 0 14px;
+  padding: 0 132px 0 14px;
   border-radius: 16px;
   background: #08112f;
   color: rgba(255,255,255,0.82);
@@ -546,12 +644,25 @@ button {
 }
 
 .adios-excel-flow-row {
+  position: relative;
+  z-index: 1;
   min-height: 68px;
   margin-top: 12px;
   padding: 0 14px;
   border-radius: 18px;
   background: #fff;
   color: #263b66;
+  border: 1px solid rgba(18, 185, 129, 0.08);
+  box-shadow: 0 12px 24px rgba(21, 39, 126, 0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.adios-excel-board:hover .adios-excel-flow-row {
+  transform: translateX(4px);
+}
+
+.adios-excel-board:hover .adios-excel-flow-row:nth-child(even) {
+  transform: translateX(-4px);
 }
 
 .adios-excel-flow-row strong {
@@ -567,12 +678,20 @@ button {
   font-style: normal;
   font-weight: 850;
   font-size: 0.78rem;
+  box-shadow: 0 0 0 5px rgba(18, 185, 129, 0.08);
 }
 
 .adios-excel-problem-section,
 .adios-excel-capture-section,
 .adios-excel-control-section,
-.adios-excel-process-section {
+.adios-excel-process-section,
+.adios-excel-solution-section,
+.adios-excel-examples-section,
+.adios-excel-before-after-section,
+.adios-excel-cta-section,
+.adios-excel-sectors-section,
+.adios-excel-faq-section,
+.adios-excel-final-section {
   padding-top: 74px;
 }
 
@@ -774,6 +893,463 @@ button {
   min-height: 230px;
 }
 
+.adios-excel-whatsapp-link {
+  display: inline-flex;
+  margin-top: 16px;
+  color: rgba(255,255,255,0.92);
+  font-weight: 850;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.adios-excel-pain-grid,
+.adios-excel-example-grid,
+.adios-excel-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.adios-excel-pain-grid article,
+.adios-excel-example-grid article,
+.adios-excel-faq-grid article,
+.adios-excel-faq-grid details,
+.adios-excel-compare-card,
+.adios-excel-cta-panel,
+.adios-excel-final-panel {
+  border: 1px solid rgba(36, 87, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(244,247,255,0.96));
+  box-shadow: 0 18px 42px rgba(21, 39, 126, 0.08);
+}
+
+.adios-excel-pain-grid article,
+.adios-excel-example-grid article,
+.adios-excel-faq-grid article,
+.adios-excel-faq-grid details {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  border-radius: 22px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.adios-excel-pain-grid article::after,
+.adios-excel-example-grid article::after,
+.adios-excel-faq-grid article::after,
+.adios-excel-faq-grid details::after {
+  content: "";
+  position: absolute;
+  inset: auto -34px -56px auto;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(18, 185, 129, 0.12), transparent 68%);
+  transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.adios-excel-pain-grid article:hover,
+.adios-excel-example-grid article:hover,
+.adios-excel-faq-grid article:hover,
+.adios-excel-faq-grid details:hover,
+.adios-excel-faq-grid details[open] {
+  transform: translateY(-7px);
+  border-color: rgba(18, 185, 129, 0.18);
+  box-shadow: 0 24px 52px rgba(21, 39, 126, 0.13);
+}
+
+.adios-excel-pain-grid article:hover::after,
+.adios-excel-example-grid article:hover::after,
+.adios-excel-faq-grid article:hover::after,
+.adios-excel-faq-grid details:hover::after,
+.adios-excel-faq-grid details[open]::after {
+  transform: scale(1.18);
+  opacity: 1;
+}
+
+.adios-excel-pain-grid span {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  background: rgba(18, 185, 129, 0.12);
+  color: #0c8f64;
+  font-weight: 900;
+}
+
+.adios-excel-pain-grid h3,
+.adios-excel-example-grid h3,
+.adios-excel-faq-grid h3,
+.adios-excel-faq-grid summary {
+  margin: 0 0 10px;
+  color: #17224a;
+  line-height: 1.18;
+}
+
+.adios-excel-pain-grid p,
+.adios-excel-example-grid p,
+.adios-excel-faq-grid p,
+.adios-excel-cta-panel p,
+.adios-excel-final-panel p {
+  margin: 0;
+  color: #5d6885;
+}
+
+.adios-excel-faq-grid details {
+  cursor: pointer;
+}
+
+.adios-excel-faq-grid summary {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  list-style: none;
+  font-weight: 850;
+}
+
+.adios-excel-faq-grid summary::-webkit-details-marker {
+  display: none;
+}
+
+.adios-excel-faq-grid summary::after {
+  content: "+";
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 50%;
+  background: rgba(18, 185, 129, 0.12);
+  color: #0c8f64;
+  font-size: 1.35rem;
+  line-height: 1;
+  transition: transform 0.24s ease, background 0.24s ease;
+}
+
+.adios-excel-faq-grid details[open] summary::after {
+  content: "−";
+  transform: rotate(180deg);
+  background: rgba(18, 185, 129, 0.18);
+}
+
+.adios-excel-faq-grid details p {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(18, 185, 129, 0.12);
+}
+
+.adios-excel-example-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.adios-excel-example-grid article {
+  display: grid;
+  gap: 9px;
+  align-content: start;
+}
+
+.adios-excel-example-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 4px;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 28% 24%, rgba(245, 200, 75, 0.32), transparent 46%),
+    linear-gradient(135deg, rgba(18, 185, 129, 0.16), rgba(36, 80, 244, 0.08));
+  color: #0c8f64;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 12px 22px rgba(21, 39, 126, 0.08);
+}
+
+.adios-excel-example-icon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.adios-excel-example-grid strong {
+  color: #17224a;
+}
+
+.adios-excel-solution-list,
+.adios-excel-sector-list,
+.adios-excel-related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.adios-excel-solution-list {
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(18, 185, 129, 0.16), transparent 30%),
+    linear-gradient(180deg, #08112f, #0d1a4f);
+  box-shadow: 0 24px 56px rgba(4, 12, 46, 0.18);
+}
+
+.adios-excel-solution-list::before {
+  content: "";
+  position: absolute;
+  inset: -80px auto auto -90px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 200, 75, 0.2), transparent 68%);
+  animation: adios-soft-pulse 6s ease-in-out infinite;
+}
+
+.adios-excel-solution-list span,
+.adios-excel-sector-list span,
+.adios-excel-related-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 999px;
+  font-weight: 850;
+}
+
+.adios-excel-solution-list span {
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: #fff;
+  transition: transform 0.24s ease, background 0.24s ease;
+}
+
+.adios-excel-solution-list span:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.16);
+}
+
+.adios-excel-related-links {
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.adios-excel-related-links a,
+.adios-excel-sector-list span {
+  background: rgba(18, 185, 129, 0.1);
+  color: #0c8f64;
+}
+
+.adios-excel-sector-list span {
+  gap: 8px;
+}
+
+.adios-excel-sector-list svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.adios-excel-before-after {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.adios-excel-compare-card {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  border-radius: 26px;
+}
+
+.adios-excel-compare-card::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: -70px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 200, 75, 0.16), transparent 68%);
+}
+
+.adios-excel-compare-card.is-after::after {
+  background: radial-gradient(circle, rgba(18, 185, 129, 0.18), transparent 68%);
+}
+
+.adios-excel-compare-card h2,
+.adios-excel-cta-panel h2,
+.adios-excel-final-panel h2 {
+  margin: 0 0 16px;
+  color: #17224a;
+  font-size: clamp(1.85rem, 3vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.adios-excel-compare-card ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.adios-excel-compare-card li {
+  position: relative;
+  padding-left: 28px;
+  color: #263b66;
+  font-weight: 800;
+}
+
+.adios-excel-compare-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f5c84b;
+}
+
+.adios-excel-compare-card.is-after li::before {
+  background: #12b981;
+}
+
+.adios-excel-cta-panel,
+.adios-excel-final-panel {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  padding: 34px;
+  border-radius: 28px;
+}
+
+.adios-excel-cta-panel::before,
+.adios-excel-final-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 0 42%, rgba(255,255,255,0.42) 50%, transparent 58%);
+  transform: translateX(-130%);
+  animation: adios-panel-sheen 7.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.adios-excel-cta-actions {
+  display: grid;
+  gap: 12px;
+  justify-items: stretch;
+}
+
+.adios-excel-whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: #22b455;
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 14px 28px rgba(34, 180, 85, 0.22);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.adios-excel-whatsapp-button:hover,
+.adios-excel-whatsapp-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(34, 180, 85, 0.3);
+}
+
+.adios-excel-sector-list {
+  justify-content: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.adios-excel-final-panel {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(18, 185, 129, 0.18), transparent 30%),
+    linear-gradient(180deg, #08112f, #0d1a4f);
+}
+
+.adios-excel-final-panel h2,
+.adios-excel-final-panel p,
+.adios-excel-final-panel .plan-base-secondary-link {
+  color: #fff;
+}
+
+@keyframes adios-panel-float {
+  0%,
+  100% {
+    transform: rotate(-2deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-1deg) translateY(-12px);
+  }
+}
+
+@keyframes adios-panel-sheen {
+  0%,
+  46% {
+    transform: translateX(-130%);
+  }
+
+  72%,
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+@keyframes adios-soft-pulse {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes adios-mobile-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 1180px) {
   .adios-excel-hero-wrap,
   .adios-excel-split,
@@ -794,33 +1370,113 @@ button {
   }
 
   .adios-excel-capture-grid,
-  .adios-excel-process-grid {
+  .adios-excel-process-grid,
+  .adios-excel-example-grid,
+  .adios-excel-pain-grid,
+  .adios-excel-faq-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .adios-excel-cta-panel {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 760px) {
+  .adios-excel-page {
+    background: #08112f;
+  }
+
   .adios-excel-hero {
     min-height: auto;
+    background:
+      radial-gradient(circle at 50% -4%, rgba(245, 200, 75, 0.24), transparent 32%),
+      radial-gradient(circle at 90% 18%, rgba(18, 185, 129, 0.28), transparent 36%),
+      linear-gradient(180deg, #08112f 0%, #123a63 58%, #0c8f64 100%);
   }
 
   .adios-excel-hero-wrap {
     min-height: auto;
-    padding: 54px 0 56px;
+    gap: 30px;
+    padding: 40px 0 48px;
+  }
+
+  .adios-excel-hero-copy::before {
+    left: auto;
+    right: 4px;
+    top: -16px;
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+  }
+
+  .adios-excel-hero-copy p {
+    font-size: 1rem;
   }
 
   .adios-excel-hero-copy h1 {
-    font-size: clamp(2.05rem, 12vw, 3.2rem);
+    font-size: clamp(2.05rem, 10.5vw, 3.05rem);
+    line-height: 1.02;
+  }
+
+  .adios-excel-metrics {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin: 20px 0;
+  }
+
+  .adios-excel-metrics span {
+    min-height: 40px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .adios-excel-trust-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin: 20px 0 24px;
+  }
+
+  .adios-excel-trust-strip span {
+    margin: 0;
+    padding: 0;
+  }
+
+  .adios-excel-trust-strip span:not(:last-child)::after {
+    display: none;
   }
 
   .adios-excel-hero-visual {
     min-height: auto;
+    perspective: 900px;
   }
 
   .adios-excel-board {
-    padding: 14px;
-    border-radius: 22px;
-    transform: none;
+    width: min(100%, 390px);
+    padding: 12px;
+    border-radius: 28px;
+    transform: rotateX(5deg);
+    animation: none;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.98), rgba(241, 247, 255, 0.97)),
+      linear-gradient(135deg, rgba(18, 185, 129, 0.12), rgba(245, 200, 75, 0.08));
+    box-shadow:
+      0 22px 44px rgba(4, 12, 46, 0.34),
+      0 0 0 8px rgba(255,255,255,0.08),
+      inset 0 1px 0 rgba(255,255,255,0.9);
+  }
+
+  .adios-excel-board::after {
+    right: 12px;
+    top: 12px;
+    min-height: 26px;
+    font-size: 0.68rem;
+  }
+
+  .adios-excel-board::before {
+    animation-duration: 5.8s;
   }
 
   .adios-excel-board-head,
@@ -834,20 +1490,65 @@ button {
   }
 
   .adios-excel-flow-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
     min-height: auto;
+    gap: 7px 10px;
     padding: 14px;
+    border-radius: 18px;
+    animation: adios-mobile-row-in 0.58s ease both;
+  }
+
+  .adios-excel-flow-row:nth-child(3) {
+    animation-delay: 0.08s;
+  }
+
+  .adios-excel-flow-row:nth-child(4) {
+    animation-delay: 0.16s;
+  }
+
+  .adios-excel-flow-row:nth-child(5) {
+    animation-delay: 0.24s;
+  }
+
+  .adios-excel-flow-row strong {
+    font-size: 0.95rem;
+  }
+
+  .adios-excel-flow-row span {
+    grid-column: 1 / -1;
+    color: #51607e;
+    font-size: 0.92rem;
+  }
+
+  .adios-excel-flow-row em {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
   }
 
   .adios-excel-problem-section,
   .adios-excel-capture-section,
   .adios-excel-control-section,
-  .adios-excel-process-section {
+  .adios-excel-process-section,
+  .adios-excel-solution-section,
+  .adios-excel-examples-section,
+  .adios-excel-before-after-section,
+  .adios-excel-cta-section,
+  .adios-excel-sectors-section,
+  .adios-excel-faq-section,
+  .adios-excel-final-section {
     padding-top: 46px;
     padding-bottom: 54px;
   }
 
   .adios-excel-capture-grid,
-  .adios-excel-process-grid {
+  .adios-excel-process-grid,
+  .adios-excel-example-grid,
+  .adios-excel-pain-grid,
+  .adios-excel-faq-grid,
+  .adios-excel-before-after {
     grid-template-columns: 1fr;
   }
 
@@ -855,10 +1556,65 @@ button {
   .adios-excel-warning-grid article,
   .adios-excel-process-card,
   .adios-excel-control-card,
-  .adios-excel-dashboard {
+  .adios-excel-dashboard,
+  .adios-excel-pain-grid article,
+  .adios-excel-example-grid article,
+  .adios-excel-faq-grid article,
+  .adios-excel-compare-card,
+  .adios-excel-cta-panel,
+  .adios-excel-final-panel,
+  .adios-excel-solution-list {
     min-height: auto;
-    padding: 24px;
-    border-radius: 24px;
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .adios-excel-pain-grid article,
+  .adios-excel-example-grid article,
+  .adios-excel-faq-grid article,
+  .adios-excel-faq-grid details,
+  .adios-excel-process-card {
+    box-shadow: 0 14px 30px rgba(21, 39, 126, 0.08);
+  }
+
+  .adios-excel-example-grid article {
+    border-left: 5px solid rgba(18, 185, 129, 0.38);
+  }
+
+  .adios-excel-solution-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .adios-excel-solution-list span {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .adios-excel-sector-list {
+    justify-content: flex-start;
+  }
+
+  .adios-excel-sector-list span,
+  .adios-excel-related-links a {
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .adios-excel-cta-actions,
+  .adios-excel-cta-actions .btn-primary,
+  .adios-excel-whatsapp-button,
+  .adios-excel-final-panel .plan-base-actions,
+  .adios-excel-final-panel .btn-primary,
+  .adios-excel-final-panel .plan-base-secondary-link {
+    width: 100%;
+  }
+
+  .adios-excel-cta-panel,
+  .adios-excel-final-panel {
+    text-align: center;
   }
 
   .adios-excel-page .whatsapp-float {
