@@ -2601,6 +2601,10 @@
         gap: 20px;
       }
 
+      .nav-actions {
+        margin-left: auto;
+      }
+
       body.mobile-header-visible .nav {
         padding: 10px 14px;
         justify-content: space-between;
@@ -2609,8 +2613,10 @@
 
       .brand {
         display: inline-flex;
+        flex: 0 1 auto;
         height: 46px;
-        min-width: 150px;
+        min-width: 0;
+        max-width: min(58vw, 240px);
       }
 
       body.mobile-header-visible .brand {
@@ -2618,10 +2624,13 @@
       }
 
       .brand-logo-image {
-        --logo-scale: 1.68;
-        width: 100%;
+        --logo-scale: 1;
+        width: auto;
+        max-width: 100%;
         height: 46px;
         max-height: none;
+        transform: none;
+        animation: none;
       }
 
       .mobile-panel {

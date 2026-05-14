@@ -6363,17 +6363,25 @@ main > section:not(.hero):not(.adios-excel-hero):not(.email-automation-hero) {
     padding: 10px 14px;
   }
 
+  .nav-actions {
+    margin-left: auto;
+  }
+
   .brand {
+    flex: 0 1 auto;
     max-width: min(58vw, 240px);
     height: 46px;
+    min-width: 0;
   }
 
   .brand-logo-image {
-    --logo-scale: 1.68;
+    --logo-scale: 1;
     height: 46px;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     max-height: none;
-    transform: scale(var(--logo-scale));
+    transform: none;
+    animation: none;
   }
 
   .mobile-panel {
