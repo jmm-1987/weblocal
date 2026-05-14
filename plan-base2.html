@@ -424,6 +424,15 @@
       animation: floatAsset 4.6s ease-in-out .2s infinite;
     }
 
+    .float-google {
+      --float-rotate: 6deg;
+      width: 132px;
+      top: 54px;
+      left: 48px;
+      transform: rotate(var(--float-rotate));
+      animation: floatAsset 5s ease-in-out .68s infinite;
+    }
+
     @keyframes mainAssetFloat {
       0%, 100% { transform: translateX(-50%) translateY(0); }
       50% { transform: translateX(-50%) translateY(-10px); }
@@ -761,6 +770,7 @@
       .main-asset { width: 230px; top: 88px; }
       .float-web, .float-domain { width: 126px; }
       .float-email { width: 104px; right: 30px; }
+      .float-google { width: 102px; top: 44px; left: 22px; }
 
       .section { padding: 58px 0; }
       .section-head { display: block; }
@@ -1041,7 +1051,7 @@
         <div class="hero-copy reveal-on-scroll reveal-from-left">
           <p class="section-kicker">Plan base digital para empresas</p>
           <h1>Tu negocio con una base digital clara, profesional y acompañada.</h1>
-          <p>Web, dominio, email corporativo, configuracion inicial y consultoria continua para ordenar lo basico sin complicarte.</p>
+          <p>Web, dominio, email corporativo, perfil de empresa en Google, configuracion inicial y consultoria continua para ordenar lo basico sin complicarte.</p>
           <div class="price-row">
             <span class="price-chip">Desde 30 EUR/mes + IVA</span>
             <span class="note-chip">Sin saltar directamente a soluciones grandes</span>
@@ -1059,6 +1069,7 @@
           <img class="float-asset float-web" src="1web.png" alt="Web profesional" />
           <img class="float-asset float-email" src="1email.png" alt="Email corporativo" />
           <img class="float-asset float-domain" src="1dominio.png" alt="Dominio corporativo" />
+          <img class="float-asset float-google" src="google.png" alt="Perfil de empresa en Google" />
         </div>
       </div>
     </section>
@@ -1093,6 +1104,11 @@
             <img src="1email.png" alt="Email corporativo" />
             <h3>Email corporativo</h3>
             <p>Correo profesional con una configuracion ordenada para mejorar la comunicacion de la empresa.</p>
+          </article>
+          <article class="include-card reveal-on-scroll">
+            <img src="google.png" alt="Perfil de empresa en Google" />
+            <h3>Perfil de empresa en Google</h3>
+            <p>Optimizamos tu ficha para que el negocio se vea mejor en Google y Google Maps, con datos claros, imagen cuidada y vias de contacto.</p>
           </article>
           <article class="include-card reveal-on-scroll">
             <img src="1consultoria.png" alt="Consultoria continua" />
