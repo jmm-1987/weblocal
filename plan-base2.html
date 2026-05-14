@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plan Base Digital | JM2 Tech Studio</title>
-  <meta name="description" content="Plan base digital para empresas: web profesional, dominio, email corporativo, auditoria inicial y acompanamiento continuo desde 30 euros al mes." />
+  <meta name="description" content="Plan base digital para empresas: web profesional, dominio, email corporativo, auditoria inicial y acompañamiento continuo desde 30 euros al mes." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="stylesheet" href="styles.css" />
@@ -64,9 +64,10 @@
       font-family: Nunito, "Segoe UI Rounded", "Aptos Rounded", "Arial Rounded MT Bold", ui-sans-serif, system-ui, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 12% 8%, rgba(7,87,248,.09), transparent 25%),
-        radial-gradient(circle at 88% 34%, rgba(7,87,248,.055), transparent 27%),
-        linear-gradient(180deg, #fff 0%, #f8fbff 52%, #fff 100%);
+        radial-gradient(circle at 68% 42%, rgba(132, 187, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 72% 36%, rgba(255,255,255,0.08), transparent 19%),
+        radial-gradient(circle at 82% 82%, rgba(47, 99, 255, 0.42), transparent 28%),
+        linear-gradient(135deg, #1b39d9 0%, #2450f4 46%, #2f63ff 100%);
       line-height: 1.5;
       overflow-x: hidden;
     }
@@ -99,10 +100,10 @@
       z-index: 50;
       width: min(calc(100% - 16px), 1540px);
       margin: 20px auto 0;
-      background: #fff;
-      border: 2px solid #202020;
+      background: rgba(255,255,255,.96);
+      border: 2px solid rgba(17,19,24,.85);
       border-radius: 22px;
-      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+      box-shadow: 0 18px 38px rgba(7, 87, 248, .07);
     }
 
     .nav {
@@ -142,12 +143,12 @@
       display: flex;
       align-items: center;
       gap: 30px;
-      color: rgba(17,17,17,.88);
+      color: rgba(17,19,24,.86);
       font-size: .95rem;
       font-weight: 600;
     }
 
-    .nav-links a:hover { opacity: .72; }
+    .nav-links a:hover { opacity: .78; }
 
     .nav-actions { display: flex; align-items: center; gap: 12px; }
 
@@ -166,11 +167,16 @@
       transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
     }
 
-    .quote-btn,
+    .quote-btn {
+      color: var(--blue);
+      background: #fff;
+      box-shadow: 0 16px 30px rgba(5, 18, 92, .18);
+    }
+
     .primary-btn {
       color: #fff;
-      background: linear-gradient(135deg, var(--blue), #0048dd);
-      box-shadow: 0 16px 30px rgba(7,87,248,.26);
+      background: linear-gradient(135deg, #0648e9, #003fcb);
+      box-shadow: 0 16px 30px rgba(5, 18, 92, .24);
     }
 
     .secondary-btn {
@@ -228,6 +234,11 @@
       padding: 66px 0 58px;
     }
 
+    .hero .section-kicker {
+      color: rgba(255,255,255,.92);
+      text-shadow: 0 8px 22px rgba(5, 18, 92, .22);
+    }
+
     .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(360px, .92fr);
@@ -254,6 +265,11 @@
       letter-spacing: 0;
     }
 
+    .hero h1 {
+      color: #fff;
+      text-shadow: 0 14px 30px rgba(5, 18, 92, .22);
+    }
+
     h2 {
       max-width: 800px;
       margin-bottom: 18px;
@@ -266,6 +282,20 @@
     .panel-copy p {
       color: var(--muted);
       font-size: 18px;
+    }
+
+    .hero .hero-copy > p:not(.section-kicker) {
+      max-width: 650px;
+      margin-bottom: 0;
+      padding: 16px 18px 16px 22px;
+      border-left: 4px solid rgba(255,255,255,.74);
+      border-radius: 0 18px 18px 0;
+      color: rgba(255,255,255,.9);
+      background: linear-gradient(90deg, rgba(255,255,255,.16), rgba(255,255,255,.04));
+      font-size: 19px;
+      font-weight: 800;
+      line-height: 1.55;
+      text-shadow: 0 10px 24px rgba(5, 18, 92, .2);
     }
 
     .price-row {
@@ -288,9 +318,10 @@
     }
 
     .note-chip {
-      color: #687080;
+      color: rgba(255,255,255,.86);
       font-size: 14px;
       font-weight: 800;
+      text-shadow: 0 8px 20px rgba(5, 18, 92, .24);
     }
 
     .hero-actions {
@@ -303,19 +334,19 @@
       position: relative;
       min-height: 520px;
       padding: 34px;
-      border: 1px solid rgba(220,229,244,.52);
+      border: 1px solid transparent;
       border-radius: 34px;
-      background: linear-gradient(145deg, rgba(255,255,255,.28), rgba(248,251,255,.18));
-      box-shadow: var(--shadow);
+      background: transparent;
+      box-shadow: none;
       overflow: hidden;
-      backdrop-filter: blur(16px);
+      backdrop-filter: none;
       isolation: isolate;
     }
 
     .hero-visual::after {
       content: "";
       position: absolute;
-      z-index: 1;
+      z-index: 0;
       left: 50%;
       top: 50%;
       width: min(82%, 390px);
@@ -330,18 +361,18 @@
     .hero-orbit-secondary {
       position: absolute;
       inset: 42px;
-      z-index: 0;
-      border: 2px dashed rgba(7,87,248,.42);
+      z-index: 1;
+      border: 2px dashed rgba(255,255,255,.62);
       border-radius: 50%;
       animation: orbit 18s linear infinite;
-      box-shadow: 0 0 28px rgba(7,87,248,.08);
+      box-shadow: 0 0 28px rgba(255,255,255,.14);
       pointer-events: none;
     }
 
     .hero-orbit-secondary {
       inset: 90px 68px 70px;
       border-style: solid;
-      border-color: rgba(7,87,248,.24);
+      border-color: rgba(255,255,255,.36);
       animation-duration: 24s;
       animation-direction: reverse;
     }
@@ -624,21 +655,22 @@
         top: 22px;
         left: 7px;
         right: 7px;
-        width: calc(100% - 14px);
+        width: auto;
+        box-sizing: border-box;
         margin-top: 0;
-        border-color: #202020;
-        background: #fff;
-        box-shadow: 0 4px 12px rgba(0,0,0,.06);
+        border-color: rgba(17,19,24,.85);
+        background: rgba(255,255,255,.96);
+        box-shadow: 0 18px 38px rgba(7, 87, 248, .07);
       }
 
       .site-header.full {
         top: 22px;
         left: 7px;
         right: 7px;
-        width: calc(100% - 14px);
-        border-color: #202020;
-        background: #fff;
-        box-shadow: 0 4px 12px rgba(0,0,0,.06);
+        width: auto;
+        border-color: rgba(17,19,24,.85);
+        background: rgba(255,255,255,.96);
+        box-shadow: 0 18px 38px rgba(7, 87, 248, .07);
       }
 
       .nav {
@@ -1008,7 +1040,7 @@
       <div class="container hero-grid">
         <div class="hero-copy reveal-on-scroll reveal-from-left">
           <p class="section-kicker">Plan base digital para empresas</p>
-          <h1>Tu negocio con una base digital clara, profesional y acompanada.</h1>
+          <h1>Tu negocio con una base digital clara, profesional y acompañada.</h1>
           <p>Web, dominio, email corporativo, configuracion inicial y consultoria continua para ordenar lo basico sin complicarte.</p>
           <div class="price-row">
             <span class="price-chip">Desde 30 EUR/mes + IVA</span>
@@ -1038,7 +1070,7 @@
             <p class="section-kicker">Que incluye</p>
             <h2>Una base completa para empezar con criterio.</h2>
           </div>
-          <p>Todo lo necesario para que tu presencia digital tenga estructura, costes claros y acompanamiento.</p>
+          <p>Todo lo necesario para que tu presencia digital tenga estructura, costes claros y acompañamiento.</p>
         </div>
 
         <div class="includes-grid">
@@ -1064,7 +1096,7 @@
           </article>
           <article class="include-card reveal-on-scroll">
             <img src="1consultoria.png" alt="Consultoria continua" />
-            <h3>Acompanamiento</h3>
+            <h3>Acompañamiento</h3>
             <p>Consultoria continua para decidir que mejorar, que evitar y cuando dar el siguiente paso.</p>
           </article>
           <article class="include-card reveal-on-scroll">
@@ -1103,7 +1135,7 @@
           <article class="step">
             <span>3</span>
             <div>
-              <h3>Acompanamos la evolucion</h3>
+              <h3>Acompañamos la evolucion</h3>
               <p>Revisamos mejoras por fases y detectamos cuando conviene automatizar.</p>
             </div>
           </article>
@@ -1119,7 +1151,7 @@
           <ul>
             <li>Tu empresa necesita web, email o dominio bien configurados.</li>
             <li>Quieres revisar gastos digitales antes de seguir pagando por inercia.</li>
-            <li>Necesitas alguien que te acompane y traduzca la parte tecnica.</li>
+            <li>Necesitas alguien que te acompañe y traduzca la parte tecnica.</li>
             <li>Te interesa preparar el terreno para futuras automatizaciones.</li>
           </ul>
         </div>
@@ -1205,7 +1237,7 @@
           <div class="footer-pill-list">
             <span>Escucha inicial</span>
             <span>Propuesta a medida</span>
-            <span>Acompanamiento cercano</span>
+            <span>Acompañamiento cercano</span>
           </div>
         </div>
       </div>

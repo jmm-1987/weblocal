@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -2564,12 +2564,13 @@
       .site-header {
         position: fixed;
         top: 22px;
-        left: 7px;
-        right: 7px;
-        width: auto;
+        left: 50%;
+        right: auto;
+        width: calc(100vw - 14px);
+        max-width: calc(100vw - 14px);
         box-sizing: border-box;
         margin-top: 0;
-        transform: none;
+        transform: translateX(-50%);
         opacity: 1;
         border-color: #202020;
         background: #fff;
@@ -2579,10 +2580,11 @@
 
       body.mobile-header-visible .site-header {
         top: 22px;
-        left: 7px;
-        right: 7px;
-        width: auto;
-        transform: none;
+        left: 50%;
+        right: auto;
+        width: calc(100vw - 14px);
+        max-width: calc(100vw - 14px);
+        transform: translateX(-50%);
         opacity: 1;
         border-color: #202020;
         background: #fff;
@@ -2590,6 +2592,9 @@
       }
 
       .nav {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
         min-height: 70px;
         padding: 10px 14px;
         justify-content: space-between;
@@ -3801,7 +3806,7 @@
               <h2>Servicios a medida, con atencion cercana para tu negocio</h2>
               <p>
                 Antes de hablar de herramientas, hablamos de tu empresa, de tus procesos y de lo que realmente
-                necesitas mejorar. Desde Merida, acompanamos a empresas de toda Extremadura con una cercania real
+                necesitas mejorar. Desde Merida, acompañamos a empresas de toda Extremadura con una cercania real
                 que hace que cada solucion tenga sentido.
               </p>
 
@@ -3824,7 +3829,7 @@
               </article>
 
               <article class="personal-point">
-                <h3>Acompanamiento cercano</h3>
+                <h3>Acompañamiento cercano</h3>
                 <p>Te ayudamos a tomar decisiones con criterio, explicando cada paso para que la tecnologia sume de verdad.</p>
               </article>
             </div>
@@ -3896,7 +3901,7 @@
           <div class="footer-pill-list">
             <span>Escucha inicial</span>
             <span>Propuesta a medida</span>
-            <span>Acompanamiento cercano</span>
+            <span>Acompañamiento cercano</span>
           </div>
         </div>
       </div>
