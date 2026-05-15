@@ -1,26 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JM2 Tech Studio | Tecnologia para negocios locales y pymes</title>
-  <meta name="description" content="JM2 Tech Studio crea paginas web, automatizaciones con IA y software a medida para negocios locales y pymes." />
-  <link rel="canonical" href="https://www.jm2-tech.es/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="JM2 Tech Studio" />
-  <meta property="og:title" content="JM2 Tech Studio | Tecnologia para negocios locales y pymes" />
-  <meta property="og:description" content="JM2 Tech Studio crea paginas web, automatizaciones con IA y software a medida para negocios locales y pymes." />
-  <meta property="og:url" content="https://www.jm2-tech.es/" />
-  <meta property="og:image" content="https://www.jm2-tech.es/og-image.png" />
-  <meta property="og:image:secure_url" content="https://www.jm2-tech.es/og-image.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Logo de JM2 Tech Studio" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="JM2 Tech Studio | Tecnologia para negocios locales y pymes" />
-  <meta name="twitter:description" content="JM2 Tech Studio crea paginas web, automatizaciones con IA y software a medida para negocios locales y pymes." />
-  <meta name="twitter:image" content="https://www.jm2-tech.es/og-image.png" />
+  <meta name="description" content="JM2 Tech Studio paginas web, automatizaciones con IA y software a medida para autónomos y pymes." />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18132304665"></script>
@@ -2580,27 +2564,24 @@
       .site-header {
         position: fixed;
         top: 22px;
-        left: 50%;
-        right: auto;
-        width: calc(100vw - 14px);
-        max-width: calc(100vw - 14px);
-        box-sizing: border-box;
+        left: 7px;
+        right: 7px;
+        width: calc(100% - 14px);
         margin-top: 0;
-        transform: translateX(-50%);
+        transform: none;
         opacity: 1;
         border-color: #202020;
         background: #fff;
         box-shadow: 0 4px 12px rgba(0,0,0,.06);
-        transition: border-color .28s ease, background .28s ease, box-shadow .28s ease;
+        transition: width .28s ease, right .28s ease, border-color .28s ease, background .28s ease, box-shadow .28s ease;
       }
 
       body.mobile-header-visible .site-header {
         top: 22px;
-        left: 50%;
-        right: auto;
-        width: calc(100vw - 14px);
-        max-width: calc(100vw - 14px);
-        transform: translateX(-50%);
+        left: 7px;
+        right: 7px;
+        width: calc(100% - 14px);
+        transform: none;
         opacity: 1;
         border-color: #202020;
         background: #fff;
@@ -2608,17 +2589,10 @@
       }
 
       .nav {
-        width: 100%;
-        max-width: none;
-        box-sizing: border-box;
         min-height: 70px;
         padding: 10px 14px;
         justify-content: space-between;
         gap: 20px;
-      }
-
-      .nav-actions {
-        margin-left: auto;
       }
 
       body.mobile-header-visible .nav {
@@ -2629,10 +2603,8 @@
 
       .brand {
         display: inline-flex;
-        flex: 0 1 auto;
         height: 46px;
-        min-width: 0;
-        max-width: min(58vw, 240px);
+        min-width: 150px;
       }
 
       body.mobile-header-visible .brand {
@@ -2640,13 +2612,10 @@
       }
 
       .brand-logo-image {
-        --logo-scale: 1;
-        width: auto;
-        max-width: 100%;
+        --logo-scale: 1.68;
+        width: 100%;
         height: 46px;
         max-height: none;
-        transform: none;
-        animation: none;
       }
 
       .mobile-panel {
@@ -3420,7 +3389,7 @@
         <div class="hero-copy">
           <h1>Software e IA para PYMES y autonomos que quieren trabajar mejor</h1>
           <p>
-            Creamos herramientas digitales, automatizaciones e inteligencia artificial practica para ahorrar tiempo y ordenar procesos, con <span class="hero-highlight">Pago por uso desde 30&#8364;/mes</span> <span class="hero-highlight hero-highlight-danger">Sin grandes desembolsos iniciales</span>.
+            Creamos herramientas digitales, automatizaciones e inteligencia artificial practica para ahorrar tiempo y ordenar procesos, con <span class="hero-highlight">Pago por uso desde 30€/mes</span> <span class="hero-highlight hero-highlight-danger">Sin grandes desembolsos iniciales</span>.
           </p>
           <div class="hero-actions">
             <button class="hero-cta" type="button" data-contact-modal-open>Cuéntame qué necesitas</button>
@@ -3473,7 +3442,7 @@
             </svg>
             <div>
               <h3>Servicios a empresas</h3>
-              <p>Web, correo, presencia en Google y mejora digital para que cada decision tenga sentido.</p>
+              <p>Analisis, soporte y mejora digital para que cada decision tenga sentido.</p>
             </div>
             <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
             <a class="service-card-cta" href="plan-base2.html">Ver paquete basico</a>
@@ -3854,7 +3823,7 @@
               </article>
 
               <article class="personal-point">
-                <h3>Acompañamiento cercano</h3>
+                <h3>Acompanamiento cercano</h3>
                 <p>Te ayudamos a tomar decisiones con criterio, explicando cada paso para que la tecnologia sume de verdad.</p>
               </article>
             </div>
@@ -3926,7 +3895,7 @@
           <div class="footer-pill-list">
             <span>Escucha inicial</span>
             <span>Propuesta a medida</span>
-            <span>Acompañamiento cercano</span>
+            <span>Acompanamiento cercano</span>
           </div>
         </div>
       </div>
