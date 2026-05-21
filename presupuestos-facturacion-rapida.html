@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Presupuestos y facturación rápida | JM2 Tech Studio</title>
-  <meta name="description" content="Genera presupuestos, albaranes y facturas en segundos desde móvil o escritorio. PDFs automáticos, WhatsApp y soporte VeriFactu." />
+  <meta name="description" content="Genera presupuestos, albaranes y facturas en segundos desde móvil o escritorio. PDFs automáticos, WhatsApp y opción VeriFactu si la necesitas." />
   <link rel="canonical" href="https://www.jm2-tech.es/presupuestos-facturacion-rapida" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="JM2 Tech Studio" />
   <meta property="og:title" content="Presupuestos y facturación rápida | JM2 Tech Studio" />
-  <meta property="og:description" content="Genera presupuestos, albaranes y facturas en segundos desde móvil o escritorio. PDFs automáticos, WhatsApp y soporte VeriFactu." />
+  <meta property="og:description" content="Genera presupuestos, albaranes y facturas en segundos desde móvil o escritorio. PDFs automáticos, WhatsApp y opción VeriFactu si la necesitas." />
   <meta property="og:url" content="https://www.jm2-tech.es/presupuestos-facturacion-rapida" />
   <meta property="og:image" content="https://www.jm2-tech.es/og-image.png?v=4" />
   <meta property="og:image:secure_url" content="https://www.jm2-tech.es/og-image.png?v=4" />
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="JM2 Tech Studio - Soluciones tecnológicas para empresas" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Presupuestos y facturación rápida | JM2 Tech Studio" />
-  <meta name="twitter:description" content="Genera presupuestos, albaranes y facturas en segundos desde móvil o escritorio. PDFs automáticos, WhatsApp y soporte VeriFactu." />
+  <meta name="twitter:description" content="Genera presupuestos, albaranes y facturas en segundos desde móvil o escritorio. PDFs automáticos, WhatsApp y opción VeriFactu si la necesitas." />
   <meta name="twitter:image" content="https://www.jm2-tech.es/og-image.png?v=4" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
@@ -2815,6 +2815,9 @@
       }
 
       .footer-cta {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
         padding: 28px 22px;
         margin-bottom: 28px;
         border-radius: 26px;
@@ -2822,6 +2825,21 @@
 
       .footer-cta-copy h2 {
         font-size: 2.1rem;
+      }
+
+      .footer-cta .hero-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 0;
+      }
+
+      .footer-cta-link {
+        width: 100%;
+        min-width: 0;
+        margin-top: 0;
+        white-space: normal;
+        text-align: center;
       }
 
       .footer-main {
@@ -3305,6 +3323,17 @@
       line-height: 1;
     }
 
+    .hero-speed-note {
+      display: block;
+      margin-top: 12px;
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(26px, 3vw, 42px);
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
     .landing-hero .hero-copy p {
       max-width: 660px;
     }
@@ -3513,15 +3542,15 @@
     }
 
     .step-visual {
-      height: 170px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 18px;
-      padding: 10px;
-      border: 1px solid rgba(7, 87, 248, .12);
+      padding: 0;
+      border: 0;
       border-radius: 18px;
-      background: #fff;
+      background: transparent;
       overflow: hidden;
     }
 
@@ -3530,6 +3559,85 @@
       height: 100%;
       object-fit: contain;
       border-radius: 12px;
+    }
+
+    .steps-grid {
+      grid-template-columns: minmax(0, 560px);
+      justify-content: center;
+      align-items: stretch;
+      min-height: 520px;
+    }
+
+    .steps-grid .step-card {
+      grid-area: 1 / 1;
+      min-height: 520px;
+      border-color: transparent;
+      background: transparent;
+      box-shadow: none;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(12px) scale(.98);
+      transition: opacity .42s ease, transform .42s ease, visibility .42s ease;
+    }
+
+    .steps-grid .step-card.is-active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .steps-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .steps-control {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(7, 87, 248, .2);
+      border-radius: 14px;
+      color: var(--blue);
+      background: rgba(255,255,255,.78);
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+
+    .steps-control:hover,
+    .steps-control:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(16, 32, 72, .12);
+    }
+
+    .steps-control.is-active,
+    .steps-control[aria-pressed="true"] {
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 12px 24px rgba(7, 87, 248, .2);
+    }
+
+    .steps-video-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 26px;
+    }
+
+    .steps-video-cta .hero-cta {
+      min-width: min(100%, 520px);
+      min-height: 58px;
+      font-size: 1rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .steps-grid .step-card {
+        transition: none;
+      }
     }
 
     .visual-placeholder {
@@ -3559,16 +3667,23 @@
     }
 
     .benefits-grid {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .benefit-card {
-      min-height: 138px;
+      min-height: 190px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 16px;
       padding: 20px;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.55;
     }
 
     .benefit-icon {
@@ -3607,6 +3722,14 @@
       align-items: center;
       padding: 34px;
       border-radius: 28px;
+    }
+
+    .trust-copy-panel {
+      grid-template-columns: minmax(0, 760px);
+    }
+
+    .trust-copy-panel p + p {
+      margin-top: 14px;
     }
 
     .verifactu-badge {
@@ -3732,16 +3855,18 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <h1>Presupuestos, albaranes y facturas en segundos</h1>
+          <span class="hero-speed-note"></span>
           <p>
-            Genera documentos profesionales desde móvil o escritorio y compártelos al instante por WhatsApp o email.
-            <span class="hero-highlight">Menos tiempo preparando documentos. Más tiempo trabajando.</span>
+            Desde Telegram, móvil o escritorio. Sin Word, sin Excel y sin instalar programas complicados.
+            <span class="hero-highlight">Menos tiempo preparando documentos.</span>
           </p>
           <div class="hero-actions">
-            <button class="hero-cta" type="button" data-contact-modal-open>Solicitar demo</button>
+            <button class="hero-cta" type="button" data-contact-modal-open>Solicitar demo gratuita</button>
             <a class="secondary-btn" href="#como-funciona">Ver cómo funciona</a>
           </div>
           <ul class="landing-badges" aria-label="Características principales">
-            <li>Compatible VeriFactu</li>
+            <li>VeriFactu opcional</li>
+            <li>Desde el primer día</li>
             <li>Desde móvil o PC</li>
             <li>PDFs automáticos</li>
             <li>WhatsApp y email</li>
@@ -3758,32 +3883,33 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>¿Sigues haciendo presupuestos y albaranes manualmente?</h2>
+            <h2>¿Terminas el día trabajando... y luego toca hacer presupuestos?</h2>
           </div>
-          <p>Si preparar cada documento te obliga a buscar datos, copiar textos y revisar versiones, hay margen para simplificar.</p>
+          <p>Después de atender clientes, hacer visitas o terminar trabajos, lo último que apetece es llegar a casa y ponerse a buscar datos, copiar textos y montar PDFs.</p>
         </div>
 
         <div class="split-panel">
           <article class="compare-card is-before">
             <h3>Antes</h3>
             <ul>
-              <li>Caos entre Word, Excel y mensajes</li>
-              <li>Tareas repetitivas cada vez que entra un cliente</li>
-              <li>Mensajes dispersos con datos importantes</li>
-              <li>Errores manuales al preparar PDFs</li>
+              <li>Presupuestos pendientes al final del día</li>
+              <li>Datos repartidos entre WhatsApp, notas y memoria</li>
+              <li>Copiar precios, textos y datos de cliente a mano</li>
+              <li>Más riesgo de errores cuando ya estás cansado</li>
             </ul>
           </article>
 
           <article class="compare-card">
             <h3>Después</h3>
             <ul>
-              <li>Documentos rápidos desde móvil o escritorio</li>
-              <li>PDFs automáticos con aspecto profesional</li>
-              <li>Historial organizado por cliente</li>
-              <li>Envío instantáneo por WhatsApp o email</li>
+              <li>Presupuestos generados en segundos desde el móvil</li>
+              <li>PDF profesional listo para enviar al momento</li>
+              <li>Datos guardados para facturar después sin repetir trabajo</li>
+              <li>Más rapidez para responder mientras el cliente sigue interesado</li>
             </ul>
           </article>
         </div>
+
       </div>
     </section>
 
@@ -3793,19 +3919,20 @@
           <div>
             <h2>Todo más rápido y conectado</h2>
           </div>
-          <p>Un flujo sencillo para pasar de la solicitud del cliente al documento enviado sin perder tiempo.</p>
+          <p>Un flujo sencillo para pasar de los datos enviados por Telegram al PDF listo y a la factura preparada en el panel.</p>
         </div>
 
         <div class="steps-grid">
-          <article class="step-card">
+          <article class="step-card is-active">
             <div class="step-number">1</div>
             <div class="step-visual">
-              <img src="movilfacil.png" alt="Creación rápida de presupuesto desde el móvil" />
+              <img src="movilfacil.png" alt="Introducción rápida de datos por Telegram desde el móvil" />
             </div>
-            <h3>Introduces los datos</h3>
+            <h3>El usuario introduce los datos en Telegram</h3>
             <ul>
-              <li>Desde móvil o escritorio</li>
-              <li>Con campos claros y rápidos</li>
+              <li>En 30 segundos</li>
+              <li>Desde el móvil</li>
+              <li>Sin entrar en una app complicada</li>
             </ul>
           </article>
 
@@ -3814,26 +3941,36 @@
             <div class="step-visual">
               <img src="pdfpdf.png" alt="PDF profesional generado automáticamente" />
             </div>
-            <h3>El sistema genera el documento</h3>
+            <h3>Se genera un PDF listo para compartir</h3>
             <ul>
-              <li>Presupuesto</li>
-              <li>Albarán</li>
-              <li>Factura</li>
+              <li>Presupuesto profesional</li>
+              <li>Envío por WhatsApp</li>
+              <li>Envío por email</li>
             </ul>
           </article>
 
           <article class="step-card">
             <div class="step-number">3</div>
             <div class="step-visual">
-              <img src="escritorio.png" alt="Dashboard de escritorio para compartir documentos al instante" />
+              <img src="escritorio.png" alt="Panel de control con la información lista para generar factura" />
             </div>
-            <h3>Lo compartes al instante</h3>
+            <h3>La información queda en el panel de control</h3>
             <ul>
-              <li>WhatsApp</li>
-              <li>Email</li>
-              <li>Descarga directa</li>
+              <li>Todo queda registrado</li>
+              <li>Solo tienes que pinchar</li>
+              <li>Factura generada cuando la necesites</li>
             </ul>
           </article>
+        </div>
+
+        <div class="steps-controls" aria-label="Ver paso del funcionamiento">
+          <button class="steps-control is-active" type="button" data-step-control="0" aria-label="Ver paso 1" aria-pressed="true">1</button>
+          <button class="steps-control" type="button" data-step-control="1" aria-label="Ver paso 2" aria-pressed="false">2</button>
+          <button class="steps-control" type="button" data-step-control="2" aria-label="Ver paso 3" aria-pressed="false">3</button>
+        </div>
+
+        <div class="steps-video-cta">
+          <button class="hero-cta" type="button" data-contact-modal-open>¿Quieres recibir un vídeo con el funcionamiento completo?</button>
         </div>
       </div>
     </section>
@@ -3842,18 +3979,27 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Menos gestión manual. Más control.</h2>
+            <h2>Un producto hecho a medida para tu forma de trabajar</h2>
           </div>
-          <p>Lo importante no es tener otra herramienta más, sino reducir pasos y trabajar con documentos claros.</p>
+          <p>Primero hablamos, nos cuentas cómo funcionas y adaptamos la herramienta a tu día a día, no al revés.</p>
         </div>
 
         <div class="benefits-grid">
-          <article class="benefit-card"><span class="benefit-icon">1</span><h3>Presupuestos rápidos</h3></article>
-          <article class="benefit-card"><span class="benefit-icon">2</span><h3>PDFs automáticos</h3></article>
-          <article class="benefit-card"><span class="benefit-icon">3</span><h3>Historial organizado</h3></article>
-          <article class="benefit-card"><span class="benefit-icon">4</span><h3>Compatible VeriFactu</h3></article>
-          <article class="benefit-card"><span class="benefit-icon">5</span><h3>Envío por WhatsApp</h3></article>
-          <article class="benefit-card"><span class="benefit-icon">6</span><h3>Menos errores</h3></article>
+          <article class="benefit-card">
+            <span class="benefit-icon">1</span>
+            <h3>Lo adaptamos a tu negocio</h3>
+            <p>Nos cuentas cómo recibes pedidos, cómo preparas presupuestos y qué datos necesitas ver antes de enviar cada documento.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">2</span>
+            <h3>Cargamos tus artículos</h3>
+            <p>Si trabajas con artículos, servicios o precios habituales, los dejamos preparados para que puedas usarlos sin esfuerzo.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">3</span>
+            <h3>VeriFactu si lo quieres</h3>
+            <p>La opción VeriFactu es opcional: si la necesitas la incorporamos, y si no, dejamos el sistema más simple.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -3883,10 +4029,10 @@
     <section class="section" id="verifactu">
       <div class="container verifactu-panel">
         <div>
-          <div class="section-label">VeriFactu</div>
-          <h2>Preparado para el nuevo escenario VeriFactu</h2>
+          <div class="section-label">VeriFactu opcional</div>
+          <h2>Solo añadimos VeriFactu si encaja con lo que necesitas</h2>
           <p>
-            Adapta tu facturación a los nuevos requisitos sin complicarte con herramientas enormes o procesos lentos.
+            Podemos preparar la facturación para VeriFactu, pero no tiene por qué formar parte del producto si ahora buscas algo más simple.
           </p>
         </div>
         <div class="verifactu-badge">
@@ -3899,13 +4045,13 @@
       <div class="container trust-copy-panel">
         <div>
           <div class="section-label">JM2 Tech Studio</div>
-          <h2>Tecnología práctica para negocios reales</h2>
+          <h2>Presupuesta cuando tengas un hueco</h2>
           <p>
-            Creamos herramientas simples para ayudarte a trabajar más rápido, con menos errores y más control. La idea es acompañarte como un partner tecnológico cercano, entendiendo primero cómo funciona tu negocio.
+            Puedes generar un presupuesto mientras tomas un café, desde el coche mientras esperas o entre una visita y la siguiente. Aprovechas esos minutos sueltos y el documento queda listo para enviar sin volver a la oficina.
           </p>
-        </div>
-        <div class="landing-placeholder visual-placeholder">
-          <div class="landing-placeholder-text">[IMAGEN - Equipo JM2 Tech Studio acompañando a una pyme o autónomo]</div>
+          <p>
+            La idea es simple: menos gestión acumulada al final del día y más capacidad para responder rápido cuando el cliente todavía está caliente.
+          </p>
         </div>
       </div>
     </section>
@@ -3918,10 +4064,10 @@
         <div class="footer-cta-copy">
           <div class="footer-section-label">Siguiente paso</div>
           <h2>Cuéntame cómo haces tus presupuestos hoy</h2>
-          <p>Analizamos tu forma de trabajar y vemos cómo simplificarla con una herramienta práctica y adaptada a tu negocio.</p>
+          <p>Analizamos gratis tu forma de trabajar y vemos cómo simplificarla con una herramienta práctica y adaptada a tu negocio.</p>
         </div>
         <div class="hero-actions">
-          <button class="footer-cta-link" type="button" data-contact-modal-open>Solicitar demo</button>
+          <button class="footer-cta-link" type="button" data-contact-modal-open>Solicitar demo gratuita</button>
           <a class="footer-cta-link" href="https://wa.me/34625433667?text=Hola%20JM2%20Tech%20Studio,%20quiero%20simplificar%20mis%20presupuestos%20y%20facturas" target="_blank" rel="noopener">Hablar por WhatsApp</a>
         </div>
       </div>
@@ -3960,7 +4106,7 @@
             <a href="#beneficios">Presupuestos y facturación rápida</a>
             <a href="#problema">Digitalización documental</a>
             <a href="#como-funciona">Automatización de tareas</a>
-            <a href="#verifactu">Soporte VeriFactu</a>
+            <a href="#verifactu">VeriFactu opcional</a>
           </nav>
         </div>
 
@@ -4009,14 +4155,14 @@
 
   <div class="contact-modal" id="contactModal" aria-hidden="true">
     <div class="contact-modal-backdrop" data-contact-modal-close></div>
-    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-label="Solicitar llamada" tabindex="-1">
+    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-label="Solicitar demo gratuita" tabindex="-1">
       <button class="contact-modal-close" type="button" data-contact-modal-close aria-label="Cerrar formulario">
         <span></span>
       </button>
       <div class="contact-modal-head">
         <div class="section-label">Contacto</div>
-        <h3>Solicita una llamada</h3>
-        <p>Indica tus datos y te llamamos en el dia y hora que prefieras.</p>
+        <h3>Solicita una demo gratuita</h3>
+        <p>Indica tus datos y te contactamos en el día y hora que prefieras, sin coste ni compromiso.</p>
       </div>
       <form class="footer-contact-form" id="footerContactForm" novalidate>
         <div class="footer-contact-brandmark" aria-hidden="true">
@@ -4046,7 +4192,7 @@
             <input id="footerContactDetailInput" type="text" name="contacto_detalle" placeholder="Selecciona primero la forma de contacto" autocomplete="off" required />
           </label>
         </div>
-        <button type="submit" class="footer-contact-submit">Enviar solicitud</button>
+        <button type="submit" class="footer-contact-submit">Enviar solicitud gratuita</button>
         <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
       </form>
     </div>
@@ -4069,6 +4215,7 @@
     const servicesGrid = document.querySelector('.services-grid');
     const blueStrip = document.querySelector('.blue-strip');
     const mobileHeaderQuery = window.matchMedia('(max-width: 720px)');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const menuBtn = document.getElementById('menuBtn');
     const mobilePanel = document.getElementById('mobilePanel');
     const backdrop = document.getElementById('backdrop');
@@ -4081,10 +4228,14 @@
     const footerContactMethodSelect = footerContactForm?.querySelector('select[name="forma_contacto"]');
     const footerContactDetailLabel = document.getElementById('footerContactDetailLabel');
     const footerContactDetailInput = document.getElementById('footerContactDetailInput');
+    const stepCards = Array.from(document.querySelectorAll('.steps-grid .step-card'));
+    const stepControls = Array.from(document.querySelectorAll('[data-step-control]'));
     const EMAILJS_SERVICE_ID = 'service_a1xi29i';
     const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
     const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
     let activeContactModalButton = null;
+    let activeStepIndex = 0;
+    let stepsAutoplay = null;
     const revealGroups = [
       ['.hero-copy', 'reveal-from-left'],
       ['.brand-card', 'reveal-from-right'],
@@ -4174,6 +4325,44 @@
         window.gtag_report_conversion();
       }
     }
+
+    function showStep(index) {
+      if (!stepCards.length) return;
+      activeStepIndex = (index + stepCards.length) % stepCards.length;
+
+      stepCards.forEach((card, cardIndex) => {
+        card.classList.toggle('is-active', cardIndex === activeStepIndex);
+      });
+
+      stepControls.forEach((control, controlIndex) => {
+        const isActive = controlIndex === activeStepIndex;
+        control.classList.toggle('is-active', isActive);
+        control.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+
+    function stopStepsAutoplay() {
+      if (!stepsAutoplay) return;
+      clearInterval(stepsAutoplay);
+      stepsAutoplay = null;
+    }
+
+    function startStepsAutoplay() {
+      if (stepCards.length < 2 || reducedMotionQuery.matches) return;
+      stepsAutoplay = window.setInterval(() => {
+        showStep(activeStepIndex + 1);
+      }, 3000);
+    }
+
+    showStep(0);
+    startStepsAutoplay();
+
+    stepControls.forEach((control) => {
+      control.addEventListener('click', () => {
+        stopStepsAutoplay();
+        showStep(Number(control.dataset.stepControl || 0));
+      });
+    });
 
     function closeContactModal() {
       if (!contactModal) return;
@@ -4282,7 +4471,7 @@
       } finally {
         if (submitButton instanceof HTMLButtonElement) {
           submitButton.disabled = false;
-          submitButton.textContent = 'Enviar solicitud';
+          submitButton.textContent = 'Enviar solicitud gratuita';
         }
       }
     });
