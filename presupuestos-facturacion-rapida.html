@@ -30,7 +30,8 @@
     gtag('js', new Date());
 
     gtag('config', 'AW-18132304665');
-    gtag('config', 'G-8FMNC7J0EN');
+    // GA4: send_page_view stays explicit so page views, engagement time and user_engagement work on this landing.
+    gtag('config', 'G-8FMNC7J0EN', { send_page_view: true });
   </script>
   <script>
     function gtag_report_conversion(url) {
@@ -4230,6 +4231,10 @@
     const footerContactDetailInput = document.getElementById('footerContactDetailInput');
     const stepCards = Array.from(document.querySelectorAll('.steps-grid .step-card'));
     const stepControls = Array.from(document.querySelectorAll('[data-step-control]'));
+    const scrollDepthMarks = [25, 50, 75, 90];
+    const trackedScrollDepths = new Set();
+    const engagementTimeMarks = [10, 30, 60];
+    const trackedEngagementTimeMarks = new Set();
     const EMAILJS_SERVICE_ID = 'service_a1xi29i';
     const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
     const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
@@ -4280,6 +4285,9 @@
     updateMobileHeader();
     window.addEventListener('scroll', updateMobileHeader, { passive: true });
     mobileHeaderQuery.addEventListener?.('change', updateMobileHeader);
+    window.addEventListener('scroll', trackScrollDepth, { passive: true });
+    trackScrollDepth();
+    startEngagementTimeTracking();
 
     function closeMenu() {
       if (!menuBtn || !mobilePanel || !backdrop) return;
@@ -4317,6 +4325,40 @@
         page_path: window.location.pathname,
         page_title: document.title,
         ...params,
+      });
+    }
+
+    function getInteractionLabel(element) {
+      if (!element) return 'unknown';
+      return element.getAttribute('aria-label') || element.textContent.trim().replace(/\s+/g, ' ') || 'unknown';
+    }
+
+    // GA4 diagnostics: these custom events complement automatic user_engagement and make scroll/time checks easy in DebugView.
+    function trackScrollDepth() {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollableHeight <= 0) return;
+
+      const scrollPercent = Math.round((window.scrollY / scrollableHeight) * 100);
+      scrollDepthMarks.forEach((mark) => {
+        if (scrollPercent < mark || trackedScrollDepths.has(mark)) return;
+        trackedScrollDepths.add(mark);
+        trackEvent('scroll_depth', {
+          percent_scrolled: mark,
+          landing_name: 'presupuestos_facturacion_rapida',
+        });
+      });
+    }
+
+    function startEngagementTimeTracking() {
+      engagementTimeMarks.forEach((seconds) => {
+        window.setTimeout(() => {
+          if (document.visibilityState !== 'visible' || trackedEngagementTimeMarks.has(seconds)) return;
+          trackedEngagementTimeMarks.add(seconds);
+          trackEvent('engaged_time_marker', {
+            engagement_seconds: seconds,
+            landing_name: 'presupuestos_facturacion_rapida',
+          });
+        }, seconds * 1000);
       });
     }
 
@@ -4374,12 +4416,16 @@
 
     function openContactModal(trigger) {
       if (!contactModal) return;
+      const ctaText = getInteractionLabel(trigger);
       activeContactModalButton = trigger;
       contactModal.classList.add('is-open');
       contactModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       contactModalDialog?.focus();
-      trackEvent('contact_modal_open', { contact_method: 'contact_modal', lead_source: 'cta_button' });
+      trackEvent('contact_modal_open', { contact_method: 'contact_modal', lead_source: 'cta_button', cta_text: ctaText });
+      if (/demo|vídeo|video/i.test(ctaText)) {
+        trackEvent('demo_request_click', { cta_text: ctaText, lead_source: 'cta_button' });
+      }
       reportContactConversion();
     }
 
@@ -4393,9 +4439,10 @@
 
     document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
       link.addEventListener('click', () => {
+        const linkText = getInteractionLabel(link);
         reportContactConversion();
-        trackEvent('generate_lead', { contact_method: 'whatsapp', lead_source: 'whatsapp_link' });
-        trackEvent('whatsapp_click', { link_text: link.textContent.trim() || link.getAttribute('aria-label') || 'WhatsApp' });
+        trackEvent('generate_lead', { contact_method: 'whatsapp', lead_source: 'whatsapp_link', link_text: linkText });
+        trackEvent('whatsapp_click', { link_text: linkText });
       });
     });
 
@@ -4506,6 +4553,25 @@
       revealItems.forEach((item) => revealObserver.observe(item));
     } else {
       revealItems.forEach((item) => item.classList.add('is-visible'));
+    }
+
+    const trackedLandingSections = document.querySelectorAll(
+      '#problema, #como-funciona, #beneficios, #para-quien, #verifactu, #contacto'
+    );
+
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          trackEvent('section_view', {
+            section_name: entry.target.id || entry.target.className || 'landing_section',
+            landing_name: 'presupuestos_facturacion_rapida',
+          });
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.45 });
+
+      trackedLandingSections.forEach((section) => sectionObserver.observe(section));
     }
 
     if (servicesGrid) {
