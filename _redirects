@@ -1,0 +1,34 @@
+/index.html  /  301
+/plan-base2.html  /base-digital  301
+/sobremi.html  /sobre-mi  301
+/presupuestos-facturacion-rapida.html  /presupuestos-facturacion-rapida  301
+/contacto.html  /contacto  301
+
+/facturas-automaticas  /presupuestos-facturacion-rapida  301
+/facturas-automaticas.html  /presupuestos-facturacion-rapida  301
+/lectura-albaranes  /presupuestos-facturacion-rapida  301
+/lectura-albaranes.html  /presupuestos-facturacion-rapida  301
+
+/adios-excel  /  301
+/adios-excel.html  /  301
+/automatizacion-email  /  301
+/automatizacion-email.html  /  301
+/automatizaciones  /  301
+/automatizaciones.html  /  301
+/avisos-whatsapp-telegram  /  301
+/avisos-whatsapp-telegram.html  /  301
+/gestion-citas  /  301
+/gestion-citas.html  /  301
+/informes-consumos  /  301
+/informes-consumos.html  /  301
+/plan-base  /  301
+/plan-base.html  /  301
+/recordatorios-automaticos  /  301
+/recordatorios-automaticos.html  /  301
+/plan-avanzado  /  301
+/automatizar-procesos  /  301
+
+/base-digital  /plan-base2.html  200
+/sobre-mi  /sobremi.html  200
+/presupuestos-facturacion-rapida  /presupuestos-facturacion-rapida.html  200
+/contacto  /contacto.html  200
