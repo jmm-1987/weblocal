@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JM2 Tech Studio | Partner tecnológico para autónomos y pymes</title>
-  <meta name="description" content="Herramientas, automatizaciones y soporte tecnológico cercano para negocios que quieren trabajar con más orden y menos errores." />
-  <link rel="canonical" href="https://www.jm2-tech.es/" />
+  <title>Digitalizar documentos | JM2 Tech Studio</title>
+  <meta name="description" content="Digitaliza albaranes, tickets, facturas y documentos de trabajo desde fotos o PDFs. Orden, búsqueda rápida y datos listos para revisar." />
+  <link rel="canonical" href="https://www.jm2-tech.es/digitalizar-documentos" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="JM2 Tech Studio" />
-  <meta property="og:title" content="JM2 Tech Studio | Partner tecnológico para autónomos y pymes" />
-  <meta property="og:description" content="Herramientas, automatizaciones y soporte tecnológico cercano para negocios que quieren trabajar con más orden y menos errores." />
-  <meta property="og:url" content="https://www.jm2-tech.es/" />
+  <meta property="og:title" content="Digitalizar documentos | JM2 Tech Studio" />
+  <meta property="og:description" content="Digitaliza albaranes, tickets, facturas y documentos de trabajo desde fotos o PDFs. Orden, búsqueda rápida y datos listos para revisar." />
+  <meta property="og:url" content="https://www.jm2-tech.es/digitalizar-documentos" />
   <meta property="og:image" content="https://www.jm2-tech.es/og-image.png?v=4" />
   <meta property="og:image:secure_url" content="https://www.jm2-tech.es/og-image.png?v=4" />
   <meta property="og:image:type" content="image/png" />
@@ -18,8 +18,8 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="JM2 Tech Studio - Soluciones tecnológicas para empresas" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="JM2 Tech Studio | Partner tecnológico para autónomos y pymes" />
-  <meta name="twitter:description" content="Herramientas, automatizaciones y soporte tecnológico cercano para negocios que quieren trabajar con más orden y menos errores." />
+  <meta name="twitter:title" content="Digitalizar documentos | JM2 Tech Studio" />
+  <meta name="twitter:description" content="Digitaliza albaranes, tickets, facturas y documentos de trabajo desde fotos o PDFs. Orden, búsqueda rápida y datos listos para revisar." />
   <meta name="twitter:image" content="https://www.jm2-tech.es/og-image.png?v=4" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
@@ -30,7 +30,8 @@
     gtag('js', new Date());
 
     gtag('config', 'AW-18132304665');
-    gtag('config', 'G-8FMNC7J0EN');
+    // GA4: send_page_view stays explicit so page views, engagement time and user_engagement work on this landing.
+    gtag('config', 'G-8FMNC7J0EN', { send_page_view: true });
   </script>
   <script>
     function gtag_report_conversion(url) {
@@ -1028,7 +1029,7 @@
 
     .trust-logo--metro {
       border-color: rgba(194, 157, 82, .42);
-      background: #2b2a28;
+      background: #242321;
     }
 
     .trust-logo--alditraex {
@@ -2815,6 +2816,9 @@
       }
 
       .footer-cta {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
         padding: 28px 22px;
         margin-bottom: 28px;
         border-radius: 26px;
@@ -2822,6 +2826,21 @@
 
       .footer-cta-copy h2 {
         font-size: 2.1rem;
+      }
+
+      .footer-cta .hero-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 0;
+      }
+
+      .footer-cta-link {
+        width: 100%;
+        min-width: 0;
+        margin-top: 0;
+        white-space: normal;
+        text-align: center;
       }
 
       .footer-main {
@@ -3070,6 +3089,11 @@
         animation: none;
       }
 
+      .hero-mockup::before,
+      .hero-mockup img {
+        animation: none;
+      }
+
       .dot-field i {
         animation: none;
       }
@@ -3290,7 +3314,728 @@
       max-width: 122px;
     }
 
+    .landing-hero {
+      padding: 58px 0 52px;
+    }
+
+    .landing-hero h1 {
+      max-width: 760px;
+      font-size: clamp(40px, 5.2vw, 66px);
+      line-height: 1;
+    }
+
+    .hero-speed-note {
+      display: block;
+      margin-top: 12px;
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(26px, 3vw, 42px);
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    .landing-hero .hero-copy p {
+      max-width: 660px;
+    }
+
+    .landing-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .landing-badges li {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border: 1px solid rgba(7, 87, 248, .14);
+      border-radius: 999px;
+      color: #263447;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 8px 18px rgba(16, 32, 72, .06);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .landing-placeholder {
+      position: relative;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      padding: 32px;
+      border: 1px solid rgba(7, 87, 248, .18);
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(7, 87, 248, .08), rgba(255,255,255,.9)),
+        linear-gradient(180deg, #fff, #f6f9ff);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .landing-placeholder::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 1px dashed rgba(7, 87, 248, .28);
+      border-radius: 22px;
+      pointer-events: none;
+    }
+
+    .landing-placeholder-text {
+      position: relative;
+      z-index: 1;
+      max-width: 430px;
+      color: #263447;
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .hero-mockup {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .hero-mockup::before {
+      content: "";
+      position: absolute;
+      inset: 12% 8% 8%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(7, 87, 248, .18), transparent 68%);
+      filter: blur(8px);
+      animation: heroMockupGlow 5.8s ease-in-out infinite;
+    }
+
+    .hero-mockup img {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 560px);
+      max-height: 520px;
+      object-fit: contain;
+      filter: drop-shadow(0 28px 34px rgba(16, 32, 72, .18));
+      animation: heroMockupFloat 5.6s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .doc-visual-placeholder {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 560px);
+      min-height: 420px;
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      padding: 28px;
+      border: 1px dashed rgba(7, 87, 248, .36);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.96), rgba(246,249,255,.9)),
+        repeating-linear-gradient(0deg, transparent 0 18px, rgba(7, 87, 248, .045) 18px 19px);
+      box-shadow: var(--shadow);
+      animation: heroMockupFloat 5.6s ease-in-out infinite;
+    }
+
+    .doc-visual-placeholder span {
+      width: fit-content;
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 11px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(7, 87, 248, .08);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .doc-visual-placeholder strong {
+      max-width: 420px;
+      color: #17224a;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.02;
+    }
+
+    .doc-visual-placeholder p {
+      max-width: 430px;
+      margin: 0;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .doc-visual-stack {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .doc-visual-stack i {
+      min-height: 96px;
+      display: grid;
+      place-items: center;
+      padding: 12px;
+      border: 1px solid rgba(7, 87, 248, .14);
+      border-radius: 16px;
+      color: #263447;
+      background: #fff;
+      font-style: normal;
+      font-size: 12px;
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 12px 22px rgba(16, 32, 72, .08);
+    }
+
+    .step-visual .doc-visual-placeholder {
+      width: 100%;
+      min-height: 100%;
+      gap: 10px;
+      padding: 18px;
+      border-radius: 18px;
+      box-shadow: none;
+      animation: none;
+    }
+
+    .step-visual .doc-visual-placeholder strong {
+      font-size: 24px;
+      line-height: 1.08;
+    }
+
+    .step-visual .doc-visual-placeholder p {
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .verifactu-badge .doc-visual-placeholder {
+      width: 100%;
+      min-height: 170px;
+      gap: 10px;
+      padding: 16px;
+      border-radius: 18px;
+      box-shadow: none;
+      animation: none;
+    }
+
+    .verifactu-badge .doc-visual-placeholder p {
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    @keyframes heroMockupFloat {
+      0%,
+      100% {
+        transform: translateY(0) rotate(-.6deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(.7deg);
+      }
+    }
+
+    @keyframes heroMockupGlow {
+      0%,
+      100% {
+        opacity: .7;
+        transform: scale(.96);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.04);
+      }
+    }
+
+    .split-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .compare-card,
+    .step-card,
+    .benefit-card,
+    .pricing-card,
+    .sector-pill,
+    .verifactu-panel,
+    .trust-copy-panel {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .compare-card {
+      padding: 26px;
+      border-radius: 24px;
+    }
+
+    .compare-card h3,
+    .step-card h3,
+    .benefit-card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .compare-card ul,
+    .step-card ul {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .compare-card li,
+    .step-card li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .compare-card li::before,
+    .step-card li::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      margin-top: 8px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .compare-card.is-before li::before {
+      background: #dc2f3a;
+    }
+
+    .steps-grid,
+    .benefits-grid,
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .step-card,
+    .benefit-card {
+      min-height: 210px;
+      padding: 24px;
+      border-radius: 22px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .step-visual {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      padding: 0;
+      border: 0;
+      border-radius: 18px;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .step-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .steps-grid {
+      grid-template-columns: minmax(0, 560px);
+      justify-content: center;
+      align-items: stretch;
+      min-height: 520px;
+    }
+
+    .steps-grid .step-card {
+      grid-area: 1 / 1;
+      min-height: 520px;
+      border-color: transparent;
+      background: transparent;
+      box-shadow: none;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(12px) scale(.98);
+      transition: opacity .42s ease, transform .42s ease, visibility .42s ease;
+    }
+
+    .steps-grid .step-card.is-active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .steps-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .steps-control {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(7, 87, 248, .2);
+      border-radius: 14px;
+      color: var(--blue);
+      background: rgba(255,255,255,.78);
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+
+    .steps-control:hover,
+    .steps-control:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(16, 32, 72, .12);
+    }
+
+    .steps-control.is-active,
+    .steps-control[aria-pressed="true"] {
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 12px 24px rgba(7, 87, 248, .2);
+    }
+
+    .steps-video-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 26px;
+    }
+
+    .steps-video-cta .hero-cta {
+      min-width: min(100%, 520px);
+      min-height: 58px;
+      font-size: 1rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .steps-grid .step-card {
+        transition: none;
+      }
+    }
+
+    .visual-placeholder {
+      min-height: 260px;
+      border-radius: 24px;
+    }
+
+    .visual-image {
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .visual-image img {
+      width: 100%;
+      height: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 16px;
+    }
+
+    .benefits-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .benefit-card {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .benefit-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--blue);
+      background: rgba(7, 87, 248, .08);
+      font-weight: 900;
+    }
+
+    .pricing-section {
+      padding-top: 54px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .pricing-card {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      align-content: start;
+      min-height: 390px;
+      padding: 28px;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .pricing-card-featured {
+      border-color: rgba(7, 87, 248, .26);
+      background:
+        radial-gradient(circle at 92% 12%, rgba(7, 87, 248, .12), transparent 30%),
+        rgba(255,255,255,.96);
+      box-shadow: 0 24px 54px rgba(7, 87, 248, .14);
+    }
+
+    .pricing-card h3 {
+      margin: 0;
+      color: #17224a;
+      font-size: 24px;
+      line-height: 1.14;
+    }
+
+    .pricing-card p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .pricing-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      color: var(--blue);
+    }
+
+    .pricing-price strong {
+      font-size: clamp(42px, 5vw, 58px);
+      line-height: .9;
+      letter-spacing: 0;
+    }
+
+    .pricing-price span {
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .pricing-tag {
+      width: fit-content;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(7, 87, 248, .08);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .pricing-card-featured .pricing-tag {
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .pricing-features {
+      display: grid;
+      gap: 11px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pricing-features li {
+      position: relative;
+      padding-left: 28px;
+      color: #263447;
+      font-weight: 850;
+    }
+
+    .pricing-features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .58em;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #12b981;
+      box-shadow: 0 0 0 6px rgba(18, 185, 129, .12);
+    }
+
+    .pricing-card .secondary-btn,
+    .pricing-card .primary-btn {
+      width: fit-content;
+      margin-top: auto;
+    }
+
+    .sectors-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .sector-pill {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 18px;
+      border-radius: 999px;
+      color: #28303d;
+      font-weight: 900;
+    }
+
+    .verifactu-panel,
+    .trust-copy-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: 24px;
+      align-items: center;
+      padding: 34px;
+      border-radius: 28px;
+    }
+
+    .trust-copy-panel {
+      grid-template-columns: minmax(0, 760px);
+    }
+
+    .trust-copy-panel p + p {
+      margin-top: 14px;
+    }
+
+    .verifactu-badge {
+      min-height: 96px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid rgba(7, 87, 248, .14);
+      box-shadow: 0 12px 24px rgba(16, 32, 72, .08);
+      padding: 20px;
+    }
+
+    .verifactu-badge img {
+      max-width: 170px;
+      max-height: 72px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 1060px) {
+      .landing-hero .hero-grid,
+      .split-panel,
+      .pricing-grid,
+      .verifactu-panel,
+      .trust-copy-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .steps-grid,
+      .visual-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 720px) {
+      .landing-hero {
+        padding-top: 134px;
+      }
+
+      .landing-hero h1 {
+        font-size: clamp(34px, 10vw, 44px);
+        line-height: 1.04;
+      }
+
+      .landing-placeholder {
+        min-height: 310px;
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .hero-mockup {
+        min-height: 300px;
+      }
+
+      .hero-mockup img {
+        max-height: 340px;
+      }
+
+      .split-panel,
+      .pricing-grid,
+      .steps-grid,
+      .benefits-grid,
+      .visual-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-card,
+      .step-card,
+      .benefit-card,
+      .pricing-card,
+      .verifactu-panel,
+      .trust-copy-panel {
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .pricing-card {
+        min-height: auto;
+      }
+
+      .pricing-card .secondary-btn,
+      .pricing-card .primary-btn {
+        width: 100%;
+      }
+
       .footer-contact-grid {
         grid-template-columns: 1fr;
       }
@@ -3338,244 +4083,261 @@
   </aside>
 
   <main id="inicio">
-    <section class="hero">
+    <section class="landing-hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1>Acompañamiento tecnológico cercano para autónomos y pymes</h1>
+          <h1>Digitaliza documentos sin perder tiempo buscando papeles</h1>
+          <span class="hero-speed-note"></span>
           <p>
-            Te ayudo a ahorrar tiempo, reducir errores y tener más control con herramientas simples, automatizaciones y soporte tecnológico cercano. <span class="hero-highlight">Tecnología práctica para empresas que quieren trabajar con más orden y menos caos.</span>
+            Albaranes, tickets, facturas, partes de trabajo o documentos internos. Desde una foto o un PDF hasta un panel ordenado.
+            <span class="hero-highlight">Menos papel perdido.</span>
           </p>
           <div class="hero-actions">
-            <button class="hero-cta" type="button" data-contact-modal-open>Solicitar diagnóstico</button>
-            <a class="secondary-btn" href="#servicios">Ver soluciones</a>
+            <button class="hero-cta" type="button" data-contact-modal-open>Solicitar demostración</button>
+            <a class="secondary-btn" href="#como-funciona">Ver cómo funciona</a>
           </div>
+          <ul class="landing-badges" aria-label="Características principales">
+            <li>Fotos y PDFs</li>
+            <li>OCR y revisión</li>
+            <li>Panel ordenado</li>
+            <li>Búsqueda rápida</li>
+            <li>Exportación de datos</li>
+          </ul>
         </div>
 
-        <div class="brand-card" aria-label="Tarjeta visual JM2 Tech Studio">
-          <div class="dot-field" aria-hidden="true">
-            <i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i>
-            <i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i>
-            <i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i>
-            <i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i>
-          </div>
-          <svg class="circuit-lines" viewBox="0 0 170 160" fill="none" aria-hidden="true">
-            <path d="M18 10h48l24 24h54" stroke="currentColor" stroke-width="2"/>
-            <path d="M22 52h82l18-18h25" stroke="currentColor" stroke-width="2"/>
-            <path d="M8 88h72l22 22h47" stroke="currentColor" stroke-width="2"/>
-            <path d="M40 128h56l20-20h36" stroke="currentColor" stroke-width="2"/>
-            <circle cx="146" cy="34" r="5" stroke="currentColor" stroke-width="2"/>
-            <circle cx="149" cy="88" r="5" stroke="currentColor" stroke-width="2"/>
-            <circle cx="152" cy="108" r="5" stroke="currentColor" stroke-width="2"/>
-          </svg>
-
-          <div class="card-logo">
-            <img class="card-logo-image" src="logologo.png" alt="JM2 Tech Studio" />
-          </div>
-
-          <div class="signature">
-            <span>Desarrollo y soluciones tecnologicas</span>
+        <div class="hero-mockup" aria-label="Hueco para mockup de digitalización documental">
+          <div class="doc-visual-placeholder">
+            <span>Hueco para mockup principal</span>
+            <strong>Móvil haciendo foto + panel con documentos procesados</strong>
+            <p>Imagen recomendada: composición con móvil capturando un albarán/ticket y pantalla de escritorio mostrando documentos clasificados.</p>
+            <div class="doc-visual-stack" aria-hidden="true">
+              <i>Foto documento</i>
+              <i>Datos extraídos</i>
+              <i>Panel final</i>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="servicios">
+    <section class="section" id="problema">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Cómo puedo ayudarte</h2>
+            <h2>Cuando los documentos están repartidos, el trabajo se frena</h2>
           </div>
-          <p>Una visión sencilla de las áreas donde puedo ayudarte a trabajar con más orden, menos errores y menos tareas repetidas.</p>
+          <p>Un albarán en WhatsApp, un ticket en una carpeta, una factura en el correo y una foto en el móvil. Al final, encontrar algo sencillo se convierte en una pérdida de tiempo.</p>
         </div>
 
-        <div class="services-grid">
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <rect x="16" y="8" width="32" height="48" rx="5" stroke="currentColor" stroke-width="4"/>
-              <path d="M24 22h16M24 31h16M24 40h8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-              <path d="M40 44l4 4 8-10" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div>
-              <h3>Presupuestos y facturación rápida</h3>
-              <p>Genera presupuestos, albaranes y facturas en segundos desde móvil o escritorio.</p>
-            </div>
-            <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
-            <a class="service-card-cta" href="/presupuestos-facturacion-rapida">Ver más</a>
+        <div class="split-panel">
+          <article class="compare-card is-before">
+            <h3>Antes</h3>
+            <ul>
+              <li>Fotos de documentos mezcladas en el móvil</li>
+              <li>Albaranes, tickets y facturas sin clasificar</li>
+              <li>Datos copiados a mano en Excel o en el gestor</li>
+              <li>Horas perdidas buscando importes, fechas o proveedores</li>
+            </ul>
           </article>
 
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <path d="M18 8h24l8 8v40H18z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-              <path d="M42 8v10h10M25 28h18M25 38h14M25 47h9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-            </svg>
-            <div>
-              <h3>Digitalización documental</h3>
-              <p>Organiza documentos y automatiza procesos para dejar atrás el caos del papel.</p>
-            </div>
-            <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
-            <a class="service-card-cta" href="/digitalizar-documentos">Ver más</a>
+          <article class="compare-card">
+            <h3>Después</h3>
+            <ul>
+              <li>Documentos subidos desde móvil, escritorio o Telegram</li>
+              <li>Lectura automática de datos importantes</li>
+              <li>Panel para revisar, corregir y aprobar</li>
+              <li>Búsqueda por cliente, proveedor, obra, fecha o importe</li>
+            </ul>
           </article>
-
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <g transform="translate(32 34) scale(.58) translate(-32 -34)">
-                <path d="M25.5 9h13l2 8a20 20 0 0 1 4.4 2.5l7.8-2.4 6.5 11.2-5.8 5.8c.2 1.3.2 2.6 0 3.9l5.8 5.8-6.5 11.2-7.8-2.4a20 20 0 0 1-4.4 2.5l-2 8h-13l-2-8a20 20 0 0 1-4.4-2.5l-7.8 2.4-6.5-11.2 5.8-5.8a18 18 0 0 1 0-3.9l-5.8-5.8 6.5-11.2 7.8 2.4a20 20 0 0 1 4.4-2.5l2-8Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-                <circle cx="32" cy="36" r="9" stroke="currentColor" stroke-width="4"/>
-              </g>
-              <path d="M17 12A29 29 0 0 1 50 19" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-              <path d="M50 19h-9M50 19l-3-8" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div>
-              <h3>Automatización de tareas</h3>
-              <p>Reduce trabajo manual conectando procesos, documentos, avisos y herramientas.</p>
-            </div>
-            <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
-            <a class="service-card-cta" href="#contacto">Ver más</a>
-          </article>
-
-          <article class="service-card">
-            <svg class="service-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <path d="M25 18 11 32l14 14M39 18l14 14-14 14M35 12 29 52" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div>
-              <h3>Software adaptado a tu negocio</h3>
-              <p>Herramientas personalizadas para mejorar la organización y el control diario.</p>
-            </div>
-            <span class="service-mobile-arrow" aria-hidden="true">&rsaquo;</span>
-            <a class="service-card-cta" href="#contacto">Ver más</a>
-          </article>
-
         </div>
-        <div class="blue-strip">Tecnología práctica para trabajar con más orden</div>
+
       </div>
     </section>
 
-    <section class="section trust-section" aria-labelledby="confianza-title">
-      <div class="container trust-panel">
-        <div class="trust-head reveal-on-scroll reveal-from-left">
-          <h2 id="confianza-title">Empresas que ya confían en JM2 Tech Studio</h2>
-          <p>Soluciones aplicadas en negocios reales de distintos sectores.</p>
-        </div>
-
-        <div class="trust-logo-slider" aria-label="Empresas que confían en JM2 Tech Studio">
-          <div class="trust-logo-track">
-            <a class="trust-logo-item trust-logo--sfm" href="https://sfmlogistica.es" target="_blank" rel="noopener noreferrer">
-              <img src="logosfm.png" alt="SFM" />
-            </a>
-            <a class="trust-logo-item trust-logo--metro" href="https://m2merida.com" target="_blank" rel="noopener noreferrer">
-              <img src="logometro.png" alt="Metro" />
-            </a>
-            <a class="trust-logo-item trust-logo--alditraex" href="https://alditraex.es" target="_blank" rel="noopener noreferrer">
-              <img src="alditraex.png" alt="Alditraex" />
-            </a>
-            <a class="trust-logo-item trust-logo--weark" href="https://weark.es" target="_blank" rel="noopener noreferrer">
-              <img src="logo_weark.png" alt="Weark" />
-            </a>
-            <a class="trust-logo-item trust-logo--pro" href="https://profitnessmerida.es" target="_blank" rel="noopener noreferrer">
-              <img src="logo_pro.png" alt="Pro Fitness" />
-            </a>
-            <a class="trust-logo-item trust-logo--sfm" href="https://sfmlogistica.es" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="logosfm.png" alt="" aria-hidden="true" />
-            </a>
-            <a class="trust-logo-item trust-logo--metro" href="https://m2merida.com" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="logometro.png" alt="" aria-hidden="true" />
-            </a>
-            <a class="trust-logo-item trust-logo--alditraex" href="https://alditraex.es" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="alditraex.png" alt="" aria-hidden="true" />
-            </a>
-            <a class="trust-logo-item trust-logo--weark" href="https://weark.es" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="logo_weark.png" alt="" aria-hidden="true" />
-            </a>
-            <a class="trust-logo-item trust-logo--pro" href="https://profitnessmerida.es" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="logo_pro.png" alt="" aria-hidden="true" />
-            </a>
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>De una foto suelta a un documento ordenado</h2>
           </div>
+          <p>Un flujo sencillo para capturar documentos, extraer la información útil y dejarla preparada para consulta, control o exportación.</p>
         </div>
 
-        <p class="trust-note">Trabajamos desde la realidad del negocio: procesos, personas y necesidades del día a día.</p>
+        <div class="steps-grid">
+          <article class="step-card is-active">
+            <div class="step-number">1</div>
+            <div class="step-visual">
+              <div class="doc-visual-placeholder">
+                <span>Foto / mockup 1</span>
+                <strong>Captura desde móvil o Telegram</strong>
+                <p>Usar una foto realista de un albarán, ticket o factura tomada desde el móvil, con una conversación de Telegram o WhatsApp al lado.</p>
+              </div>
+            </div>
+            <h3>Subes el documento</h3>
+            <ul>
+              <li>Foto del móvil</li>
+              <li>PDF desde el ordenador</li>
+              <li>Envío por Telegram si lo necesitas</li>
+            </ul>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-visual">
+              <div class="doc-visual-placeholder">
+                <span>Foto / mockup 2</span>
+                <strong>Datos detectados automáticamente</strong>
+                <p>Mockup recomendado: documento escaneado con campos destacados: proveedor, fecha, número, base imponible, IVA, total y concepto.</p>
+              </div>
+            </div>
+            <h3>El sistema lee los datos clave</h3>
+            <ul>
+              <li>Importes y fechas</li>
+              <li>Proveedor o cliente</li>
+              <li>Conceptos principales</li>
+            </ul>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-visual">
+              <div class="doc-visual-placeholder">
+                <span>Foto / mockup 3</span>
+                <strong>Panel de documentos revisados</strong>
+                <p>Mockup recomendado: escritorio con tarjetas o tabla de documentos, filtros por estado y una ficha lateral con datos editables.</p>
+              </div>
+            </div>
+            <h3>Revisas y lo dejas archivado</h3>
+            <ul>
+              <li>Validación humana</li>
+              <li>Historial consultable</li>
+              <li>Datos listos para exportar</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="steps-controls" aria-label="Ver paso del funcionamiento">
+          <button class="steps-control is-active" type="button" data-step-control="0" aria-label="Ver paso 1" aria-pressed="true">1</button>
+          <button class="steps-control" type="button" data-step-control="1" aria-label="Ver paso 2" aria-pressed="false">2</button>
+          <button class="steps-control" type="button" data-step-control="2" aria-label="Ver paso 3" aria-pressed="false">3</button>
+        </div>
+
+        <div class="steps-video-cta">
+          <button class="hero-cta" type="button" data-contact-modal-open>¿Quieres ver un ejemplo con tus documentos?</button>
+        </div>
       </div>
     </section>
 
-    <section class="section personal-section" id="contacto">
-      <div class="container personal-panel">
-        <div class="personal-grid">
-          <div class="personal-media reveal-on-scroll reveal-from-left">
-            <div class="personal-photo-frame">
-              <img class="personal-photo" src="yo.png" alt="Trabajo cercano con empresas desde la oficina" />
-            </div>
-            <a class="personal-media-badge" href="/sobre-mi">Sobre mi</a>
-            <div class="personal-contact-box">
-              <div class="personal-contact-actions">
-                <a href="https://wa.me/34625433667?text=Hola%20JM2%20Tech%20Studio,%20quiero%20una%20propuesta%20para%20mi%20negocio" target="_blank" rel="noopener">Abrir WhatsApp</a>
-                <a href="mailto:jomma.tech@gmail.com?subject=Proyecto%20para%20JM2%20Tech%20Studio">Enviar email</a>
-              </div>
-              <a href="tel:+34625433667">
-                <span class="mini-icon" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.62 2.65a2 2 0 0 1-.45 2.11L8 9.77a16 16 0 0 0 6.2 6.2l1.29-1.28a2 2 0 0 1 2.11-.45c.85.29 1.74.5 2.65.62A2 2 0 0 1 22 16.9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                625 433 667
-              </a>
-              <a href="mailto:jomma.tech@gmail.com">
-                <span class="mini-icon" aria-hidden="true">
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                    <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                jomma.tech@gmail.com
-              </a>
-              <a href="https://www.jm2-tech.es">
-                <span class="mini-icon" aria-hidden="true">
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" stroke="currentColor" stroke-width="2"/>
-                  </svg>
-                </span>
-                www.jm2-tech.es
-              </a>
-            </div>
+    <section class="section" id="beneficios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Una herramienta adaptada a tus documentos reales</h2>
           </div>
+          <p>No todos los negocios reciben los mismos papeles. Preparamos el flujo según tus documentos, tus campos y tu forma de revisar.</p>
+        </div>
 
-          <div class="personal-copy reveal-on-scroll reveal-from-right">
-            <div class="personal-intro">
-              <div class="section-label">Trato personal</div>
-              <h2>Tecnología cercana, explicada claro y pensada para tu día a día</h2>
-              <p>
-                Antes de hablar de herramientas, hablamos de tu negocio, de tus tareas repetidas y de lo que
-                te quita tiempo cada semana. La idea es acompañarte con soluciones entendibles, útiles y
-                ajustadas a la realidad de tu empresa.
-              </p>
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <span class="benefit-icon">1</span>
+            <h3>Clasificación por tipo</h3>
+            <p>Albaranes, facturas, tickets, partes de trabajo, contratos o documentos internos separados por categorías claras.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">2</span>
+            <h3>Campos que importan</h3>
+            <p>Extraemos los datos que necesitas consultar: proveedor, cliente, fecha, importe, obra, matrícula, referencia o estado.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">3</span>
+            <h3>Revisión antes de guardar</h3>
+            <p>La lectura automática acelera el trabajo, pero puedes validar y corregir antes de dejar el documento como definitivo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-              <div class="personal-signals">
-                <span>Desde Merida</span>
-                <span>Escucha real</span>
-                <span>Negocios reales</span>
-              </div>
-            </div>
-
-            <div class="personal-points">
-              <article class="personal-point">
-                <h3>Escuchamos antes de proponer</h3>
-                <p>Cada mejora empieza entendiendo cómo trabajas, qué te frena y qué tendría impacto de verdad.</p>
-              </article>
-
-              <article class="personal-point">
-                <h3>Soluciones adaptadas</h3>
-                <p>Ajustamos la tecnología a tu forma de trabajar para que sea fácil de usar y no una carga más.</p>
-              </article>
-
-              <article class="personal-point">
-                <h3>Acompañamiento cercano</h3>
-                <p>Te ayudamos a tomar decisiones con criterio, explicando cada paso sin tecnicismos innecesarios.</p>
-              </article>
-            </div>
-
-            <div class="personal-quote">
-              La diferencia no está solo en la herramienta, sino en contar con alguien que entiende tu negocio y te ayuda a trabajar con más orden.
-            </div>
+    <section class="section" id="para-quien">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Pensado para negocios con mucho documento pequeño</h2>
           </div>
+          <p>Especialmente útil cuando cada día llegan papeles, fotos, PDFs o justificantes que después alguien tiene que ordenar a mano.</p>
+        </div>
+
+        <div class="sectors-list">
+          <span class="sector-pill">Talleres</span>
+          <span class="sector-pill">Reformas</span>
+          <span class="sector-pill">Constructoras</span>
+          <span class="sector-pill">Transportes</span>
+          <span class="sector-pill">Instaladores</span>
+          <span class="sector-pill">Administración</span>
+          <span class="sector-pill">Autónomos</span>
+          <span class="sector-pill">Pymes con archivo físico</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visuales">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Material visual pendiente</div>
+            <h2>Huecos preparados para enseñar el producto con claridad</h2>
+          </div>
+          <p>Cuando tengas las imágenes finales, estos espacios pueden cambiarse por capturas reales, mockups de escritorio o fotos de documentos.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <span class="benefit-icon">A</span>
+            <h3>Foto de entrada</h3>
+            <p>Documento real sobre mesa o móvil: ticket, albarán, factura de proveedor o parte firmado.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">B</span>
+            <h3>Mockup de lectura</h3>
+            <p>Pantalla con el documento a la izquierda y los campos detectados a la derecha para mostrar el valor del OCR.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">C</span>
+            <h3>Panel final</h3>
+            <p>Vista tipo dashboard con filtros, estados y documentos organizados por proveedor, cliente, obra o fecha.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="automatizacion">
+      <div class="container verifactu-panel">
+        <div>
+          <div class="section-label">Automatización opcional</div>
+          <h2>Puede quedarse en archivo ordenado o conectarse con tu flujo de trabajo</h2>
+          <p>
+            Podemos dejarlo como sistema de consulta documental o conectarlo con hojas de cálculo, paneles de control, avisos, CRM, gestión de obras o el software que ya uses.
+          </p>
+        </div>
+        <div class="verifactu-badge">
+          <div class="doc-visual-placeholder">
+            <span>Mockup integración</span>
+            <p>Imagen sugerida: documentos entrando en un panel y saliendo hacia Excel, gestor, email o tablero de control.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container trust-copy-panel">
+        <div>
+          <div class="section-label">JM2 Tech Studio</div>
+          <h2>Digitalizar no es solo escanear: es poder encontrar y usar la información</h2>
+          <p>
+            La clave no es guardar una foto en una carpeta. La clave es que el documento quede asociado a datos útiles para buscar, revisar y tomar decisiones sin volver a abrir veinte archivos.
+          </p>
+          <p>
+            Primero vemos qué documentos manejas, qué datos necesitas y quién los revisa. Después preparamos una herramienta práctica, con el mínimo ruido posible.
+          </p>
         </div>
       </div>
     </section>
@@ -3584,15 +4346,15 @@
 
   <footer class="site-footer" id="footer">
     <div class="container">
-      <div class="footer-cta reveal-on-scroll">
+      <div class="footer-cta reveal-on-scroll" id="contacto">
         <div class="footer-cta-copy">
           <div class="footer-section-label">Siguiente paso</div>
-          <h2>Cuéntame qué tarea te gustaría simplificar</h2>
-          <p>Analizamos tu caso y vemos cómo ayudarte a trabajar con más orden, menos tareas manuales y mejores procesos.</p>
+          <h2>Enséñame qué documentos quieres ordenar</h2>
+          <p>Revisamos tus fotos, PDFs o archivos actuales y te propongo una forma sencilla de capturarlos, leerlos y encontrarlos después.</p>
         </div>
         <div class="hero-actions">
-          <button class="footer-cta-link" type="button" data-contact-modal-open>Solicitar diagnóstico</button>
-          <a class="footer-cta-link" href="https://wa.me/34625433667?text=Hola%20JM2%20Tech%20Studio,%20quiero%20simplificar%20una%20tarea%20de%20mi%20negocio" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+          <button class="footer-cta-link" type="button" data-contact-modal-open>Solicitar demostración</button>
+          <a class="footer-cta-link" href="https://wa.me/34625433667?text=Hola%20JM2%20Tech%20Studio,%20quiero%20digitalizar%20y%20ordenar%20documentos" target="_blank" rel="noopener">Hablar por WhatsApp</a>
         </div>
       </div>
 
@@ -3680,14 +4442,14 @@
 
   <div class="contact-modal" id="contactModal" aria-hidden="true">
     <div class="contact-modal-backdrop" data-contact-modal-close></div>
-    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-label="Solicitar llamada" tabindex="-1">
+    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-label="Solicitar demostración" tabindex="-1">
       <button class="contact-modal-close" type="button" data-contact-modal-close aria-label="Cerrar formulario">
         <span></span>
       </button>
       <div class="contact-modal-head">
         <div class="section-label">Contacto</div>
-        <h3>Solicita una llamada</h3>
-        <p>Indica tus datos y te llamamos en el dia y hora que prefieras.</p>
+        <h3>Solicita una demostración</h3>
+        <p>Indica tus datos y te contactamos en el día y hora que prefieras.</p>
       </div>
       <form class="footer-contact-form" id="footerContactForm" novalidate>
         <div class="footer-contact-brandmark" aria-hidden="true">
@@ -3740,6 +4502,7 @@
     const servicesGrid = document.querySelector('.services-grid');
     const blueStrip = document.querySelector('.blue-strip');
     const mobileHeaderQuery = window.matchMedia('(max-width: 720px)');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const menuBtn = document.getElementById('menuBtn');
     const mobilePanel = document.getElementById('mobilePanel');
     const backdrop = document.getElementById('backdrop');
@@ -3752,14 +4515,23 @@
     const footerContactMethodSelect = footerContactForm?.querySelector('select[name="forma_contacto"]');
     const footerContactDetailLabel = document.getElementById('footerContactDetailLabel');
     const footerContactDetailInput = document.getElementById('footerContactDetailInput');
+    const stepCards = Array.from(document.querySelectorAll('.steps-grid .step-card'));
+    const stepControls = Array.from(document.querySelectorAll('[data-step-control]'));
+    const scrollDepthMarks = [25, 50, 75, 90];
+    const trackedScrollDepths = new Set();
+    const engagementTimeMarks = [10, 30, 60];
+    const trackedEngagementTimeMarks = new Set();
     const EMAILJS_SERVICE_ID = 'service_a1xi29i';
     const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
     const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
     let activeContactModalButton = null;
+    let activeStepIndex = 0;
+    let stepsAutoplay = null;
     const revealGroups = [
       ['.hero-copy', 'reveal-from-left'],
       ['.brand-card', 'reveal-from-right'],
       ['.section-head', 'reveal-from-left'],
+      ['.pricing-card', ''],
       ['.basic-package-copy', 'reveal-from-left'],
       ['.trust-head', ''],
       ['.trust-note', ''],
@@ -3800,6 +4572,9 @@
     updateMobileHeader();
     window.addEventListener('scroll', updateMobileHeader, { passive: true });
     mobileHeaderQuery.addEventListener?.('change', updateMobileHeader);
+    window.addEventListener('scroll', trackScrollDepth, { passive: true });
+    trackScrollDepth();
+    startEngagementTimeTracking();
 
     function closeMenu() {
       if (!menuBtn || !mobilePanel || !backdrop) return;
@@ -3840,11 +4615,83 @@
       });
     }
 
+    function getInteractionLabel(element) {
+      if (!element) return 'unknown';
+      return element.getAttribute('aria-label') || element.textContent.trim().replace(/\s+/g, ' ') || 'unknown';
+    }
+
+    // GA4 diagnostics: these custom events complement automatic user_engagement and make scroll/time checks easy in DebugView.
+    function trackScrollDepth() {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollableHeight <= 0) return;
+
+      const scrollPercent = Math.round((window.scrollY / scrollableHeight) * 100);
+      scrollDepthMarks.forEach((mark) => {
+        if (scrollPercent < mark || trackedScrollDepths.has(mark)) return;
+        trackedScrollDepths.add(mark);
+        trackEvent('scroll_depth', {
+          percent_scrolled: mark,
+          landing_name: 'digitalizar_documentos',
+        });
+      });
+    }
+
+    function startEngagementTimeTracking() {
+      engagementTimeMarks.forEach((seconds) => {
+        window.setTimeout(() => {
+          if (document.visibilityState !== 'visible' || trackedEngagementTimeMarks.has(seconds)) return;
+          trackedEngagementTimeMarks.add(seconds);
+          trackEvent('engaged_time_marker', {
+            engagement_seconds: seconds,
+            landing_name: 'digitalizar_documentos',
+          });
+        }, seconds * 1000);
+      });
+    }
+
     function reportContactConversion() {
       if (typeof window.gtag_report_conversion === 'function') {
         window.gtag_report_conversion();
       }
     }
+
+    function showStep(index) {
+      if (!stepCards.length) return;
+      activeStepIndex = (index + stepCards.length) % stepCards.length;
+
+      stepCards.forEach((card, cardIndex) => {
+        card.classList.toggle('is-active', cardIndex === activeStepIndex);
+      });
+
+      stepControls.forEach((control, controlIndex) => {
+        const isActive = controlIndex === activeStepIndex;
+        control.classList.toggle('is-active', isActive);
+        control.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+
+    function stopStepsAutoplay() {
+      if (!stepsAutoplay) return;
+      clearInterval(stepsAutoplay);
+      stepsAutoplay = null;
+    }
+
+    function startStepsAutoplay() {
+      if (stepCards.length < 2 || reducedMotionQuery.matches) return;
+      stepsAutoplay = window.setInterval(() => {
+        showStep(activeStepIndex + 1);
+      }, 3000);
+    }
+
+    showStep(0);
+    startStepsAutoplay();
+
+    stepControls.forEach((control) => {
+      control.addEventListener('click', () => {
+        stopStepsAutoplay();
+        showStep(Number(control.dataset.stepControl || 0));
+      });
+    });
 
     function closeContactModal() {
       if (!contactModal) return;
@@ -3856,12 +4703,16 @@
 
     function openContactModal(trigger) {
       if (!contactModal) return;
+      const ctaText = getInteractionLabel(trigger);
       activeContactModalButton = trigger;
       contactModal.classList.add('is-open');
       contactModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       contactModalDialog?.focus();
-      trackEvent('contact_modal_open', { contact_method: 'contact_modal', lead_source: 'cta_button' });
+      trackEvent('contact_modal_open', { contact_method: 'contact_modal', lead_source: 'cta_button', cta_text: ctaText });
+      if (/demo|vídeo|video/i.test(ctaText)) {
+        trackEvent('demo_request_click', { cta_text: ctaText, lead_source: 'cta_button' });
+      }
       reportContactConversion();
     }
 
@@ -3875,9 +4726,10 @@
 
     document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
       link.addEventListener('click', () => {
+        const linkText = getInteractionLabel(link);
         reportContactConversion();
-        trackEvent('generate_lead', { contact_method: 'whatsapp', lead_source: 'whatsapp_link' });
-        trackEvent('whatsapp_click', { link_text: link.textContent.trim() || link.getAttribute('aria-label') || 'WhatsApp' });
+        trackEvent('generate_lead', { contact_method: 'whatsapp', lead_source: 'whatsapp_link', link_text: linkText });
+        trackEvent('whatsapp_click', { link_text: linkText });
       });
     });
 
@@ -3988,6 +4840,25 @@
       revealItems.forEach((item) => revealObserver.observe(item));
     } else {
       revealItems.forEach((item) => item.classList.add('is-visible'));
+    }
+
+    const trackedLandingSections = document.querySelectorAll(
+      '#problema, #como-funciona, #beneficios, #para-quien, #visuales, #automatizacion, #contacto'
+    );
+
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          trackEvent('section_view', {
+            section_name: entry.target.id || entry.target.className || 'landing_section',
+            landing_name: 'digitalizar_documentos',
+          });
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.45 });
+
+      trackedLandingSections.forEach((section) => sectionObserver.observe(section));
     }
 
     if (servicesGrid) {

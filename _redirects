@@ -2,6 +2,7 @@
 /plan-base2.html  /base-digital  301
 /sobremi.html  /sobre-mi  301
 /presupuestos-facturacion-rapida.html  /presupuestos-facturacion-rapida  301
+/digitalizar-documentos.html  /digitalizar-documentos  301
 /contacto.html  /contacto  301
 
 /facturas-automaticas  /presupuestos-facturacion-rapida  301
@@ -31,4 +32,5 @@
 /base-digital  /plan-base2.html  200
 /sobre-mi  /sobremi.html  200
 /presupuestos-facturacion-rapida  /presupuestos-facturacion-rapida.html  200
+/digitalizar-documentos  /digitalizar-documentos.html  200
 /contacto  /contacto.html  200
