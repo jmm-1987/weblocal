@@ -3461,6 +3461,7 @@
     .compare-card,
     .step-card,
     .benefit-card,
+    .pricing-card,
     .sector-pill,
     .verifactu-panel,
     .trust-copy-panel {
@@ -3698,6 +3699,118 @@
       font-weight: 900;
     }
 
+    .pricing-section {
+      padding-top: 54px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .pricing-card {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      align-content: start;
+      min-height: 390px;
+      padding: 28px;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .pricing-card-featured {
+      border-color: rgba(7, 87, 248, .26);
+      background:
+        radial-gradient(circle at 92% 12%, rgba(7, 87, 248, .12), transparent 30%),
+        rgba(255,255,255,.96);
+      box-shadow: 0 24px 54px rgba(7, 87, 248, .14);
+    }
+
+    .pricing-card h3 {
+      margin: 0;
+      color: #17224a;
+      font-size: 24px;
+      line-height: 1.14;
+    }
+
+    .pricing-card p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .pricing-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      color: var(--blue);
+    }
+
+    .pricing-price strong {
+      font-size: clamp(42px, 5vw, 58px);
+      line-height: .9;
+      letter-spacing: 0;
+    }
+
+    .pricing-price span {
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .pricing-tag {
+      width: fit-content;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(7, 87, 248, .08);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .pricing-card-featured .pricing-tag {
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .pricing-features {
+      display: grid;
+      gap: 11px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pricing-features li {
+      position: relative;
+      padding-left: 28px;
+      color: #263447;
+      font-weight: 850;
+    }
+
+    .pricing-features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .58em;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #12b981;
+      box-shadow: 0 0 0 6px rgba(18, 185, 129, .12);
+    }
+
+    .pricing-card .secondary-btn,
+    .pricing-card .primary-btn {
+      width: fit-content;
+      margin-top: auto;
+    }
+
     .sectors-list {
       display: flex;
       flex-wrap: wrap;
@@ -3753,6 +3866,7 @@
     @media (max-width: 1060px) {
       .landing-hero .hero-grid,
       .split-panel,
+      .pricing-grid,
       .verifactu-panel,
       .trust-copy-panel {
         grid-template-columns: 1fr;
@@ -3793,6 +3907,7 @@
       }
 
       .split-panel,
+      .pricing-grid,
       .steps-grid,
       .benefits-grid,
       .visual-grid {
@@ -3802,10 +3917,20 @@
       .compare-card,
       .step-card,
       .benefit-card,
+      .pricing-card,
       .verifactu-panel,
       .trust-copy-panel {
         padding: 20px;
         border-radius: 20px;
+      }
+
+      .pricing-card {
+        min-height: auto;
+      }
+
+      .pricing-card .secondary-btn,
+      .pricing-card .primary-btn {
+        width: 100%;
       }
 
       .footer-contact-grid {
@@ -4028,6 +4153,58 @@
       </div>
     </section>
 
+    <section class="section pricing-section" id="precios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Planes</div>
+            <h2>Elige el nivel de gestión que necesitas ahora</h2>
+          </div>
+          <p>Empieza con presupuestos rápidos y sube a facturación con VeriFactu cuando tu negocio lo necesite.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <span class="pricing-tag">Solo presupuestos</span>
+            <div>
+              <h3>Presupuestos rápidos</h3>
+              <p>Para enviar propuestas profesionales sin entrar todavía en funciones de facturación.</p>
+            </div>
+            <div class="pricing-price" aria-label="20 euros al mes">
+              <strong>20€</strong>
+              <span>/ mes</span>
+            </div>
+            <ul class="pricing-features">
+              <li>Creación de presupuestos desde móvil o escritorio</li>
+              <li>PDF profesional listo para enviar</li>
+              <li>Envío por WhatsApp o email</li>
+              <li>Sin funciones de facturación</li>
+            </ul>
+            <button class="secondary-btn" type="button" data-contact-modal-open>Quiero este plan</button>
+          </article>
+
+          <article class="pricing-card pricing-card-featured">
+            <span class="pricing-tag">Con VeriFactu</span>
+            <div>
+              <h3>Presupuestos y facturación</h3>
+              <p>Para convertir presupuestos en facturas y trabajar preparado para VeriFactu.</p>
+            </div>
+            <div class="pricing-price" aria-label="40 euros al mes">
+              <strong>40€</strong>
+              <span>/ mes</span>
+            </div>
+            <ul class="pricing-features">
+              <li>Todo lo incluido en el plan de presupuestos</li>
+              <li>Funciones de facturación</li>
+              <li>Preparado con VeriFactu</li>
+              <li>Panel con clientes, documentos e historial</li>
+            </ul>
+            <button class="primary-btn" type="button" data-contact-modal-open>Solicitar demostración</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="verifactu">
       <div class="container verifactu-panel">
         <div>
@@ -4245,6 +4422,7 @@
       ['.hero-copy', 'reveal-from-left'],
       ['.brand-card', 'reveal-from-right'],
       ['.section-head', 'reveal-from-left'],
+      ['.pricing-card', ''],
       ['.basic-package-copy', 'reveal-from-left'],
       ['.trust-head', ''],
       ['.trust-note', ''],
@@ -4556,7 +4734,7 @@
     }
 
     const trackedLandingSections = document.querySelectorAll(
-      '#problema, #como-funciona, #beneficios, #para-quien, #verifactu, #contacto'
+      '#problema, #como-funciona, #beneficios, #para-quien, #precios, #verifactu, #contacto'
     );
 
     if ('IntersectionObserver' in window) {
