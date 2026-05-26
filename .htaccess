@@ -1,5 +1,14 @@
 RewriteEngine On
 
+# Do not serve this project from unrelated subdomains.
+RewriteCond %{HTTP_HOST} ^(www\.)?marisa\.jm2-tech\.es$ [NC]
+RewriteRule ^ - [G,L]
+
+# Canonical host and protocol.
+RewriteCond %{HTTP_HOST} !^www\.jm2-tech\.es$ [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://www.jm2-tech.es/$1 [R=301,L]
+
 # Clean canonical URLs.
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
@@ -16,6 +25,7 @@ RewriteRule ^contacto\.html$ /contacto [R=301,L]
 
 # Legacy pages redirected to current priority pages.
 RewriteRule ^(facturas-automaticas|lectura-albaranes)(\.html)?/?$ /presupuestos-facturacion-rapida [R=301,L]
+RewriteRule ^verifactu(\.html)?/?$ /presupuestos-facturacion-rapida [R=301,L]
 RewriteRule ^(adios-excel|automatizacion-email|automatizaciones|avisos-whatsapp-telegram|gestion-citas|informes-consumos|plan-base|recordatorios-automaticos|plan-avanzado|automatizar-procesos)(\.html)?/?$ / [R=301,L]
 
 # Serve clean URLs from the current static HTML files.

@@ -1,3 +1,11 @@
+http://jm2-tech.es/*  https://www.jm2-tech.es/:splat  301!
+https://jm2-tech.es/*  https://www.jm2-tech.es/:splat  301!
+http://www.jm2-tech.es/*  https://www.jm2-tech.es/:splat  301!
+http://marisa.jm2-tech.es/*  /410.html  410!
+https://marisa.jm2-tech.es/*  /410.html  410!
+http://www.marisa.jm2-tech.es/*  /410.html  410!
+https://www.marisa.jm2-tech.es/*  /410.html  410!
+
 /index.html  /  301
 /plan-base2.html  /base-digital  301
 /sobremi.html  /sobre-mi  301
@@ -9,6 +17,8 @@
 /facturas-automaticas.html  /presupuestos-facturacion-rapida  301
 /lectura-albaranes  /presupuestos-facturacion-rapida  301
 /lectura-albaranes.html  /presupuestos-facturacion-rapida  301
+/verifactu  /presupuestos-facturacion-rapida  301
+/verifactu.html  /presupuestos-facturacion-rapida  301
 
 /adios-excel  /  301
 /adios-excel.html  /  301
