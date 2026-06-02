@@ -3427,6 +3427,25 @@
       will-change: transform;
     }
 
+    .hero-mockup .hero-main-image {
+      width: min(88%, 540px);
+      margin-left: 72px;
+      animation: none;
+    }
+
+    .hero-mockup .hero-mobile-image {
+      position: absolute;
+      left: 0;
+      bottom: 8px;
+      z-index: 2;
+      width: min(38%, 230px);
+      max-height: 430px;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 30px rgba(16, 32, 72, .24));
+      animation: heroMockupFloat 5.6s ease-in-out infinite;
+      animation-delay: .25s;
+    }
+
     .doc-visual-placeholder {
       position: relative;
       z-index: 1;
@@ -3950,19 +3969,19 @@
     }
 
     .verifactu-badge {
-      min-height: 96px;
+      min-height: 0;
       display: grid;
       place-items: center;
-      border-radius: 24px;
-      background: #fff;
-      border: 1px solid rgba(7, 87, 248, .14);
-      box-shadow: 0 12px 24px rgba(16, 32, 72, .08);
-      padding: 20px;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
     }
 
     .verifactu-badge img {
-      max-width: 170px;
-      max-height: 72px;
+      width: min(100%, 760px);
+      max-height: none;
       object-fit: contain;
     }
 
@@ -4007,6 +4026,18 @@
 
       .hero-mockup img {
         max-height: 340px;
+      }
+
+      .hero-mockup .hero-main-image {
+        width: min(88%, 430px);
+        margin-left: 42px;
+      }
+
+      .hero-mockup .hero-mobile-image {
+        left: 0;
+        bottom: 0;
+        width: min(36%, 150px);
+        max-height: 300px;
       }
 
       .split-panel,
@@ -4105,17 +4136,9 @@
           </ul>
         </div>
 
-        <div class="hero-mockup" aria-label="Hueco para mockup de digitalización documental">
-          <div class="doc-visual-placeholder">
-            <span>Hueco para mockup principal</span>
-            <strong>Móvil haciendo foto + panel con documentos procesados</strong>
-            <p>Imagen recomendada: composición con móvil capturando un albarán/ticket y pantalla de escritorio mostrando documentos clasificados.</p>
-            <div class="doc-visual-stack" aria-hidden="true">
-              <i>Foto documento</i>
-              <i>Datos extraídos</i>
-              <i>Panel final</i>
-            </div>
-          </div>
+        <div class="hero-mockup" aria-label="Portada de digitalización documental">
+          <img class="hero-main-image" src="portadadigitalzacion.png" alt="Digitalización de documentos con móvil y panel ordenado" />
+          <img class="hero-mobile-image" src="portadadigitalizadormovil.png" alt="Vista móvil del digitalizador de documentos" />
         </div>
       </div>
     </section>
@@ -4167,11 +4190,7 @@
           <article class="step-card is-active">
             <div class="step-number">1</div>
             <div class="step-visual">
-              <div class="doc-visual-placeholder">
-                <span>Foto / mockup 1</span>
-                <strong>Captura desde móvil o Telegram</strong>
-                <p>Usar una foto realista de un albarán, ticket o factura tomada desde el móvil, con una conversación de Telegram o WhatsApp al lado.</p>
-              </div>
+              <img src="portadadigitalizadormovil.png" alt="Captura desde móvil para digitalizar documentos" />
             </div>
             <h3>Subes el documento</h3>
             <ul>
@@ -4184,11 +4203,7 @@
           <article class="step-card">
             <div class="step-number">2</div>
             <div class="step-visual">
-              <div class="doc-visual-placeholder">
-                <span>Foto / mockup 2</span>
-                <strong>Datos detectados automáticamente</strong>
-                <p>Mockup recomendado: documento escaneado con campos destacados: proveedor, fecha, número, base imponible, IVA, total y concepto.</p>
-              </div>
+              <img src="portadadigitalzacion.png" alt="Mockup de datos detectados en documentos digitalizados" />
             </div>
             <h3>El sistema lee los datos clave</h3>
             <ul>
@@ -4201,11 +4216,7 @@
           <article class="step-card">
             <div class="step-number">3</div>
             <div class="step-visual">
-              <div class="doc-visual-placeholder">
-                <span>Foto / mockup 3</span>
-                <strong>Panel de documentos revisados</strong>
-                <p>Mockup recomendado: escritorio con tarjetas o tabla de documentos, filtros por estado y una ficha lateral con datos editables.</p>
-              </div>
+              <img src="flotas.png" alt="Panel de documentos revisados y organizados" />
             </div>
             <h3>Revisas y lo dejas archivado</h3>
             <ul>
@@ -4279,36 +4290,6 @@
       </div>
     </section>
 
-    <section class="section" id="visuales">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="section-label">Material visual pendiente</div>
-            <h2>Huecos preparados para enseñar el producto con claridad</h2>
-          </div>
-          <p>Cuando tengas las imágenes finales, estos espacios pueden cambiarse por capturas reales, mockups de escritorio o fotos de documentos.</p>
-        </div>
-
-        <div class="benefits-grid">
-          <article class="benefit-card">
-            <span class="benefit-icon">A</span>
-            <h3>Foto de entrada</h3>
-            <p>Documento real sobre mesa o móvil: ticket, albarán, factura de proveedor o parte firmado.</p>
-          </article>
-          <article class="benefit-card">
-            <span class="benefit-icon">B</span>
-            <h3>Mockup de lectura</h3>
-            <p>Pantalla con el documento a la izquierda y los campos detectados a la derecha para mostrar el valor del OCR.</p>
-          </article>
-          <article class="benefit-card">
-            <span class="benefit-icon">C</span>
-            <h3>Panel final</h3>
-            <p>Vista tipo dashboard con filtros, estados y documentos organizados por proveedor, cliente, obra o fecha.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="automatizacion">
       <div class="container verifactu-panel">
         <div>
@@ -4319,10 +4300,7 @@
           </p>
         </div>
         <div class="verifactu-badge">
-          <div class="doc-visual-placeholder">
-            <span>Mockup integración</span>
-            <p>Imagen sugerida: documentos entrando en un panel y saliendo hacia Excel, gestor, email o tablero de control.</p>
-          </div>
+          <img src="datos_extraidos.png" alt="Datos extraídos de documentos digitalizados" />
         </div>
       </div>
     </section>
