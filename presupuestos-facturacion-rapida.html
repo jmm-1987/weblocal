@@ -3324,17 +3324,6 @@
       line-height: 1;
     }
 
-    .hero-speed-note {
-      display: block;
-      margin-top: 12px;
-      color: var(--blue);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(26px, 3vw, 42px);
-      font-style: italic;
-      font-weight: 700;
-      line-height: 1.05;
-    }
-
     .landing-hero .hero-copy p {
       max-width: 660px;
     }
@@ -3400,18 +3389,34 @@
       font-weight: 800;
     }
 
+    .problem-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
+      align-items: center;
+      gap: 42px;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .problem-layout .section-head {
+      margin-bottom: 0;
+    }
+
     .problem-image {
-      width: min(100%, 720px);
-      margin: 28px auto 0;
-      border-radius: 24px;
-      box-shadow: var(--shadow-soft);
+      width: 100%;
+      max-width: 390px;
+      margin: 0;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .problem-word-list {
       display: grid;
       gap: 10px;
       width: min(100%, 520px);
-      margin: 24px auto 0;
+      margin: 24px 0 0;
     }
 
     .problem-word {
@@ -3868,7 +3873,9 @@
     .pricing-card .secondary-btn,
     .pricing-card .primary-btn {
       width: fit-content;
+      max-width: 100%;
       margin-top: auto;
+      text-align: center;
     }
 
     .sectors-list {
@@ -3931,6 +3938,15 @@
         grid-template-columns: 1fr;
       }
 
+      .problem-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+        gap: 30px;
+      }
+
+      .problem-image {
+        max-width: 340px;
+      }
+
       .steps-grid,
       .visual-grid {
         grid-template-columns: 1fr;
@@ -3949,6 +3965,16 @@
       .landing-hero h1 {
         font-size: clamp(34px, 10vw, 44px);
         line-height: 1.04;
+      }
+
+      .problem-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-image {
+        width: min(100%, 420px);
+        max-width: none;
+        margin: 4px auto 0;
       }
 
       .landing-placeholder {
@@ -4040,14 +4066,13 @@
     <section class="landing-hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <h1>Presupuestos, albaranes y facturas en segundos</h1>
-          <span class="hero-speed-note"></span>
+          <h1>El sistema de presupuestos y facturas hecho para tu negocio</h1>
           <p>
             Desde el móvil o escritorio. Sin Word, sin Excel y sin instalar programas complicados.
-            <span class="hero-highlight">Menos tiempo preparando documentos.</span>
+            <span class="hero-highlight">Adaptamos la herramienta a cómo trabaja tu empresa.</span>
           </p>
-          <div class="hero-share-strip" aria-label="Comparte presupuestos en un click">
-            <span>y comparte en un click</span>
+          <div class="hero-share-strip" aria-label="Crea y comparte documentos en segundos">
+            <span>Crea y comparte documentos en segundos.</span>
             <span class="hero-share-icons" aria-hidden="true">
               <img src="telegramm.png" alt="" />
               <img src="whatsappp.png" alt="" />
@@ -4056,9 +4081,9 @@
             </span>
           </div>
           <div class="hero-actions">
-            <button class="hero-cta" type="button" data-contact-modal-open>Quiero ver cómo funciona en mi negocio</button>
+            <button class="hero-cta" type="button" data-contact-modal-open>Quiero ver cómo quedaría en mi empresa</button>
           </div>
-          <p class="hero-price-note">Planes desde 30€/mes.</p>
+          <p class="hero-price-note">Planes desde 30€/mes con acompañamiento para dejar el sistema preparado según tu forma de trabajar.</p>
         </div>
 
         <div class="hero-mockup" aria-label="Mockup de presupuestos y facturación rápida">
@@ -4069,18 +4094,52 @@
 
     <section class="section" id="problema">
       <div class="container">
+        <div class="problem-layout">
+          <div>
+            <div class="section-head">
+              <div>
+                <h2>¿Terminas el día cansado y luego toca?</h2>
+              </div>
+            </div>
+            <div class="problem-word-list" aria-label="Tareas pendientes al final del día">
+              <span class="problem-word">Buscar precios</span>
+              <span class="problem-word">Preparar PDFs</span>
+              <span class="problem-word">Enviar presupuestos</span>
+              <span class="problem-word">Revisar datos</span>
+              <span class="problem-word">Hacer facturas...</span>
+            </div>
+          </div>
+          <img class="problem-image" src="cansado.png" alt="Persona cansada al final del día preparando presupuestos" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="beneficios">
+      <div class="container">
         <div class="section-head">
           <div>
-            <h2>¿Terminas el día cansado y luego toca?</h2>
+            <h2>No somos un programa genérico. Montamos una herramienta a medida para tu forma real de trabajar.</h2>
           </div>
+          <p>Primero hablamos, nos cuentas cómo funcionas y adaptamos la herramienta a tu día a día, no al revés.</p>
         </div>
-        <div class="problem-word-list" aria-label="Documentos pendientes al final del día">
-          <span class="problem-word">Presupuestos</span>
-          <span class="problem-word">Albaranes</span>
-          <span class="problem-word">Facturas...</span>
-        </div>
-        <img class="problem-image" src="cansado.png" alt="Persona cansada al final del día preparando presupuestos" />
 
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <span class="benefit-icon">1</span>
+            <h3>Lo adaptamos a tu negocio</h3>
+            <p>Nos cuentas cómo recibes pedidos, cómo preparas presupuestos y qué datos necesitas ver antes de enviar cada documento.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">2</span>
+            <h3>Cargamos tus artículos</h3>
+            <p>Si trabajas con artículos, servicios o precios habituales, los dejamos preparados para que puedas usarlos sin esfuerzo.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">3</span>
+            <h3>VeriFactu si lo quieres</h3>
+            <p>La opción VeriFactu es opcional: si la necesitas la incorporamos, y si no, dejamos el sistema más simple.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -4090,7 +4149,7 @@
           <div>
             <h2>Conecta todo en una herramienta hecha para tu empresa</h2>
           </div>
-          <p>Un flujo sencillo para pasar de los datos enviados por Telegram al PDF listo y a la factura preparada en el panel.</p>
+          <p>Desde el móvil introduces los datos y el presupuesto queda listo para enviar. Todo queda guardado para consultar, modificar o facturar cuando lo necesites.</p>
         </div>
 
         <div class="steps-grid">
@@ -4146,35 +4205,6 @@
       </div>
     </section>
 
-    <section class="section" id="beneficios">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>No somos un programa genérico; entregamos una herramienta a medida que garantiza el orden y la rapidez en tus procesos</h2>
-          </div>
-          <p>Primero hablamos, nos cuentas cómo funcionas y adaptamos la herramienta a tu día a día, no al revés.</p>
-        </div>
-
-        <div class="benefits-grid">
-          <article class="benefit-card">
-            <span class="benefit-icon">1</span>
-            <h3>Lo adaptamos a tu negocio</h3>
-            <p>Nos cuentas cómo recibes pedidos, cómo preparas presupuestos y qué datos necesitas ver antes de enviar cada documento.</p>
-          </article>
-          <article class="benefit-card">
-            <span class="benefit-icon">2</span>
-            <h3>Cargamos tus artículos</h3>
-            <p>Si trabajas con artículos, servicios o precios habituales, los dejamos preparados para que puedas usarlos sin esfuerzo.</p>
-          </article>
-          <article class="benefit-card">
-            <span class="benefit-icon">3</span>
-            <h3>VeriFactu si lo quieres</h3>
-            <p>La opción VeriFactu es opcional: si la necesitas la incorporamos, y si no, dejamos el sistema más simple.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="para-quien">
       <div class="container">
         <div class="section-head">
@@ -4204,7 +4234,7 @@
             <div class="section-label">Planes</div>
             <h2>Elige el nivel de gestión que necesitas ahora</h2>
           </div>
-          <p>Empieza con presupuestos rápidos y sube a facturación con VeriFactu cuando tu negocio lo necesite.</p>
+          <p>Planes desde 30€/mes con acompañamiento y adaptación inicial para dejar el sistema preparado según tu forma de trabajar.</p>
         </div>
 
         <div class="pricing-grid">
@@ -4243,7 +4273,7 @@
               <li>Preparado con VeriFactu</li>
               <li>Panel con clientes, documentos e historial</li>
             </ul>
-            <button class="primary-btn" type="button" data-contact-modal-open>Solicitar demostración</button>
+            <button class="primary-btn" type="button" data-contact-modal-open>Quiero ver cómo quedaría en mi empresa</button>
           </article>
         </div>
       </div>
@@ -4290,7 +4320,7 @@
           <p>Analizamos tu forma de trabajar y vemos cómo simplificarla con una herramienta práctica y adaptada a tu negocio.</p>
         </div>
         <div class="hero-actions">
-          <button class="footer-cta-link" type="button" data-contact-modal-open>Solicitar demostración</button>
+          <button class="footer-cta-link" type="button" data-contact-modal-open>Quiero ver cómo quedaría en mi empresa</button>
           <a class="footer-cta-link" href="https://wa.me/34625433667?text=Hola%20JM2%20Tech%20Studio,%20quiero%20simplificar%20mis%20presupuestos%20y%20facturas" target="_blank" rel="noopener">Hablar por WhatsApp</a>
         </div>
       </div>
