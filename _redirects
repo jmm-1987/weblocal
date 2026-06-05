@@ -11,6 +11,7 @@ https://www.marisa.jm2-tech.es/*  /410.html  410!
 /sobremi.html  /sobre-mi  301
 /presupuestos-facturacion-rapida.html  /presupuestos-facturacion-rapida  301
 /digitalizar-documentos.html  /digitalizar-documentos  301
+/automatizacion-tareas.html  /automatizacion-tareas  301
 /contacto.html  /contacto  301
 
 /facturas-automaticas  /presupuestos-facturacion-rapida  301
@@ -22,25 +23,26 @@ https://www.marisa.jm2-tech.es/*  /410.html  410!
 
 /adios-excel  /  301
 /adios-excel.html  /  301
-/automatizacion-email  /  301
-/automatizacion-email.html  /  301
-/automatizaciones  /  301
-/automatizaciones.html  /  301
-/avisos-whatsapp-telegram  /  301
-/avisos-whatsapp-telegram.html  /  301
-/gestion-citas  /  301
-/gestion-citas.html  /  301
-/informes-consumos  /  301
-/informes-consumos.html  /  301
+/automatizacion-email  /automatizacion-tareas  301
+/automatizacion-email.html  /automatizacion-tareas  301
+/automatizaciones  /automatizacion-tareas  301
+/automatizaciones.html  /automatizacion-tareas  301
+/avisos-whatsapp-telegram  /automatizacion-tareas  301
+/avisos-whatsapp-telegram.html  /automatizacion-tareas  301
+/gestion-citas  /automatizacion-tareas  301
+/gestion-citas.html  /automatizacion-tareas  301
+/informes-consumos  /automatizacion-tareas  301
+/informes-consumos.html  /automatizacion-tareas  301
 /plan-base  /  301
 /plan-base.html  /  301
-/recordatorios-automaticos  /  301
-/recordatorios-automaticos.html  /  301
+/recordatorios-automaticos  /automatizacion-tareas  301
+/recordatorios-automaticos.html  /automatizacion-tareas  301
 /plan-avanzado  /  301
-/automatizar-procesos  /  301
+/automatizar-procesos  /automatizacion-tareas  301
 
 /base-digital  /plan-base2.html  200
 /sobre-mi  /sobremi.html  200
 /presupuestos-facturacion-rapida  /presupuestos-facturacion-rapida.html  200
 /digitalizar-documentos  /digitalizar-documentos.html  200
+/automatizacion-tareas  /automatizacion-tareas.html  200
 /contacto  /contacto.html  200

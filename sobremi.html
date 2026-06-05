@@ -279,8 +279,8 @@
       </button>
       <div class="contact-modal-head">
         <div class="section-label">Contacto</div>
-        <h3>Solicita una llamada</h3>
-        <p>Indica tus datos y te llamamos en el d&iacute;a y hora que prefieras.</p>
+        <h3>Cuéntame cómo trabajas</h3>
+        <p>Te enseñaré una forma más rápida de preparar presupuestos y facturas, adaptada a tu forma de trabajar.</p>
       </div>
       <form class="footer-contact-form" id="footerContactForm" novalidate>
         <div class="footer-contact-brandmark" aria-hidden="true">
@@ -288,13 +288,10 @@
         </div>
         <div class="footer-contact-grid">
           <label class="footer-contact-field"><span>Nombre</span><input type="text" name="nombre" autocomplete="name" required /></label>
-          <label class="footer-contact-field"><span>Empresa</span><input type="text" name="empresa" autocomplete="organization" required /></label>
+          <label class="footer-contact-field" id="footerContactDetailField"><span id="footerContactDetailLabel">WhatsApp o teléfono</span><input id="footerContactDetailInput" type="text" name="contacto_detalle" autocomplete="tel" required /></label>
         </div>
-        <div class="footer-contact-grid">
-          <label class="footer-contact-field"><span>Forma de contacto preferida</span><select name="forma_contacto" required><option value="">Selecciona una opci&oacute;n</option><option value="Prefiere WhatsApp">WhatsApp</option><option value="Prefiere llamada">Llamada</option></select></label>
-          <label class="footer-contact-field" id="footerContactDetailField"><span id="footerContactDetailLabel">Dato de contacto</span><input id="footerContactDetailInput" type="text" name="contacto_detalle" placeholder="Selecciona primero la forma de contacto" autocomplete="off" required /></label>
-        </div>
-        <button type="submit" class="footer-contact-submit">Enviar solicitud</button>
+        <button type="submit" class="footer-contact-submit">Quiero verlo en mi empresa</button>
+        <p class="footer-contact-status footer-contact-note">Te responderé personalmente. Sin compromiso.</p>
         <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
       </form>
     </div>

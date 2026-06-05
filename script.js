@@ -426,9 +426,6 @@ if (automationTrack && automationSlides.length) {
 
 const footerContactForm = document.getElementById('footerContactForm');
 const footerContactStatus = document.getElementById('footerContactStatus');
-const footerContactMethodSelect = footerContactForm?.querySelector('select[name="forma_contacto"]');
-const footerContactDetailLabel = document.getElementById('footerContactDetailLabel');
-const footerContactDetailInput = document.getElementById('footerContactDetailInput');
 const EMAILJS_SERVICE_ID = 'service_a1xi29i';
 const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
 const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
@@ -440,48 +437,18 @@ if (window.emailjs && EMAILJS_PUBLIC_KEY !== 'TU_PUBLIC_KEY_EMAILJS') {
 }
 
 if (footerContactForm) {
-  function updateContactDetailField() {
-    if (!footerContactMethodSelect || !footerContactDetailInput || !footerContactDetailLabel) return;
-
-    const selectedMethod = footerContactMethodSelect.value;
-
-    if (selectedMethod === 'Prefiere WhatsApp') {
-      footerContactDetailLabel.textContent = 'Numero de telefono';
-      footerContactDetailInput.type = 'tel';
-      footerContactDetailInput.placeholder = 'Tu numero de telefono';
-      footerContactDetailInput.autocomplete = 'tel';
-      return;
-    }
-
-    if (selectedMethod === 'Prefiere llamada') {
-      footerContactDetailLabel.textContent = 'Numero de telefono';
-      footerContactDetailInput.type = 'tel';
-      footerContactDetailInput.placeholder = 'Tu numero de telefono';
-      footerContactDetailInput.autocomplete = 'tel';
-      return;
-    }
-
-    footerContactDetailLabel.textContent = 'Dato de contacto';
-    footerContactDetailInput.type = 'text';
-    footerContactDetailInput.placeholder = 'Selecciona primero la forma de contacto';
-    footerContactDetailInput.autocomplete = 'off';
-  }
-
-  footerContactMethodSelect?.addEventListener('change', updateContactDetailField);
-  updateContactDetailField();
-
   footerContactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const formData = new FormData(footerContactForm);
     const nombre = String(formData.get('nombre') || '').trim();
-    const empresa = String(formData.get('empresa') || '').trim();
-    const formaContacto = String(formData.get('forma_contacto') || '').trim();
+    const empresa = 'No indicado';
+    const formaContacto = 'WhatsApp o teléfono';
     const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
     const diaLlamada = 'No indicado';
     const horaLlamada = 'No indicado';
 
-    if (!nombre || !empresa || !formaContacto || !contactoDetalle) {
+    if (!nombre || !contactoDetalle) {
       if (footerContactStatus) {
         footerContactStatus.textContent = 'Completa todos los campos antes de enviar.';
       }
@@ -537,7 +504,6 @@ if (footerContactForm) {
       });
 
       footerContactForm.reset();
-      updateContactDetailField();
       closeContactModal();
     } catch (error) {
       const errorText = typeof error === 'object' && error && 'text' in error
@@ -554,7 +520,7 @@ if (footerContactForm) {
     } finally {
       if (submitButton instanceof HTMLButtonElement) {
         submitButton.disabled = false;
-        submitButton.textContent = 'Enviar solicitud';
+        submitButton.textContent = 'Quiero verlo en mi empresa';
       }
     }
   });

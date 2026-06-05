@@ -4411,8 +4411,8 @@
       </button>
       <div class="contact-modal-head">
         <div class="section-label">Contacto</div>
-        <h3>Solicita una demostración</h3>
-        <p>Indica tus datos y te contactamos en el día y hora que prefieras.</p>
+        <h3>Cuéntame cómo trabajas</h3>
+        <p>Te enseñaré una forma más rápida de preparar presupuestos y facturas, adaptada a tu forma de trabajar.</p>
       </div>
       <form class="footer-contact-form" id="footerContactForm" novalidate>
         <div class="footer-contact-brandmark" aria-hidden="true">
@@ -4423,26 +4423,13 @@
             <span>Nombre</span>
             <input type="text" name="nombre" autocomplete="name" required />
           </label>
-          <label class="footer-contact-field">
-            <span>Empresa</span>
-            <input type="text" name="empresa" autocomplete="organization" required />
-          </label>
-        </div>
-        <div class="footer-contact-grid">
-          <label class="footer-contact-field">
-            <span>Forma de contacto preferida</span>
-            <select name="forma_contacto" required>
-              <option value="">Selecciona una opcion</option>
-              <option value="Prefiere WhatsApp">WhatsApp</option>
-              <option value="Prefiere llamada">Llamada</option>
-            </select>
-          </label>
           <label class="footer-contact-field" id="footerContactDetailField">
-            <span id="footerContactDetailLabel">Dato de contacto</span>
-            <input id="footerContactDetailInput" type="text" name="contacto_detalle" placeholder="Selecciona primero la forma de contacto" autocomplete="off" required />
+            <span id="footerContactDetailLabel">WhatsApp o teléfono</span>
+            <input id="footerContactDetailInput" type="text" name="contacto_detalle" autocomplete="tel" required />
           </label>
         </div>
-        <button type="submit" class="footer-contact-submit">Enviar solicitud</button>
+        <button type="submit" class="footer-contact-submit">Quiero verlo en mi empresa</button>
+        <p class="footer-contact-status footer-contact-note">Te responderé personalmente. Sin compromiso.</p>
         <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
       </form>
     </div>
@@ -4475,9 +4462,6 @@
     const contactModalCloseButtons = Array.from(document.querySelectorAll('[data-contact-modal-close]'));
     const footerContactForm = document.getElementById('footerContactForm');
     const footerContactStatus = document.getElementById('footerContactStatus');
-    const footerContactMethodSelect = footerContactForm?.querySelector('select[name="forma_contacto"]');
-    const footerContactDetailLabel = document.getElementById('footerContactDetailLabel');
-    const footerContactDetailInput = document.getElementById('footerContactDetailInput');
     const stepCards = Array.from(document.querySelectorAll('.steps-grid .step-card'));
     const stepControls = Array.from(document.querySelectorAll('[data-step-control]'));
     const scrollDepthMarks = [25, 50, 75, 90];
@@ -4700,34 +4684,15 @@
       window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
     }
 
-    function updateContactDetailField() {
-      if (!footerContactMethodSelect || !footerContactDetailInput || !footerContactDetailLabel) return;
-      const selectedMethod = footerContactMethodSelect.value;
-      if (selectedMethod === 'Prefiere WhatsApp' || selectedMethod === 'Prefiere llamada') {
-        footerContactDetailLabel.textContent = 'Numero de telefono';
-        footerContactDetailInput.type = 'tel';
-        footerContactDetailInput.placeholder = 'Tu numero de telefono';
-        footerContactDetailInput.autocomplete = 'tel';
-        return;
-      }
-      footerContactDetailLabel.textContent = 'Dato de contacto';
-      footerContactDetailInput.type = 'text';
-      footerContactDetailInput.placeholder = 'Selecciona primero la forma de contacto';
-      footerContactDetailInput.autocomplete = 'off';
-    }
-
-    footerContactMethodSelect?.addEventListener('change', updateContactDetailField);
-    updateContactDetailField();
-
     footerContactForm?.addEventListener('submit', async (event) => {
       event.preventDefault();
       const formData = new FormData(footerContactForm);
       const nombre = String(formData.get('nombre') || '').trim();
-      const empresa = String(formData.get('empresa') || '').trim();
-      const formaContacto = String(formData.get('forma_contacto') || '').trim();
+      const empresa = 'No indicado';
+      const formaContacto = 'WhatsApp o teléfono';
       const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
 
-      if (!nombre || !empresa || !formaContacto || !contactoDetalle) {
+      if (!nombre || !contactoDetalle) {
         if (footerContactStatus) footerContactStatus.textContent = 'Completa todos los campos antes de enviar.';
         return;
       }
@@ -4760,7 +4725,6 @@
         if (footerContactStatus) footerContactStatus.textContent = 'Mensaje enviado correctamente. Te contactaremos pronto.';
         trackEvent('generate_lead', { contact_method: formaContacto.toLowerCase(), lead_source: 'footer_form' });
         footerContactForm.reset();
-        updateContactDetailField();
         closeContactModal();
       } catch (error) {
         const errorText = error && typeof error === 'object' && 'text' in error ? String(error.text) : 'error desconocido';
@@ -4768,7 +4732,7 @@
       } finally {
         if (submitButton instanceof HTMLButtonElement) {
           submitButton.disabled = false;
-          submitButton.textContent = 'Enviar solicitud';
+          submitButton.textContent = 'Quiero verlo en mi empresa';
         }
       }
     });
