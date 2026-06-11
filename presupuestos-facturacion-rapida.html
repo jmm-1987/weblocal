@@ -3505,7 +3505,7 @@
 
     .hero-mockup {
       position: relative;
-      min-height: 420px;
+      min-height: 500px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -3530,6 +3530,21 @@
       max-height: 520px;
       object-fit: contain;
       filter: drop-shadow(0 28px 34px rgba(16, 32, 72, .18));
+      animation: heroMockupFloat 5.6s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .hero-mockup video {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: min(100%, 560px);
+      min-height: 500px;
+      max-height: 600px;
+      border-radius: 38% 62% 48% 52% / 42% 36% 64% 58%;
+      clip-path: polygon(7% 10%, 88% 0, 100% 18%, 94% 82%, 76% 100%, 12% 92%, 0 72%, 3% 28%);
+      object-fit: cover;
+      box-shadow: 0 28px 44px rgba(16, 32, 72, .18);
       animation: heroMockupFloat 5.6s ease-in-out infinite;
       will-change: transform;
     }
@@ -4045,11 +4060,18 @@
       }
 
       .hero-mockup {
-        min-height: 300px;
+        min-height: 360px;
       }
 
       .hero-mockup img {
         max-height: 340px;
+      }
+
+      .hero-mockup video {
+        min-height: 360px;
+        max-height: 410px;
+        border-radius: 34% 66% 48% 52% / 40% 38% 62% 60%;
+        clip-path: polygon(6% 9%, 88% 2%, 100% 20%, 94% 82%, 76% 100%, 12% 93%, 0 74%, 3% 26%);
       }
 
       .pricing-grid,
@@ -4135,21 +4157,13 @@
           </p>
           <div class="hero-actions">
             <button class="hero-cta" type="button" data-contact-modal-open>Quiero ver una demo rápida</button>
+            <a class="secondary-btn" href="https://demo-presupuestos.jm2-tech.es">Pruébalo tú mismo</a>
           </div>
           <p class="hero-price-note">Te enseñamos ejemplos reales y vemos si encaja contigo.</p>
         </div>
 
-        <div class="hero-mockup" aria-label="Mockup de presupuestos y facturación rápida">
-          <img src="mockeupresus.png" alt="Mockup moderno de presupuestos, albaranes y facturas rápidas" />
-          <div class="hero-share-strip" aria-label="Crea y comparte documentos en segundos">
-            <span>Crea y comparte documentos en segundos.</span>
-            <span class="hero-share-icons" aria-hidden="true">
-              <img src="telegramm.png" alt="" />
-              <img src="whatsappp.png" alt="" />
-              <img src="emaill.png" alt="" />
-              <img src="gmail.png" alt="" />
-            </span>
-          </div>
+        <div class="hero-mockup" aria-label="Vista previa de presupuestos y facturación rápida">
+          <video src="video.mp4" autoplay muted loop playsinline preload="auto" aria-label="Demo de presupuestos, albaranes y facturas rápidas"></video>
         </div>
       </div>
     </section>
@@ -4819,6 +4833,10 @@
     videoModalCloseButtons.forEach((button) => {
       button.addEventListener('click', () => closeVideoModal());
     });
+
+    if (new URLSearchParams(window.location.search).get('modal') === 'contacto') {
+      window.requestAnimationFrame(() => openContactModal(null));
+    }
 
     document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
       link.addEventListener('click', () => {
