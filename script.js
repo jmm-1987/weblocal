@@ -426,9 +426,9 @@ if (automationTrack && automationSlides.length) {
 
 const footerContactForm = document.getElementById('footerContactForm');
 const footerContactStatus = document.getElementById('footerContactStatus');
-const EMAILJS_SERVICE_ID = 'service_a1xi29i';
+const EMAILJS_SERVICE_ID = 'jm2-limpio';
 const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
-const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
+const EMAILJS_PUBLIC_KEY = 'LLIuQx-WZ1x6XBuDn';
 
 if (window.emailjs && EMAILJS_PUBLIC_KEY !== 'TU_PUBLIC_KEY_EMAILJS') {
   window.emailjs.init({
@@ -442,11 +442,11 @@ if (footerContactForm) {
 
     const formData = new FormData(footerContactForm);
     const nombre = String(formData.get('nombre') || '').trim();
-    const empresa = 'No indicado';
-    const formaContacto = 'WhatsApp o teléfono';
+    const formaContacto = String(formData.get('forma_de_contacto') || 'WhatsApp').trim();
     const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
-    const diaLlamada = 'No indicado';
-    const horaLlamada = 'No indicado';
+    const procedencia = window.location.pathname || 'sobre-mi';
+    const referrer = document.referrer || 'Directo';
+    const timestamp = new Date().toISOString();
 
     if (!nombre || !contactoDetalle) {
       if (footerContactStatus) {
@@ -482,14 +482,12 @@ if (footerContactForm) {
     try {
       await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         nombre,
-        email: contactoDetalle,
+        email: 'No indicado',
         telefono: contactoDetalle,
-        empresa,
         forma_de_contacto: formaContacto,
-        contacto_detalle: contactoDetalle,
-        dia_llamada: diaLlamada,
-        hora_llamada: horaLlamada,
-        'forma de contacto': formaContacto,
+        procedencia,
+        referrer,
+        timestamp,
       }, {
         publicKey: EMAILJS_PUBLIC_KEY,
       });

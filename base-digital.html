@@ -1312,7 +1312,8 @@
         </div>
         <div class="footer-contact-grid">
           <label class="footer-contact-field"><span>Nombre</span><input type="text" name="nombre" autocomplete="name" required /></label>
-          <label class="footer-contact-field" id="footerContactDetailField"><span id="footerContactDetailLabel">WhatsApp o teléfono</span><input id="footerContactDetailInput" type="text" name="contacto_detalle" autocomplete="tel" required /></label>
+          <label class="footer-contact-field"><span>Prefiero contacto por</span><select name="forma_de_contacto" required><option value="WhatsApp">WhatsApp</option><option value="Llamada">Llamada</option></select></label>
+          <label class="footer-contact-field" id="footerContactDetailField"><span id="footerContactDetailLabel">Teléfono</span><input id="footerContactDetailInput" type="text" name="contacto_detalle" autocomplete="tel" required /></label>
         </div>
         <button type="submit" class="footer-contact-submit">Quiero verlo en mi empresa</button>
         <p class="footer-contact-status footer-contact-note">Te responderé personalmente. Sin compromiso.</p>
@@ -1339,9 +1340,9 @@
     const contactModalCloseButtons = Array.from(document.querySelectorAll('[data-contact-modal-close]'));
     const footerContactForm = document.getElementById('footerContactForm');
     const footerContactStatus = document.getElementById('footerContactStatus');
-    const EMAILJS_SERVICE_ID = 'service_a1xi29i';
+    const EMAILJS_SERVICE_ID = 'jm2-limpio';
     const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
-    const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
+    const EMAILJS_PUBLIC_KEY = 'LLIuQx-WZ1x6XBuDn';
     let activeContactModalButton = null;
 
     revealItems.forEach((item, index) => {
@@ -1437,9 +1438,11 @@
       event.preventDefault();
       const formData = new FormData(footerContactForm);
       const nombre = String(formData.get('nombre') || '').trim();
-      const empresa = 'No indicado';
-      const formaContacto = 'WhatsApp o teléfono';
+      const formaContacto = String(formData.get('forma_de_contacto') || 'WhatsApp').trim();
       const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
+      const procedencia = 'base-digital';
+      const referrer = document.referrer || 'Directo';
+      const timestamp = new Date().toISOString();
 
       if (!nombre || !contactoDetalle) {
         if (footerContactStatus) footerContactStatus.textContent = 'Completa todos los campos antes de enviar.';
@@ -1461,14 +1464,12 @@
       try {
         await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
           nombre,
-          email: contactoDetalle,
+          email: 'No indicado',
           telefono: contactoDetalle,
-          empresa,
           forma_de_contacto: formaContacto,
-          contacto_detalle: contactoDetalle,
-          dia_llamada: 'No indicado',
-          hora_llamada: 'No indicado',
-          'forma de contacto': formaContacto,
+          procedencia,
+          referrer,
+          timestamp,
         }, { publicKey: EMAILJS_PUBLIC_KEY });
 
         if (footerContactStatus) footerContactStatus.textContent = 'Mensaje enviado correctamente. Te contactaremos pronto.';

@@ -291,7 +291,8 @@
         </div>
         <div class="footer-contact-grid">
           <label class="footer-contact-field"><span>Nombre</span><input type="text" name="nombre" autocomplete="name" required /></label>
-          <label class="footer-contact-field" id="footerContactDetailField"><span id="footerContactDetailLabel">WhatsApp o teléfono</span><input id="footerContactDetailInput" type="text" name="contacto_detalle" autocomplete="tel" required /></label>
+          <label class="footer-contact-field"><span>Prefiero contacto por</span><select name="forma_de_contacto" required><option value="WhatsApp">WhatsApp</option><option value="Llamada">Llamada</option></select></label>
+          <label class="footer-contact-field" id="footerContactDetailField"><span id="footerContactDetailLabel">Teléfono</span><input id="footerContactDetailInput" type="text" name="contacto_detalle" autocomplete="tel" required /></label>
         </div>
         <button type="submit" class="footer-contact-submit">Quiero verlo en mi empresa</button>
         <p class="footer-contact-status footer-contact-note">Te responderé personalmente. Sin compromiso.</p>
@@ -316,7 +317,6 @@
   <script src="script.js"></script>
 </body>
 </html>
-
 
 
 

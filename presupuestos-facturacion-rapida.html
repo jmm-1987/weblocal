@@ -4503,8 +4503,15 @@
             <span>Nombre</span>
             <input type="text" name="nombre" autocomplete="name" required />
           </label>
+          <label class="footer-contact-field">
+            <span>Prefiero contacto por</span>
+            <select name="forma_de_contacto" required>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Llamada">Llamada</option>
+            </select>
+          </label>
           <label class="footer-contact-field" id="footerContactDetailField">
-            <span id="footerContactDetailLabel">WhatsApp o teléfono</span>
+            <span id="footerContactDetailLabel">Teléfono</span>
             <input id="footerContactDetailInput" type="text" name="contacto_detalle" autocomplete="tel" required />
           </label>
         </div>
@@ -4595,10 +4602,10 @@
     const trackedScrollDepths = new Set();
     const engagementTimeMarks = [10, 30, 60];
     const trackedEngagementTimeMarks = new Set();
-    const EMAILJS_SERVICE_ID = 'service_a1xi29i';
+    const EMAILJS_SERVICE_ID = 'jm2-limpio';
     const EMAILJS_TEMPLATE_ID = 'template_8dl1y4o';
     const EMAILJS_VIDEO_TEMPLATE_ID = 'template_8dl1y4o';
-    const EMAILJS_PUBLIC_KEY = 'topNg38j9LTlBzeSQ';
+    const EMAILJS_PUBLIC_KEY = 'LLIuQx-WZ1x6XBuDn';
     let activeContactModalButton = null;
     let activeVideoModalButton = null;
     let videoRequestSent = false;
@@ -4862,9 +4869,11 @@
       event.preventDefault();
       const formData = new FormData(footerContactForm);
       const nombre = String(formData.get('nombre') || '').trim();
-      const empresa = 'No indicado';
-      const formaContacto = 'WhatsApp o teléfono';
+      const formaContacto = String(formData.get('forma_de_contacto') || 'WhatsApp').trim();
       const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
+      const procedencia = 'presupuestos-facturacion-rapida';
+      const referrer = document.referrer || 'Directo';
+      const timestamp = new Date().toISOString();
 
       if (!nombre || !contactoDetalle) {
         if (footerContactStatus) footerContactStatus.textContent = 'Completa todos los campos antes de enviar.';
@@ -4886,14 +4895,12 @@
       try {
         await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
           nombre,
-          email: contactoDetalle,
+          email: 'No indicado',
           telefono: contactoDetalle,
-          empresa,
           forma_de_contacto: formaContacto,
-          contacto_detalle: contactoDetalle,
-          dia_llamada: 'No indicado',
-          hora_llamada: 'No indicado',
-          'forma de contacto': formaContacto,
+          procedencia,
+          referrer,
+          timestamp,
         }, { publicKey: EMAILJS_PUBLIC_KEY });
 
         if (footerContactStatus) footerContactStatus.textContent = 'Mensaje enviado correctamente. Te contactaremos pronto.';
@@ -4916,8 +4923,9 @@
       const formData = new FormData(videoContactForm);
       const email = String(formData.get('email') || '').trim();
       const emailField = videoContactForm.querySelector('input[name="email"]');
-      const origen = 'Solicitud vídeos funcionamiento';
-      const pagina = 'presupuestos-facturacion-rapida';
+      const procedencia = 'presupuestos-facturacion-rapida-video';
+      const referrer = document.referrer || 'Directo';
+      const timestamp = new Date().toISOString();
 
       if (!email || (emailField instanceof HTMLInputElement && !emailField.checkValidity())) {
         if (videoContactStatus) videoContactStatus.textContent = 'Introduce un email válido para recibir los vídeos.';
@@ -4939,19 +4947,17 @@
       try {
         await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_VIDEO_TEMPLATE_ID, {
           email,
-          origen,
-          pagina,
           nombre: 'No indicado',
           telefono: 'No indicado',
-          empresa: 'No indicado',
           forma_de_contacto: 'Email',
-          contacto_detalle: email,
-          'forma de contacto': 'Email',
+          procedencia,
+          referrer,
+          timestamp,
         }, { publicKey: EMAILJS_PUBLIC_KEY });
 
         videoRequestSent = true;
         if (videoContactStatus) videoContactStatus.textContent = 'Solicitud enviada. Te mandaremos los vídeos al email indicado.';
-        trackEvent('video_request_submit', { contact_method: 'email', lead_source: 'video_form', origen, pagina });
+        trackEvent('video_request_submit', { contact_method: 'email', lead_source: 'video_form', procedencia });
         videoContactForm.reset();
         closeVideoModal({ trackClose: false });
       } catch (error) {
