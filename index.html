@@ -231,6 +231,31 @@
       opacity: .72;
     }
 
+    .nav-eae-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 4px 10px;
+      border: 1px solid rgba(17, 17, 17, .16);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .72);
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+
+    .nav-eae-link img {
+      display: block;
+      width: 92px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .nav-links .nav-eae-link:hover {
+      opacity: 1;
+      border-color: rgba(7, 87, 248, .38);
+      box-shadow: 0 8px 20px rgba(16, 32, 72, .1);
+      transform: translateY(-1px);
+    }
+
     .nav-dropdown {
       position: relative;
     }
@@ -2615,6 +2640,24 @@
         background: rgba(7, 87, 248, .12);
       }
 
+      .mobile-panel .mobile-eae-link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 54px;
+        margin: 4px 0;
+        border: 1px solid rgba(7, 87, 248, .18);
+        background: rgba(7, 87, 248, .05);
+      }
+
+      .mobile-eae-link img {
+        display: block;
+        width: 130px;
+        height: 34px;
+        object-fit: contain;
+        object-position: left center;
+      }
+
       .mobile-menu-group {
         display: grid;
         gap: 4px;
@@ -3322,6 +3365,9 @@
             <a href="/digitalizar-documentos">Digitalizar documentos</a>
           </div>
         </div>
+        <a class="nav-eae-link" href="/elautonomoeficiente/elautonomoeficiente.html" aria-label="El Autónomo Eficiente">
+          <img src="/elautonomoeficiente/logohorizontal.png" alt="El Autónomo Eficiente" />
+        </a>
         <a href="/sobre-mi">Sobre mí</a>
         <a href="/contacto">Contacto</a>
       </nav>
@@ -3342,6 +3388,9 @@
     <a href="/automatizacion-tareas">Automatización de tareas</a>
     <a href="/presupuestos-facturacion-rapida">Presupuestos rápidos</a>
     <a href="/digitalizar-documentos">Digitalizar documentos</a>
+    <a class="mobile-eae-link" href="/elautonomoeficiente/elautonomoeficiente.html" aria-label="El Autónomo Eficiente">
+      <img src="/elautonomoeficiente/logohorizontal.png" alt="El Autónomo Eficiente" />
+    </a>
     <a href="/sobre-mi">Sobre mí</a>
     <a href="/contacto">Contacto</a>
     <button class="mobile-contact-trigger" type="button" data-contact-modal-open>Contactar ahora</button>
