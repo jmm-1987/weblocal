@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FMNC7J0EN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -191,8 +192,37 @@
       <div class="cta-copy reveal">
         <h2>CUÉNTAME QUÉ PROCESO<br>TE ESTÁ HACIENDO<br>PERDER TIEMPO<span>.</span></h2>
         <p>Lo analizamos contigo y planteamos una solución ajustada a tu forma de trabajar, tomando estos ejemplos solo como referencia.</p>
-        <a href="https://wa.me/34625433667?text=Hola%2C%20me%20gustar%C3%ADa%20estudiar%20c%C3%B3mo%20mejorar%20los%20procesos%20de%20mi%20negocio." onclick="return gtag_report_conversion(this.href);">CUÉNTAME TU CASO <span>↗</span></a>
-        <a href="tel:+34625433667" onclick="return gtag_report_conversion(this.href);">LLAMAR AHORA <span>↗</span></a>
+        <form class="contact-form" id="efficientContactForm" novalidate>
+          <input type="hidden" name="procedencia" value="elautonomoeficiente" />
+          <div class="contact-form-grid">
+            <label class="contact-field">
+              <span>Tu nombre</span>
+              <input type="text" name="nombre" autocomplete="name" required />
+            </label>
+            <label class="contact-field">
+              <span>¿Cómo prefieres que te contacte?</span>
+              <select name="forma_de_contacto" required>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Llamada">Llamada</option>
+              </select>
+            </label>
+            <label class="contact-field contact-field-wide">
+              <span>Tu teléfono</span>
+              <input type="tel" name="contacto_detalle" autocomplete="tel" inputmode="tel" required />
+            </label>
+            <label class="contact-field contact-field-wide">
+              <span>¿Qué tarea o proceso te está quitando tiempo? <small>(opcional)</small></span>
+              <textarea name="mensaje" rows="3" placeholder="Cuéntamelo brevemente"></textarea>
+            </label>
+          </div>
+          <button type="submit" class="contact-submit">QUIERO CONTARTE MI CASO <span>↗</span></button>
+          <p class="contact-note">Te responderé personalmente y sin compromiso.</p>
+          <p class="contact-status" id="efficientContactStatus" aria-live="polite"></p>
+        </form>
+        <div class="contact-alternatives">
+          <a href="https://wa.me/34625433667?text=Hola%2C%20vengo%20de%20El%20Aut%C3%B3nomo%20Eficiente%20y%20me%20gustar%C3%ADa%20estudiar%20c%C3%B3mo%20mejorar%20los%20procesos%20de%20mi%20negocio." onclick="return gtag_report_conversion(this.href);">PREFIERO WHATSAPP <span>↗</span></a>
+          <a href="tel:+34625433667" onclick="return gtag_report_conversion(this.href);">LLAMAR AHORA <span>↗</span></a>
+        </div>
       </div>
       <div class="cta-visual" aria-hidden="true">
         <div class="pulse"></div><div class="pulse p2"></div><strong>+</strong>
