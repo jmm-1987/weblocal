@@ -29,13 +29,22 @@ efficientContactForm?.addEventListener('submit', async (event) => {
 
   const formData = new FormData(efficientContactForm);
   const nombre = String(formData.get('nombre') || '').trim();
+  const actividad = String(formData.get('actividad') || '').trim();
   const formaContacto = String(formData.get('forma_de_contacto') || 'WhatsApp').trim();
   const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
-  const mensaje = String(formData.get('mensaje') || '').trim();
+  const tamanoEquipo = String(formData.get('tamano_equipo') || '').trim();
+  const gestionActual = String(formData.get('gestion_actual') || '').trim();
+  const necesidad = String(formData.get('necesidad') || '').trim();
+  const mensaje = [
+    `Oficio o actividad: ${actividad}`,
+    `Personas que usarían la aplicación: ${tamanoEquipo}`,
+    `Gestión actual: ${gestionActual}`,
+    `Necesidad principal: ${necesidad || 'No indicada'}`,
+  ].join('\n');
   const procedencia = 'elautonomoeficiente';
 
-  if (!nombre || !contactoDetalle) {
-    efficientContactStatus.textContent = 'Completa tu nombre y teléfono antes de enviar.';
+  if (!nombre || !actividad || !contactoDetalle || !tamanoEquipo || !gestionActual) {
+    efficientContactStatus.textContent = 'Completa los campos obligatorios antes de enviar.';
     return;
   }
 
@@ -75,6 +84,6 @@ efficientContactForm?.addEventListener('submit', async (event) => {
     console.error('Error al enviar el formulario:', error);
   } finally {
     submitButton.disabled = false;
-    submitButton.innerHTML = 'PEDIR ACCESO <span>↗</span>';
+    submitButton.innerHTML = 'SOLICITAR ACCESO <span>↗</span>';
   }
 });
