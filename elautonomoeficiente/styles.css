@@ -42,6 +42,8 @@
 /* Escala del mockup principal */
 .shot-wide.real-shot{width:min(100%,520px);justify-self:end}
 .shot-desktop.shot-03{aspect-ratio:1894/969}
+.shot-office.real-shot{aspect-ratio:1898/962}
+.shot-report.real-shot{aspect-ratio:1881/975}
 @media(max-width:800px){.shot-wide.real-shot{width:100%;justify-self:stretch}}
 
 /* Formulario de contacto */
