@@ -24,6 +24,8 @@ RewriteCond %{THE_REQUEST} \s/+contacto\.html[\s?] [NC]
 RewriteRule ^contacto\.html$ /contacto [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+elautonomoeficiente/elautonomoeficiente\.html[\s?] [NC]
 RewriteRule ^elautonomoeficiente/elautonomoeficiente\.html$ /elautonomoeficiente/ [R=301,L]
+RewriteRule ^elautonomoeficiente$ /elautonomoeficiente/ [R=301,L]
+RewriteRule ^elautonomoeficiente/privacidad$ /elautonomoeficiente/privacidad/ [R=301,L]
 
 # Legacy pages redirected to current priority pages.
 RewriteRule ^(facturas-automaticas|lectura-albaranes)(\.html)?/?$ /presupuestos-facturacion-rapida [R=301,L]
