@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      if(c[a] || l.querySelector('script[src^="https://www.clarity.ms/tag/"]')) return;
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yfzdyca1lf");
+  </script>
+  <script src="/clarity-analytics.js"></script>
   <title>JM2 Tech Studio | Partner tecnológico para autónomos y pymes</title>
   <meta name="description" content="Herramientas, automatizaciones y soporte tecnológico cercano para negocios que quieren trabajar con más orden y menos errores." />
   <link rel="canonical" href="https://www.jm2-tech.es/" />
@@ -3750,7 +3759,7 @@
         <h3>Cuéntame cómo trabajas</h3>
         <p>Te enseñaré una forma más rápida de preparar presupuestos y facturas, adaptada a tu forma de trabajar.</p>
       </div>
-      <form class="footer-contact-form" id="footerContactForm" novalidate>
+      <form class="footer-contact-form" id="footerContactForm" data-clarity-mask="true" novalidate>
         <div class="footer-contact-brandmark" aria-hidden="true">
           <img src="favicon.png" alt="" />
         </div>
@@ -3977,9 +3986,11 @@
 
         if (footerContactStatus) footerContactStatus.textContent = 'Mensaje enviado correctamente. Te contactaremos pronto.';
         trackEvent('generate_lead', { contact_method: formaContacto.toLowerCase(), lead_source: 'footer_form' });
+        document.dispatchEvent(new Event('jm2:contact-success'));
         footerContactForm.reset();
         closeContactModal();
       } catch (error) {
+        document.dispatchEvent(new Event('jm2:contact-error'));
         const errorText = error && typeof error === 'object' && 'text' in error ? String(error.text) : 'error desconocido';
         if (footerContactStatus) footerContactStatus.textContent = `No se pudo enviar (${errorText}).`;
       } finally {
