@@ -27,6 +27,17 @@
 .hero-actions{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:24px}.hero-actions a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;font-weight:700;letter-spacing:.03em;border-bottom:1px solid var(--ink)}.hero-actions .hero-case-link{padding:12px 16px;background:var(--blue);border:1px solid var(--blue);color:white;transition:.25s}.hero-actions .hero-case-link:hover{background:var(--ink);border-color:var(--ink);transform:translateY(-2px)}
 @media(max-width:800px){.hero-actions{align-items:flex-start;flex-direction:column;margin-top:18px}.hero-actions a{font-size:11px}.hero-actions .hero-case-link{padding:10px 13px}}
 
+/* Pulso suave para destacar la prueba gratuita de la entrada. */
+.hero-actions .hero-case-link{animation:trial-attention 3.6s ease-in-out infinite;transform-origin:center}
+.hero-actions .hero-case-link:hover,.hero-actions .hero-case-link:focus-visible{animation:none;transform:translateY(-2px);box-shadow:0 6px 20px rgba(18,53,215,.25)}
+.hero-actions .hero-case-link:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
+@keyframes trial-attention{
+  0%,60%,100%{transform:translateY(0) scale(1);box-shadow:0 0 0 0 rgba(18,53,215,0)}
+  72%{transform:translateY(-3px) scale(1.035);box-shadow:0 0 0 7px rgba(18,53,215,.18)}
+  86%{transform:translateY(0) scale(1);box-shadow:0 0 0 14px rgba(18,53,215,0)}
+}
+@media(prefers-reduced-motion:reduce){.hero-actions .hero-case-link{animation:none;transition:none;transform:none}}
+
 /* Firma JM2 Tech */
 .jm2-signature{grid-column:1/-1;justify-self:center;display:inline-flex;align-items:center;gap:12px;margin-top:28px;padding-top:24px;border-top:1px solid #292929;color:#999;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:color .25s ease}
 .jm2-signature img{display:block;width:120px;height:34px;object-fit:contain;filter:invert(1) grayscale(1);opacity:.82;transition:opacity .25s ease}
