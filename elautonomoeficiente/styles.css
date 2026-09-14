@@ -28,7 +28,7 @@
 @media(max-width:800px){.hero-actions{align-items:flex-start;flex-direction:column;margin-top:18px}.hero-actions a{font-size:11px}.hero-actions .hero-case-link{padding:10px 13px}}
 
 /* Pulso suave para destacar la prueba gratuita de la entrada. */
-.hero-actions .hero-case-link{animation:trial-attention 3.6s ease-in-out infinite;transform-origin:center}
+.hero-actions .hero-case-link{animation:trial-attention 1.8s ease-in-out infinite;transform-origin:center}
 .hero-actions .hero-case-link:hover,.hero-actions .hero-case-link:focus-visible{animation:none;transform:translateY(-2px);box-shadow:0 6px 20px rgba(18,53,215,.25)}
 .hero-actions .hero-case-link:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
 @keyframes trial-attention{
