@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Presentación comercial de JM2 Tech Studio: herramientas digitales, automatización y acompañamiento tecnológico para empresas." />
+  <title>JM2 Tech Studio | Presentación para empresas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0d1b3e;
+      --blue: #2438ff;
+      --yellow: #ffe94a;
+      --red: #ff3b2f;
+      --paper: #f6f6f2;
+      --muted: #4b5677;
+    }
+
+    * { box-sizing: border-box; }
+    html { background: #e7e8e3; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Bricolage Grotesque", "Segoe UI", sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    a { color: inherit; text-decoration: none; }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+      background: rgba(13, 27, 62, .94);
+    }
+    .print-button {
+      padding: 10px 18px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--yellow);
+      color: var(--ink);
+      box-shadow: 3px 3px 0 #000;
+      font: 800 14px inherit;
+      cursor: pointer;
+    }
+    .sheet {
+      width: 210mm;
+      height: 297mm;
+      margin: 18px auto;
+      padding: 11mm 12mm 10mm;
+      display: grid;
+      grid-template-rows: 13mm 55mm 1fr 14mm 38mm 31mm;
+      gap: 4mm;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 14px 50px #0d1b3e24;
+    }
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 3mm;
+    }
+    .brand-logo { width: 47mm; height: 12mm; object-fit: contain; object-position: left center; }
+    .masthead-note { font-size: 8pt; font-weight: 800; text-align: right; text-transform: uppercase; }
+    .masthead-note span { display: block; margin-top: 1mm; color: var(--blue); }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 43mm;
+      gap: 7mm;
+      align-items: center;
+      position: relative;
+    }
+    .eyebrow, .section-label {
+      margin: 0 0 2mm;
+      color: var(--blue);
+      font-size: 7pt;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 128mm;
+      margin-bottom: 3mm;
+      font-size: 27pt;
+      font-weight: 800;
+      line-height: .99;
+    }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(transparent 59%, var(--yellow) 59%);
+    }
+    .hero-copy > p:last-child { max-width: 126mm; margin: 0; color: var(--muted); font-size: 9pt; line-height: 1.45; }
+    .portrait-wrap {
+      position: relative;
+      width: 43mm;
+      height: 49mm;
+      border: 3px solid var(--ink);
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 4px 4px 0 var(--blue);
+      transform: rotate(2deg);
+    }
+    .portrait { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+    .portrait-caption {
+      position: absolute;
+      right: -3mm;
+      bottom: -4mm;
+      padding: 1.5mm 2mm;
+      border: 2px solid var(--ink);
+      background: var(--yellow);
+      font-size: 6pt;
+      font-weight: 800;
+      white-space: nowrap;
+      transform: rotate(-2deg);
+    }
+    .services { min-height: 0; display: grid; grid-template-rows: auto 1fr; }
+    .services-heading { display: flex; align-items: end; justify-content: space-between; margin-bottom: 3mm; }
+    .services-heading .section-label { margin: 0; }
+    .services-heading h2 { margin: 0; font-size: 16pt; line-height: 1; }
+    .services-heading p { margin: 0; color: var(--muted); font-size: 7pt; text-align: right; }
+    .service-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 3mm; min-height: 0; }
+    .service {
+      position: relative;
+      min-height: 0;
+      padding: 4mm 4mm 3mm;
+      border: 2px solid var(--ink);
+      background: #fff;
+      box-shadow: 2mm 2mm 0 var(--ink);
+    }
+    .service:nth-child(2) { background: #e9edff; }
+    .service:nth-child(3) { background: var(--yellow); }
+    .service:nth-child(4) { background: #fff; }
+    .service-number { color: var(--blue); font-size: 7pt; font-weight: 800; }
+    .service h3 { margin: 1mm 0 1.5mm; font-size: 11pt; line-height: 1.05; }
+    .service p { max-width: 78mm; margin: 0; color: var(--muted); font-size: 7.4pt; line-height: 1.35; }
+    .promise {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3mm 4mm;
+      border: 2px solid var(--ink);
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 2mm 2mm 0 var(--ink);
+    }
+    .promise strong { max-width: 113mm; font-size: 13pt; line-height: 1.05; }
+    .promise span { color: var(--yellow); font-size: 7pt; font-weight: 800; text-align: right; }
+    .approach { display: grid; grid-template-columns: 1fr 57mm; gap: 6mm; align-items: center; }
+    .approach h2 { margin: 0 0 3mm; font-size: 15pt; line-height: 1; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+    .step { border-top: 2px solid var(--ink); padding-top: 2mm; }
+    .step b { display: block; margin-bottom: 1mm; color: var(--blue); font-size: 8pt; }
+    .step p { margin: 0; font-size: 7pt; line-height: 1.3; }
+    .experience {
+      padding-left: 4mm;
+      border-left: 3px solid var(--red);
+    }
+    .experience strong { display: block; margin-bottom: 1mm; font-size: 11pt; line-height: 1.1; }
+    .experience p { margin: 0; color: var(--muted); font-size: 7pt; line-height: 1.35; }
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4mm;
+      align-items: center;
+      padding: 4mm 5mm;
+      border: 3px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 2mm 2mm 0 var(--red);
+    }
+    .contact h2 { margin: 0 0 1mm; color: var(--yellow); font-size: 15pt; line-height: 1; }
+    .contact-intro { margin: 0 0 3mm; color: #e1e5f3; font-size: 7pt; }
+    .contact-details { display: flex; flex-wrap: wrap; gap: 1.5mm 4mm; font-size: 7pt; font-weight: 600; }
+    .contact-details a { text-decoration: underline; text-underline-offset: 1px; }
+    .contact-cta {
+      display: grid;
+      place-items: center;
+      width: 29mm;
+      height: 19mm;
+      border: 2px solid var(--ink);
+      background: var(--yellow);
+      color: var(--ink);
+      font-size: 8pt;
+      font-weight: 800;
+      line-height: 1.1;
+      text-align: center;
+      box-shadow: 2px 2px 0 var(--red);
+    }
+    .fineprint { grid-column: 1 / -1; margin: -1mm 0 0; color: #c9d0e5; font-size: 6pt; }
+
+    @media (max-width: 760px) {
+      html { background: #e7e8e3; }
+      .sheet { width: min(100%, 560px); height: auto; min-height: 100vh; margin: 0 auto; padding: 24px; grid-template-rows: auto auto auto auto auto auto; gap: 18px; }
+      .brand-logo { width: 190px; height: 48px; }
+      .masthead-note { font-size: 10px; }
+      .hero { grid-template-columns: 1fr 100px; gap: 16px; }
+      h1 { font-size: clamp(28px, 8vw, 42px); }
+      .hero-copy > p:last-child { font-size: 13px; }
+      .portrait-wrap { width: 100px; height: 130px; }
+      .services-heading { align-items: start; flex-direction: column; gap: 6px; }
+      .services-heading h2 { font-size: 22px; }
+      .services-heading p { text-align: left; font-size: 11px; }
+      .service-grid { grid-template-columns: 1fr; grid-template-rows: none; gap: 12px; }
+      .service { padding: 16px; }
+      .service h3 { font-size: 17px; }
+      .service p { font-size: 12px; }
+      .promise { gap: 12px; }
+      .promise strong { font-size: 18px; }
+      .promise span { font-size: 10px; }
+      .approach { grid-template-columns: 1fr; gap: 16px; }
+      .approach h2 { font-size: 21px; }
+      .step p, .experience p { font-size: 11px; }
+      .experience strong { font-size: 16px; }
+      .contact { grid-template-columns: 1fr auto; padding: 18px; }
+      .contact h2 { font-size: 21px; }
+      .contact-intro, .contact-details { font-size: 11px; }
+      .contact-cta { width: 92px; height: 68px; }
+    }
+
+    @page { size: A4 portrait; margin: 0; }
+    @media print {
+      html, body { width: 210mm; height: 297mm; background: #fff; }
+      .toolbar { display: none; }
+      .sheet {
+        width: 210mm;
+        height: 297mm;
+        min-height: 0;
+        margin: 0;
+        padding: 11mm 12mm 10mm;
+        grid-template-rows: 13mm 55mm 1fr 14mm 38mm 31mm;
+        gap: 4mm;
+        box-shadow: none;
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+    }
+
+    .sheet {
+      height: 297mm;
+      padding: 10mm 12mm 9mm;
+      gap: 4mm;
+      box-shadow: 0 14px 50px #0d1b3e24;
+    }
+    .front-page { grid-template-rows: auto auto auto minmax(0, 1fr) auto; }
+    .back-page { grid-template-rows: auto auto minmax(0, 1fr) auto auto auto auto; }
+    .front-page .hero { min-height: 53mm; }
+    .front-page h1 { font-size: 26pt; }
+    .front-page .portrait-wrap { width: 43mm; height: 48mm; }
+    .impact-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3mm 4mm;
+      border: 2px solid var(--ink);
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 2mm 2mm 0 var(--ink);
+    }
+    .impact-strip strong { font-size: 12pt; line-height: 1.1; }
+    .impact-strip span { color: var(--yellow); font-size: 7pt; font-weight: 800; text-align: right; }
+    .solution-list { min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 3mm; }
+    .solution-list .services-heading { margin: 0; }
+    .service-grid { min-height: 0; grid-template-rows: repeat(2, minmax(0, 1fr)); }
+    .service {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: 31mm minmax(0, 1fr);
+      gap: 2mm;
+      padding: 2.5mm;
+      border-width: 2px;
+      box-shadow: 1.5mm 1.5mm 0 var(--ink);
+    }
+    .service-image-frame {
+      min-height: 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1.5px solid var(--ink);
+      background: #fff;
+    }
+    .service-image { width: 100%; height: 100%; object-fit: contain; }
+    .service-copy { min-height: 0; }
+    .service-number { font-size: 6.5pt; }
+    .service h3 { margin: .7mm 0 1mm; font-size: 10pt; line-height: 1.05; }
+    .service p { font-size: 7pt; line-height: 1.25; }
+    .page-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 6.5pt;
+      font-weight: 700;
+    }
+    .page-footer strong { color: var(--blue); }
+    .back-heading { display: grid; grid-template-columns: 1fr auto; gap: 5mm; align-items: end; }
+    .back-heading h1 { margin: 0; font-size: 22pt; line-height: 1; }
+    .back-heading p { max-width: 55mm; margin: 0; color: var(--muted); font-size: 7pt; text-align: right; }
+    .vertical-solutions { min-height: 0; display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 3mm; }
+    .vertical-card {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 58mm 1fr;
+      gap: 4mm;
+      align-items: center;
+      padding: 3mm;
+      border: 2px solid var(--ink);
+      background: #fff;
+      box-shadow: 1.5mm 1.5mm 0 var(--ink);
+    }
+    .vertical-card:nth-child(2) { background: #e9edff; }
+    .vertical-image-frame {
+      height: 43mm;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1.5px solid var(--ink);
+      background: #fff;
+    }
+    .vertical-image { width: 100%; height: 100%; object-fit: contain; }
+    .vertical-copy .service-number { display: block; margin-bottom: 2mm; }
+    .vertical-copy h2 { margin: 0 0 2mm; font-size: 15pt; line-height: 1.05; }
+    .vertical-copy p { margin: 0; color: var(--muted); font-size: 8pt; line-height: 1.35; }
+    .approach-block { padding: 3mm 4mm; border: 2px solid var(--ink); background: var(--yellow); }
+    .approach-block h2 { margin: 0 0 2.5mm; font-size: 12pt; }
+    .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3mm; }
+    .step { padding-top: 1.5mm; }
+    .step b { font-size: 7pt; }
+    .step p { font-size: 6.7pt; line-height: 1.25; }
+    .experience {
+      display: grid;
+      grid-template-columns: 32mm 1fr;
+      gap: 4mm;
+      align-items: center;
+      padding: 2mm 4mm;
+      border-left: 3px solid var(--red);
+      background: #fff;
+    }
+    .experience strong { margin: 0; font-size: 10pt; }
+    .experience p { margin: 0; font-size: 7pt; }
+    .contact { padding: 3mm 4mm; }
+    .contact h2 { font-size: 13pt; }
+    .contact-intro { margin-bottom: 2mm; }
+    .contact-cta { width: 27mm; height: 17mm; }
+
+    @media (max-width: 760px) {
+      .sheet { width: min(100%, 560px); height: auto; min-height: 0; margin: 0 auto 18px; padding: 24px; gap: 18px; }
+      .front-page, .back-page { grid-template-rows: none; }
+      .front-page .hero { min-height: 0; }
+      .front-page h1 { font-size: 32px; }
+      .impact-strip strong { font-size: 17px; }
+      .solution-list { grid-template-rows: auto auto; }
+      .service-grid { grid-template-columns: 1fr; grid-template-rows: none; }
+      .service { grid-template-rows: 180px auto; gap: 12px; padding: 12px; }
+      .service h3 { font-size: 17px; }
+      .service p { font-size: 12px; }
+      .back-heading { grid-template-columns: 1fr; }
+      .back-heading h1 { font-size: 28px; }
+      .back-heading p { max-width: none; font-size: 12px; text-align: left; }
+      .vertical-solutions { grid-template-rows: none; }
+      .vertical-card { grid-template-columns: 1fr; gap: 14px; padding: 14px; }
+      .vertical-image-frame { height: 200px; }
+      .vertical-copy h2 { font-size: 22px; }
+      .vertical-copy p { font-size: 13px; }
+      .approach-block { padding: 16px; }
+      .approach-block h2 { font-size: 20px; }
+      .step b { font-size: 10px; }
+      .step p { font-size: 11px; }
+      .experience { grid-template-columns: 1fr; gap: 5px; padding: 12px; }
+      .experience strong { font-size: 17px; }
+      .experience p { font-size: 12px; }
+      .contact { padding: 16px; }
+      .contact h2 { font-size: 20px; }
+      .contact-intro, .contact-details { font-size: 11px; }
+      .page-footer { font-size: 10px; }
+    }
+
+    @page { size: A4 portrait; margin: 0; }
+    @media print {
+      html, body { width: 210mm; height: auto; background: #fff; }
+      .toolbar { display: none !important; }
+      .sheet {
+        width: 210mm;
+        height: 297mm;
+        min-height: 0;
+        margin: 0;
+        padding: 10mm 12mm 9mm;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+      .sheet:last-child { break-after: auto; page-break-after: auto; }
+      .front-page { grid-template-rows: auto auto auto minmax(0, 1fr) auto; }
+      .back-page { grid-template-rows: auto auto minmax(0, 1fr) auto auto auto auto; }
+      .service, .vertical-card, .approach-block, .contact { break-inside: avoid; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button class="print-button" type="button" onclick="window.print()">Imprimir / Guardar PDF</button>
+  </div>
+
+  <main>
+    <article class="sheet front-page">
+      <header class="masthead">
+        <img class="brand-logo" src="logo_nombre.png" alt="JM2 Tech Studio" />
+        <p class="masthead-note">Tecnología con propósito<span>Mérida · Extremadura</span></p>
+      </header>
+
+      <section class="hero" aria-labelledby="flyer-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Para autónomos y pymes</p>
+          <h1 id="flyer-title">Menos tareas repetidas.<br><em>Más control</em> de tu negocio.</h1>
+          <p>Diseño herramientas y automatizaciones adaptadas a cómo trabaja tu empresa para ahorrar tiempo, reducir errores y poner orden en el día a día.</p>
+        </div>
+        <div class="portrait-wrap">
+          <img class="portrait" src="yo.png" alt="Jonatan Murillo, desarrollador de JM2 Tech Studio" />
+          <span class="portrait-caption">Trato directo, sin intermediarios</span>
+        </div>
+      </section>
+
+      <div class="impact-strip">
+        <strong>Tecnología útil para la operativa real de tu empresa.</strong>
+        <span>ESCUCHAR · ORDENAR · MEJORAR</span>
+      </div>
+
+      <section class="solution-list" aria-labelledby="services-title">
+        <div class="services-heading">
+          <div>
+            <p class="section-label">Soluciones prácticas</p>
+            <h2 id="services-title">Herramientas hechas para tu día a día</h2>
+          </div>
+          <p>Se adapta a tu forma de trabajar.<br>No al revés.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service">
+            <div class="service-image-frame"><img class="service-image" src="mockeupresus.png" alt="Vista del flujo de presupuestos y facturación" /></div>
+            <div class="service-copy">
+              <span class="service-number">01 / DOCUMENTOS</span>
+              <h3>Presupuestos y facturación</h3>
+              <p>Prepara presupuestos, albaranes y facturas desde el móvil o el ordenador, sin repetir datos.</p>
+            </div>
+          </article>
+          <article class="service">
+            <div class="service-image-frame"><img class="service-image" src="portadadigitalzacion.png" alt="Vista de una solución para digitalizar documentos" /></div>
+            <div class="service-copy">
+              <span class="service-number">02 / ORDEN</span>
+              <h3>Digitalización documental</h3>
+              <p>Convierte fotos y PDFs en documentos ordenados, fáciles de revisar y encontrar.</p>
+            </div>
+          </article>
+          <article class="service">
+            <div class="service-image-frame"><img class="service-image" src="automatizaciones.png" alt="Vista de automatizaciones conectando herramientas" /></div>
+            <div class="service-copy">
+              <span class="service-number">03 / TIEMPO</span>
+              <h3>Automatización de tareas</h3>
+              <p>Conecta formularios, avisos, hojas de cálculo, correos y herramientas que ya utilizas.</p>
+            </div>
+          </article>
+          <article class="service">
+            <div class="service-image-frame"><img class="service-image" src="software.png" alt="Vista de una herramienta de software para empresas" /></div>
+            <div class="service-copy">
+              <span class="service-number">04 / A MEDIDA</span>
+              <h3>Software para tu negocio</h3>
+              <p>Herramientas personalizadas para mejorar la organización y el control diario.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="page-footer"><span>JM2 Tech Studio · Acompañamiento tecnológico cercano</span><strong>01 / 02</strong></footer>
+    </article>
+
+    <article class="sheet back-page">
+      <header class="masthead">
+        <img class="brand-logo" src="logo_nombre.png" alt="JM2 Tech Studio" />
+        <p class="masthead-note">Soluciones a medida<span>También por sectores</span></p>
+      </header>
+
+      <section class="back-heading" aria-labelledby="sector-title">
+        <div>
+          <p class="section-label">Nuevas posibilidades</p>
+          <h1 id="sector-title">Una solución para cada forma de trabajar</h1>
+        </div>
+        <p>Ejemplos de herramientas que podemos adaptar a los procesos de tu sector.</p>
+      </section>
+
+      <section class="vertical-solutions" aria-label="Ejemplos de soluciones sectoriales">
+        <article class="vertical-card">
+          <div class="vertical-image-frame"><img class="vertical-image" src="calendar.png" alt="Referencia visual de agenda y calendario" /></div>
+          <div class="vertical-copy">
+            <span class="service-number">05 / CLÍNICAS</span>
+            <h2>Gestión de citas</h2>
+            <p>Organiza la agenda de la clínica y el seguimiento de las citas con un flujo adaptado a su forma de trabajar.</p>
+          </div>
+        </article>
+        <article class="vertical-card">
+          <div class="vertical-image-frame"><img class="vertical-image" src="registro.png" alt="Referencia visual de registro y control de asistencia" /></div>
+          <div class="vertical-copy">
+            <span class="service-number">06 / ENTRENAMIENTO</span>
+            <h2>Asistencia por sesión</h2>
+            <p>Registra quién asiste a cada sesión de entrenamiento y consulta la participación de forma ordenada.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="approach-block" aria-labelledby="approach-title">
+        <h2 id="approach-title">Un proceso claro, de principio a fin</h2>
+        <div class="steps">
+          <div class="step"><b>01 · ESCUCHAR</b><p>Vemos cómo trabajas y qué te frena.</p></div>
+          <div class="step"><b>02 · ENFOCAR</b><p>Localizamos tareas repetidas y errores.</p></div>
+          <div class="step"><b>03 · ACOMPAÑAR</b><p>Implantamos una solución útil y te ayudo a ponerla en marcha.</p></div>
+        </div>
+      </section>
+
+      <aside class="experience">
+        <strong>Jonatan Murillo<br>Más de 20 años cerca de la empresa.</strong>
+        <p>Experiencia en transporte, operativa y procesos internos, aplicada hoy al desarrollo de soluciones digitales.</p>
+      </aside>
+
+      <footer class="contact">
+        <div>
+          <h2>¿Qué tarea te gustaría simplificar?</h2>
+          <p class="contact-intro">Cuéntame tu caso. Lo vemos sin compromiso.</p>
+          <div class="contact-details">
+            <a href="tel:+34625433667">625 433 667</a>
+            <a href="mailto:jomma.tech@gmail.com">jomma.tech@gmail.com</a>
+            <a href="https://www.jm2-tech.es">www.jm2-tech.es</a>
+          </div>
+        </div>
+        <a class="contact-cta" href="https://wa.me/34625433667">Hablemos<br>por WhatsApp</a>
+        <p class="fineprint">JM2 Tech Studio · Tecnología con propósito</p>
+      </footer>
+
+      <div class="page-footer"><span>Ideas claras. Soluciones reales. Acompañamiento cercano.</span><strong>02 / 02</strong></div>
+    </article>
+  </main>
+</body>
+</html>

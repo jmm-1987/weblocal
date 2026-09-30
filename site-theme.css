@@ -142,6 +142,24 @@ body.about-page main > section.about-hero:not(.hero):not(.adios-excel-hero):not(
   background: var(--paper);
 }
 
+.plan-base2-page .hero .section-kicker,
+.plan-base2-page .hero .note-chip {
+  color: var(--blue);
+  text-shadow: none;
+}
+
+.plan-base2-page .hero h1 {
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.plan-base2-page .hero .hero-copy > p:not(.section-kicker) {
+  border-color: var(--red);
+  background: transparent;
+  color: var(--muted);
+  text-shadow: none;
+}
+
 .hero::before,
 .hero::after,
 .landing-hero::before,
