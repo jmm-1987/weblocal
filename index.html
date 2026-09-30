@@ -3355,7 +3355,11 @@
       }
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/home-refresh.css" />
+  <link rel="stylesheet" href="/site-theme.css" />
 </head>
 <body>
   <header class="site-header">
@@ -3546,6 +3550,9 @@
             <a class="trust-logo-item trust-logo--pro" href="https://profitnessmerida.es" target="_blank" rel="noopener noreferrer">
               <img src="logo_pro.png" alt="Pro Fitness" />
             </a>
+            <div class="trust-logo-item trust-logo--losada">
+              <img src="logolosada.png" alt="Losada" />
+            </div>
             <a class="trust-logo-item trust-logo--sfm" href="https://sfmlogistica.es" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
               <img src="logosfm.png" alt="" aria-hidden="true" />
             </a>
@@ -3561,6 +3568,9 @@
             <a class="trust-logo-item trust-logo--pro" href="https://profitnessmerida.es" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
               <img src="logo_pro.png" alt="" aria-hidden="true" />
             </a>
+            <div class="trust-logo-item trust-logo--losada" aria-hidden="true">
+              <img src="logolosada.png" alt="" aria-hidden="true" />
+            </div>
           </div>
         </div>
 
@@ -3773,6 +3783,20 @@
             <input type="text" name="nombre" autocomplete="name" required />
           </label>
           <label class="footer-contact-field">
+            <span>Sector</span>
+            <select name="sector" required>
+              <option value="" disabled selected>Selecciona tu sector</option>
+              <option value="Construcción y reformas">Construcción y reformas</option>
+              <option value="Comercio">Comercio</option>
+              <option value="Hostelería">Hostelería</option>
+              <option value="Servicios profesionales">Servicios profesionales</option>
+              <option value="Transporte y logística">Transporte y logística</option>
+              <option value="Salud y bienestar">Salud y bienestar</option>
+              <option value="Industria">Industria</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </label>
+          <label class="footer-contact-field">
             <span>Prefiero contacto por</span>
             <select name="forma_de_contacto" required>
               <option value="WhatsApp">WhatsApp</option>
@@ -3784,7 +3808,7 @@
             <input id="footerContactDetailInput" type="text" name="contacto_detalle" autocomplete="tel" required />
           </label>
         </div>
-        <button type="submit" class="footer-contact-submit">Quiero verlo en mi empresa</button>
+        <button type="submit" class="footer-contact-submit">Solicitar diagnóstico</button>
         <p class="footer-contact-status footer-contact-note">Te responderé personalmente. Sin compromiso.</p>
         <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
       </form>
@@ -3954,13 +3978,14 @@
       event.preventDefault();
       const formData = new FormData(footerContactForm);
       const nombre = String(formData.get('nombre') || '').trim();
+      const sector = String(formData.get('sector') || '').trim();
       const formaContacto = String(formData.get('forma_de_contacto') || 'WhatsApp').trim();
       const contactoDetalle = String(formData.get('contacto_detalle') || '').trim();
       const procedencia = 'index';
       const referrer = document.referrer || 'Directo';
       const timestamp = new Date().toISOString();
 
-      if (!nombre || !contactoDetalle) {
+      if (!nombre || !sector || !contactoDetalle) {
         if (footerContactStatus) footerContactStatus.textContent = 'Completa todos los campos antes de enviar.';
         return;
       }
@@ -3980,6 +4005,7 @@
       try {
         await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
           nombre,
+          sector,
           email: 'No indicado',
           telefono: contactoDetalle,
           forma_de_contacto: formaContacto,
@@ -4000,7 +4026,7 @@
       } finally {
         if (submitButton instanceof HTMLButtonElement) {
           submitButton.disabled = false;
-          submitButton.textContent = 'Quiero verlo en mi empresa';
+          submitButton.textContent = 'Solicitar diagnóstico';
         }
       }
     });

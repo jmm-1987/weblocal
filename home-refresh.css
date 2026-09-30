@@ -229,3 +229,169 @@ h1 { font-size: clamp(40px, 4.5vw, 65px); line-height: 1.04; overflow-wrap: norm
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal-on-scroll { opacity: 1; transform: none; filter: none; }
 }
+
+/* Tomatuapp-inspired palette and print-like edges, homepage only. */
+:root {
+  --ink: #0d1b3e;
+  --muted: #4b5677;
+  --line: #d8dced;
+  --blue: #2438ff;
+  --stamp: #ff3b2f;
+  --hi: #ffe94a;
+  --paper: #f6f6f2;
+}
+
+body {
+  font-family: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1, h2, h3, .personal-intro h2 { letter-spacing: 0; font-weight: 800; }
+h1 { line-height: .98; }
+
+.site-header {
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.nav-links { color: var(--ink); font-weight: 600; }
+.quote-btn {
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: var(--hi);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-weight: 800;
+}
+.quote-btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+
+.studio-label { color: var(--muted); letter-spacing: .08em; }
+.studio-label span, .hero-title-accent { color: var(--blue); }
+.hero-title-accent {
+  background: linear-gradient(transparent 58%, var(--hi) 58%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.hero-copy p { color: var(--muted); }
+.hero-highlight {
+  border-color: var(--stamp);
+  color: var(--ink);
+}
+.hero-cta, .footer-cta-link {
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: var(--hi);
+  color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  font-weight: 800;
+}
+.hero-cta:hover, .hero-cta:focus-visible, .footer-cta-link:hover {
+  background: var(--hi);
+  color: var(--ink);
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.hero .secondary-btn {
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  font-weight: 800;
+}
+.hero .secondary-btn:hover { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+
+.brand-card {
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 10px 10px 0 var(--blue);
+}
+.brand-card::before { border-color: #2438ff24; }
+.signature { border-color: #2438ff44; }
+.studio-stamp {
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+  background: var(--stamp);
+  color: #fff;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+#servicios { border-color: var(--ink); }
+.section-head h2 { line-height: .98; }
+.section-head p { color: var(--muted); }
+.services-grid .service-card {
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 var(--ink);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.services-grid .service-card:nth-child(3) { background-color: #eef0ff; }
+.services-grid .service-card:hover {
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: translate(3px, 3px);
+}
+.services-grid .service-card::before {
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  color: var(--ink);
+  background: var(--hi);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+}
+.services-grid .service-icon {
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  color: var(--blue);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.service-card h3 { letter-spacing: 0; }
+.service-card-cta { color: var(--blue); font-weight: 800; }
+
+.blue-strip {
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  background: var(--blue);
+  box-shadow: 6px 6px 0 var(--ink);
+  color: #fff;
+  letter-spacing: 0;
+}
+.trust-logo-item, .personal-point {
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+}
+.trust-logo--pro { background: #000; }
+.trust-logo--metro { background: #2b2a28; }
+.trust-logo-item.trust-logo--losada { padding: 6px; }
+.trust-logo-item.trust-logo--losada img {
+  max-height: 80px;
+  align-self: center;
+  justify-self: center;
+}
+.personal-grid { border: 3px solid var(--ink); border-radius: 12px; }
+.personal-quote { border-color: var(--stamp); color: var(--ink); }
+
+.footer-cta {
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  background: var(--blue);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+.footer-cta-copy h2, .footer-cta-copy p { letter-spacing: 0; }
+.footer-cta-link { min-height: 56px; }
+.footer-cta-link + .footer-cta-link { background: #fff; }
+
+:focus-visible { outline-color: var(--stamp); }
+::selection { background: var(--hi); color: var(--ink); }
+
+@media (max-width: 720px) {
+  .site-header { box-shadow: 3px 3px 0 var(--ink); }
+  .brand-card { box-shadow: 7px 7px 0 var(--blue); }
+  .services-grid .service-card { box-shadow: 4px 4px 0 var(--ink); }
+  .services-grid .service-card:hover { transform: none; box-shadow: 4px 4px 0 var(--ink); }
+  .footer-cta { box-shadow: 6px 6px 0 var(--ink); }
+  .trust-logo-item.trust-logo--losada img { max-height: 70px; }
+}

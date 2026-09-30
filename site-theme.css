@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap");
+
+:root {
+  --blue: #2438ff;
+  --blue-2: #2438ff;
+  --blue-900: #2438ff;
+  --blue-800: #2438ff;
+  --blue-700: #2438ff;
+  --blue-600: #69a9ff;
+  --cyan-500: #ff3b2f;
+  --cyan-400: #ffe94a;
+  --navy: #0d1b3e;
+  --ink: #0d1b3e;
+  --muted: #4b5677;
+  --text-dark: #0d1b3e;
+  --text-muted: #4b5677;
+  --line: #d8dced;
+  --soft: #f6f6f2;
+  --surface: #ffffff;
+  --surface-soft: #f6f6f2;
+  --white: #ffffff;
+  --paper: #f6f6f2;
+  --hi: #ffe94a;
+  --stamp: #ff3b2f;
+  --shadow: 8px 8px 0 #0d1b3e;
+  --shadow-soft: 5px 5px 0 #0d1b3e;
+  --radius: 8px;
+  --radius-xl: 8px;
+  --radius-lg: 8px;
+  --radius-md: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Bricolage Grotesque", "Nunito", "Segoe UI", sans-serif;
+}
+
+body.about-page {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+body::before,
+body::after {
+  display: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Bricolage Grotesque", "Nunito", "Segoe UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.site-header,
+.topbar {
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  background: var(--paper);
+  box-shadow: 5px 5px 0 var(--ink);
+  backdrop-filter: none;
+}
+
+.brand-logo-image {
+  animation: none;
+}
+
+.nav-links,
+.topnav {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.quote-btn,
+.primary-btn,
+.hero-cta,
+.btn:not(.secondary),
+.btn-primary,
+.mobile-contact-trigger,
+.footer-contact-submit {
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: var(--hi);
+  color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  font-weight: 800;
+}
+
+.quote-btn:hover,
+.primary-btn:hover,
+.hero-cta:hover,
+.hero-cta:focus-visible,
+.btn:not(.secondary):hover,
+.btn-primary:hover,
+.mobile-contact-trigger:hover,
+.footer-contact-submit:hover {
+  border-color: var(--ink);
+  background: var(--hi);
+  color: var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  transform: translate(3px, 3px);
+}
+
+.secondary-btn,
+.btn.secondary,
+.btn-secondary {
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  font-weight: 800;
+}
+
+.secondary-btn:hover,
+.btn.secondary:hover,
+.btn-secondary:hover {
+  border-color: var(--ink);
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  transform: translate(3px, 3px);
+}
+
+.hero,
+.landing-hero,
+.about-hero {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body.about-page main > section.about-hero:not(.hero):not(.adios-excel-hero):not(.email-automation-hero) {
+  background: var(--paper);
+}
+
+.hero::before,
+.hero::after,
+.landing-hero::before,
+.landing-hero::after,
+.about-hero::before,
+.about-hero::after {
+  display: none;
+}
+
+.hero-copy h1,
+.landing-hero h1,
+.about-hero-copy h1,
+.hero-copy h1 span,
+.landing-hero h1 span,
+.hero-title-accent,
+.hero-emphasis {
+  font-family: "Bricolage Grotesque", "Nunito", "Segoe UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.hero-copy h1 span,
+.landing-hero h1 span,
+.hero-title-accent,
+.hero-emphasis {
+  color: var(--blue);
+  background: linear-gradient(transparent 62%, var(--hi) 62%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.hero-visual,
+.hero-mockup,
+.hero-art,
+.about-hero-media {
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 10px 10px 0 var(--blue);
+}
+
+.include-card,
+.benefit-card,
+.step-card,
+.flow-card,
+.video-card,
+.fit-card,
+.about-story-card,
+.about-method-card,
+.service-card {
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.step-card.is-active,
+.fit-card-dark {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 8px 8px 0 var(--blue);
+}
+
+.plan-card-featured {
+  border-color: var(--ink);
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.wins,
+.support {
+  background: var(--ink);
+  color: #fff;
+}
+
+.mobile-ready,
+.final-inner {
+  background: var(--hi);
+}
+
+.about-hero-panel {
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 10px 10px 0 var(--blue);
+}
+
+.section-kicker,
+.section-label,
+.kicker,
+.eyebrow {
+  color: var(--blue);
+  letter-spacing: .04em;
+}
+
+.eyebrow {
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--hi);
+}
+
+input,
+select,
+textarea {
+  border-color: var(--ink);
+  border-radius: 8px;
+}
+
+.contact-modal-dialog,
+.modal-box {
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--stamp);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--hi);
+  color: var(--ink);
+}
+
+body > main:has(> h1) {
+  width: min(720px, calc(100% - 40px));
+  margin: 14vh auto;
+  padding: 40px;
+  border: 3px solid var(--ink);
+  background: #fff;
+  box-shadow: 10px 10px 0 var(--blue);
+}
+
+@media (max-width: 720px) {
+  .site-header,
+  .topbar {
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .hero-visual,
+  .hero-mockup,
+  .hero-art,
+  .about-hero-media {
+    box-shadow: 7px 7px 0 var(--blue);
+  }
+
+  .include-card,
+  .benefit-card,
+  .step-card,
+  .flow-card,
+  .video-card,
+  .fit-card,
+  .about-story-card,
+  .about-method-card,
+  .service-card {
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  body > main:has(> h1) {
+    padding: 24px;
+  }
+}
