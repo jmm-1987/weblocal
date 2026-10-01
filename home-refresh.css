@@ -278,6 +278,16 @@ h1 { line-height: .98; }
   border-color: var(--stamp);
   color: var(--ink);
 }
+.hero-highlight .hero-price {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--hi, #ffe94a);
+  color: var(--ink);
+  font-weight: 800;
+  white-space: nowrap;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
 .hero-cta, .footer-cta-link {
   border: 3px solid var(--ink);
   border-radius: 999px;
