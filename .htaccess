@@ -30,11 +30,23 @@ RewriteRule ^elautonomoeficiente/privacidad$ /elautonomoeficiente/privacidad/ [R
 # Legacy pages redirected to current priority pages.
 RewriteRule ^(facturas-automaticas|lectura-albaranes)(\.html)?/?$ /presupuestos-facturacion-rapida [R=301,L]
 RewriteRule ^verifactu(\.html)?/?$ /presupuestos-facturacion-rapida [R=301,L]
-RewriteRule ^(adios-excel|automatizacion-email|automatizaciones|avisos-whatsapp-telegram|gestion-citas|informes-consumos|plan-base|recordatorios-automaticos|plan-avanzado|automatizar-procesos)(\.html)?/?$ / [R=301,L]
+RewriteRule ^(automatizacion-email|automatizaciones|avisos-whatsapp-telegram|gestion-citas|informes-consumos|recordatorios-automaticos|automatizar-procesos)(\.html)?/?$ /automatizacion-tareas [R=301,L]
+RewriteRule ^(adios-excel|plan-base|plan-avanzado)(\.html)?/?$ / [R=301,L]
+
+# Normalize public HTML aliases and trailing slashes.
+RewriteCond %{THE_REQUEST} \s/+(base-digital|sobre-mi|automatizacion-tareas|desarrollo-software-merida|presentacion-empresas)\.html[\s?] [NC]
+RewriteRule ^(base-digital|sobre-mi|automatizacion-tareas|desarrollo-software-merida|presentacion-empresas)\.html$ /$1 [R=301,L]
+RewriteRule ^(base-digital|sobre-mi|contacto|automatizacion-tareas|presupuestos-facturacion-rapida|digitalizar-documentos|desarrollo-software-merida|presentacion-empresas)/$ /$1 [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+elautonomoeficiente/(privacidad/)?index\.html[\s?] [NC]
+RewriteRule ^elautonomoeficiente/(privacidad/)?index\.html$ /elautonomoeficiente/$1 [R=301,L]
 
 # Serve clean URLs from the current static HTML files.
-RewriteRule ^base-digital/?$ plan-base2.html [L]
-RewriteRule ^sobre-mi/?$ sobremi.html [L]
+RewriteRule ^base-digital/?$ base-digital.html [L]
+RewriteRule ^sobre-mi/?$ sobre-mi.html [L]
 RewriteRule ^presupuestos-facturacion-rapida/?$ presupuestos-facturacion-rapida.html [L]
 RewriteRule ^digitalizar-documentos/?$ digitalizar-documentos.html [L]
 RewriteRule ^contacto/?$ contacto.html [L]
+
+RewriteRule ^automatizacion-tareas/?$ automatizacion-tareas.html [L]
+RewriteRule ^desarrollo-software-merida/?$ desarrollo-software-merida.html [L]
+RewriteRule ^presentacion-empresas/?$ presentacion-empresas.html [L]

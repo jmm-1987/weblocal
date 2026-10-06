@@ -57,12 +57,67 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <link rel="stylesheet" href="/site-theme.css" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.jm2-tech.es/#business",
+      "name": "JM2 Tech Studio",
+      "url": "https://www.jm2-tech.es/",
+      "logo": "https://www.jm2-tech.es/logo_nombre.png",
+      "image": "https://www.jm2-tech.es/og-image.png",
+      "description": "Estudio de desarrollo de software y aplicaciones a medida en Mérida, Badajoz, Extremadura. Automatización de procesos para empresas, autónomos y pymes.",
+      "telephone": "+34625433667",
+      "email": "jomma.tech@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mérida",
+        "addressRegion": "Badajoz",
+        "addressCountry": "ES",
+        "streetAddress": "Calle Pamplona 38",
+        "postalCode": "06800"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Mérida"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Badajoz"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Extremadura"
+        }
+      ],
+      "knowsAbout": [
+        "Desarrollo de software a medida",
+        "Aplicaciones web",
+        "Automatización de procesos",
+        "Integraciones entre sistemas",
+        "Digitalización documental"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.jm2-tech.es/#website",
+      "url": "https://www.jm2-tech.es/",
+      "name": "JM2 Tech Studio",
+      "inLanguage": "es",
+      "publisher": {
+        "@id": "https://www.jm2-tech.es/#business"
+      }
+    }
+  ]
+}</script>
 </head>
 <body class="about-page">
   <header class="site-header" id="siteHeader">
     <div class="container nav">
       <a class="brand" href="/" aria-label="JM2 Tech Studio">
-        <img class="brand-logo-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
+        <img class="brand-logo-image" src="logo_nombre.png" alt="JM2 Tech Studio" width="1536" height="1024" />
       </a>
 
       <nav class="nav-links" aria-label="Principal">
@@ -123,7 +178,7 @@
         </div>
 
         <div class="about-hero-media reveal-on-scroll reveal-from-right reveal-delay-2">
-          <img src="yo.png" alt="Jonatan Murillo, desarrollador freelance" />
+          <img src="yo.png" alt="Jonatan Murillo, desarrollador freelance" width="1282" height="1227" />
         </div>
       </div>
     </section>
@@ -196,14 +251,14 @@
       <div class="footer-main">
         <div class="footer-column footer-brand-column">
           <a href="/" class="footer-brand" aria-label="Volver al inicio">
-            <img class="footer-brand-image" src="logo_nombre.png" alt="JM2 Tech Studio" />
+            <img class="footer-brand-image" src="logo_nombre.png" alt="JM2 Tech Studio" width="1536" height="1024" loading="lazy" />
           </a>
           <p>
             Base digital, automatizaciones e integraciones para empresas que quieren avanzar
             con mas orden, mejor comunicacion y una estructura tecnologica coherente.
           </p>
           <div class="footer-meta">
-            <span>Merida</span>
+            <span>Mérida</span>
             <span>Extremadura</span>
             <span>Proyectos para empresas</span>
           </div>
@@ -212,6 +267,7 @@
         <div class="footer-column">
           <h3>Navegacion</h3>
           <nav class="footer-links" aria-label="Enlaces del pie de pagina">
+            <a href="/desarrollo-software-merida">Desarrollo de software en Mérida</a>
             <a href="/">Inicio</a>
             <a href="/base-digital">Plan básico</a>
             <a href="/presupuestos-facturacion-rapida">Presupuestos y facturación rápida</a>
@@ -249,18 +305,18 @@
       <div class="footer-location">
         <div class="footer-location-copy">
           <h3>Donde estamos</h3>
-          <p>Calle Pamplona 34, Merida, Badajoz</p>
+          <p>Calle Pamplona 38, Mérida, Badajoz</p>
           <a
-            href="https://www.google.com/maps/search/?api=1&query=Calle%20Pamplona%2034%2C%20M%C3%A9rida%2C%20Badajoz"
+            href="https://www.google.com/maps/search/?api=1&query=Calle%20Pamplona%2038%2C%20M%C3%A9rida%2C%20Badajoz"
             target="_blank"
             rel="noopener noreferrer"
           >
             Abrir en Google Maps
           </a>
         </div>
-        <div class="footer-map" aria-label="Mapa de Calle Pamplona 38, Merida, Badajoz">
+        <div class="footer-map" aria-label="Mapa de Calle Pamplona 38, Mérida, Badajoz">
           <iframe
-            title="Mapa de JM2 Tech Studio en Merida"
+            title="Mapa de JM2 Tech Studio en Mérida"
             src="https://www.google.com/maps?q=Calle%20Pamplona%2038%2C%20M%C3%A9rida%2C%20Badajoz&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -288,7 +344,7 @@
       </div>
       <form class="footer-contact-form" id="footerContactForm" novalidate>
         <div class="footer-contact-brandmark" aria-hidden="true">
-          <img src="favicon.png" alt="" />
+          <img src="favicon.png" alt="" width="387" height="364" />
         </div>
         <div class="footer-contact-grid">
           <label class="footer-contact-field"><span>Nombre</span><input type="text" name="nombre" autocomplete="name" required /></label>

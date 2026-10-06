@@ -6,6 +6,21 @@ https://marisa.jm2-tech.es/*  /410.html  410!
 http://www.marisa.jm2-tech.es/*  /410.html  410!
 https://www.marisa.jm2-tech.es/*  /410.html  410!
 
+/base-digital.html  /base-digital  301
+/base-digital/  /base-digital  301
+/sobre-mi.html  /sobre-mi  301
+/sobre-mi/  /sobre-mi  301
+/automatizacion-tareas/  /automatizacion-tareas  301
+/presupuestos-facturacion-rapida/  /presupuestos-facturacion-rapida  301
+/digitalizar-documentos/  /digitalizar-documentos  301
+/contacto/  /contacto  301
+/desarrollo-software-merida.html  /desarrollo-software-merida  301
+/desarrollo-software-merida/  /desarrollo-software-merida  301
+/presentacion-empresas.html  /presentacion-empresas  301
+/presentacion-empresas/  /presentacion-empresas  301
+/elautonomoeficiente/index.html  /elautonomoeficiente/  301
+/elautonomoeficiente/privacidad/index.html  /elautonomoeficiente/privacidad/  301
+
 /index.html  /  301
 /plan-base2.html  /base-digital  301
 /sobremi.html  /sobre-mi  301
@@ -43,9 +58,12 @@ https://www.marisa.jm2-tech.es/*  /410.html  410!
 /plan-avanzado  /  301
 /automatizar-procesos  /automatizacion-tareas  301
 
-/base-digital  /plan-base2.html  200
-/sobre-mi  /sobremi.html  200
+/base-digital  /base-digital.html  200
+/sobre-mi  /sobre-mi.html  200
 /presupuestos-facturacion-rapida  /presupuestos-facturacion-rapida.html  200
 /digitalizar-documentos  /digitalizar-documentos.html  200
 /automatizacion-tareas  /automatizacion-tareas.html  200
 /contacto  /contacto.html  200
+
+/desarrollo-software-merida  /desarrollo-software-merida.html  200
+/presentacion-empresas  /presentacion-empresas.html  200
