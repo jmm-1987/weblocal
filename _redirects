@@ -32,6 +32,12 @@ https://www.marisa.jm2-tech.es/*  /410.html  410!
 /elautonomoeficiente  /elautonomoeficiente/  301!
 /elautonomoeficiente/privacidad  /elautonomoeficiente/privacidad/  301!
 
+/factura-te  /factura-te/  301!
+/factura-te/index.html  /factura-te/  301
+/factura-te/elautonomoeficiente.html  /factura-te/  301
+/factura-te/privacidad  /factura-te/privacidad/  301!
+/factura-te/privacidad/index.html  /factura-te/privacidad/  301
+
 /facturas-automaticas  /presupuestos-facturacion-rapida  301
 /facturas-automaticas.html  /presupuestos-facturacion-rapida  301
 /lectura-albaranes  /presupuestos-facturacion-rapida  301

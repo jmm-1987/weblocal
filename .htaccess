@@ -27,6 +27,13 @@ RewriteRule ^elautonomoeficiente/elautonomoeficiente\.html$ /elautonomoeficiente
 RewriteRule ^elautonomoeficiente$ /elautonomoeficiente/ [R=301,L]
 RewriteRule ^elautonomoeficiente/privacidad$ /elautonomoeficiente/privacidad/ [R=301,L]
 
+# Factura-te serves the same landing page under its own public path.
+RewriteRule ^factura-te$ /factura-te/ [R=301,L]
+RewriteRule ^factura-te/privacidad$ /factura-te/privacidad/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+factura-te/(privacidad/)?index\.html[\s?] [NC]
+RewriteRule ^factura-te/(privacidad/)?index\.html$ /factura-te/$1 [R=301,L]
+RewriteRule ^factura-te/elautonomoeficiente\.html$ /factura-te/ [R=301,L]
+
 # Legacy pages redirected to current priority pages.
 RewriteRule ^(facturas-automaticas|lectura-albaranes)(\.html)?/?$ /presupuestos-facturacion-rapida [R=301,L]
 RewriteRule ^verifactu(\.html)?/?$ /presupuestos-facturacion-rapida [R=301,L]

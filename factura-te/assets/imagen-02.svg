@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" role="img" aria-labelledby="title desc">
+  <title id="title">Imagen 02</title><desc id="desc">Placeholder del flujo automático desde una factura hasta datos organizados.</desc>
+  <rect width="800" height="300" fill="#eeeef0"/><g fill="none" stroke="#1235d7" stroke-width="2">
+  <rect x="48" y="58" width="150" height="184"/><path d="M72 92h70M72 118h100M72 144h82M72 196h52"/>
+  <path d="M230 150h110m-16-14 16 14-16 14"/><circle cx="400" cy="150" r="48"/><path d="m380 151 14 14 28-32"/>
+  <path d="M460 150h110m-16-14 16 14-16 14"/><rect x="602" y="75" width="150" height="150"/><path d="M630 110h94M630 140h94M630 170h94M630 200h62"/>
+  </g><g fill="#1235d7" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2"><text x="48" y="42">FACTURA</text><text x="365" y="222">DATOS</text><text x="602" y="59">REGISTRO</text></g>
+  <text x="400" y="280" text-anchor="middle" fill="#777" font-family="Arial,sans-serif" font-size="11" letter-spacing="2">IMAGEN 02 · PLACEHOLDER</text>
+</svg>

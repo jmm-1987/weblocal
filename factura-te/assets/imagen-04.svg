@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" role="img" aria-labelledby="title desc">
+  <title id="title">Imagen 04</title><desc id="desc">Placeholder conceptual de distintas áreas conectadas alrededor de un negocio.</desc>
+  <rect width="800" height="300" fill="#101010"/><g stroke="#8298ff" stroke-width="2" fill="none"><circle cx="400" cy="145" r="58"/>
+  <path d="M350 115 225 72M450 115 575 72M342 158 205 185M458 158 595 185M375 198 325 244M425 198 475 244"/>
+  <rect x="105" y="42" width="145" height="50"/><rect x="550" y="42" width="145" height="50"/><rect x="82" y="160" width="150" height="50"/><rect x="568" y="160" width="150" height="50"/><rect x="245" y="226" width="145" height="46"/><rect x="410" y="226" width="145" height="46"/></g>
+  <g fill="#fff" font-family="Arial,sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1"><text x="400" y="141">TU</text><text x="400" y="158">NEGOCIO</text><text x="177" y="72">FACTURACIÓN</text><text x="622" y="72">CLIENTES</text><text x="157" y="190">BANCO</text><text x="643" y="190">DOCUMENTOS</text><text x="317" y="254">AVISOS</text><text x="482" y="254">PROCESOS</text></g>
+  <text x="400" y="292" text-anchor="middle" fill="#8298ff" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">IMAGEN 04 · PLACEHOLDER</text>
+</svg>
