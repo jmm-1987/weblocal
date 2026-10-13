@@ -103,6 +103,7 @@
         '/presupuestos-facturacion-rapida': 'invoicing_click',
         '/digitalizar-documentos': 'documents_click',
         '/elautonomoeficiente/': 'autonomo_eficiente_click',
+        '/factura-te/': 'factura_te_click',
         '/sobre-mi': 'about_click', '/contacto': 'contact_click',
         '#contacto': 'contact_click', '#servicios': 'solutions_click', '#inicio': 'back_to_top_click'
       };
