@@ -3470,12 +3470,14 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="studio-label">JM2 Tech Studio <span aria-hidden="true">/</span> Tecnología con propósito</div>
-          <h1>Software y aplicaciones <span class="hero-title-accent">a medida</span> para empresas</h1>
-          <p>
-            Desarrollo herramientas adaptadas a la forma real de trabajar de empresas, autónomos y pymes: aplicaciones de gestión, automatizaciones e integraciones para ahorrar tiempo y reducir errores. <span class="hero-highlight">Tu propio software a medida <strong class="hero-price">desde 30€/mes</strong>, siempre actualizado y adaptado al ritmo de tu negocio.</span>
+          <h1>¿Necesitas <span class="hero-title-accent">mejorar algún proceso</span> en tu empresa?</h1>
+          <p class="hero-typewriter" aria-label="Facturación automatizada, conciliación bancaria, gestión de citas con clientes, controlar vencimientos, eliminar el papel, informes personalizados, reconocer documentos con IA, avisos automatizados, presupuestos desde el móvil, albaranes en 1 minuto y automatización de email.">
+            <span class="hero-typewriter-line" aria-hidden="true"><span id="heroTypewriter">Facturación automatizada</span><span class="hero-typewriter-cursor">|</span></span>
+            <span class="hero-typewriter-line" aria-hidden="true"><span id="heroTypewriterSecond">Conciliación bancaria</span><span class="hero-typewriter-cursor">|</span></span>
           </p>
+          <p class="hero-highlight">Soluciones <strong class="hero-price">desde 30 €/mes</strong></p>
           <div class="hero-actions">
-            <button class="hero-cta" type="button" data-contact-modal-open>Solicitar diagnóstico</button>
+            <button class="hero-cta" type="button" data-contact-modal-open>Cuéntame tu caso</button>
             <a class="secondary-btn" href="/desarrollo-software-merida">Desarrollo de software a medida</a>
           </div>
         </div>
@@ -3728,7 +3730,7 @@
           <p>Analizamos tu caso y vemos cómo ayudarte a trabajar con más orden, menos tareas manuales y mejores procesos.</p>
         </div>
         <div class="hero-actions">
-          <button class="footer-cta-link" type="button" data-contact-modal-open>Solicitar diagnóstico</button>
+          <button class="footer-cta-link" type="button" data-contact-modal-open>Cuéntame tu caso</button>
           <a class="footer-cta-link" href="https://wa.me/34625433667?text=Hola%20JM2%20Tech%20Studio,%20quiero%20simplificar%20una%20tarea%20de%20mi%20negocio" target="_blank" rel="noopener">Hablar por WhatsApp</a>
         </div>
       </div>
@@ -3864,7 +3866,7 @@
             <input id="footerContactDetailInput" type="text" name="contacto_detalle" autocomplete="tel" required />
           </label>
         </div>
-        <button type="submit" class="footer-contact-submit">Solicitar diagnóstico</button>
+        <button type="submit" class="footer-contact-submit">Cuéntame tu caso</button>
         <p class="footer-contact-status footer-contact-note">Te responderé personalmente. Sin compromiso.</p>
         <p class="footer-contact-status" id="footerContactStatus" aria-live="polite"></p>
       </form>
@@ -3885,6 +3887,59 @@
   </a>
 
   <script>
+    const heroTypewriter = document.getElementById('heroTypewriter');
+    const heroTypewriterSecond = document.getElementById('heroTypewriterSecond');
+    const heroMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const heroPhrases = [
+      'Facturación automatizada',
+      'Conciliación bancaria',
+      'Gestión de citas con clientes',
+      'Controlar vencimientos',
+      'Eliminar el papel',
+      'Informes personalizados',
+      'Reconocer documentos con IA',
+      'Avisos automatizados',
+      'Presupuestos desde el móvil',
+      'Albaranes en 1 minuto',
+      'Automatización de email',
+    ];
+    const heroTypingTimers = [];
+    function startHeroTypewriter() {
+      heroTypingTimers.forEach((timer) => window.clearTimeout(timer));
+      heroTypingTimers.length = 0;
+      if (!heroTypewriter || !heroTypewriterSecond) return;
+      if (heroMotionQuery.matches) {
+        heroTypewriter.textContent = heroPhrases.filter((_, index) => index % 2 === 0).join(' · ');
+        heroTypewriterSecond.textContent = heroPhrases.filter((_, index) => index % 2 === 1).join(' · ');
+        return;
+      }
+      [heroTypewriter, heroTypewriterSecond].forEach((element, lineIndex) => {
+        const linePhrases = heroPhrases.filter((_, index) => index % 2 === lineIndex);
+        let phraseIndex = 0;
+        let characterIndex = 0;
+        let deleting = false;
+        element.textContent = '';
+        function typeHeroPhrase() {
+          const phrase = linePhrases[phraseIndex];
+          characterIndex += deleting ? -1 : 1;
+          element.textContent = phrase.slice(0, characterIndex);
+          let delay = deleting ? 18 : 40;
+          if (!deleting && characterIndex === phrase.length) {
+            deleting = true;
+            delay = 1300 + lineIndex * 250;
+          } else if (deleting && characterIndex === 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % linePhrases.length;
+            delay = 150;
+          }
+          heroTypingTimers[lineIndex] = window.setTimeout(typeHeroPhrase, delay);
+        }
+        heroTypingTimers[lineIndex] = window.setTimeout(typeHeroPhrase, lineIndex * 850);
+      });
+    }
+    startHeroTypewriter();
+    heroMotionQuery.addEventListener('change', startHeroTypewriter);
+
     const servicesGrid = document.querySelector('.services-grid');
     const blueStrip = document.querySelector('.blue-strip');
     const mobileHeaderQuery = window.matchMedia('(max-width: 720px)');
@@ -4082,7 +4137,7 @@
       } finally {
         if (submitButton instanceof HTMLButtonElement) {
           submitButton.disabled = false;
-          submitButton.textContent = 'Solicitar diagnóstico';
+          submitButton.textContent = 'Cuéntame tu caso';
         }
       }
     });

@@ -45,6 +45,17 @@ h1, h2, .personal-intro h2 { letter-spacing: -.045em; font-weight: 750; }
 h1 { font-size: clamp(40px, 4.5vw, 65px); line-height: 1.04; overflow-wrap: normal; }
 .hero-title-accent { color: var(--blue); }
 .hero-copy p { font-size: 17px; line-height: 1.75; max-width: 550px; }
+.hero-copy .hero-typewriter {
+  min-height: 3.5em;
+  color: var(--blue);
+  font-weight: 600;
+}
+.hero-typewriter-line { display: block; min-height: 1.75em; }
+.hero-typewriter-cursor { animation: hero-cursor-blink 1s step-end infinite; }
+@keyframes hero-cursor-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-typewriter-cursor { display: none; }
+}
 .hero-highlight {
   display: block;
   margin: 16px 0 0;
@@ -397,7 +408,15 @@ h1 { line-height: .98; }
 :focus-visible { outline-color: var(--stamp); }
 ::selection { background: var(--hi); color: var(--ink); }
 
+/* Separate the headline, animated options, price, and calls to action. */
+.hero-copy .hero-typewriter { margin-top: 36px; }
+.hero-copy .hero-highlight { margin-top: 32px; }
+.hero-copy .hero-actions { margin-top: 36px; }
+
 @media (max-width: 720px) {
+  .hero-copy .hero-typewriter { margin-top: 44px; }
+  .hero-copy .hero-highlight { margin-top: 40px; }
+  .hero-copy .hero-actions { margin-top: 44px; }
   .site-header { box-shadow: 3px 3px 0 var(--ink); }
   .brand-card { box-shadow: 7px 7px 0 var(--blue); }
   .services-grid .service-card { box-shadow: 4px 4px 0 var(--ink); }
