@@ -40,7 +40,7 @@ Ejemplos documentados: presupuestos/facturación, digitalización documental y E
 
 LocalBusiness y WebSite con identificadores estables compartidos, evitando crear una Organization contradictoria. La landing añade Service enlazado al proveedor. SoftwareApplication conserva sus datos e incorpora creator vinculado al estudio.
 
-Nombre, dominio, logo, teléfono +34625433667 y email jomma.tech@gmail.com proceden del proyecto. Ubicación: Mérida, Badajoz, España; área de servicio: Mérida, Badajoz y Extremadura. Código postal confirmado: 06800. No se añaden sameAs, coordenadas, horarios, reseñas o datos sin documentación. No se utiliza ProfessionalService porque Schema.org lo marca como obsoleto: https://schema.org/ProfessionalService.
+Nombre, dominio, logo, teléfono +34711552468 y email jomma.tech@gmail.com proceden del proyecto. Ubicación: Mérida, Badajoz, España; área de servicio: Mérida, Badajoz y Extremadura. Código postal confirmado: 06800. No se añaden sameAs, coordenadas, horarios, reseñas o datos sin documentación. No se utiliza ProfessionalService porque Schema.org lo marca como obsoleto: https://schema.org/ProfessionalService.
 
 ### Rutas, sitemap y robots
 
