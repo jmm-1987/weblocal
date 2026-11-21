@@ -16,41 +16,37 @@ RewriteCond %{THE_REQUEST} \s/+plan-base2\.html[\s?] [NC]
 RewriteRule ^plan-base2\.html$ /base-digital [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+sobremi\.html[\s?] [NC]
 RewriteRule ^sobremi\.html$ /sobre-mi [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+presupuestos-facturacion-rapida\.html[\s?] [NC]
-RewriteRule ^presupuestos-facturacion-rapida\.html$ /presupuestos-facturacion-rapida [R=301,L]
+RewriteRule ^presupuestos-facturacion-rapida(\.html)?/?$ /factura-te/ [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+digitalizar-documentos\.html[\s?] [NC]
 RewriteRule ^digitalizar-documentos\.html$ /digitalizar-documentos [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+contacto\.html[\s?] [NC]
 RewriteRule ^contacto\.html$ /contacto [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+elautonomoeficiente/elautonomoeficiente\.html[\s?] [NC]
-RewriteRule ^elautonomoeficiente/elautonomoeficiente\.html$ /elautonomoeficiente/ [R=301,L]
-RewriteRule ^elautonomoeficiente$ /elautonomoeficiente/ [R=301,L]
-RewriteRule ^elautonomoeficiente/privacidad$ /elautonomoeficiente/privacidad/ [R=301,L]
 
-# Factura-te serves the same landing page under its own public path.
+# Redirect previous product URLs to Factura-te.
+RewriteRule ^elautonomoeficiente(?:/(?:index\.html|elautonomoeficiente\.html)?)?$ /factura-te/ [R=301,L]
+RewriteRule ^elautonomoeficiente/privacidad(?:/(?:index\.html)?)?$ /factura-te/privacidad/ [R=301,L]
+RewriteRule ^factura-te/elautonomoeficiente\.html$ /factura-te/ [R=301,L]
+
+# Normalize Factura-te URLs.
 RewriteRule ^factura-te$ /factura-te/ [R=301,L]
 RewriteRule ^factura-te/privacidad$ /factura-te/privacidad/ [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+factura-te/(privacidad/)?index\.html[\s?] [NC]
 RewriteRule ^factura-te/(privacidad/)?index\.html$ /factura-te/$1 [R=301,L]
-RewriteRule ^factura-te/elautonomoeficiente\.html$ /factura-te/ [R=301,L]
 
 # Legacy pages redirected to current priority pages.
-RewriteRule ^(facturas-automaticas|lectura-albaranes)(\.html)?/?$ /presupuestos-facturacion-rapida [R=301,L]
-RewriteRule ^verifactu(\.html)?/?$ /presupuestos-facturacion-rapida [R=301,L]
+RewriteRule ^(facturas-automaticas|lectura-albaranes)(\.html)?/?$ /factura-te/ [R=301,L]
+RewriteRule ^verifactu(\.html)?/?$ /factura-te/ [R=301,L]
 RewriteRule ^(automatizacion-email|automatizaciones|avisos-whatsapp-telegram|gestion-citas|informes-consumos|recordatorios-automaticos|automatizar-procesos)(\.html)?/?$ /automatizacion-tareas [R=301,L]
 RewriteRule ^(adios-excel|plan-base|plan-avanzado)(\.html)?/?$ / [R=301,L]
 
 # Normalize public HTML aliases and trailing slashes.
 RewriteCond %{THE_REQUEST} \s/+(base-digital|sobre-mi|automatizacion-tareas|desarrollo-software-merida|presentacion-empresas)\.html[\s?] [NC]
 RewriteRule ^(base-digital|sobre-mi|automatizacion-tareas|desarrollo-software-merida|presentacion-empresas)\.html$ /$1 [R=301,L]
-RewriteRule ^(base-digital|sobre-mi|contacto|automatizacion-tareas|presupuestos-facturacion-rapida|digitalizar-documentos|desarrollo-software-merida|presentacion-empresas)/$ /$1 [R=301,L]
-RewriteCond %{THE_REQUEST} \s/+elautonomoeficiente/(privacidad/)?index\.html[\s?] [NC]
-RewriteRule ^elautonomoeficiente/(privacidad/)?index\.html$ /elautonomoeficiente/$1 [R=301,L]
+RewriteRule ^(base-digital|sobre-mi|contacto|automatizacion-tareas|digitalizar-documentos|desarrollo-software-merida|presentacion-empresas)/$ /$1 [R=301,L]
 
 # Serve clean URLs from the current static HTML files.
 RewriteRule ^base-digital/?$ base-digital.html [L]
 RewriteRule ^sobre-mi/?$ sobre-mi.html [L]
-RewriteRule ^presupuestos-facturacion-rapida/?$ presupuestos-facturacion-rapida.html [L]
 RewriteRule ^digitalizar-documentos/?$ digitalizar-documentos.html [L]
 RewriteRule ^contacto/?$ contacto.html [L]
 

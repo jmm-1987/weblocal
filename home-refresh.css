@@ -413,6 +413,46 @@ h1 { line-height: .98; }
 .hero-copy .hero-highlight { margin-top: 32px; }
 .hero-copy .hero-actions { margin-top: 36px; }
 
+.pymes-panel,
+.capabilities-grid article {
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+}
+
+.pymes-panel {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(1rem, 4vw, 3rem);
+  align-items: center;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  box-shadow: 6px 6px 0 var(--blue);
+}
+
+.pymes-panel p { margin: 0.75rem 0 1.25rem; }
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.capabilities-grid article { padding: 1.25rem; }
+.capabilities-grid article p { margin: 0.65rem 0; }
+.pymes-panel ul,
+.capabilities-grid ul { padding-inline-start: 1.25rem; }
+.pymes-panel li + li,
+.capabilities-grid li + li { margin-top: 0.35rem; }
+
+@media (max-width: 900px) {
+  .capabilities-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .pymes-panel,
+  .capabilities-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 720px) {
   .hero-copy .hero-typewriter { margin-top: 44px; }
   .hero-copy .hero-highlight { margin-top: 40px; }

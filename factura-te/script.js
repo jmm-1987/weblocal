@@ -111,7 +111,7 @@ efficientContactForm?.addEventListener('submit', async (event) => {
       telefono: contactoDetalle,
       forma_de_contacto: formaContacto,
       mensaje: [`Oficio: ${actividad}`, `Personas: ${tamanoEquipo}`, `Gestión actual: ${gestionActual}`, `Necesidad: ${necesidad || 'No indicada'}`, attributionText].join('\n'),
-      procedencia: 'elautonomoeficiente',
+      procedencia: 'factura-te',
       referrer: document.referrer || 'Directo',
       timestamp: new Date().toISOString(),
       ...storedAttribution,
@@ -119,7 +119,7 @@ efficientContactForm?.addEventListener('submit', async (event) => {
 
     efficientContactStatus.textContent = 'Solicitud enviada. Te contactaremos pronto para empezar la prueba.';
     track('registro_completado', { contact_method: formaContacto.toLowerCase(), ...storedAttribution });
-    track('generate_lead', { contact_method: formaContacto.toLowerCase(), lead_source: storedAttribution.utm_source || 'elautonomoeficiente' });
+    track('generate_lead', { contact_method: formaContacto.toLowerCase(), lead_source: storedAttribution.utm_source || 'factura-te' });
     efficientContactForm.reset();
     utmKeys.forEach((key) => { const field = efficientContactForm.elements.namedItem(key); if (field) field.value = storedAttribution[key]; });
   } catch (error) {
