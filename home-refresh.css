@@ -96,6 +96,26 @@ h1 { font-size: clamp(40px, 4.5vw, 65px); line-height: 1.04; overflow-wrap: norm
 }
 .card-logo { margin-top: 90px; }
 .card-logo-image { filter: drop-shadow(0 16px 16px #18232212); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .brand-card.is-visible .card-logo-image {
+    animation: card-logo-letters 840ms step-end 300ms both;
+  }
+}
+
+/* Clip only the top row of logologo.png so the two tiles stay visible. */
+@keyframes card-logo-letters {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 53%, 100% 53%, 100% 100%, 0 100%);
+  }
+  33% {
+    clip-path: polygon(0 0, 36.2% 0, 36.2% 53%, 100% 53%, 100% 100%, 0 100%);
+  }
+  66% {
+    clip-path: polygon(0 0, 60.8% 0, 60.8% 53%, 100% 53%, 100% 100%, 0 100%);
+  }
+  100% { clip-path: none; }
+}
 .signature { margin-top: 28px; border-color: #164df030; }
 .signature span { font-size: 10px; letter-spacing: .12em; }
 .studio-stamp {
@@ -430,6 +450,210 @@ h1 { line-height: .98; }
 }
 
 .pymes-panel p { margin: 0.75rem 0 1.25rem; }
+
+.paper-story {
+  background: #edf0ff;
+  border-block: 3px solid var(--ink);
+}
+
+.paper-story-scene {
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  background: radial-gradient(#ffffff65 1px, transparent 1px) 0 0 / 16px 16px, var(--blue);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.paper-story-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.45rem, 2vw, 1rem);
+  width: min(100%, 670px);
+}
+
+.paper-story-sheet {
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+  min-height: 108px;
+  padding: clamp(0.55rem, 2.5vw, 1.35rem);
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.paper-story-sheet span { color: var(--muted); font-size: 0.78rem; }
+.paper-story-sheet b { color: var(--blue); font-size: clamp(1.25rem, 4vw, 2.25rem); }
+.paper-story-chart {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  height: 48px;
+  border-bottom: 1px solid var(--line);
+}
+
+.paper-story-chart i { flex: 1; height: 34%; border-radius: 3px 3px 0 0; background: var(--blue); }
+.paper-story-chart i:nth-child(2) { height: 55%; }
+.paper-story-chart i:nth-child(3) { height: 44%; }
+.paper-story-chart i:nth-child(4) { height: 73%; }
+.paper-story-chart i:nth-child(5) { height: 100%; background: var(--stamp); }
+
+.paper-story-scraps,
+.paper-story-inbox { display: none; }
+body:has(.paper-story-track--moving) { overflow-x: clip; }
+
+.paper-story-track--moving {
+  min-height: calc(370px + 68svh);
+}
+
+.paper-story-track--moving .paper-story-scene {
+  --paper-disorder: 1;
+  --paper-ink: 1;
+  position: sticky;
+  top: clamp(64px, 16svh, 140px);
+  overflow: clip;
+  min-height: 330px;
+}
+
+.paper-story-track--moving .paper-story-sheet {
+  position: relative;
+  transform:
+    translate(calc(var(--dx) * var(--paper-disorder)), calc(var(--dy) * var(--paper-disorder)))
+    rotate(calc(var(--tilt) * var(--paper-disorder)));
+}
+
+.paper-story-track--moving .paper-story-scraps {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: var(--paper-disorder);
+  transform: scale(calc(0.55 + var(--paper-disorder) * 0.45));
+}
+
+.paper-story-scraps i,
+.paper-story-track--moving .paper-story-sheet::after {
+  position: absolute;
+  background:
+    repeating-linear-gradient(#aaa38b 0 1px, transparent 1px 8px) 48% 64% / 73% 43% no-repeat,
+    linear-gradient(var(--blue), var(--blue)) 20% 21% / 28% 3px no-repeat,
+    #fff5d5;
+}
+
+.paper-story-scraps i {
+  width: 24%;
+  height: 48%;
+  top: var(--y);
+  left: var(--x);
+  border: 1px solid var(--ink);
+  box-shadow: 3px 4px 0 #0d1b3e88;
+  transform: rotate(var(--r));
+}
+
+.paper-story-scraps i:nth-child(even) { background-color: #fff; }
+.paper-story-track--moving .paper-story-sheet::after {
+  content: "";
+  inset: 0;
+  border-radius: inherit;
+  opacity: var(--paper-ink);
+  pointer-events: none;
+}
+
+.paper-story-track--moving .paper-story-inbox {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: block;
+  opacity: var(--paper-ink);
+  transform: scale(calc(0.48 + var(--paper-disorder) * 0.52));
+  pointer-events: none;
+}
+
+.paper-story-phone,
+.paper-story-message,
+.paper-story-file {
+  position: absolute;
+  box-shadow: 3px 5px 0 #0d1b3e88;
+  font-size: clamp(0.65rem, 1.6vw, 0.85rem);
+}
+
+.paper-story-phone {
+  top: -3%;
+  right: 11%;
+  width: clamp(105px, 23%, 150px);
+  padding: 1.15rem 0.45rem 0.8rem;
+  border: 5px solid var(--ink);
+  border-radius: 17px;
+  background: #effaf2;
+  transform: rotate(13deg);
+}
+
+.paper-story-phone::before {
+  content: "";
+  position: absolute;
+  inset: 4px 35% auto;
+  height: 4px;
+  border-radius: 8px;
+  background: var(--ink);
+}
+
+.paper-story-phone-app,
+.paper-story-message {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.paper-story-phone-app { font-weight: 800; color: #145b37; }
+.paper-story-phone span {
+  display: block;
+  margin-top: 0.45rem;
+  padding: 0.3rem;
+  border-radius: 5px;
+  background: #c9f0d0;
+}
+
+.paper-story-message {
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.paper-story-message img,
+.paper-story-phone img { flex-shrink: 0; object-fit: contain; }
+.paper-story-message span { display: block; color: var(--muted); }
+.paper-story-message--mail { top: 12%; left: 7%; transform: rotate(-12deg); }
+.paper-story-message--chat { right: 2%; bottom: 7%; transform: rotate(8deg); }
+.paper-story-message--call { top: 42%; left: 2%; transform: rotate(6deg); }
+.paper-story-message .paper-story-call-icon {
+  color: #a82420;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.paper-story-file {
+  bottom: 9%;
+  left: 13%;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--ink);
+  border-radius: 5px;
+  background: #fff;
+  transform: rotate(-9deg);
+}
+
+.paper-story-file strong { margin-right: 0.25rem; color: #a82420; }
+
+@media (max-height: 620px) {
+  .paper-story-track--moving .paper-story-scene {
+    top: 56px;
+    min-height: 0;
+    padding-block: 0.75rem;
+  }
+}
 
 .capabilities-grid {
   display: grid;

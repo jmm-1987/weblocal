@@ -3528,6 +3528,62 @@
       </div>
     </section>
 
+    <section class="section paper-story" aria-labelledby="paper-story-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="paper-story-title">Del montón de papeles, correos, WhatsApps y llamadas a un solo panel</h2>
+          <p>Facturas en papel, fotos por WhatsApp y albaranes por correo se convierten en datos que puedes consultar juntos.</p>
+        </div>
+        <div class="paper-story-track" aria-hidden="true">
+          <div class="paper-story-scene">
+            <div class="paper-story-board">
+              <div class="paper-story-scraps">
+                <i style="--x:5%;--y:36%;--r:-28deg"></i><i style="--x:70%;--y:14%;--r:24deg"></i>
+                <i style="--x:17%;--y:6%;--r:-12deg"></i><i style="--x:63%;--y:49%;--r:31deg"></i>
+                <i style="--x:37%;--y:45%;--r:-25deg"></i><i style="--x:42%;--y:4%;--r:16deg"></i>
+                <i style="--x:22%;--y:48%;--r:18deg"></i>
+              </div>
+              <div class="paper-story-sheet" style="--dx:72%;--dy:66%;--tilt:-19deg">
+                <strong>Facturas</strong><b>4.820 €</b><span>Importe registrado</span>
+                <span><strong>1.240 €</strong> pendientes de cobro</span>
+              </div>
+              <div class="paper-story-sheet" style="--dx:-65%;--dy:63%;--tilt:14deg">
+                <strong>Albaranes</strong><b>6</b><span>Pendientes de revisar</span>
+                <span><strong>5 recordatorios enviados</strong> por correo y WhatsApp</span>
+              </div>
+              <div class="paper-story-sheet" style="--dx:72%;--dy:-46%;--tilt:12deg">
+                <strong>Partes de trabajo</strong><span>Completados esta semana</span><b>18</b>
+              </div>
+              <div class="paper-story-sheet" style="--dx:-66%;--dy:-51%;--tilt:-11deg">
+                <strong>Evolución semanal</strong>
+                <div class="paper-story-chart"><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+              <div class="paper-story-inbox">
+                <div class="paper-story-phone">
+                  <div class="paper-story-phone-app"><img src="whatsappp.png" alt="" width="24" height="24"> WhatsApp</div>
+                  <span>Te paso la foto del parte</span>
+                  <span>📎 parte-trabajo.jpg</span>
+                </div>
+                <div class="paper-story-message paper-story-message--mail">
+                  <img src="gmail.png" alt="" width="26" height="26">
+                  <div><strong>Gmail</strong><span>Albarán adjunto</span></div>
+                </div>
+                <div class="paper-story-message paper-story-message--chat">
+                  <img src="whatsappp.png" alt="" width="26" height="26">
+                  <div><strong>WhatsApp</strong><span>¿Has visto mi mensaje?</span></div>
+                </div>
+                <div class="paper-story-message paper-story-message--call">
+                  <span class="paper-story-call-icon">☎</span>
+                  <div><strong>Llamada perdida</strong><span>Cliente pendiente</span></div>
+                </div>
+                <div class="paper-story-file"><strong>PDF</strong> factura.pdf</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="servicios" aria-labelledby="capacidades-title">
       <div class="container">
         <div class="section-head">
@@ -4143,6 +4199,45 @@
         closeContactModal();
       }
     });
+
+    const paperTrack = document.querySelector('.paper-story-track');
+    const paperMotion = window.matchMedia('(prefers-reduced-motion: no-preference) and (min-height: 420px)');
+
+    if (paperTrack) {
+      const paperScene = paperTrack.querySelector('.paper-story-scene');
+      let paperFrame = 0;
+
+      function updatePaperScene() {
+        paperFrame = 0;
+        const stickyTop = parseFloat(getComputedStyle(paperScene).top);
+        const scrollDistance = paperTrack.offsetHeight - paperScene.offsetHeight;
+        const position = (stickyTop - paperTrack.getBoundingClientRect().top) / scrollDistance;
+        const progress = Math.min(1, Math.max(0, (position - 0.2) / 0.65));
+        paperScene.style.setProperty('--paper-disorder', 1 - progress);
+        paperScene.style.setProperty('--paper-ink', Math.min(1, (1 - progress) * 1.7));
+      }
+
+      function queuePaperScene() {
+        if (!paperFrame) paperFrame = requestAnimationFrame(updatePaperScene);
+      }
+
+      function syncPaperMotion() {
+        paperTrack.classList.toggle('paper-story-track--moving', paperMotion.matches);
+        if (paperMotion.matches) {
+          updatePaperScene();
+          window.addEventListener('scroll', queuePaperScene, { passive: true });
+          window.addEventListener('resize', queuePaperScene);
+        } else {
+          window.removeEventListener('scroll', queuePaperScene);
+          window.removeEventListener('resize', queuePaperScene);
+          cancelAnimationFrame(paperFrame);
+          paperFrame = 0;
+        }
+      }
+
+      paperMotion.addEventListener('change', syncPaperMotion);
+      syncPaperMotion();
+    }
 
     if ('IntersectionObserver' in window) {
       const revealObserver = new IntersectionObserver((entries, observer) => {
